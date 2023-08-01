@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
+
+:root{
+    --primary-color    : rgba(255, 102, 0, 1);
+    --secondary-color  : rgba(255, 255, 161, 1);
+    --tertiary-color   : rgba(156, 36, 0, 1);
+
+    --background-color : rgba(51, 51, 51, 1);
+
+    --first-grayscale  : rgba(37, 37, 37, 1);
+    --second-grayscale : rgba(73, 73, 73, 1);
+
+    --light-color    : rgba(255, 255, 255, 1); 
+    --input-color    : rgba(255, 255, 255, 0.40);
+    --bg-input-color : rgba(27, 27, 27, 0.46);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Lexend', sans-serif;
+}
+
+/* HEADER */
+header{
+    padding: 0 35px;
+    height: 12.5vh;
+    background: var(--first-grayscale);
+}
+
+.logo{
+    height: 50px;
+}
+
+/* MENU */
+.nav_items{
+    width: 590px;
+}
+.nav_items li{
+    list-style: none;
+}
+
+.nav_items li .item{
+    font-size: 1.2em;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--primary-color);
+}
+.nav_items li .item:hover{
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.15);
+    color: var(--secondary-color);
+    transition: ease .5s;
+}
+
+.nav_items li:nth-child(1n+2) .item::before{
+    content: '';
+    display: inline-block;
+    margin: 0 15px;
+    width: 3px;
+    height: 15px;
+    background: var(--primary-color);
+    transition: .5s;
+}
