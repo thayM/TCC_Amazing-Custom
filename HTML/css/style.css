@@ -21,10 +21,19 @@
     font-family: 'Lexend', sans-serif;
 }
 
+body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--background-color);
+}
+
 /* HEADER */
 header{
     padding: 0 35px;
-    height: 12.5vh;
+    width: 100%;
+    height: 13vh;
     background: var(--first-grayscale);
 }
 
@@ -41,11 +50,12 @@ header{
 }
 
 .nav_items li .item{
-    font-size: 1.2em;
+    font-size: 1.2rem;
     font-weight: 600;
     text-decoration: none;
     text-transform: uppercase;
     color: var(--primary-color);
+    transition: .5s;
 }
 .nav_items li .item:hover{
     text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.15);
@@ -60,5 +70,4 @@ header{
     width: 3px;
     height: 15px;
     background: var(--primary-color);
-    transition: .5s;
 }
