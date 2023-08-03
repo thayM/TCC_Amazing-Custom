@@ -43,7 +43,7 @@ header{
 
 /* MENU */
 .nav_items{
-    width: 590px;
+    min-width: 590px;
 }
 .nav_items li{
     list-style: none;

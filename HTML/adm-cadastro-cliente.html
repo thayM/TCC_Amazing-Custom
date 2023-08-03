@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style_cadastros.css">
+</head>
+<body>
+    <header class="d-flex align-items-center justify-content-between">
+        <a href="./adm-home.html">
+            <img src="./img/Logo.png" alt="Logo" class="logo">
+        </a>
+        <nav>
+            <ul class="nav_items d-flex justify-content-between p-0 m-0">
+                <li><a href="#" class="item">Modelo</a></li>
+                <li><a href="#" class="item">Fragrância</a></li>
+                <li><a href="./adm-cadastro-pedido.html" class="item">Cadastro Pedido</a></li>
+                <li><a href="./adm-home.html" class="item">Listagem Pedidos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container_form">
+        <form action="" method="post" class="flex-display">
+            <h3>Novo Cliente</h3>
+            <div class="">
+                <div class="campo">
+                    <input type="text" placeholder="Nome Completo" class="form-control">
+                </div>
+                
+                <div class="campo">
+                    <input type="email" placeholder="E-mail" class="form-control">
+                </div>
+            </div>
+    
+            <div>
+                <label for="telefone">Telefone:</label>
+                <input type="tel" name="telefone">
+                
+                <label for="telefone">Opcional:</label>
+                <input type="tel" name="telefone">
+            </div>
+    
+            <div>
+                <input type="text" placeholder="CEP">
+                <input type="text" placeholder="Logradouro">
+                <input type="number" placeholder="Número">
+                <input type="text" placeholder="Bairro">
+                <input type="text" placeholder="Cidade">
+                <input type="text" placeholder="UF">
+                <input type="text" placeholder="Complemento">
+            </div>
+            <button>Cadastrar</button>
+        </form>
+    </div> 
+</body>
+</html>
