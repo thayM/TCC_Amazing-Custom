@@ -24,63 +24,77 @@
         </nav>
     </header>
     
-    <div class="container_form">
-        <h3>Novo Pedido</h3>
-
+    <div class="container_form d-flex flex-column align-items-center">
         <form action="post" class="content_form">
+            <h3>Novo Pedido</h3>
             <div class="content_form-cliente d-flex flex-column">
                 <p class="divisoria m-0">Cliente</p>
-                <input type="text" placeholder="Nome Completo" class="nome rounded">
+                <input type="text" placeholder="Nome Completo" class="nome">
+
                 <div class="d-flex justify-content-between">
                     <label for="dataPag">Data de Pagamento</label>
-                    <input type="date" class="data rounded" id="dataPag">
+                    <input type="date" class="data" id="dataPag">
                 </div>
             </div>
-            <div class="content_form-pedido">
-                <span class="divisoria"></span><span>Pedido</span>
-                <div>
+
+            <div class="content_form-pedido  d-flex flex-column">
+                <div class="content_pedido d-flex justify-content-between w-100">
+                    <p class="divisoria m-0">Pedido</p>
+
+                    <button type="button" class="produto_btn d-flex justify-content-between">
+                        Novo Produto
+                        <span class="produto_btn-add">+</span>
+                    </button>
+                </div>
+
+                <div class="produto_title d-flex justify-content-between">
                     <span>Produto</span>
                     <span>Quantidade</span>
-                    <button type="button">Novo Produto</button>
                 </div>
-                <div>
-                    <div>
-                        <select name="modelo" id="modelo">
+
+                <div class="produto_content d-flex flex-column">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <select name="modelo" id="modelo" class="produto_select w-75">
                             <option value="" selected>Selecione o modelo</option>
                         </select>
-                        <input type="number" name="numModel" id="numModel">
+                        <input type="number" name="numModel" id="numModel" class="produto_input" placeholder="000">
                     </div>
-                    <select name="modelo" id="modelo">
+                    <select name="fragrancia" id="fragrancia" class="produto_select w-75">
                         <option value="" selected>Selecione a Fragancia</option>
                     </select>
                 </div>
-                <div>
-                    <div>
-                        <select name="modelo" id="modelo">
+
+                <div class="produto_content d-flex flex-column">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <select name="modelo" id="modelo" class="produto_select w-75">
                             <option value="" selected>Selecione o modelo</option>
                         </select>
-                        <input type="number" name="numModel" id="numModel" placeholder="000">
+                        <input type="number" name="numModel" id="numModel" class="produto_input" placeholder="000">
                     </div>
-                    <div>
-                        <select name="modelo" id="modelo">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <select name="fragrancia" id="fragrancia" class="produto_select w-75">
                             <option value="" selected>Selecione a Fragancia</option>
                         </select>
-                        <button>lixeira</button>
+                        <a href="#" class="produto_lixeira">
+                            <img src="./img/trash-can-solid.svg" alt="lixeira">
+                        </a>
                     </div>
                 </div>
-                <div>
-                    <div>
-                        <span>Valor</span><span>Frete</span>
-                    </div>
-                    <div>
-                        <input type="Number" id="valor" placeholder="R$ 000,00">    
-                        <input type="Number" id="frete" placeholder="R$ 000,00">    
-                        <select name="status" id="status">
-                            <option value="" selected>Status do Pedido</option>
-                        </select>   
-                    </div>
+
+                <div class="produto_title d-flex justify-content-between">
+                    <span class="w-25">Valor</span>
+                    <span class="w-75">Frete</span>
                 </div>
-                <button>CADASTRAR</button>
+                <div class="d-flex justify-content-between">
+                    <input type="Number" id="valor" placeholder="R$ 000,00" class="produto_input">    
+                    <input type="Number" id="frete" placeholder="R$ 000,00" class="produto_input">    
+                    <select name="status" id="status" class="w-50">
+                        <option value="" selected>Status do Pedido</option>
+                    </select>   
+                </div>
+                <div class="btn d-flex justify-content-end p-0 w-100">
+                    <button class="btn-cadastrar">CADASTRAR</button>
+                </div>
             </div>
         </form>
     </div>

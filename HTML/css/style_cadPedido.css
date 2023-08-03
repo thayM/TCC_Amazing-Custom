@@ -1,6 +1,6 @@
+/* FORMULÁRIO */
 .container_form{
   margin-top: 50px;
-  width: 90%;
 }
 
 .container_form h3{
@@ -15,6 +15,7 @@
   color: var(--light-color);
 }
 
+/* CadPedido */
 .content_form .divisoria::before{
   content: '';
   display: inline-block;
@@ -24,21 +25,14 @@
   background: var(--primary-color);
 }
 
-.content_form input{
-  padding: 5px 10px;
-  border: none;
-  outline: none;
-  font-size: 1.25rem;
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
-  background: var(--second-grayscale);
-  color: var(--input-color);
-}
-
 .content_form-cliente,
 .content_form-pedido{
   margin-top: 30px;
-  width: 550px;
+  width: 630px;
   gap: 20px;
+}
+.content_form-cliente{
+  width: 560px;
 }
 
 .content_form-cliente .nome{
@@ -46,4 +40,65 @@
 }
 .content_form-cliente .data{
   width: 45%;
+}
+
+/* Produto */
+.produto_content{
+  padding: 10px;
+  width: 630px;
+  height: 115px;
+  border-radius: 10px;
+  gap: 15px;
+  background: rgba(27, 27, 27, 0.46);
+}
+
+.produto_input{
+  width: 20%;
+}
+
+.produto_lixeira img{
+  height: 25px;
+  filter: invert(61%) sepia(52%) saturate(6983%) hue-rotate(360deg) brightness(100%) contrast(107%);
+}
+
+/* Btn Adicionar */
+.produto_btn{
+  border: 3px solid var(--primary-color);
+  border-radius: 5px;
+  padding: 5px;
+  width: 240px;
+  height: 45px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--primary-color);
+  transition: .5s;
+}
+
+.produto_btn-add{
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.produto_btn:hover{
+  box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background: var(--primary-color);
+  color: var(--light-color);
+  transition: ease .5s;
+}
+
+/* Btn Cadastro */
+.btn-cadastrar{
+  margin: 20px 0;
+  border: 0;
+  border-radius: 10px;
+  width: 180px;
+  height: 60px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background: var(--primary-color);
+  color: var(--light-color);
 }
