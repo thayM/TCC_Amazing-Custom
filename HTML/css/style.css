@@ -92,3 +92,72 @@ input::-webkit-input-placeholder{
     font-weight: 100;
     color: var(--input-color);
 }
+
+.pedidos{
+    margin-top: 20px;
+    width: 1006px;
+    min-height: 186px;
+}
+
+.nomeClie{
+     
+    position: relative;
+    margin-left: 12px;
+    font-size: 20px;
+}
+
+.data{
+    position: relative;
+    margin-left: 362px;
+    margin-top: -4.5%; 
+    font-size: 20px;
+}
+
+.imgData{
+    /* height: 20px;
+    width: 20px; */
+    position: relative;
+    margin-left: 50%;
+    margin-top: -9.5%;
+}
+
+.etapa{
+    position: relative;
+    font-size: 20px;
+    margin-top: -7.3%;
+    margin-left: 55%;
+}
+
+.etapaImg{
+    position: relative;
+    margin-left: 95%;
+    margin-top: -9.5%;
+}
+
+.card-header{
+    height: 50px;
+}
+
+.card-title{
+    height: 22px;
+    width: 332px;
+    margin-left: -1%;
+    background-color: var(--second-grayscale);
+}
+
+.modelo{
+    position: relative;
+    margin-top: 5px;
+}
+
+.frag{
+    position: relative;
+    margin-left: 332px;
+    margin-top: -3%;
+}
+
+.qtd{
+    position: relative;
+    margin-left: 670px;
+    margin-top: -3%;
+}
