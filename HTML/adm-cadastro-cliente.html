@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/style_cadastros.css">
+    <link rel="stylesheet" href="./css/style_cadCliente.css">
 </head>
 <body>
     <header class="d-flex align-items-center justify-content-between">
@@ -23,28 +24,21 @@
         </nav>
     </header>
 
-    <div class="container_form">
-        <form action="" method="post" class="flex-display">
+    <div class="container_form d-flex flex-column align-items-center">
+        <form action="" method="post" class="content_form d-flex flex-column">
             <h3>Novo Cliente</h3>
-            <div class="">
-                <div class="campo">
-                    <input type="text" placeholder="Nome Completo" class="form-control">
-                </div>
-                
-                <div class="campo">
-                    <input type="email" placeholder="E-mail" class="form-control">
-                </div>
-            </div>
-    
-            <div>
+            <input type="text" placeholder="Nome Completo" class="w-100">                
+            <input type="email" placeholder="E-mail" class="w-100">
+
+            <div class="d-flex justify-content-between">
                 <label for="telefone">Telefone:</label>
-                <input type="tel" name="telefone">
+                <input type="tel" name="telefone" class="info_tel-input">
                 
                 <label for="telefone">Opcional:</label>
-                <input type="tel" name="telefone">
+                <input type="tel" name="telefone" class="info_tel-input">
             </div>
     
-            <div>
+            <div class="d-grid endereco">
                 <input type="text" placeholder="CEP">
                 <input type="text" placeholder="Logradouro">
                 <input type="number" placeholder="Número">
@@ -53,8 +47,9 @@
                 <input type="text" placeholder="UF">
                 <input type="text" placeholder="Complemento">
             </div>
-            <button>Cadastrar</button>
-        </form>
+            <div class="btn d-flex justify-content-end p-0 w-100">
+                <button class="btn-cadastrar">CADASTRAR</button>
+            </div>        </form>
     </div> 
 </body>
 </html>
