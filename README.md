@@ -1,2 +1,2 @@
 # ETEC-TCC
-tcc da etec
+tcc da ETEC
