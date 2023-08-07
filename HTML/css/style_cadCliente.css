@@ -1,12 +1,8 @@
-.content_form{
-  gap: 20px;
+.campo{
+    padding: 12px;
 }
 
-.info_tel-input{
-  width: 35%;
-}
-
-.endereco{
-  grid-template-columns: 1fr 2fr 1fr 1fr;
-  gap: 20px;
+.form-control:focus{
+    box-shadow: none;
+    border-color: black;
 }
