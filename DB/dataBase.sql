@@ -80,3 +80,4 @@ alter table PEDIDO_PRODUTO
 add constraint fk_pedidoProduto_produto
 foreign key (fkcod_prod)
 references PRODUTO(cod_prod);
+
