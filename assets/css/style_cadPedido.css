@@ -10,8 +10,8 @@
 
 .content_form-cliente,
 .content_form-pedido{
-  margin-top: 30px;
-  width: 630px;
+  margin-top: 20px;
+  width: 750px;
   gap: 20px;
 }
 .content_form-cliente{
@@ -28,7 +28,7 @@
 /* Produto */
 .produto_content{
   padding: 10px;
-  width: 630px;
+  width: 750px;
   height: 115px;
   border-radius: 10px;
   gap: 15px;
