@@ -1,5 +1,9 @@
 <?php
   include_once('../components/header.php');
+  require "../../lib/conn.php";
+  $sqlSelect = "SELECT * FROM fragrancia";
+  $stmt = $conn->query($sqlSelect);
+  $fragrancias = $stmt->fetchAll(PDO::FETCH_OBJ)
 ?>
 <head>
     <title>cadFragancia</title>
@@ -20,29 +24,26 @@
             <input type="text">
             <button>lupa</button>
         </div>
-        <button>add Fragancia</button>
+        <button>add Fragrancia</button>
     </div>
     <div>
-        <div>
+        <?php
+        foreach($fragrancias as $frafrancia){
+        ?>
             <div>
-                <h3>Gold</h3>
-                <p>tom amadeirado, feminino</p>
+                <div>
+                    <h3><?=$frafrancia->nome_frag?></h3>
+                    <p><?=$frafrancia->desc_frag?></p>
+                </div>
+                <div>
+                    <button>lapis</button>
+                    <button>lixeira</button>
+                </div>
             </div>
-            <div>
-                <button>lapis</button>
-                <button>lixeira</button>
-            </div>
-        </div>
-        <div>
-            <div>
-                <h3>Gold</h3>
-                <p>tom amadeirado, feminino</p>
-            </div>
-            <div>
-                <button>lapis</button>
-                <button>lixeira</button>
-            </div>
-        </div>
+            
+        <?php
+        }
+        ?>
     </div>
 </body>
 </html>

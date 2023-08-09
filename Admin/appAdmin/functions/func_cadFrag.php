@@ -7,4 +7,4 @@ $stmt->bindValue(":nome", $nome__frag);
 $stmt->bindValue(":descricao", $desc__frag);
 $stmt->execute();
 ?>
-<meta http-equiv="refresh" content="3; url=../cadFragrancia">
+<meta http-equiv="refresh" content="0; url=../cadFragrancia">
