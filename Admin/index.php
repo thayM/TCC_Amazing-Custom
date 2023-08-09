@@ -12,3 +12,15 @@
       </ul>
     </nav>
   </header>
+
+  <form action="./functions/func_login.php" method="POST">
+    <div>
+      <input type="text" name="nome" id="nome">
+      <label for="nome">Nome:</label>
+    </div>
+    <div>
+      <input type="password" name="senha" id="senha">
+      <label for="senha">Senha:</label>
+    </div>
+    <button type="submit">Logar</button>
+  </form>
