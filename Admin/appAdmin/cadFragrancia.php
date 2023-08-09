@@ -5,6 +5,16 @@
     <title>cadFragancia</title>
 </head>
 <body>
+    <form action="./functions/func_cadFrag.php" method="POST">
+        <div>
+            <div>
+                <label for="nomeFrag">Nome:</label>
+                <input type="text" id="nome__Frag" name="nome__frag" placeholder="Nome">
+            </div>
+            <input type="text" id="desc__Frag" name="desc__frag" placeholder="Adicione uma descrição">
+            <button type="submit">Cadastrar</button>
+        </div>
+    </form>
     <div>
         <div>
             <input type="text">

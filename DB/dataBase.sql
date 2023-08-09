@@ -11,10 +11,10 @@ create table ADM(
 create table MODELO(
     cod_modelo int primary key auto_increment,
     nome_modelo varchar(50) not null,
-    valor_modelo decimal(6,2) not null, 
+    valor_modelo decimal(6,2) not null
 );
 
-create table FRAGANCIA(
+create table FRAGRANCIA(
     cod_frag int primary key auto_increment,
     nome_frag varchar(50) not null,
     desc_frag varchar(70)
@@ -62,9 +62,9 @@ foreign key (fkcod_cli)
 references CLIENTE(cod_cli);
 
 alter table PRODUTO
-add constraint fk_produto_fragancia
+add constraint fk_produto_fragrancia
 foreign key (fkcod_frag)
-references FRAGANCIA(cod_frag);
+references FRAGRANCIA(cod_frag);
 
 alter table PRODUTO
 add constraint fk_produto_modelo
