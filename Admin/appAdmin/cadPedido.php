@@ -2,8 +2,8 @@
   include_once('../components/header.php');
 ?>
 <head>
-  <link rel="stylesheet" href="../../assets/css/style_cadastros.css">
-  <link rel="stylesheet" href="../../assets/css/style_cadPedido.css">
+  <link rel="stylesheet" href="../assets/css/style_cadastros.css">
+  <link rel="stylesheet" href="../assets/css/style_cadPedido.css">
   <title>Cadastro Pedido</title>
 </head>
 
@@ -60,7 +60,7 @@
               <option value="" selected>Selecione a Fragrância</option>
             </select>
             <a href="#" class="produto_lixeira">
-              <img src="../../assets/img/trash-can-solid.svg" alt="lixeira">
+              <img src="../assets/svg/trash-alt.svg" alt="lixeira">
             </a>
           </div>
         </div>

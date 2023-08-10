@@ -41,32 +41,4 @@
 
 .produto_lixeira img{
   height: 25px;
-  filter: invert(61%) sepia(52%) saturate(6983%) hue-rotate(360deg) brightness(100%) contrast(107%);
-}
-
-/* Btn Adicionar */
-.produto_btn{
-  border: 3px solid var(--primary-color);
-  border-radius: 5px;
-  padding: 5px;
-  width: 240px;
-  height: 45px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  background: transparent;
-  color: var(--primary-color);
-  transition: .5s;
-}
-
-.produto_btn-add{
-  font-size: 1.7rem;
-  line-height: 1;
-}
-
-.produto_btn:hover{
-  box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  background: var(--primary-color);
-  color: var(--light-color);
-  transition: ease .5s;
 }

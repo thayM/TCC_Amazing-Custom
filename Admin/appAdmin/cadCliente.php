@@ -2,8 +2,8 @@
   include_once('../components/header.php');
 ?>
 <head>
-  <link rel="stylesheet" href="../../assets/css/style_cadastros.css">
-  <link rel="stylesheet" href="../../assets/css/style_cadCliente.css">
+  <link rel="stylesheet" href="../assets/css/style_cadastros.css">
+  <link rel="stylesheet" href="../assets/css/style_cadCliente.css">
   <title>Cadastro Cliente</title>
 </head>
 
