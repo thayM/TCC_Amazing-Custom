@@ -11,9 +11,10 @@
   <link rel="stylesheet" href="../assets/css/style_listagens.css">
   <title>Cadastro Fragrância</title>
 </head>
-<div class="container_modal d-none justify-content-center align-items-center">
+<div class="container_modal justify-content-center align-items-center">
   <form action="./functions/func_cadFrag.php" method="POST">
     <div class="content_modal d-flex justify-content-between flex-column">
+      <img src="../assets/svg/x.svg" alt="fechar" class="fechar">
       <h3>Adicionar nova fragrância</h3>
       <div class="modal_input-nome">
         <label for="nomeFrag">Nome</label>
@@ -64,5 +65,6 @@
     }
     ?>
   </div>
+  <script src="../assets/js/modal.js"></script>
 </body>
 </html>

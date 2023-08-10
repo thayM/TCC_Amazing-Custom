@@ -20,6 +20,13 @@
   color: var(--light-color);
 }
 
+.content_modal .fechar{
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  transform: translateX(500px);
+}
+
 .modal_input-nome label{
   font-size: 1.3rem;
   color: var(--light-color);
