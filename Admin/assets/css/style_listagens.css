@@ -44,10 +44,18 @@
   height: 50px;
 }
 
+/* fundo modal */
+.blur{
+  filter: blur(4px);
+  z-index: -1;
+}
+.overflow{
+  overflow: hidden;
+}
+
 /* INPUT PESQUISAR */
 .header_pesquisa{
   margin: 50px 0;
-  width: 100%;
 }
 
 .pesquisa_input{
@@ -65,6 +73,11 @@
   border: 0;
   border-radius: 0 5px 5px 0;
   background-color: var(--primary-color);
+}
+.pesquisa_input .btn-buscar:hover{
+  background: var(--tertiary-color);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+  transition: ease-out .2s;
 }
 
 .btn-buscar img{
@@ -105,4 +118,7 @@
   margin-left: 20px;
   width: 25px;
   background: transparent;
+}
+.footer_card-produto button:hover{
+  filter: brightness(70%);
 }

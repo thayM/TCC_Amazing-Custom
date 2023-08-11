@@ -60,7 +60,7 @@
               <option value="" selected>Selecione a Fragrância</option>
             </select>
             <a href="#" class="produto_lixeira">
-              <img src="../assets/svg/trash-alt.svg" alt="lixeira">
+              <img src="../assets/icons/trash-alt.svg" alt="lixeira">
             </a>
           </div>
         </div>
@@ -76,7 +76,7 @@
             <option value="" selected>Status do Pedido</option>
           </select>
         </div>
-        <div class="btn d-flex justify-content-end p-0 w-100">
+        <div class="btn-cadastro d-flex justify-content-end p-0 w-100">
           <button class="btn-cadastrar">CADASTRAR</button>
         </div>
       </div>

@@ -23,7 +23,7 @@
       </div>
       <div class="status">
         <p class="etapa">Arte finalizada</p>
-        <img class="etapaImg" src="../assets/svg/pen.svg" alt=""><img>
+        <img class="etapaImg" src="../assets/icons/pen.svg" alt=""><img>
       </div>
     </div>
 

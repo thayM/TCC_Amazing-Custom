@@ -3,7 +3,7 @@
 :root {
   --primary-color: rgba(255, 102, 0, 1);
   --secondary-color: rgba(255, 255, 161, 1);
-  --tertiary-color: rgba(156, 36, 0, 1);
+  --tertiary-color: rgba(226, 90, 0, 0.74);
 
   --background-color: rgba(51, 51, 51, 1);
 
@@ -12,7 +12,7 @@
 
   --light-color: rgba(255, 255, 255, 1);
   --input-color: rgba(255, 255, 255, 0.4);
-  --bg-input-color: rgba(27, 27, 27, 0.46);
+  --bg-input-color: rgba(0, 0, 0, 0.425);
 }
 
 * {
@@ -99,7 +99,7 @@ select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-image: url("../img/angle-down.svg");
+  background-image: url("../../Admin/assets/icons/angle-down.svg");
   background-position: 100%;
   background-size: 35px;
   background-repeat: no-repeat;

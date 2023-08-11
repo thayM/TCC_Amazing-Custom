@@ -42,3 +42,6 @@
 .produto_lixeira img{
   height: 25px;
 }
+.produto_lixeira img:hover{
+  filter: brightness(70%);
+}
