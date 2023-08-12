@@ -8,16 +8,16 @@
 
 <body>
   <div class="search">
-    <input type="text" name="" id="" placeholder="Buscar...">
-    <button><img src="" alt="">Buscar</button>
+      <input type="text" name="" id="barraBusca" placeholder="Buscar...">
+      <button class="btn"><img src="../assets/icons/group.svg" alt=""></button>
   </div>
 
   <div class="card pedidos">
     <div class="card-header">
-      <div>
-        <p class="nomeClie">Neusa</p>
-        <div>
-          <p class="data">20/02/2020</p>
+        <div class="cabecalho">
+          <p class="nomeClie">Neusa</p>
+          <div>
+            <p class="data">20/02/2020</p>
           <img class="imgData" src="../../assets/img/🦆 icon _Alternate External Link_.png" alt=""></img>
         </div>
       </div>
@@ -28,28 +28,28 @@
     </div>
 
     <div class="card-body">
-      <div class="card-title modelo">
+    <div class="card-title">
         <h3>MODELO</h3>
-      </div>
-      <div>
-        <img src="" alt="">
-        <p class="card-text nomeMod">Quadrado</p>
-      </div>
+        <div class="cardInfo">
+            <img src="" alt="">
+            <p class="card-text">Quadrado</p>
+        </div>
     </div>
 
-    <div class="card-title frag">
-      <h3>FRAGRÂNCIA</h3>
+    <div class="card-title">
+        <h3 class="titulo">FRAGRÂNCIA</h3>
+        <div class="cardInfo">
+            <p class="card-text divInfo">Gold</p>
+        </div>
     </div>
-    <div>
-      <p class="card-text nomeFrag">Gold</p>
+
+    <div class="card-title">
+        <h3 class="titulo">QUANTIDADE</h3>
+        <div class="cardInfo">
+            <p class="card-text divInfo2">150</p>
+        </div>
     </div>
   </div>
-
-  <div class="card-title qtd">
-    <h3>QUANTIDADE</h3>
-    <div>
-      <p class="card-text nomeQtd">150</p>
-    </div>
   </div>
 </body>
 </html>
