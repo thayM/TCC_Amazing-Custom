@@ -9,6 +9,7 @@ $fragrancias = $stmt->fetchAll(PDO::FETCH_OBJ)
 <head>
   <link rel="stylesheet" href="../assets/css/style_cadastros.css">
   <link rel="stylesheet" href="../assets/css/style_listagens.css">
+  <link rel="stylesheet" href="../assets/css/style_fragrancia.css">
   <title>Cadastro Fragrância</title>
 </head>
 
@@ -44,7 +45,7 @@ $fragrancias = $stmt->fetchAll(PDO::FETCH_OBJ)
       </button>
     </div>
 
-    <div class="container_produtos d-flex justify-content-between flex-wrap">
+    <div class="container_produtos d-flex flex-wrap">
       <?php
       foreach ($fragrancias as $fragrancia) {
       ?>

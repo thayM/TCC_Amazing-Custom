@@ -32,13 +32,6 @@
   color: var(--light-color);
 }
 
-.content_modal #desc__Frag{
-  min-height: 45%;
-  max-height: 45%;
-  display: flex;
-  
-}
-
 .content_modal .btn-cadastrar{
   margin: 5px 0;
   height: 50px;
@@ -65,6 +58,7 @@
 .pesquisa_input input{
   width: 90%;
   border-radius: 5px 0 0 5px;
+  z-index: 2;
 }
 
 .pesquisa_input .btn-buscar{
@@ -73,6 +67,7 @@
   border: 0;
   border-radius: 0 5px 5px 0;
   background-color: var(--primary-color);
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
 }
 .pesquisa_input .btn-buscar:hover{
   background: var(--tertiary-color);
@@ -90,7 +85,7 @@
 }
 
 .card-produto{
-  margin: 10px 5px;
+  margin: 10px 8px;
   padding: 20px;
   border-radius: 5px;
   width: 345px;

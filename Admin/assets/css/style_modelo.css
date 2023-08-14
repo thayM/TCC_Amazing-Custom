@@ -1,0 +1,31 @@
+/* CARDS */
+.card-produto{
+  height: 210px;
+}
+
+.card-produto_img{
+  border-radius: 5px;
+  padding: 10px;
+  height: 170px;
+  width: 170px;
+  background: var(--light-color);
+}
+
+.content_card-produto{
+  height: 80%;
+}
+
+.content_card-produto h3,
+.content_card-produto p{
+  margin: 0;
+  width: 125px;
+  font-size: 1.4rem;
+}
+
+/* UPLOAD */
+
+.upload-area{
+  border: 4px dotted var(--input-color);
+  height: 45%;
+  background: var(--second-grayscale);
+}
