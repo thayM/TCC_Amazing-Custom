@@ -10,7 +10,7 @@
   padding: 20px 40px;
   width: 580px;
   height: 350px;
-  border-radius: 10px;
+  border-radius: 5px;
   background: var(--background-color);
 }
 
@@ -85,25 +85,25 @@
 }
 
 .card-produto{
-  margin: 10px 8px;
+  margin: 10px;
   padding: 20px;
   border-radius: 5px;
-  width: 345px;
-  height: 230px;
+  width: 340px;
+  height: 210px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background: var(--second-grayscale);
 }
 
 .content_card-produto h3{
-  margin: 10px 0;
-  font-size: 1.875rem;
+  margin: 5x 0;
+  font-size: 1.8rem;
   text-transform: capitalize;
   word-break: break-word;
   color: var(--secondary-color);
 }
 
 .content_card-produto p{
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   word-break: break-word;
   color: var(--light-color);
 }

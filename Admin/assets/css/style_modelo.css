@@ -1,8 +1,37 @@
-/* CARDS */
-.card-produto{
-  height: 210px;
+/* MODAL */
+.content_modal{
+  height: 400px;
 }
 
+#nome__Modelo{
+  margin-right: 20px;
+  width: 45%;
+}
+#valor__Modelo{
+  width: 25%;
+}
+
+/* Upload */
+.upload-area{
+  border-radius: 5px;
+  padding: 10px;
+  height: 45%;
+  background: var(--second-grayscale);
+}
+
+.upload-area_border{
+  border: 5px dashed var(--input-color);
+  height: 100%;
+  width: 100%;
+}
+
+.upload-area_border p{
+  height: 24px;
+  font-size: 1.5rem;
+  color: var(--input-color);
+}
+
+/* CARDS */
 .card-produto_img{
   border-radius: 5px;
   padding: 10px;
@@ -18,14 +47,6 @@
 .content_card-produto h3,
 .content_card-produto p{
   margin: 0;
-  width: 125px;
+  width: 120px;
   font-size: 1.4rem;
-}
-
-/* UPLOAD */
-
-.upload-area{
-  border: 4px dotted var(--input-color);
-  height: 45%;
-  background: var(--second-grayscale);
 }

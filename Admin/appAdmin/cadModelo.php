@@ -14,17 +14,19 @@ include_once('../components/header.php');
     <div class="content_modal d-flex justify-content-between flex-column">
       <img src="../assets/icons/x.svg" alt="fechar" class="fechar">
       <h3>Adicionar novo modelo</h3>
-      <div class="modal_input-nome">
-        <label for="modNome">Nome:</label>
-        <input type="text" placeholder="Nome do modelo">
+      <div class="modal_input-nome ">
+        <label for="modNome">Nome</label>
+        <input type="text" id="nome__Modelo" placeholder="Nome do modelo">
 
-        <label for="valor">Valor:</label>
-        <input type="number" name="valor" placeholder="R$ 00,00">
+        <label for="valor">Valor</label>
+        <input type="number" id="valor__Modelo" name="valor" placeholder="R$ 00,00">
       </div>
 
       <div class="upload-area" onclick="procurarArqClick()" ondrop="uploadArq(event)" ondragover="return false">
-        <h5 id="upload-txt">Arraste e solte o arquivo aqui</h5>
-        <input type="file" id="input" hidden>
+        <div class="upload-area_border d-flex justify-content-center align-items-center">
+          <p id="upload-txt">Arraste e solte a imagem aqui</p>
+          <input type="file" id="input" hidden>
+        </div>
       </div>
 
       <div class="btn-cadastro d-flex justify-content-end">

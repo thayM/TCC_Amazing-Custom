@@ -29,6 +29,19 @@ body {
   background: var(--background-color);
 }
 
+/* SCROLL */
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--bg-input-color);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--first-grayscale);
+}
+
 /* HEADER */
 header {
   padding: 0 35px;
