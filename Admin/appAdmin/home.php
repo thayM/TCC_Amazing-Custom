@@ -2,7 +2,7 @@
   include_once('../components/header.php');
 ?>
 <head>
-  <link rel="stylesheet" href="../../assets/css/style_home.css">
+  <link rel="stylesheet" href="../assets/css/style_home.css">
   <title>Home | Listagem Pedidos</title>
 </head>
 
@@ -22,8 +22,8 @@
           </div>
         </div>
         <div class="icons">
-          <img class="caneta" src="../../assets/img/pen.png" alt=""></img>
-          <img class="lixeira" src="../../assets/img/trash-can-solid.svg" alt=""></img>
+          <img class="caneta" src="../../assets/icons/pen.png" alt=""></img>
+          <img class="lixeira" src="../../assets/icons/trash-can-solid.svg" alt=""></img>
         </div> 
         <div class="status">
           <p class="etapa">Arte finalizada</p>

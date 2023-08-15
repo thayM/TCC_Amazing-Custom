@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend&family=Mitr&family=Mukta:wght@300&display=swap");
 
 :root {
-  --primary-color: rgb(255, 102, 0);
+  --primary-color: rgba(255, 102, 0, 1);
   --secondary-color: rgba(255, 255, 161, 1);
   --tertiary-color: rgba(226, 90, 0, 0.74);
 

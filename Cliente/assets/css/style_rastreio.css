@@ -1,0 +1,151 @@
+.nomeCli{
+    color: #ff6600;
+    font-size: 64px;
+    position: relative;
+    margin-top: 7%;
+    left: -45%;
+}
+
+.pedidos{
+    position: relative;
+    margin-top: 2%;
+    width: 1006px;
+    border: 2px solid #333333;
+    border-radius: 20px;
+}
+  
+.data{
+    margin: 0;
+    position: relative;
+    top: 8px;
+    font-size: 20px;
+}
+  
+.imgData{
+    position: relative;
+    margin-left: 10px;
+    width: 26px;
+    height: 26px;
+    top: 10px;
+}
+  
+.status{
+    background-color: var(--first-grayscale);
+    padding: 0 10px;
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 5px 0 0;
+}
+  
+.etapa{
+    position: relative;
+    font-size: 20px;
+    margin: 0;
+}
+  
+.etapaImg{
+    position: relative;
+}
+  
+.card-body{
+    display: flex;
+    min-height: 180px;
+    justify-content: space-between;
+    padding: 0;
+}
+  
+.card-header{
+    height: 45px;
+    width: 100%;
+    display: flex;
+    background-color: var(--second-grayscale);
+    color: var(--light-color);
+    padding: 0;
+}
+  
+.card-header .cabecalho{
+    padding: 0 10px;
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+.card-header .cabecalho div{
+    display: flex;
+    align-items: center;
+}
+  
+.card-title{
+    color: var(--light-color);
+    width: 35%;
+    background-color: var(--second-grayscale);
+    margin: 0;
+    text-align: center;
+}
+  
+.card-title h3{
+    margin-top: 9px;
+    height: 40px;
+    line-height: 1.5;
+    position: relative;
+}
+  
+h3:before{
+    content: "";
+    position: absolute;
+    border-bottom: 1px solid #333333;
+    width: 100%;
+    top: 50px;
+    left: 0px;
+    bottom:0;
+}
+  
+.titulo:after{
+    content: "";
+    position: absolute;
+    border: 1px solid #333333;
+    height: 60px;
+    left: -17px;
+    top: -10px;
+}
+  
+.divInfo:after{
+    content: "";
+    position: absolute;
+    border: 1px solid #333333; 
+    min-height: 120px;
+    left: 317px;
+    top: 105px;
+} 
+  
+.divInfo2:after{
+    content: "";
+    position: absolute;
+    border: 1px solid #333333; 
+    min-height: 120px;
+    left: 651px;
+    top: 105px;
+} 
+  
+.card-title:nth-child(1){
+    border-radius: 0 0 0 5px;
+}
+  
+.card-title:nth-child(3){
+    border-radius: 0 0 5px 0 ;
+}
+  
+.card-text{
+    color: var(--light-color);
+    width: 100%;
+    font-size: 28px;
+}
+  
+.cardInfo{
+    height: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
