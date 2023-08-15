@@ -19,37 +19,41 @@
           <div>
             <p class="data">20/02/2020</p>
           <img class="imgData" src="../../assets/img/🦆 icon _Alternate External Link_.png" alt=""></img>
+          </div>
+        </div>
+        <div class="icons">
+          <img class="caneta" src="../../assets/img/pen.png" alt=""></img>
+          <img class="lixeira" src="../../assets/img/trash-can-solid.svg" alt=""></img>
+        </div> 
+        <div class="status">
+          <p class="etapa">Arte finalizada</p>
+          <img class="etapaImg" src="../assets/icons/angle-down.svg" alt=""><img>
         </div>
       </div>
-      <div class="status">
-        <p class="etapa">Arte finalizada</p>
-        <img class="etapaImg" src="../assets/icons/pen.svg" alt=""><img>
-      </div>
-    </div>
 
     <div class="card-body">
-    <div class="card-title">
+      <div class="card-title">
         <h3>MODELO</h3>
         <div class="cardInfo">
             <img src="" alt="">
             <p class="card-text">Quadrado</p>
         </div>
-    </div>
+      </div>
 
-    <div class="card-title">
+      <div class="card-title">
         <h3 class="titulo">FRAGRÂNCIA</h3>
         <div class="cardInfo">
-            <p class="card-text divInfo">Gold</p>
+          <p class="card-text divInfo">Gold</p>
         </div>
-    </div>
+      </div>
 
-    <div class="card-title">
+      <div class="card-title">
         <h3 class="titulo">QUANTIDADE</h3>
         <div class="cardInfo">
-            <p class="card-text divInfo2">150</p>
+          <p class="card-text divInfo2">150</p>
         </div>
+      </div>
     </div>
-  </div>
   </div>
 </body>
 </html>
