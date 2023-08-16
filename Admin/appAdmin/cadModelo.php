@@ -10,7 +10,7 @@ include_once('../components/header.php');
 </head>
 
 <div class="container_modal justify-content-center align-items-center">
-  <form class="box" action="post" enctype="multipart/form-data">
+  <form class="box" action="" enctype="multipart/form-data">
     <div class="content_modal d-flex justify-content-between flex-column">
       <img src="../assets/icons/x.svg" alt="fechar" class="fechar">
       <h3>Adicionar novo modelo</h3>
@@ -30,7 +30,7 @@ include_once('../components/header.php');
       </div>
 
       <div class="btn-cadastro d-flex justify-content-end">
-        <button type="submit" class="btn-cadastrar">Cadastrar</button>
+        <button type="submit" onclick="updateJsArq()" class="btn-cadastrar">Cadastrar</button>
       </div>
     </div>
   </form>
@@ -69,7 +69,13 @@ include_once('../components/header.php');
     input.click()
     procurarArq()
   }
-
+  function reset(){
+    div=`<div class="upload-area_border d-flex justify-content-center align-items-center">
+          <p id="upload-txt">Arraste e solte a imagem aqui</p>
+          <input type="file" id="input" hidden>
+        </div>`
+    areaUpload.innerHTML = div
+  }
   function showImg() {
     let tipoArq = file.type
     let tiposAceitados = ["image/jpeg", "image/jpg", "image/png"]
@@ -78,7 +84,11 @@ include_once('../components/header.php');
       let leitorArq = new FileReader()
       leitorArq.onload = () => {
         let urlArq = leitorArq.result
-        let img = `<img src="${urlArq}" alt="">`
+        let img = `
+        <div>
+        <img src="${urlArq}" alt="">
+        <button onclick="reset()">X</button>
+        </div>`
         console.log(img)
         areaUpload.innerHTML = img
       }
@@ -92,22 +102,22 @@ include_once('../components/header.php');
   function uploadArq(e) {
     e.preventDefault()
     fileobj = e.dataTransfer.files[0]
-    updateJsArq(fileobj)
+    
   }
 
   function procurarArq() {
     document.getElementById('input').onchange = function() {
       fileobj = document.getElementById('input').files[0];
-      updateJsArq(fileobj);
+      
     }
   }
 
-  function updateJsArq(obj) {
-    if (obj != undefined) {
+  function updateJsArq() {
+    if (fileobj != undefined) {
       var form_data = new FormData();
-      form_data.append('file', obj);
+      form_data.append('file', fileobj);
       var xhttp = new XMLHttpRequest();
-      xhttp.open("POST", "../Admin/functions/uploadFile.php", true);
+      xhttp.open("POST", "../functions/uploadFile.php", true);
       xhttp.onload = function(event) {
 
         if (xhttp.status == 200) {
@@ -117,6 +127,8 @@ include_once('../components/header.php');
         }
       }
       xhttp.send(form_data);
+    }else{
+      alert("INSIRA UMA IMAGEM")
     }
   }
 </script>
