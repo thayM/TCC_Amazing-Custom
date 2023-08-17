@@ -17,7 +17,7 @@
 <div class="container_modal justify-content-center align-items-center">
   <form action="./functions/func_cadFrag.php" method="POST">
     <div class="content_modal d-flex justify-content-between flex-column">
-      <img src="../assets/svg/x.svg" alt="fechar" class="fechar">
+      <img src="../assets/icons/x.svg" alt="fechar" class="fechar">
       <h3>Adicionar nova fragrância</h3>
       <div class="modal_input-nome">
         <label for="nomeFrag">Nome</label>
@@ -32,44 +32,46 @@
 </div>
 
 <body>
-  <div class="header_pesquisa d-flex justify-content-center">
-    <div class="pesquisa_input d-flex">
-      <input type="text" placeholder="Buscar...">
-      <button class="btn-buscar">
-        <img src="../assets/svg/lupa.svg" alt="lupa">
+  <main class="w-100 d-flex flex-column align-items-center">
+    <div class="header_pesquisa d-flex justify-content-center">
+      <div class="pesquisa_input d-flex">
+        <input type="text" placeholder="Buscar...">
+        <button class="btn-buscar">
+          <img src="../assets/icons/lupa.svg" alt="lupa">
+        </button>
+      </div>
+      <button type="button" class="produto_btn d-flex justify-content-between">
+        Adicionar Fragrância
+        <span class="produto_btn-add">+</span>
       </button>
     </div>
-    <button type="button" class="produto_btn d-flex justify-content-between">
-      Adicionar Fragrância
-      <span class="produto_btn-add">+</span>
-    </button>
-  </div>
 
-  <div class="container_produtos d-flex justify-content-between flex-wrap">
-    <?php
-    foreach ($fragrancias as $fragrancia) {
-    ?>
-      <div class="card-produto d-flex flex-column justify-content-between">
-        <div class="content_card-produto">
-          <h3><?= $fragrancia->nome_frag ?></h3>
-          <p><?= $fragrancia->desc_frag ?></p>
+    <div class="container_produtos d-flex justify-content-between flex-wrap">
+      <?php
+      foreach ($fragrancias as $fragrancia) {
+      ?>
+        <div class="card-produto d-flex flex-column justify-content-between">
+          <div class="content_card-produto">
+            <h3><?= $fragrancia->nome_frag ?></h3>
+            <p><?= $fragrancia->desc_frag ?></p>
+          </div>
+          <div class="footer_card-produto d-flex justify-content-end">
+            <button onclick="">
+              <img src="../assets/icons/pen.svg" alt="editar">
+            </button>
+            <button>
+              <a href="../appAdmin/cadFragrancia.php?fragExclusao=<?= $fragrancia->cod_frag ?>">
+                <img src="../assets/icons/trash-alt.svg" alt="excluir">
+              </a>
+            </button>
+          </div>
         </div>
-        <div class="footer_card-produto d-flex justify-content-end">
-          <button onclick="">
-            <img src="../assets/svg/pen.svg" alt="editar">
-          </button>
-          <button>
-            <a href="../appAdmin/cadFragrancia.php?fragExclusao=<?=$fragrancia->cod_frag?>">
-            <img src="../assets/svg/trash-alt.svg" alt="excluir">
-          </a>
-          </button>
-        </div>
-      </div>
 
-    <?php
-    }
-    ?>
-  </div>
+      <?php
+      }
+      ?>
+    </div>
+  </main>
   <script src="../assets/js/modal.js"></script>
 </body>
 </html>

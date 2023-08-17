@@ -9,7 +9,7 @@
 <body>
   <div class="search">
       <input type="text" name="" id="barraBusca" placeholder="Buscar...">
-      <button class="btn"><img src="../assets/icons/group.svg" alt=""></button>
+      <button class="btn"><img src="../assets/icons/lupa.svg" alt=""></button>
   </div>
 
   <div class="card pedidos">
@@ -22,8 +22,8 @@
           </div>
         </div>
         <div class="icons">
-          <img class="caneta" src="../../assets/icons/pen.png" alt=""></img>
-          <img class="lixeira" src="../../assets/icons/trash-can-solid.svg" alt=""></img>
+          <img class="caneta" src="../../Admin/assets/icons/pen.svg" alt=""></img>
+          <img class="lixeira" src="../../Admin/assets/icons/trash-alt.svg" alt=""></img>
         </div> 
         <div class="status">
           <p class="etapa">Arte finalizada</p>
