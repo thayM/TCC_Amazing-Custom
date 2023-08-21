@@ -1,23 +1,21 @@
 <?php
-  include_once('../components/header.php');
-  require "../../lib/conn.php";
-  if(isset($_GET['fragExclusao']) == 1 ){
-    include_once('../components/modalExclusao.php');
-  }
-  $sqlSelect = "SELECT * FROM fragrancia";
-  $stmt = $conn->query($sqlSelect);
-  $fragrancias = $stmt->fetchAll(PDO::FETCH_OBJ);
+include_once('../components/header.php');
+require "../../lib/conn.php";
+$sqlSelect = "SELECT * FROM fragrancia";
+$stmt = $conn->query($sqlSelect);
+$fragrancias = $stmt->fetchAll(PDO::FETCH_OBJ);
 ?>
 
 <head>
   <link rel="stylesheet" href="../assets/css/style_cadastros.css">
   <link rel="stylesheet" href="../assets/css/style_listagens.css">
+  <link rel="stylesheet" href="../assets/css/style_fragrancia.css">
   <title>Cadastro Fragrância</title>
 </head>
 <div class="container_modal justify-content-center align-items-center">
   <form action="./functions/func_cadFrag.php" method="POST">
     <div class="content_modal d-flex justify-content-between flex-column">
-      <img src="../assets/icons/x.svg" alt="fechar" class="fechar">
+      <img onclick="removeStyle()" src="../assets/icons/x.svg" alt="fechar" class="fechar">
       <h3>Adicionar nova fragrância</h3>
       <div class="modal_input-nome">
         <label for="nomeFrag">Nome</label>
@@ -40,38 +38,51 @@
           <img src="../assets/icons/lupa.svg" alt="lupa">
         </button>
       </div>
-      <button type="button" class="produto_btn d-flex justify-content-between">
-        Adicionar Fragrância
-        <span class="produto_btn-add">+</span>
-      </button>
+      <div class="container_btn">
+
+        <button onclick="addStyle()" type="button" class="produto_btn d-flex justify-content-between">
+          Adicionar Fragrância
+          <span class="produto_btn-add">+</span>
+        </button>
+      </div>
     </div>
 
-    <div class="container_produtos d-flex justify-content-between flex-wrap">
-      <?php
-      foreach ($fragrancias as $fragrancia) {
-      ?>
-        <div class="card-produto d-flex flex-column justify-content-between">
-          <div class="content_card-produto">
-            <h3><?= $fragrancia->nome_frag ?></h3>
-            <p><?= $fragrancia->desc_frag ?></p>
+    <div class="container_cards">
+      <div class="container_produtos">
+        <?php
+        foreach ($fragrancias as $fragrancia) {
+        ?>
+          <div class="card-produto d-flex flex-column justify-content-between">
+            <div class="content_card-produto">
+              <h3><?= $fragrancia->nome_frag ?></h3>
+              <p><?= $fragrancia->desc_frag ?></p>
+            </div>
+            <div class="container_btn footer_card-produto d-flex justify-content-end">
+              <button>
+                <img src="../assets/icons/pen.svg" alt="editar">
+              </button>
+              <button>
+                <a href="../appAdmin/cadFragrancia.php?fragExclusao=<?= $fragrancia->cod_frag ?>">
+                  <img src="../assets/icons/trash-alt.svg" alt="excluir">
+                </a>
+              </button>
+            </div>
           </div>
-          <div class="footer_card-produto d-flex justify-content-end">
-            <button onclick="">
-              <img src="../assets/icons/pen.svg" alt="editar">
-            </button>
-            <button>
-              <a href="../appAdmin/cadFragrancia.php?fragExclusao=<?= $fragrancia->cod_frag ?>">
-                <img src="../assets/icons/trash-alt.svg" alt="excluir">
-              </a>
-            </button>
-          </div>
-        </div>
 
-      <?php
-      }
-      ?>
+        <?php
+        }
+        ?>
+      </div>
     </div>
   </main>
   <script src="../assets/js/modal.js"></script>
+  <?php
+  if (isset($_GET['fragExclusao']) == 1) {
+    include_once('../components/modalExclusao.php');
+  ?>
+    <script>addStyle()</script>
+  <?php
+  }
+  ?>
 </body>
 </html>

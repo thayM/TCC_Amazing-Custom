@@ -12,7 +12,7 @@ include_once('../components/header.php');
 <div class="container_modal justify-content-center align-items-center">
   <form class="box" action="" enctype="multipart/form-data">
     <div class="content_modal d-flex justify-content-between flex-column">
-      <img src="../assets/icons/x.svg" alt="fechar" class="fechar">
+      <img onclick="removeStyle()" src="../assets/icons/x.svg" alt="fechar" class="fechar">
       <h3>Adicionar novo modelo</h3>
       <div class="modal_input-nome ">
         <label for="modNome">Nome</label>
@@ -142,98 +142,121 @@ include_once('../components/header.php');
           <img src="../assets/icons/lupa.svg" alt="lupa">
         </button>
       </div>
-      <button type="button" class="produto_btn d-flex justify-content-between">
+      <button onclick="addStyle()" type="button" class="produto_btn d-flex justify-content-between">
         Adicionar Modelo
         <span class="produto_btn-add">+</span>
       </button>
     </div>
-
-    <div class="container_produtos d-flex flex-wrap">
-
-      <div class="card-produto d-flex justify-content-between">
-        <div class="card-produto_img d-flex justify-content-center align-items-center">
-          <img class="produto_img" src="../../upload/brasão 14.jpg" alt="img_produto">
-        </div>
-        <div class="d-flex flex-column justify-content-between">
-          <div class="content_card-produto d-flex flex-column justify-content-between">
-            <h3>Redondo 6 Meia Lua</h3>
-            <p>R$ 5,00</p>
+    
+    <div class="container_cards">
+      <div class="container_produtos">
+  
+        <div class="card-produto d-flex justify-content-between">
+          <div class="card-produto_img d-flex justify-content-center align-items-center">
+            <img class="produto_img" src="../../upload/brasão 14.jpg" alt="img_produto">
           </div>
-          <div class="footer_card-produto d-flex justify-content-end">
-            <button>
-              <img src="../assets/icons/pen.svg" alt="editar">
-            </button>
-            <button>
-              <img src="../assets/icons/trash-alt.svg" alt="excluir">
-            </button>
+          <div class="d-flex flex-column justify-content-between">
+            <div class="content_card-produto d-flex flex-column justify-content-between">
+              <h3>Redondo 6 Meia Lua</h3>
+              <p>R$ 5,00</p>
+            </div>
+            <div class="footer_card-produto d-flex justify-content-end">
+              <button>
+                <img src="../assets/icons/pen.svg" alt="editar">
+              </button>
+              <button>
+                <img src="../assets/icons/trash-alt.svg" alt="excluir">
+              </button>
+            </div>
           </div>
         </div>
+  
+        <div class="card-produto d-flex justify-content-between">
+          <div class="card-produto_img d-flex justify-content-center align-items-center">
+            <img class="produto_img" src="../../upload/brasão 14.jpg" alt="img_produto">
+          </div>
+          <div class="d-flex flex-column justify-content-between">
+            <div class="content_card-produto d-flex flex-column justify-content-between">
+              <h3>Redondo 4</h3>
+              <p>R$ 5,00</p>
+            </div>
+            <div class="footer_card-produto d-flex justify-content-end">
+              <button>
+                <img src="../assets/icons/pen.svg" alt="editar">
+              </button>
+              <button>
+                <img src="../assets/icons/trash-alt.svg" alt="excluir">
+              </button>
+            </div>
+          </div>
+        </div>
+  
+        <div class="card-produto d-flex justify-content-between">
+          <div class="card-produto_img d-flex justify-content-center align-items-center">
+            <img class="produto_img" src="../../upload/brasão 14.jpg" alt="img_produto">
+          </div>
+          <div class="d-flex flex-column justify-content-between">
+            <div class="content_card-produto d-flex flex-column justify-content-between">
+              <h3>Caminhão 1</h3>
+              <p>R$ 5,00</p>
+            </div>
+            <div class="footer_card-produto d-flex justify-content-end">
+              <button>
+                <img src="../assets/icons/pen.svg" alt="editar">
+              </button>
+              <button>
+                <img src="../assets/icons/trash-alt.svg" alt="excluir">
+              </button>
+            </div>
+          </div>
+        </div>
+  
+        <div class="card-produto d-flex justify-content-between">
+          <div class="card-produto_img d-flex justify-content-center align-items-center">
+            <img class="produto_img" src="../../upload/brasão 14.jpg" alt="img_produto">
+          </div>
+          <div class="d-flex flex-column justify-content-between">
+            <div class="content_card-produto d-flex flex-column justify-content-between">
+              <h3>Retangular 2</h3>
+              <p>R$ 5,00</p>
+            </div>
+            <div class="footer_card-produto d-flex justify-content-end">
+              <button>
+                <img src="../assets/icons/pen.svg" alt="editar">
+              </button>
+              <button>
+                <img src="../assets/icons/trash-alt.svg" alt="excluir">
+              </button>
+            </div>
+          </div>
+        </div>
+  
+        <div class="card-produto d-flex justify-content-between">
+          <div class="card-produto_img d-flex justify-content-center align-items-center">
+            <img class="produto_img" src="../../upload/brasão 14.jpg" alt="img_produto">
+          </div>
+          <div class="d-flex flex-column justify-content-between">
+            <div class="content_card-produto d-flex flex-column justify-content-between">
+              <h3>Redondo 6 Meia Lua</h3>
+              <p>R$ 5,00</p>
+            </div>
+            <div class="footer_card-produto d-flex justify-content-end">
+              <button>
+                <img src="../assets/icons/pen.svg" alt="editar">
+              </button>
+              <button>
+                <img src="../assets/icons/trash-alt.svg" alt="excluir">
+              </button>
+            </div>
+          </div>
+        </div>
+        
+
+  
       </div>
-
-      <div class="card-produto d-flex justify-content-between">
-        <div class="card-produto_img d-flex justify-content-center align-items-center">
-          <img class="produto_img" src="../../upload/brasão 14.jpg" alt="img_produto">
-        </div>
-        <div class="d-flex flex-column justify-content-between">
-          <div class="content_card-produto d-flex flex-column justify-content-between">
-            <h3>Redondo 6 Meia Lua</h3>
-            <p>R$ 5,00</p>
-          </div>
-          <div class="footer_card-produto d-flex justify-content-end">
-            <button>
-              <img src="../assets/icons/pen.svg" alt="editar">
-            </button>
-            <button>
-              <img src="../assets/icons/trash-alt.svg" alt="excluir">
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-produto d-flex justify-content-between">
-        <div class="card-produto_img d-flex justify-content-center align-items-center">
-          <img class="produto_img" src="../../upload/brasão 14.jpg" alt="img_produto">
-        </div>
-        <div class="d-flex flex-column justify-content-between">
-          <div class="content_card-produto d-flex flex-column justify-content-between">
-            <h3>Redondo 6 Meia Lua</h3>
-            <p>R$ 5,00</p>
-          </div>
-          <div class="footer_card-produto d-flex justify-content-end">
-            <button>
-              <img src="../assets/icons/pen.svg" alt="editar">
-            </button>
-            <button>
-              <img src="../assets/icons/trash-alt.svg" alt="excluir">
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-produto d-flex justify-content-between">
-        <div class="card-produto_img d-flex justify-content-center align-items-center">
-          <img class="produto_img" src="../../upload/brasão 14.jpg" alt="img_produto">
-        </div>
-        <div class="d-flex flex-column justify-content-between">
-          <div class="content_card-produto d-flex flex-column justify-content-between">
-            <h3>Redondo 6 Meia Lua</h3>
-            <p>R$ 5,00</p>
-          </div>
-          <div class="footer_card-produto d-flex justify-content-end">
-            <button>
-              <img src="../assets/icons/pen.svg" alt="editar">
-            </button>
-            <button>
-              <img src="../assets/icons/trash-alt.svg" alt="excluir">
-            </button>
-          </div>
-        </div>
-      </div>
-
     </div>
   </main>
   <script src="../assets/js/modal.js"></script>
   <script src="../assets/js/style.js"></script>
-
   </main>
 </body>

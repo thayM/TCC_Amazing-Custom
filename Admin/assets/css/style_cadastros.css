@@ -37,3 +37,31 @@
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
   transition: .5s;
 }
+
+/* Btn Adicionar */
+.produto_btn{
+  border: 3px solid var(--primary-color);
+  border-radius: 5px;
+  padding: 5px;
+  min-width: 240px;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--primary-color);
+  transition: 0.5s;
+}
+
+.produto_btn-add{
+  margin-left: 10px;
+  font-size: 1.5rem;
+  line-height: 0.9;
+}
+
+.produto_btn:hover{
+  box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background: var(--primary-color);
+  color: var(--light-color);
+  transition: ease 0.5s;
+}

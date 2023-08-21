@@ -35,18 +35,27 @@
 .card-produto_img{
   border-radius: 5px;
   padding: 10px;
-  height: 170px;
-  width: 170px;
+  height: 110px;
+  width: 110px;
   background: var(--light-color);
 }
 
 .content_card-produto{
-  height: 80%;
+  width: 110px;
+    height: 65%;
+
 }
 
 .content_card-produto h3,
 .content_card-produto p{
   margin: 0;
-  width: 120px;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
+}
+
+/* Media Query */
+@media (max-width:969px){
+  .content_card-produto{
+    width: 150px;
+    height: 65%;
+  }
 }

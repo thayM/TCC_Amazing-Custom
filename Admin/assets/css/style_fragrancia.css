@@ -1,4 +1,23 @@
-.content_modal #desc__Frag{
+/* MODAL */
+.content_modal{
+  height: 350px;
+}
+
+#desc__Frag{
   min-height: 45%;
   max-height: 45%;
+}
+
+/* CARDS */
+.card-produto{
+  min-height: 180px;
+}
+
+.content_card-produto h3{
+  margin: 5px 0;
+  font-size: 1.4rem;
+}
+
+.content_card-produto p{
+  font-size: 1.25rem;
 }
