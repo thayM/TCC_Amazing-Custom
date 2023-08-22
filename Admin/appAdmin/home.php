@@ -12,7 +12,7 @@
       <button class="btn"><img src="../assets/icons/lupa.svg" alt=""></button>
   </div>
 
-  <div class="card pedidos">
+  <div class="card-pedidos">
     <div class="card-header">
         <div class="cabecalho">
           <p class="nomeClie">Neusa</p>

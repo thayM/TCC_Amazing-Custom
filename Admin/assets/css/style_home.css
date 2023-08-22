@@ -24,11 +24,11 @@
   background-color: #ff6600;
 }
 
-.pedidos{
+.card-pedidos{
   position: relative;
   margin-top: 5%;
   width: 1006px;
-  border: 2px solid #333333;
+  border: 1px solid #333333;
   border-radius: 20px;
 }
 
@@ -102,6 +102,7 @@
 
 .card-body{
   display: flex;
+  width: 100%;
   min-height: 180px;
   justify-content: space-between;
   padding: 0;
@@ -130,7 +131,7 @@
 
 .card-title{
   color: var(--light-color);
-  width: 35%;
+  width: 335px;
   background-color: var(--second-grayscale);
   margin: 0;
   text-align: center;
