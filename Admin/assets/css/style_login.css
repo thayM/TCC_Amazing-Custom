@@ -22,12 +22,12 @@ body{
 
 .campos{
     position: absolute;
-    top: 42px;
+    top: 9%;
     margin-left: 45%;
     border-radius: 10px 10px 0px 0px;
     background-color: var(--background-color);
     width: 466px;
-    height: 747px;
+    height: 60em;
 }
 
 #nome{

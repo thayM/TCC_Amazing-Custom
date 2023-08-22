@@ -48,26 +48,35 @@
   margin-left: 10px;
 }
 
+.icons{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+}
+
 .icons:after{
   content: " ";
   position: absolute;
   border: 1px solid #333333;
   height: 20%;
-  left: 55%;
+  left: 59%;
 }
 
 .caneta{
+  display: flex;
   position: relative;
-  right: 10px;
   width: 30px;
   height: 30px;
+  left: -2%;
 }
 
 .lixeira{
+  display: flex;
   position: relative;
-  top: 1px;
   width: 35px;
   height: 35px;
+  left: 5%;
 }
 
 .status{
@@ -88,6 +97,7 @@
 
 .etapaImg{
   position: relative;
+  left: 19%;
 }
 
 .card-body{
@@ -136,11 +146,11 @@
 h3:before{
   content: "";
   position: absolute;
-  border-bottom: 1px solid #333333;
+  border-bottom: 3px solid #333333;
   width: 100%;
   top: 50px;
   left: 0px;
-  bottom:0;
+  /* bottom:0; */
 }
 
 .titulo:after{
