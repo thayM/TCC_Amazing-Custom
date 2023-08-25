@@ -10,14 +10,36 @@
 
 /* CARDS */
 .card-produto{
-  min-height: 180px;
+  min-height: 165px;
+}
+
+.content_card-produto{
+  overflow: hidden;
 }
 
 .content_card-produto h3{
   margin: 5px 0;
   font-size: 1.4rem;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
 }
 
 .content_card-produto p{
   font-size: 1.25rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Animação */
+.card-produto:hover .content_card-produto p{
+  -webkit-line-clamp: 0;
+  -webkit-box-orient: horizontal;
+}
+
+.card-produto:hover .content_card-produto h3{
+  white-space: normal; 
 }

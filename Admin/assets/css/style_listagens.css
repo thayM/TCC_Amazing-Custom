@@ -106,6 +106,7 @@
 }
 
 .content_card-produto p{
+  margin: 0;
   word-break: break-word;
   color: var(--light-color);
 }
