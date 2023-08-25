@@ -11,7 +11,8 @@ create table ADM(
 create table MODELO(
     cod_modelo int primary key auto_increment,
     nome_modelo varchar(50) not null,
-    valor_modelo decimal(6,2) not null
+    valor_modelo decimal(6,2) not null,
+    nomeArq_modelo varchar(500) not null
 );
 
 create table FRAGRANCIA(
@@ -81,3 +82,4 @@ add constraint fk_pedidoProduto_produto
 foreign key (fkcod_prod)
 references PRODUTO(cod_prod);
 
+INSERT INTO adm(nome_adm,senha_adm) VALUES("123","123");

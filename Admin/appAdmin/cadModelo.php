@@ -10,16 +10,16 @@ include_once('../components/header.php');
 </head>
 
 <div class="container_modal justify-content-center align-items-center">
-  <form class="box" action="" enctype="multipart/form-data">
+  <form class="box"  method="POST" action="./functions/func_cadMod.php" enctype="multipart/form-data">
     <div class="content_modal d-flex justify-content-between flex-column">
       <img onclick="removeStyle()" src="../assets/icons/x.svg" alt="fechar" class="fechar">
       <h3>Adicionar novo modelo</h3>
       <div class="modal_input-nome ">
         <label for="modNome">Nome</label>
-        <input type="text" id="nome__Modelo" placeholder="Nome do modelo">
+        <input type="text" id="nome__Modelo" name="nome__Modelo" placeholder="Nome do modelo">
 
         <label for="valor">Valor</label>
-        <input type="number" id="valor__Modelo" name="valor" placeholder="R$ 00,00">
+        <input type="number" id="valor__Modelo" name="valor__Modelo" placeholder="R$ 00,00">
       </div>
 
       <div class="upload-area" onclick="procurarArqClick()" ondrop="uploadArq(event)" ondragover="return false">
@@ -40,7 +40,7 @@ include_once('../components/header.php');
   var areaUpload = document.querySelector(".upload-area")
   var areaTxt = document.querySelector("#upload-txt")
   var input = document.querySelector("#input")
-
+  
   var fileobj, file
 
   areaUpload.addEventListener("dragover", (event) => {
@@ -86,13 +86,14 @@ include_once('../components/header.php');
         let urlArq = leitorArq.result
         let img = `
         <div>
-        <img src="${urlArq}" alt="">
+        <img id="img" src="${urlArq}" alt="">
         <button onclick="reset()">X</button>
         </div>`
         console.log(img)
         areaUpload.innerHTML = img
       }
       leitorArq.readAsDataURL(file);
+    
     } else {
       alert("Extensão invalida! Selecione um arquivo válido(.jpeg/.jpg/.png)")
       areaTxt.textContent = "Arraste e solte o arquivo aqui"
@@ -113,22 +114,21 @@ include_once('../components/header.php');
   }
 
   function updateJsArq() {
-    if (fileobj != undefined) {
-      var form_data = new FormData();
-      form_data.append('file', fileobj);
-      var xhttp = new XMLHttpRequest();
-      xhttp.open("POST", "../functions/uploadFile.php", true);
-      xhttp.onload = function(event) {
+    if(file_obj != undefined) {
+        var form_data = new FormData();                  
+        form_data.append('file', fileobj);
 
-        if (xhttp.status == 200) {
-          console.log("Uploaded!");
-        } else {
-          alert(xhttp.status);
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "./functions/func_cadMod.php", true);
+        xhttp.onload = function(event) {
+            if (xhttp.status == 200) {
+              console.log("Uploaded!");
+            } else {
+              alert(xhttp.status);
+            }
         }
-      }
-      xhttp.send(form_data);
-    }else{
-      alert("INSIRA UMA IMAGEM")
+ 
+        xhttp.send(form_data);
     }
   }
 </script>
