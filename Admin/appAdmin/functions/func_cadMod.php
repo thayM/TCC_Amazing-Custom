@@ -1,22 +1,23 @@
 <?php
 require '../../../lib/conn.php';
-var_dump($_FILES['file']);
+var_dump($_FILES['file']); 
+var_dump($_POST); 
 
 if(isset($_FILES['file'])){
     
-    $arr_file_types = ['image/png', 'image/gif', 'image/jpg', 'image/jpeg'];
+    $arr_file_types = ['image/png','image/jpg', 'image/jpeg'];
 
     if (!(in_array($_FILES['file']['type'], $arr_file_types))) {
         echo "false";
         return;
     }
-    if (!file_exists('../../../file')) {
-        mkdir('../../../file', 0777);
+    if (!file_exists('../../../upload')) {
+        mkdir('../../../upload', 0777);
     }
     
     $filename = time().'_'.$_FILES['file']['name'];
     
-    if(move_uploaded_file($_FILES['file']['tmp_name'], '../../../upload'.$filename)){
+    if(move_uploaded_file($_FILES['file']['tmp_name'], '../../../upload/'.$filename)){
     
     extract($_POST);
 
@@ -28,7 +29,7 @@ if(isset($_FILES['file'])){
     $stmt->bindValue(":nomeArq", $filename);
     $stmt->execute();
     };
-    }
+}
 echo "A";
 
 ?>

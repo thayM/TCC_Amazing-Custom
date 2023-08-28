@@ -22,115 +22,22 @@ include_once('../components/header.php');
         <input type="number" id="valor__Modelo" name="valor__Modelo" placeholder="R$ 00,00">
       </div>
 
-      <div class="upload-area" onclick="procurarArqClick()" ondrop="uploadArq(event)" ondragover="return false">
+      <div class="upload-area">
         <div class="upload-area_border d-flex justify-content-center align-items-center">
           <p id="upload-txt">Arraste e solte a imagem aqui</p>
-          <input type="file" id="input" hidden>
+          <input type="file" name="file" id="input">
         </div>
       </div>
 
       <div class="btn-cadastro d-flex justify-content-end">
-        <button type="submit" onclick="updateJsArq()" class="btn-cadastrar">Cadastrar</button>
+        <button type="submit" class="btn-cadastrar">Cadastrar</button>
       </div>
     </div>
   </form>
 </div>
 
 <script>
-  var areaUpload = document.querySelector(".upload-area")
-  var areaTxt = document.querySelector("#upload-txt")
-  var input = document.querySelector("#input")
   
-  var fileobj, file
-
-  areaUpload.addEventListener("dragover", (event) => {
-    event.preventDefault()
-    areaTxt.textContent = "Solte o arquivo aqui"
-  })
-
-  areaUpload.addEventListener("dragleave", (event) => {
-    event.preventDefault()
-    areaTxt.textContent = "Arraste e solte o arquivo aqui"
-  })
-
-  areaUpload.addEventListener("drop", (event) => {
-    event.preventDefault()
-    file = event.dataTransfer.files[0]
-    showImg()
-  })
-
-  input.addEventListener("change", function() {
-    file = this.files[0]
-    showImg()
-  })
-
-
-  function procurarArqClick() {
-    input.click()
-    procurarArq()
-  }
-  function reset(){
-    div=`<div class="upload-area_border d-flex justify-content-center align-items-center">
-          <p id="upload-txt">Arraste e solte a imagem aqui</p>
-          <input type="file" id="input" hidden>
-        </div>`
-    areaUpload.innerHTML = div
-  }
-  function showImg() {
-    let tipoArq = file.type
-    let tiposAceitados = ["image/jpeg", "image/jpg", "image/png"]
-
-    if (tiposAceitados.includes(tipoArq)) {
-      let leitorArq = new FileReader()
-      leitorArq.onload = () => {
-        let urlArq = leitorArq.result
-        let img = `
-        <div>
-        <img id="img" src="${urlArq}" alt="">
-        <button onclick="reset()">X</button>
-        </div>`
-        console.log(img)
-        areaUpload.innerHTML = img
-      }
-      leitorArq.readAsDataURL(file);
-    
-    } else {
-      alert("Extensão invalida! Selecione um arquivo válido(.jpeg/.jpg/.png)")
-      areaTxt.textContent = "Arraste e solte o arquivo aqui"
-    }
-  }
-
-  function uploadArq(e) {
-    e.preventDefault()
-    fileobj = e.dataTransfer.files[0]
-    
-  }
-
-  function procurarArq() {
-    document.getElementById('input').onchange = function() {
-      fileobj = document.getElementById('input').files[0];
-      
-    }
-  }
-
-  function updateJsArq() {
-    if(file_obj != undefined) {
-        var form_data = new FormData();                  
-        form_data.append('file', fileobj);
-
-        var xhttp = new XMLHttpRequest();
-        xhttp.open("POST", "./functions/func_cadMod.php", true);
-        xhttp.onload = function(event) {
-            if (xhttp.status == 200) {
-              console.log("Uploaded!");
-            } else {
-              alert(xhttp.status);
-            }
-        }
- 
-        xhttp.send(form_data);
-    }
-  }
 </script>
 
 <body>
