@@ -1,61 +1,48 @@
-.nomeCli{
-    color: #ff6600;
-    font-size: 64px;
+.card-pedidos{
     position: relative;
-    margin-top: 7%;
-    left: -45%;
+    margin-top: 5%;
+    width: 1006px;
 }
 
-.pedidos{
-    position: relative;
-    margin-top: 2%;
-    width: 1006px;
-    border: 2px solid #333333;
-    border-radius: 20px;
-}
-  
-.data{
-    margin: 0;
-    position: relative;
-    top: 8px;
+.nomeClie{
+    margin: 5px 0;
+    width: 50%;
     font-size: 20px;
 }
-  
+
+.data{
+    margin: 0;
+    font-size: 20px;
+}
+
 .imgData{
     position: relative;
     margin-left: 10px;
-    width: 26px;
-    height: 26px;
-    top: 10px;
 }
-  
+
 .status{
     background-color: var(--first-grayscale);
     padding: 0 10px;
-    width: 35%;
+    width: 32%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     border-radius: 0 5px 0 0;
 }
-  
+
 .etapa{
     position: relative;
     font-size: 20px;
     margin: 0;
 }
-  
-.etapaImg{
-    position: relative;
-}
-  
+
 .card-body{
     display: flex;
+    width: 100%;
     min-height: 180px;
     justify-content: space-between;
     padding: 0;
 }
-  
+
 .card-header{
     height: 45px;
     width: 100%;
@@ -63,89 +50,98 @@
     background-color: var(--second-grayscale);
     color: var(--light-color);
     padding: 0;
+    border-radius: 5px 5px 0 0;
 }
-  
+
 .card-header .cabecalho{
     padding: 0 10px;
-    width: 65%;
+    width: 66%;
     display: flex;
     justify-content: space-between;
-  }
-  
+    border-bottom: 2px solid #333333;
+}
+
 .card-header .cabecalho div{
     display: flex;
     align-items: center;
 }
-  
+
 .card-title{
     color: var(--light-color);
-    width: 35%;
+    width: 335px;
     background-color: var(--second-grayscale);
     margin: 0;
     text-align: center;
 }
-  
+
 .card-title h3{
-    margin-top: 9px;
-    height: 40px;
-    line-height: 1.5;
+    height: 55px;
+    line-height: 2.5;
     position: relative;
 }
-  
-h3:before{
-    content: "";
-    position: absolute;
-    border-bottom: 1px solid #333333;
-    width: 100%;
-    top: 50px;
-    left: 0px;
-    bottom:0;
+
+h3{
+    border-bottom: 2px solid #333333;
 }
-  
-.titulo:after{
-    content: "";
-    position: absolute;
-    border: 1px solid #333333;
-    height: 60px;
-    left: -17px;
-    top: -10px;
+
+.titulo{
+    margin:0;
 }
-  
-.divInfo:after{
-    content: "";
-    position: absolute;
-    border: 1px solid #333333; 
-    min-height: 120px;
-    left: 317px;
-    top: 105px;
-} 
-  
-.divInfo2:after{
-    content: "";
-    position: absolute;
-    border: 1px solid #333333; 
-    min-height: 120px;
-    left: 651px;
-    top: 105px;
-} 
-  
+
 .card-title:nth-child(1){
     border-radius: 0 0 0 5px;
 }
-  
+
+.card-title:nth-child(2){
+    border-left: 2px solid #333333;
+}
+
 .card-title:nth-child(3){
+    border-left: 2px solid #333333;
     border-radius: 0 0 5px 0 ;
 }
-  
+
 .card-text{
     color: var(--light-color);
     width: 100%;
     font-size: 28px;
 }
-  
+
 .cardInfo{
     height: 70%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/* Modal */
+
+.modal{
+    display: flex;
+    width: 60%;
+    height: 50%;
+    background-color: #333333;
+}
+
+.container_modal{
+position: fixed;
+width: 100%;
+height: 100%;
+z-index: 2;
+}
+
+.tituloEsq{
+    color: #FF6600;
+}
+
+.atributo{
+    color: #ffffff;
+}
+
+.tituloEsq{
+    border-bottom: 2px dashed #898989;
+}
+
+.parteDir{
+    border-left: 2px dashed #898989;
 }

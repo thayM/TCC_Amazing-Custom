@@ -1,25 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de rastreio</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/style_modal.css">
-</head>
-<body>
 
-<div class="modal" tabindex="-1" role="dialog">
-    <img src="assets/img/wepik-export-20230522104437k8p5 1.png" class="img" alt="ilustração">
-    <div class="modal-body">
-        <h2 class="titulo">Bem-vindo(a) ao rastreamento!</h2>
-            <div class="search">
-                <input type="text" name="" id="barraBusca" placeholder="Cole seu código aqui...">
-                <button class="btnCod"><img src="../Cliente/assets/img/lupa.svg" alt=""></button>
-            </div>
+
+<head>
+    <link rel="stylesheet" href="assets/css/style_rastreio.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>Página de rastreio</title>
+</head>
+
+
+<div class="container_modal">
+    <div class="modal">
+    <div class="parteEsq">
+        <h2 class="tituloEsq">Dados do pedido</h2>
+        <p class="atributo">N° pedido:</p>
+        <p class="atributo">Cliente:</p>
+        <p class="atributo">Modelo:</p>
+        <p class="atributo">Fragrância:</p>
+        <p class="atributo">Sub valor: R$--,--</p>
+        <p class="atributo">Frete: R$--,--</p>
+        <p class="atributo">Valor total: R$--,--</p>
     </div>
+
+    <div class="parteDir">
+        <div class="linha"></div>
+    </div>
+<button onclick="removeStyle()" class="fechar">fechar</button>
+</div>
 </div>
 
+<body>
+<header class="d-flex align-items-center justify-content-between">
+    <a href="../appAdmin/home.php">
+      <img src="../assets/img/Logo.png" alt="Logo" class="logo">
+    </a>
+
+  </header>
+
+<main>
+    <div class="card-pedidos">
+        <div class="card-header">
+            <div class="cabecalho">
+                <p class="nomeClie">Neusa</p>
+            <div onclick="addStyle()" class="produto_btn">
+                <p class="data">20/02/2020</p>
+                <img class="imgData" src="../assets/img/🦆 icon _Alternate External Link_.png" alt=""></img>
+            </div>
+            </div>
+            <div class="status">
+                <p class="etapa">Arte finalizada</p>
+            </div>
+        </div>
+
+    <div class="card-body">
+        <div class="card-title">
+            <h3 class="titulo">MODELO</h3>
+            <div class="cardInfo">
+                <img src="" alt="">
+                <p class="card-text">Quadrado</p>
+            </div>
+        </div>
+
+    <div class="card-title">
+        <h3 class="titulo">FRAGRÂNCIA</h3>
+        <div class="cardInfo">
+            <p class="card-text">Gold</p>
+        </div>
+    </div>
+
+    <div class="card-title">
+        <h3 class="titulo">QUANTIDADE</h3>
+        <div class="cardInfo">
+            <p class="card-text">150</p>
+        </div>
+    </div>
+    </div>
+</div>
+</main>
+<script src="../Admin/assets/js/modal.js"></script>
 </body>
-</html>
