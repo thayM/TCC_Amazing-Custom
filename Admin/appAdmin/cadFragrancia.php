@@ -53,6 +53,7 @@ $fragrancias = $stmt->fetchAll(PDO::FETCH_OBJ);
         foreach ($fragrancias as $fragrancia) {
         ?>
           <div class="card-produto d-flex flex-column justify-content-between">
+            <div class="inner">
             <div class="content_card-produto">
               <h3><?= $fragrancia->nome_frag ?></h3>
               <p><?= $fragrancia->desc_frag ?></p>
@@ -66,6 +67,7 @@ $fragrancias = $stmt->fetchAll(PDO::FETCH_OBJ);
                   <img src="../assets/icons/trash-alt.svg" alt="excluir">
                 </a>
               </button>
+            </div>
             </div>
           </div>
 

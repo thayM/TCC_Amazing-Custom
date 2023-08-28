@@ -11,11 +11,20 @@
 /* CARDS */
 .card-produto{
   min-height: 165px;
+  max-height: 165px;
+  position: relative;
 }
 
-.content_card-produto{
-  overflow: hidden;
+.card-produto .inner{
+  width: 100%;
+  min-height: 165px;
+  padding: 20px;
+  background-color: var(--second-grayscale);
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: 100ms all;
 }
+
 
 .content_card-produto h3{
   margin: 5px 0;
@@ -35,6 +44,13 @@
 }
 
 /* Animação */
+.card-produto .inner:hover{
+  z-index: 5;
+  min-height: 300px;
+
+
+}
+
 .card-produto:hover .content_card-produto p{
   -webkit-line-clamp: 0;
   -webkit-box-orient: horizontal;
