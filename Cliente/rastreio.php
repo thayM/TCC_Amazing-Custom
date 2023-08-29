@@ -22,7 +22,43 @@
 
     <div class="parteDir">
         <div class="linha"></div>
+        <div class="etapas">
+            <div class="etapaPag">
+                <img src="assets/img/fi-sr-dollar.svg" alt="">
+                <p>Pagamento</p>
+            </div>
+            <div class="etapaArt">
+                <img src="assets/img/fi-sr-edit-alt.svg" alt="">
+                <p>Arte</p>
+            </div>
+            <div class="etapaProd">
+                <img src="assets/img/fi-sr-settings.svg" alt="">
+                <p>Produção</p>
+            </div>
+            <div class="etapaEnvio">
+                <img src="assets/img/Vector.svg" alt="">
+                <p>Envio</p>
+            </div>
+        </div>
+
+        <div class="dirInferior">
+        <div class="descEtapas">
+            <p>Arte finalizada</p>
+            <p>--/--/----</p>
+            <p>--:--</p>
+        </div>
+
+        <div class="endereco">
+            <p>Rua:</p>
+            <p>N°:</p>
+            <p>Bairro:</p>
+            <p>Cidade:</p>
+            <p>CEP:</p>
+            <p>Complemento:</p>
+        </div>
+        </div>
     </div>
+
 <button onclick="removeStyle()" class="fechar">fechar</button>
 </div>
 </div>

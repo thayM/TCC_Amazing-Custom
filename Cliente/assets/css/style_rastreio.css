@@ -120,14 +120,24 @@ h3{
     display: flex;
     width: 60%;
     height: 50%;
-    background-color: #333333;
+    /* background-color: #333333; */
+    background-color: #ecb3b3;
+    border-radius: 10px;
 }
 
 .container_modal{
-position: fixed;
-width: 100%;
-height: 100%;
-z-index: 2;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    justify-content: center;
+    top: 20%;
+}
+
+.parteEsq{
+    position: relative;
+    left: 5%;
+    font-size: 24px;
 }
 
 .tituloEsq{
@@ -143,5 +153,27 @@ z-index: 2;
 }
 
 .parteDir{
+    border-left: 2px dashed #898989;
+    position: relative;
+    left: 20%;
+    font-size: 24px;
+}
+
+.etapas{
+    display: flex;
+    justify-content: space-between;
+}
+
+.fechar{
+    width: 10%;
+    height: 5%;
+}
+
+.dirInferior{
+    display: flex;
+    border-top: 2px dashed #898989;
+}
+
+.endereco{
     border-left: 2px dashed #898989;
 }
