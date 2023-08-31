@@ -5,10 +5,10 @@
   --secondary-color: rgba(255, 255, 161, 1);
   --tertiary-color: rgba(226, 90, 0, 0.74);
 
-  --background-color: rgba(51, 51, 51, 1);
+  --background-color: rgb(51, 51, 51);
 
-  --first-grayscale: rgba(37, 37, 37, 1);
-  --second-grayscale: rgba(73, 73, 73, 1);
+  --first-grayscale: rgb(37, 37, 37);
+  --second-grayscale: rgb(73, 73, 73);
 
   --light-color: rgba(255, 255, 255, 1);
   --input-color: rgba(255, 255, 255, 0.4);
