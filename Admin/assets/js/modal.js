@@ -1,6 +1,6 @@
-const modal = document.querySelector(".container_modal");
+const modal = document.querySelector(".modalCad");
 const btn = document.querySelector(".produto_btn");
-const fechar = document.querySelector(".fechar");
+const fechar = document.querySelector(".fecharCad");
 
 fecharModal();
 function abrirModal() {

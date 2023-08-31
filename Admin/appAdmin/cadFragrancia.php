@@ -1,5 +1,7 @@
 <?php
 include_once('../components/header.php');
+include_once('../components/modalExclusao.php');
+
 require "../../lib/conn.php";
 $sqlSelect = "SELECT * FROM fragrancia";
 $stmt = $conn->query($sqlSelect);
@@ -12,10 +14,12 @@ $fragrancias = $stmt->fetchAll(PDO::FETCH_OBJ);
   <link rel="stylesheet" href="../assets/css/style_fragrancia.css">
   <title>Cadastro Fragrância</title>
 </head>
-<div class="container_modal justify-content-center align-items-center">
+
+
+<div class="container_modal justify-content-center align-items-center modalCad">
   <form action="./functions/func_cadFrag.php" method="POST">
     <div class="content_modal d-flex justify-content-between flex-column">
-      <img onclick="removeStyle()" src="../assets/icons/x.svg" alt="fechar" class="fechar">
+      <img onclick="removeStyle()" src="../assets/icons/x.svg" alt="fechar" class="fechar fecharCad">
       <h3>Adicionar nova fragrância</h3>
       <div class="modal_input-nome">
         <label for="nomeFrag">Nome</label>
@@ -28,6 +32,7 @@ $fragrancias = $stmt->fetchAll(PDO::FETCH_OBJ);
     </div>
   </form>
 </div>
+
 
 <body>
   <main class="w-100 d-flex flex-column align-items-center">
@@ -62,10 +67,8 @@ $fragrancias = $stmt->fetchAll(PDO::FETCH_OBJ);
               <button>
                 <img src="../assets/icons/pen.svg" alt="editar">
               </button>
-              <button>
-                <a href="../appAdmin/cadFragrancia.php?fragExclusao=<?= $fragrancia->cod_frag ?>">
-                  <img src="../assets/icons/trash-alt.svg" alt="excluir">
-                </a>
+              <button onclick="abrirModalExcluir(<?=$fragrancia->cod_frag?>, '<?=$fragrancia->nome_frag?>')">
+              <img src="../assets/icons/trash-alt.svg" alt="excluir">
               </button>
             </div>
             </div>
@@ -78,13 +81,6 @@ $fragrancias = $stmt->fetchAll(PDO::FETCH_OBJ);
     </div>
   </main>
   <script src="../assets/js/modal.js"></script>
-  <?php
-  if (isset($_GET['fragExclusao']) == 1) {
-    include_once('../components/modalExclusao.php');
-  ?>
-    <script>addStyle()</script>
-  <?php
-  }
-  ?>
+  <script src="../assets/js/modalFrag.js"></script>
 </body>
 </html>
