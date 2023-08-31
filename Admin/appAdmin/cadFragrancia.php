@@ -58,19 +58,19 @@ $fragrancias = $stmt->fetchAll(PDO::FETCH_OBJ);
         foreach ($fragrancias as $fragrancia) {
         ?>
           <div class="card-produto d-flex flex-column justify-content-between">
-            <div class="inner">
-            <div class="content_card-produto">
-              <h3><?= $fragrancia->nome_frag ?></h3>
-              <p><?= $fragrancia->desc_frag ?></p>
-            </div>
-            <div class="container_btn footer_card-produto d-flex justify-content-end">
-              <button>
-                <img src="../assets/icons/pen.svg" alt="editar">
-              </button>
-              <button onclick="abrirModalExcluir(<?=$fragrancia->cod_frag?>, '<?=$fragrancia->nome_frag?>')">
-              <img src="../assets/icons/trash-alt.svg" alt="excluir">
-              </button>
-            </div>
+            <div class="inner d-flex flex-column justify-content-between">
+              <div class="content_card-produto">
+                <h3><?= $fragrancia->nome_frag ?></h3>
+                <p><?= $fragrancia->desc_frag ?></p>
+              </div>
+              <div class="container_btn footer_card-produto d-flex justify-content-end">
+                <button>
+                  <img src="../assets/icons/pen.svg" alt="editar">
+                </button>
+                <button onclick="abrirModalExcluir(<?=$fragrancia->cod_frag?>, '<?=$fragrancia->nome_frag?>')">
+                <img src="../assets/icons/trash-alt.svg" alt="excluir">
+                </button>
+              </div>
             </div>
           </div>
 
@@ -82,5 +82,6 @@ $fragrancias = $stmt->fetchAll(PDO::FETCH_OBJ);
   </main>
   <script src="../assets/js/modal.js"></script>
   <script src="../assets/js/modalFrag.js"></script>
+  <script src="../assets/js/style.js"></script>
 </body>
 </html>
