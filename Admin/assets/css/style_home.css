@@ -1,5 +1,7 @@
 .search{
   margin-top: 4%;
+  display: flex;
+  justify-content: space-between;
 }
 
 #barraBusca{
@@ -9,19 +11,20 @@
   border-radius: 10px;
 }
 
-.btn{
-  width: 65px;
+.btnBuscar{
+  width: 45px;
   height: 45px;
   position: relative;
-  top: -1.5px;
-  left: -70px;
+  left: -5%;  
   background-color: #ff6600;
   border: 1px solid #ff6600;
   border-radius: 0 10px 10px 0px;
 }
 
-.btn:hover{
-  background-color: #ff6600;
+.imgFilter{
+  position: relative;
+  top: -7px;
+  left: -4%;
 }
 
 .card-pedidos{
@@ -53,14 +56,8 @@
   justify-content: space-between;
   padding: 10px;
   align-items: center;
-}
-
-.icons:after{
-  content: " ";
-  position: absolute;
-  border: 1px solid #333333;
-  height: 20%;
-  left: 59%;
+  border-bottom: 2px solid #333333;
+  border-left: 2px solid #333333;
 }
 
 .caneta{
@@ -115,6 +112,7 @@
   background-color: var(--second-grayscale);
   color: var(--light-color);
   padding: 0;
+  border-radius: 5px 5px 0 0;
 }
 
 .card-header .cabecalho{
@@ -122,6 +120,7 @@
   width: 65%;
   display: flex;
   justify-content: space-between;
+  border-bottom: 2px solid #333333;
 }
 
 .card-header .cabecalho div{
@@ -144,49 +143,18 @@
   position: relative;
 }
 
-h3:before{
-  content: "";
-  position: absolute;
-  border-bottom: 3px solid #333333;
-  width: 100%;
-  top: 50px;
-  left: 0px;
-  /* bottom:0; */
+h3{
+  border-bottom: 2px solid #333333;
 }
-
-.titulo:after{
-  content: "";
-  position: absolute;
-  border: 1px solid #333333;
-  height: 60px;
-  left: -17px;
-  top: -10px;
-}
-
-.divInfo:after{
-  content: "";
-  position: absolute;
-  border: 1px solid #333333; 
-  min-height: 120px;
-  left: 317px;
-  top: 105px;
-} 
-
-.divInfo2:after{
-  content: "";
-  position: absolute;
-  border: 1px solid #333333; 
-  min-height: 120px;
-  left: 651px;
-  top: 105px;
-} 
 
 .card-title:nth-child(1){
   border-radius: 0 0 0 5px;
+  border-right: 2px solid #333333;
 }
 
 .card-title:nth-child(3){
   border-radius: 0 0 5px 0;
+  border-left: 2px solid #333333;
 }
 
 .card-text{

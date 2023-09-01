@@ -1,15 +1,17 @@
 <?php
   include_once('../components/header.php');
-?>
+?> 
 <head>
   <link rel="stylesheet" href="../assets/css/style_home.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
   <title>Home | Listagem Pedidos</title>
 </head>
 
 <body>
   <div class="search">
       <input type="text" name="" id="barraBusca" placeholder="Buscar...">
-      <button class="btn"><img src="../assets/icons/lupa.svg" alt=""></button>
+      <button class="btnBuscar"><img src="../assets/icons/lupa.svg" alt=""></button>
+      <img src="../assets/icons/Filter.svg" class="imgFilter" alt="">
   </div>
 
   <div class="card-pedidos">
@@ -33,7 +35,7 @@
 
     <div class="card-body">
       <div class="card-title">
-        <h3>MODELO</h3>
+        <h3 class="titulo">MODELO</h3>
         <div class="cardInfo">
             <img src="" alt="">
             <p class="card-text">Quadrado</p>
@@ -43,14 +45,14 @@
       <div class="card-title">
         <h3 class="titulo">FRAGRÂNCIA</h3>
         <div class="cardInfo">
-          <p class="card-text divInfo">Gold</p>
+          <p class="card-text">Gold</p>
         </div>
       </div>
 
       <div class="card-title">
-        <h3 class="titulo">QUANTIDADE</h3>
+        <h3>QUANTIDADE</h3>
         <div class="cardInfo">
-          <p class="card-text divInfo2">150</p>
+          <p class="card-text">150</p>
         </div>
       </div>
     </div>
