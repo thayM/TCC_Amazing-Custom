@@ -7,7 +7,7 @@
         CANCELAR
       </button>
       <div class="divExcluir">
-        <button class="btn_modal excluir" onclick="">
+        <button class="btn_modal excluir" onclick="fecharModalExcluir()">
           EXCLUIR
         </button>
       </div>

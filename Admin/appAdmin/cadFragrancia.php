@@ -80,8 +80,8 @@ $fragrancias = $stmt->fetchAll(PDO::FETCH_OBJ);
       </div>
     </div>
   </main>
+  <script src="../assets/js/style.js"></script> 
   <script src="../assets/js/modal.js"></script>
   <script src="../assets/js/modalFrag.js"></script>
-  <script src="../assets/js/style.js"></script>
 </body>
 </html>
