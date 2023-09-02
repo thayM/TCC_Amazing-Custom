@@ -28,19 +28,3 @@ function fecharModalExcluir() {
 cancelarExcluir.addEventListener("click", () => {
     fecharModalExcluir();
 });    
-
-
-
-// Elementos para adicionar style css
-
-function addStyle() {
-    body.classList.add("overflow");
-    header.classList.add("blur");
-    main.classList.add("blur");
-}
-
-function removeStyle() {
-    body.classList.remove("overflow");
-    header.classList.remove("blur");
-    main.classList.remove("blur");
-}
