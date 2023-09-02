@@ -127,7 +127,8 @@ select {
   padding: 20px 40px;
   border-radius: 10px;
   width: 500px;
-  height: 300px;
+  min-height: 300px;
+  word-wrap: break-word;
   background: var(--background-color);
 }
 .content_modal-php h3{
@@ -157,19 +158,10 @@ select {
 .btn_modal.cancelar{
   border: 3px solid var(--primary-color);
   background: transparent;
+  color: var(--primary-color);
 }
 .btn_modal.excluir{
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   background: var(--primary-color);
-}
-.btn_modal a{
-  text-decoration: none;
   color: var(--light-color);
-}
-.btn_modal.excluir a{
-  padding: 15px 35px;
-}
-.btn_modal.cancelar a{
-  padding: 15px 20px;
-  color: var(--primary-color);
 }

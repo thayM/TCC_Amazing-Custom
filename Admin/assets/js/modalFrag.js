@@ -12,7 +12,7 @@ function excluirFrag(id){
 
 function abrirModalExcluir(cod, nome) {
     modalExcluir.style.display = "flex";
-    msgExclusão.textContent = `Tem certeza que quer apagar item ${nome}?`
+    msgExclusão.textContent = `Tem certeza que quer apagar item "${nome}"?`
     addStyle()
     excluir.innerHTML=`
     <button class="btn_modal excluir" onclick="excluirFrag(${cod})">
