@@ -1,5 +1,9 @@
 <?php
   include_once('../components/header.php');
+  require "../../lib/conn.php";
+  $sqlSelect = "SELECT * FROM Cliente";
+  $stmt = $conn->query($sqlSelect);
+  $clientes = $stmt->fetchAll(PDO::FETCH_OBJ);
 ?>
 
 <head>
@@ -16,24 +20,30 @@
 </div>
 
 <div class="card">
+    <?php
+    foreach ($clientes as $cliente) {
+    ?>
     <div class="card-body">
         <div class="coluna">
-            <h3 class="card-title">José da Silva</h3>
-            <h5 class="card-subtitle">josedasilva928@gmail.com</h5>
+            <h3 class="card-title">Nome:<?= $cliente->nome?></h3>
+            <h5 class="card-subtitle">Email:<?= $cliente->email?></h5>
+        </div>
+        <?php
+        $telefones = explode("/",$cliente->tel);
+        ?>
+        <div class="coluna">
+            <p class="card-text">Tel:<?=$telefones[0]?></p>
+        <?php
+        if ($telefones[1]!="") {
+            ?> 
+                <p class="card-text">Tel:<?=$telefones[1]?></p>
+            <?php
+        }
+        ?>
         </div>
 
         <div class="coluna">
-            <p class="card-text">Tel 1: 15 99999-9999</p>
-            <p class="card-text">Tel 2: 15 99999-9999</p>
-        </div>
-
-        <div class="coluna">
-            <p class="card-text">Rua Domingos dos Santos Filho, 1110, Vila Dr. Laurindo, Tatuí-SP</p>
-
-            <div class="infoBaixo">
-            <p class="card-text">CEP: 12039-293</p>
-            <p class="card-text">Compl: casa</p>
-            </div>
+            <p class="card-text">Endereço:<?= $cliente->endereco?></p>
         </div>
 
         <div class="colunaImg">
@@ -41,6 +51,9 @@
             <img src="../assets/icons/trash-alt.svg" alt="">
         </div>
     </div>
+    <?php
+    }
+    ?>
 </div>
 
 </body>
