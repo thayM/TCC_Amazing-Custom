@@ -118,8 +118,9 @@ h3{
 
 .modal{
     display: flex;
-    width: 60%;
-    height: 50%;
+    width: 980px;
+    height: 463px;
+    justify-content: space-between;
     /* background-color: #333333; */
     background-color: #ecb3b3;
     border-radius: 10px;
@@ -142,21 +143,24 @@ h3{
 
 .tituloEsq{
     color: #FF6600;
+    border-bottom: 2px dashed #898989;
+    margin: 35px -10px;
+
 }
 
 .atributo{
+    margin: 10px;
     color: #ffffff;
 }
 
-.tituloEsq{
-    border-bottom: 2px dashed #898989;
-}
-
 .parteDir{
+    display: flex;
     border-left: 2px dashed #898989;
     position: relative;
-    left: 20%;
     font-size: 24px;
+    flex-direction: column;
+    justify-content: center;
+    width: 600px;
 }
 
 .etapas{
@@ -164,16 +168,43 @@ h3{
     justify-content: space-between;
 }
 
+.linha{
+    background-color: red;
+    width: 516px;
+    height: 6px;
+    border-color: red;
+    border-style: none;
+}
+
+.circEtapas{
+    margin: -10px;
+    display: flex;
+    justify-content: space-between;    
+}
+
+.circulo{   
+    background-color: red;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+}
+
 .fechar{
+    position: absolute;
+    top: 3%;
+    left: 4%;
+    z-index: 5;
     width: 10%;
     height: 5%;
 }
 
 .dirInferior{
     display: flex;
+    align-items: center;
     border-top: 2px dashed #898989;
 }
 
 .endereco{
     border-left: 2px dashed #898989;
+    width: 290px;
 }

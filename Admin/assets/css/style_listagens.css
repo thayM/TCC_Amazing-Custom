@@ -36,15 +36,6 @@
   height: 50px;
 }
 
-/* fundo modal */
-.blur{
-  filter: blur(4px);
-  z-index: -1;
-}
-.overflow{
-  overflow: hidden;
-}
-
 /* INPUT PESQUISAR */
 .header_pesquisa{
   margin: 50px 0;

@@ -145,3 +145,11 @@ select {
   color: var(--light-color);
   transition: ease 0.5s;
 }
+/* fundo modal */
+.blur{
+  filter: blur(4px);
+  z-index: -1;
+}
+.overflow{
+  overflow: hidden;
+}

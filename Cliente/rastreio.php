@@ -7,7 +7,7 @@
 </head>
 
 
-<div class="container_modal">
+<div class="container_modal modalCad">
     <div class="modal">
     <div class="parteEsq">
         <h2 class="tituloEsq">Dados do pedido</h2>
@@ -21,22 +21,30 @@
     </div>
 
     <div class="parteDir">
-        <div class="linha"></div>
+            <div class="linha">
+                <div class="circEtapas">
+                    <div class="circulo"></div>
+                    <div class="circulo"></div>
+                    <div class="circulo"></div>
+                    <div class="circulo"></div>
+                </div>
+            </div>
+
         <div class="etapas">
             <div class="etapaPag">
-                <img src="assets/img/fi-sr-dollar.svg" alt="">
+                <img class="icons" src="assets/img/fi-sr-dollar.svg" alt="">
                 <p>Pagamento</p>
             </div>
             <div class="etapaArt">
-                <img src="assets/img/fi-sr-edit-alt.svg" alt="">
+                <img class="icons" src="assets/img/fi-sr-edit-alt.svg" alt="">
                 <p>Arte</p>
             </div>
             <div class="etapaProd">
-                <img src="assets/img/fi-sr-settings.svg" alt="">
+                <img class="icons" src="assets/img/fi-sr-settings.svg" alt="">
                 <p>Produção</p>
             </div>
             <div class="etapaEnvio">
-                <img src="assets/img/Vector.svg" alt="">
+                <img class="icons" src="assets/img/Vector.svg" alt="">
                 <p>Envio</p>
             </div>
         </div>
@@ -59,7 +67,7 @@
         </div>
     </div>
 
-<button onclick="removeStyle()" class="fechar">fechar</button>
+    <img onclick="removeStyle()" src="../Admin/assets/icons/x.svg" alt="fechar" class="fechar fecharCad">
 </div>
 </div>
 
@@ -69,7 +77,7 @@
       <img src="../assets/img/Logo.png" alt="Logo" class="logo">
     </a>
 
-  </header>
+</header>
 
 <main>
     <div class="card-pedidos">
@@ -112,4 +120,5 @@
 </div>
 </main>
 <script src="../Admin/assets/js/modal.js"></script>
+<script src="../Admin/assets/js/style.js"></script>
 </body>
