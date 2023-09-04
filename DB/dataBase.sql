@@ -25,7 +25,7 @@ create table CLIENTE(
     cod_cli int primary key auto_increment,
     nome varchar(50) not null,
     senha varchar(50) not null,
-    tel char(11) not null,
+    tel varchar(40) not null,
     endereco varchar(100) not null,
     email varchar(100) not null
 );

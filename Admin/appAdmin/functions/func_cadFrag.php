@@ -1,5 +1,6 @@
 <?php
 require '../../../lib/conn.php';
+$erro = 0;
 
 foreach ($_POST as $index => $post) {
     if(isset($post) && $post != ""){
@@ -7,7 +8,6 @@ foreach ($_POST as $index => $post) {
     }else{
         $erro = 1;
     }
-
 }
 
 if ($erro==1){

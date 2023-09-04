@@ -3,9 +3,6 @@ const btnExcluir = document.querySelector(".excluir");
 const cancelarExcluir = document.querySelector(".cancelar");
 const msgExclusão = document.querySelector(".msgExclusao");
 const excluir = document.querySelector(".divExcluir")
-
-
-fecharModalExcluir();
 function excluirFrag(id){
     window.location.href=`functions/excluir/func_excluirFrag.php?id=${id}`
 }
@@ -27,4 +24,4 @@ function fecharModalExcluir() {
 
 cancelarExcluir.addEventListener("click", () => {
     fecharModalExcluir();
-});    
+});
