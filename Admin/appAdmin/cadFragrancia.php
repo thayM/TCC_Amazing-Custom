@@ -1,11 +1,22 @@
 <?php
 include_once('../components/header.php');
 include_once('../components/modalExclusao.php');
-
 require "../../lib/conn.php";
-$sqlSelect = "SELECT * FROM fragrancia";
-$stmt = $conn->query($sqlSelect);
-$fragrancias = $stmt->fetchAll(PDO::FETCH_OBJ);
+if(isset($_GET["busca__frag"])){
+  $busca = trim(strip_tags($_GET["busca__frag"]));
+  if($busca==""){
+    ?>
+    <meta http-equiv="refresh" content="0; url=cadFragrancia">
+    <?php
+  }
+  $sqlSelect = "SELECT * FROM fragrancia WHERE nome_frag LIKE '%".$busca."%'";
+  $stmt = $conn->query($sqlSelect);
+  $fragrancias = $stmt->fetchAll(PDO::FETCH_OBJ);
+}else{
+  $sqlSelect = "SELECT * FROM fragrancia";
+  $stmt = $conn->query($sqlSelect);
+  $fragrancias = $stmt->fetchAll(PDO::FETCH_OBJ);
+}
 ?>
 
 <head>
@@ -37,12 +48,12 @@ $fragrancias = $stmt->fetchAll(PDO::FETCH_OBJ);
 <body>
   <main class="w-100 d-flex flex-column align-items-center">
     <div class="header_pesquisa d-flex justify-content-center">
-      <div class="pesquisa_input d-flex">
-        <input type="text" placeholder="Buscar...">
-        <button class="btn-buscar">
+      <form class="pesquisa_input d-flex">
+        <input type="text" name="busca__frag" class="busca" placeholder="Buscar...">
+        <button class="btn-buscar" type="submit">
           <img src="../assets/icons/lupa.svg" alt="lupa">
         </button>
-      </div>
+      </form>
       <div class="container_btn">
 
         <button onclick="addStyle()" type="button" class="produto_btn d-flex justify-content-between">
