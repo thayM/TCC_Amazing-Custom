@@ -1,7 +1,9 @@
 <?php
 include_once('../components/header.php');
 include_once('../components/modalExclusao.php');
+include_once('../components/modalEdicaoFrag.php');
 require "../../lib/conn.php";
+
 if(isset($_GET["busca__frag"])){
   $busca = trim(strip_tags($_GET["busca__frag"]));
   if($busca==""){
@@ -9,11 +11,11 @@ if(isset($_GET["busca__frag"])){
     <meta http-equiv="refresh" content="0; url=cadFragrancia">
     <?php
   }
-  $sqlSelect = "SELECT * FROM fragrancia WHERE nome_frag LIKE '%".$busca."%'";
+  $sqlSelect = "SELECT * FROM fragrancia WHERE nome_frag LIKE '%".$busca."%' ORDER BY cod_frag DESC";
   $stmt = $conn->query($sqlSelect);
   $fragrancias = $stmt->fetchAll(PDO::FETCH_OBJ);
 }else{
-  $sqlSelect = "SELECT * FROM fragrancia";
+  $sqlSelect = "SELECT * FROM fragrancia ORDER BY cod_frag DESC";
   $stmt = $conn->query($sqlSelect);
   $fragrancias = $stmt->fetchAll(PDO::FETCH_OBJ);
 }
@@ -75,7 +77,7 @@ if(isset($_GET["busca__frag"])){
                 <p><?= $fragrancia->desc_frag ?></p>
               </div>
               <div class="container_btn footer_card-produto d-flex justify-content-end">
-                <button>
+                <button onclick="abrirModalEditar(<?=$fragrancia->cod_frag?>, '<?=$fragrancia->nome_frag?>', '<?=$fragrancia->desc_frag?>')">
                   <img src="../assets/icons/pen.svg" alt="editar">
                 </button>
                 <button onclick="abrirModalExcluir(<?=$fragrancia->cod_frag?>, '<?=$fragrancia->nome_frag?>')">
