@@ -25,7 +25,7 @@
         <div class="content_pedido d-flex justify-content-between w-100">
           <p class="divisoria m-0">Pedido</p>
 
-          <button type="button" class="produto_btn d-flex justify-content-between">
+          <button type="button" class="btnAbrirModal produto_btn d-flex justify-content-between">
             Novo Produto
             <span class="produto_btn-add">+</span>
           </button>

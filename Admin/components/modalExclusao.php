@@ -1,3 +1,7 @@
+<head>
+  <link rel="stylesheet" href="../assets/css/style_cadastros.css">
+</head>
+
 <div class="container_modal-php justify-content-center align-items-center modalExcluir">
   <div class="content_modal-php d-flex justify-content-between flex-column">
     <h3 class="msgExclusao"></h3>

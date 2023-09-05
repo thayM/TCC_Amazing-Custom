@@ -1,14 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend&family=Mitr&family=Mukta:wght@300&display=swap");
 
 :root {
-  --primary-color: rgb(255, 102, 0);
+  --primary-color: rgba(255, 102, 0, 1);
   --secondary-color: rgba(255, 255, 161, 1);
   --tertiary-color: rgba(226, 90, 0, 0.74);
 
-  --background-color: rgba(51, 51, 51, 1);
+  --background-color: rgb(51, 51, 51);
 
-  --first-grayscale: rgba(37, 37, 37, 1);
-  --second-grayscale: rgba(73, 73, 73, 1);
+  --first-grayscale: rgb(37, 37, 37);
+  --second-grayscale: rgb(73, 73, 73);
 
   --light-color: rgba(255, 255, 255, 1);
   --input-color: rgba(255, 255, 255, 0.4);
@@ -86,7 +86,9 @@ header {
 }
 
 /* CSS PADRÃO DE INPUTS */
-input, select, textarea {
+input,
+select,
+textarea {
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
@@ -116,53 +118,39 @@ select {
   background-repeat: no-repeat;
 }
 
-/* MODAIS */
-.container_modal-php {
-  display: none;
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  background: var(--bg-input-color);
-}
-.container_modal-php .content_modal-php{
-  padding: 20px 40px;
-  border-radius: 10px;
-  width: 500px;
-  min-height: 300px;
-  word-wrap: break-word;
-  background: var(--background-color);
-}
-.content_modal-php h3{
-  margin: 20px;
-  text-align: center;
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: var(--light-color);
-}
-.content_modal-php p{
-  text-align: center;
-  font-size: 1.2rem;
-  color: var(--input-color);
-}
-
-.btn_modal{
-  margin: 20px 0;
-  border: 0;
-  border-radius: 10px;
-  width: 180px;
-  height: 60px;
-  font-size: 1.5rem;
+/* Btn Adicionar */
+.produto_btn {
+  border: 3px solid var(--primary-color);
+  border-radius: 5px;
+  padding: 5px;
+  min-width: 240px;
+  height: 40px;
+  font-size: 1rem;
   font-weight: bold;
   text-transform: uppercase;
-  transition: .5s;
-}
-.btn_modal.cancelar{
-  border: 3px solid var(--primary-color);
   background: transparent;
   color: var(--primary-color);
+  transition: 0.5s;
 }
-.btn_modal.excluir{
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+.produto_btn-add {
+  margin-left: 10px;
+  font-size: 1.5rem;
+  line-height: 0.9;
+}
+
+.produto_btn:hover {
+  box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
   background: var(--primary-color);
   color: var(--light-color);
+  transition: ease 0.5s;
+}
+
+/* fundo modal */
+.blur{
+  filter: blur(4px);
+  z-index: -1;
+}
+.overflow{
+  overflow: hidden;
 }

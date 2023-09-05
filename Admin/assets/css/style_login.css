@@ -1,5 +1,6 @@
 body{
     background-color: var(--first-grayscale);
+    overflow: hidden;
 }
 
 .imgLeao{
@@ -28,7 +29,6 @@ body{
     background-color: var(--background-color);
     width: 466px;
     height: 60em;
-    overflow: hidden;
 }
 
 #nome{

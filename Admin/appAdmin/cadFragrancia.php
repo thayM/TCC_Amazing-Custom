@@ -56,7 +56,7 @@ if(isset($_GET["busca__frag"])){
       </form>
       <div class="container_btn">
 
-        <button onclick="addStyle()" type="button" class="produto_btn d-flex justify-content-between">
+        <button onclick="addStyle()" type="button" class="btnAbrirModal produto_btn d-flex justify-content-between">
           Adicionar Fragrância
           <span class="produto_btn-add">+</span>
         </button>

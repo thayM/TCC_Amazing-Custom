@@ -10,7 +10,7 @@
 <body>
   
   <div class="imgLeao">
-    <img class="logoLeao" src="../assets/img/leaoamazingLogo.png" alt="brasãoLeão">
+    <img class="logoLeao" src="../assets/img/Logo_leao.png" alt="brasãoLeão">
   </div>
 
   <div class="campos">

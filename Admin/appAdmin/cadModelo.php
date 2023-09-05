@@ -9,10 +9,10 @@ include_once('../components/header.php');
   <title>Cadastro Modelo</title>
 </head>
 
-<div class="container_modal justify-content-center align-items-center">
-  <form class="box"  method="POST" action="./functions/func_cadMod.php" enctype="multipart/form-data">
+<div class="container_modal justify-content-center align-items-center modalCad">
+  <form class="box" method="POST" action="./functions/func_cadMod.php" enctype="multipart/form-data">
     <div class="content_modal d-flex justify-content-between flex-column">
-      <img onclick="removeStyle()" src="../assets/icons/x.svg" alt="fechar" class="fechar">
+      <img onclick="removeStyle()" src="../assets/icons/x.svg" alt="fechar" class="fechar fecharCad">
       <h3>Adicionar novo modelo</h3>
       <div class="modal_input-nome ">
         <label for="modNome">Nome</label>
@@ -36,10 +36,6 @@ include_once('../components/header.php');
   </form>
 </div>
 
-<script>
-  
-</script>
-
 <body>
   <main class="w-100 d-flex flex-column align-items-center">
     <div class="header_pesquisa d-flex">
@@ -49,15 +45,15 @@ include_once('../components/header.php');
           <img src="../assets/icons/lupa.svg" alt="lupa">
         </button>
       </div>
-      <button onclick="addStyle()" type="button" class="produto_btn d-flex justify-content-between">
+      <button onclick="addStyle()" type="button" class="btnAbrirModal produto_btn d-flex justify-content-between">
         Adicionar Modelo
         <span class="produto_btn-add">+</span>
       </button>
     </div>
-    
+
     <div class="container_cards">
       <div class="container_produtos">
-  
+
         <div class="card-produto d-flex justify-content-between">
           <div class="card-produto_img d-flex justify-content-center align-items-center">
             <img class="produto_img" src="../../upload/brasão 14.jpg" alt="img_produto">
@@ -77,7 +73,7 @@ include_once('../components/header.php');
             </div>
           </div>
         </div>
-  
+
         <div class="card-produto d-flex justify-content-between">
           <div class="card-produto_img d-flex justify-content-center align-items-center">
             <img class="produto_img" src="../../upload/brasão 14.jpg" alt="img_produto">
@@ -97,7 +93,7 @@ include_once('../components/header.php');
             </div>
           </div>
         </div>
-  
+
         <div class="card-produto d-flex justify-content-between">
           <div class="card-produto_img d-flex justify-content-center align-items-center">
             <img class="produto_img" src="../../upload/brasão 14.jpg" alt="img_produto">
@@ -117,7 +113,7 @@ include_once('../components/header.php');
             </div>
           </div>
         </div>
-  
+
         <div class="card-produto d-flex justify-content-between">
           <div class="card-produto_img d-flex justify-content-center align-items-center">
             <img class="produto_img" src="../../upload/brasão 14.jpg" alt="img_produto">
@@ -137,7 +133,7 @@ include_once('../components/header.php');
             </div>
           </div>
         </div>
-  
+
         <div class="card-produto d-flex justify-content-between">
           <div class="card-produto_img d-flex justify-content-center align-items-center">
             <img class="produto_img" src="../../upload/brasão 14.jpg" alt="img_produto">
@@ -157,13 +153,9 @@ include_once('../components/header.php');
             </div>
           </div>
         </div>
-        
-
-  
       </div>
     </div>
   </main>
-  <script src="../assets/js/modal.js"></script>
   <script src="../assets/js/style.js"></script>
-  </main>
+  <script src="../assets/js/modal.js"></script>
 </body>

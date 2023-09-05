@@ -20,7 +20,7 @@
           <p class="nomeClie">Neusa</p>
           <div>
             <p class="data">20/02/2020</p>
-          <img class="imgData" src="../../assets/img/🦆 icon _Alternate External Link_.png" alt=""></img>
+          <img class="imgData" src="../../assets/img/open.png" alt=""></img>
           </div>
         </div>
         <div class="icons">

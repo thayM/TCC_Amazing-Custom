@@ -1,5 +1,5 @@
-const modal = document.querySelector(".modalCad");
-const btn = document.querySelector(".produto_btn");
+const modal  = document.querySelector(".modalCad");
+const btn    = document.querySelector(".btnAbrirModal");
 const fechar = document.querySelector(".fecharCad");
 
 function abrirModal() {
