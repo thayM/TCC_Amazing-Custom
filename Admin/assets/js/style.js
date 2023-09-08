@@ -31,11 +31,19 @@ const cardTitle_Element = document.querySelectorAll(".content_card-produto>h3");
 const cardText_Element  = document.querySelectorAll(".content_card-produto>p");
 
 cardInner.forEach((item, i) => {
-  const cardTitle = cardTitle_Element[i];
-  const cardText  = cardText_Element[i];
+  let heightTitle = cardTitle_Element[i].offsetHeight;
+  let heightText  = cardText_Element[i].offsetHeight;
 
-  let lengthTitle = cardTitle.innerText.length;
-  let lengthText  = cardText.innerText.length;
+  if(heightTitle > 27 || heightText > 60){
+    item.classList.add("aumentarCard");
+  }
 
-  item.classList.add((lengthTitle > 16 || lengthText > 36) ? "aumentarCard" : null);
+  item.addEventListener("mouseover", () => {
+    let heightSum = heightText + heightTitle;
+    if(heightSum > 87) {
+      item.style.minHeight = `calc(165px + (${heightSum}px - 87px))`;
+    }
+  });
+
+  item.addEventListener("mouseout", () => {item.style.minHeight = "165px"});
 });
