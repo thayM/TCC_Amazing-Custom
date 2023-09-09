@@ -30,7 +30,7 @@ function abrirModalEditar(cod, nome, desc) {
     addStyle()
     formEdit.action = `./functions/editar/func_editFrag.php?id=${cod}`;
     modalEdicao.style.display = "flex";
-    msgEdicao.textContent = `Editando o item "${nome}"?`;
+    msgEdicao.textContent = `Editando o item "${nome}"`;
     newNome.value = nome;
     newDesc.value = desc;
 }  

@@ -38,7 +38,7 @@ if(isset($_GET["busca__frag"])){
         <label for="nomeFrag">Nome</label>
         <input type="text" id="nome__Frag" name="nome__frag" placeholder="Nome da fragrância">
       </div>
-      <textarea type="text" id="desc__Frag" name="desc__frag" placeholder="Adicione uma descrição"></textarea>
+      <textarea type="text" id="desc__Frag" class="desc_frag" name="desc__frag" placeholder="Adicione uma descrição"></textarea>
       <div class="btn-cadastro d-flex justify-content-end">
         <button type="submit" class="btn-cadastrar">Cadastrar</button>
       </div>

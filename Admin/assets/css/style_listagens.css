@@ -32,7 +32,8 @@
   color: var(--light-color);
 }
 
-.content_modal .btn-cadastrar{
+.content_modal .btn-cadastrar, 
+.content_modal .btn-editar{
   margin: 5px 0;
   height: 50px;
 }

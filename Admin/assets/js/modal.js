@@ -1,8 +1,8 @@
 function abrirModal() {
-  $(".modalCad").css("diplay", "flex");
+  $(".modalCad").css("display", "flex");
 }
 function fecharModal() {
-  $(".modalCad").css("diplay", "none");
+  $(".modalCad").css("display", "none");
 }
 
 $(".btnAbrirModal").on("click", () => {
