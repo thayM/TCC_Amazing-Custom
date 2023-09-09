@@ -1,49 +1,34 @@
 // MODAIS -- add blur e overflow
-const body   = document.querySelector("body");
-const header = document.querySelector("header");
-const main   = document.querySelector("main");
-
 function addStyle() {
-  body.classList.add("overflow");
-  header.classList.add("blur");
-  main.classList.add("blur");
+  $("body").addClass("overflow");
+  $("header").addClass("blur");
+  $("main").addClass("blur");
 }
 
 function removeStyle() {
-  body.classList.remove("overflow");
-  header.classList.remove("blur");
-  main.classList.remove("blur");
+  $("body").removeClass("overflow");
+  $("header").removeClass("blur");
+  $("main").removeClass("blur");
 }
 
-// CARD MODELO
-const img = document.querySelectorAll(".produto_img");
+// CARD MODELO -- imagem modelo
+$(".produto_img").each(function() {
+  let height = $(this).height();
+  let width = $(this).width();
 
-img.forEach(item => {
-  let height = item.clientHeight;
-  let width = item.clientWidth;
-
-  (height > width) ? item.classList.add("h-100") : item.classList.add("w-100");
+  (height > width) ? $(this).addClass("h-100") : $(this).addClass("w-100");
 });
 
-// CARD FRAGRÂNCIA
-const cardInner = document.querySelectorAll(".inner");
-const cardTitle_Element = document.querySelectorAll(".content_card-produto>h3");
-const cardText_Element  = document.querySelectorAll(".content_card-produto>p");
+// CARD FRAGRÂNCIA -- animação altura
+$(".inner").each(function(i) {
+  let heightTitle = $(".content_card-produto>h3")[i].offsetHeight;
+  let heightText  = $(".content_card-produto>p")[i].offsetHeight;
+  let heightSum = heightText + heightTitle;
+  let minHeightSum = 87;
 
-cardInner.forEach((item, i) => {
-  let heightTitle = cardTitle_Element[i].offsetHeight;
-  let heightText  = cardText_Element[i].offsetHeight;
-
-  if(heightTitle > 27 || heightText > 60){
-    item.classList.add("aumentarCard");
+  if(heightSum > minHeightSum) {
+    $(this).addClass("aumentarCard");
+    $(this).on("mouseover", () => {$(this).css("min-height",`calc(165px + (${heightSum}px - 87px))`);});
+    $(this).on("mouseout", () => {$(this).css("min-height","165px")});
   }
-
-  item.addEventListener("mouseover", () => {
-    let heightSum = heightText + heightTitle;
-    if(heightSum > 87) {
-      item.style.minHeight = `calc(165px + (${heightSum}px - 87px))`;
-    }
-  });
-
-  item.addEventListener("mouseout", () => {item.style.minHeight = "165px"});
 });

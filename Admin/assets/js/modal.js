@@ -1,17 +1,13 @@
-const modal  = document.querySelector(".modalCad");
-const btn    = document.querySelector(".btnAbrirModal");
-const fechar = document.querySelector(".fecharCad");
-
 function abrirModal() {
-  modal.style.display = "flex";
+  $(".modalCad").css("diplay", "flex");
 }
 function fecharModal() {
-  modal.style.display = "none";
+  $(".modalCad").css("diplay", "none");
 }
 
-btn.addEventListener("click", () => {
+$(".btnAbrirModal").on("click", () => {
   abrirModal();
 });
-fechar.addEventListener("click", () => {
+$(".fecharCad").on("click", () => {
   fecharModal();
 });
