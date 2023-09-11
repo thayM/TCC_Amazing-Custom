@@ -30,7 +30,7 @@ if(isset($_GET["busca__frag"])){
 
 
 <div class="container_modal justify-content-center align-items-center modalCad">
-  <form action="./functions/func_cadFrag.php" method="POST">
+  <form action="./functions/func_cadFrag.php" method="POST" class="formCad">
     <div class="content_modal d-flex justify-content-between flex-column">
       <img onclick="removeStyle()" src="../assets/icons/x.svg" alt="fechar" class="fechar fecharCad">
       <h3>Adicionar nova fragrância</h3>

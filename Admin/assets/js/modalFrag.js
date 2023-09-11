@@ -10,6 +10,25 @@ const newDesc = document.querySelector("#newDesc__Frag")
 const msgEdicao = document.querySelector(".msgEdicao");
 const formEdit = document.querySelector(".formEdit")
 
+$(".btn-cadastrar").on("click",()=>{
+    if($("#nome__Frag").val()==0 || $("#desc__Frag").val()==0){
+    
+        
+
+    }else{
+        $(".formCad").trigger("submit")
+    }
+})
+$(".btn-editar").on("click",()=>{
+    if($("newNnome__Frag").val()==0 || $("#newDesc__Frag").val()==0){
+    
+
+
+    }else{
+        $(".formEdit").trigger("submit")
+    }
+})
+
 
 function excluirFrag(id){
     window.location.href=`functions/excluir/func_excluirFrag.php?id=${id}`
