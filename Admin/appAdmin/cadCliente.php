@@ -6,41 +6,41 @@
   <link rel="stylesheet" href="../assets/css/style_cadCliente.css">
   <title>Cadastro Cliente</title>
 </head>
-
+<script src="../assets/js/cadCliente.js"></script>
 <body>
   <div class="container_form d-flex flex-column align-items-center">
-    <form action="" method="post" class="content_form d-flex flex-column">
+    <form action="./functions/func_cadClie.php" method="post" class="content_form d-flex flex-column">
       <h3>Novo Cliente</h3>
-      <input type="text" placeholder="Nome Completo">
-      <input type="email" placeholder="E-mail">
+      <input type="text"name="nome" placeholder="Nome Completo">
+      <input type="email" name="email"placeholder="E-mail">
 
       <div class="d-flex justify-content-between">
         <label for="telefone">Telefone:</label>
         <input type="tel" name="telefone" class="info_tel-input">
 
         <label for="telefone">Opcional:</label>
-        <input type="tel" name="telefone" class="info_tel-input">
+        <input type="tel" name="telefone2" class="info_tel-input">
       </div>
 
       <div class="endereco d-flex flex-wrap">
-        <input type="text" placeholder="CEP">
-        <a href="" class="endereco_buscar-cep">
+        <input type="text" name="cep" onblur="pesquisacep(this.value);" placeholder="CEP">
+        <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" class="endereco_buscar-cep">
           <p>Não sabe o CEP?</p>
         </a>
 
         <div class="endereco_content d-flex justify-content-between">
-          <input type="text" placeholder="Logradouro">
-          <input type="text" placeholder="Número">
-          <input type="text" placeholder="Bairro">
+          <input type="text" name="logradouro" id="logradouro" placeholder="Logradouro">
+          <input type="text" name="num"  placeholder="Número">
+          <input type="text" name="bairro"  id="bairro" placeholder="Bairro">
         </div>
         <div class="endereco_content d-flex justify-content-between">
-          <input type="text" placeholder="Cidade">
-          <input type="text" placeholder="UF">
-          <input type="text" placeholder="Complemento">
+          <input type="text" name="cidade"  id="cidade" placeholder="Cidade">
+          <input type="text" name="uf" id="uf" placeholder="UF">
+          <input type="text" name="complemento" placeholder="Complemento">
         </div>
       </div>
       <div class="btn-cadastro d-flex justify-content-end p-0 w-100">
-        <button class="btn-cadastrar">CADASTRAR</button>
+        <button type="submit" class="btn-cadastrar">CADASTRAR</button>
       </div>
     </form>
   </div>

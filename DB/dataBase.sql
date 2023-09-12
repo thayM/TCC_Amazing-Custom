@@ -18,7 +18,7 @@ create table MODELO(
 create table FRAGRANCIA(
     cod_frag int primary key auto_increment,
     nome_frag varchar(50) not null,
-    desc_frag varchar(70)
+    desc_frag varchar(150)
 );
 
 create table CLIENTE(
