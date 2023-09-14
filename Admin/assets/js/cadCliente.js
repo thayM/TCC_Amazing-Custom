@@ -1,10 +1,11 @@
 
-    function limparEndereco() {
-        document.getElementById('logradouro').value=("");
-        document.getElementById('bairro').value=("");
-        document.getElementById('cidade').value=("");
-        document.getElementById('uf').value=("");
-    }
+function limparEndereco() {
+        document.getElementById('logradouro__cli').value=("");
+        document.getElementById('bairro__cli').value=("");
+        document.getElementById('cidade__cli').value=("");
+        document.getElementById('uf__cli').value=("");
+        document.getElementById('complemento__cli').value=("");
+}
 function pesquisacep(valor) {
     console.log("oi");
     if (valor.includes("-")) {
@@ -25,10 +26,11 @@ function pesquisacep(valor) {
                 console.log('ERROR');
                 limparEndereco();
             }else{
-                document.getElementById('logradouro').value=dados.logradouro;
-                document.getElementById('bairro').value=dados.bairro;
-                document.getElementById('cidade').value=dados.localidade;
-                document.getElementById('uf').value=dados.uf;
+                document.getElementById('logradouro__cli').value=dados.logradouro;
+                document.getElementById('bairro__cli').value=dados.bairro;
+                document.getElementById('cidade__cli').value=dados.localidade;
+                document.getElementById('uf__cli').value=dados.uf;
+                document.getElementById('complemento__cli').value=dados.complemento;
             }
             })
             

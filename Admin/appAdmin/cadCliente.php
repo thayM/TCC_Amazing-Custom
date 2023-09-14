@@ -29,14 +29,14 @@
         </a>
 
         <div class="endereco_content d-flex justify-content-between">
-          <input type="text" name="logradouro" id="logradouro" placeholder="Logradouro">
+          <input type="text" name="logradouro" id="logradouro__cli" placeholder="Logradouro">
           <input type="text" name="num"  placeholder="Número">
-          <input type="text" name="bairro"  id="bairro" placeholder="Bairro">
+          <input type="text" name="bairro"  id="bairro__cli" placeholder="Bairro">
         </div>
         <div class="endereco_content d-flex justify-content-between">
-          <input type="text" name="cidade"  id="cidade" placeholder="Cidade">
-          <input type="text" name="uf" id="uf" placeholder="UF">
-          <input type="text" name="complemento" placeholder="Complemento">
+          <input type="text" name="cidade"  id="cidade__cli" placeholder="Cidade">
+          <input type="text" name="uf" id="uf__cli" placeholder="UF">
+          <input type="text" name="complemento" id="complemento__cli" placeholder="Complemento">
         </div>
       </div>
       <div class="btn-cadastro d-flex justify-content-end p-0 w-100">
