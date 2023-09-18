@@ -28,13 +28,12 @@ $listMods = $stmt->fetchAll(PDO::FETCH_OBJ);
         <input type="number" id="valor__Modelo" name="valor__Modelo" placeholder="R$ 00,00">
       </div>
 
-      <div class="upload-area">
+      <div class="upload-area" onclick="procurarArq()">
         <div class="upload-area_border d-flex justify-content-center align-items-center">
           <p id="upload-txt">Arraste e solte a imagem aqui</p>
-          <input type="file" name="file" id="input">
         </div>
       </div>
-
+      <input type="file" name="file" id="input" hidden>
       <div class="btn-cadastro d-flex justify-content-end">
         <button type="submit" class="btn-cadastrar">Cadastrar</button>
       </div>
@@ -88,5 +87,5 @@ $listMods = $stmt->fetchAll(PDO::FETCH_OBJ);
   </main>
   <script src="../assets/js/style.js"></script>
   <script src="../assets/js/modal.js"></script>
-  <scipt  src="../assets/js/cadModelo.js"></scipt>
+  <script src="../assets/js/cadModelo.js"></script>
 </body>
