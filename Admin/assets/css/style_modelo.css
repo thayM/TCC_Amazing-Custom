@@ -31,6 +31,27 @@
   color: var(--input-color);
 }
 
+.upload-produto_img{
+  border: 5px dashed var(--input-color);
+  height: 100%;
+  width: 100%;
+}
+
+.upload-produto_img img{
+  height: 110px;
+}
+
+.upload-produto_alterar-img{
+  margin: 15px 0;
+  border: 0;
+  background: transparent;
+  color: var(--input-color);
+}
+
+.upload-produto_alterar-img:hover{
+  color: var(--bg-input-color);
+}
+
 /* CARDS */
 .card-produto{
   padding: 20px;

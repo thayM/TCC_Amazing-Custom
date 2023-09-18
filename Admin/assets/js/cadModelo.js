@@ -52,10 +52,11 @@ if (tiposAceitados.includes(tipoArq)) {
     leitorArq.onload = () => {
     let urlArq = leitorArq.result
     let img = `
-    <div>
-    <img id="img" class="produto_img" src="${urlArq}" alt="">
-    <button onclick="reset()">X</button>
-    </div>`
+    <div class="upload-produto_img d-flex justify-content-center align-items-center">
+        <img id="img" src="${urlArq}" alt="upload">
+    </div>
+    <button class="upload-produto_alterar-img" onclick="reset()">Alterar imagem</button>
+    `
     console.log(img)
     areaUpload.innerHTML = img
     }
