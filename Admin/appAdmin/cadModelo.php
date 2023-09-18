@@ -1,5 +1,10 @@
 <?php
 include_once('../components/header.php');
+require '../../lib/conn.php';
+
+$sql = "SELECT * FROM modelo";
+$stmt = $conn->query($sql);
+$listMods = $stmt->fetchAll(PDO::FETCH_OBJ);
 ?>
 
 <head>
@@ -8,6 +13,7 @@ include_once('../components/header.php');
   <link rel="stylesheet" href="../assets/css/style_modelo.css">
   <title>Cadastro Modelo</title>
 </head>
+
 
 <div class="container_modal justify-content-center align-items-center modalCad">
   <form class="box" method="POST" action="./functions/func_cadMod.php" enctype="multipart/form-data">
@@ -53,15 +59,17 @@ include_once('../components/header.php');
 
     <div class="container_cards">
       <div class="container_produtos">
-
+      <?php
+        foreach($listMods as $listMod){
+      ?>
         <div class="card-produto d-flex justify-content-between">
           <div class="card-produto_img d-flex justify-content-center align-items-center">
-            <img class="produto_img" src="../../upload/brasão 14.jpg" alt="img_produto">
+                <img class="produto_img" src="../../upload/<?=$listMod->nomeArq_modelo?>" alt="img_produto">
           </div>
           <div class="d-flex flex-column justify-content-between">
             <div class="content_card-produto d-flex flex-column justify-content-between">
-              <h3>Redondo 6 Meia Lua</h3>
-              <p>R$ 5,00</p>
+              <h3><?=$listMod->nome_modelo?></h3>
+              <p>R$<?=$listMod->valor_modelo?></p>
             </div>
             <div class="footer_card-produto d-flex justify-content-end">
               <button>
@@ -73,89 +81,12 @@ include_once('../components/header.php');
             </div>
           </div>
         </div>
-
-        <div class="card-produto d-flex justify-content-between">
-          <div class="card-produto_img d-flex justify-content-center align-items-center">
-            <img class="produto_img" src="../../upload/brasão 14.jpg" alt="img_produto">
-          </div>
-          <div class="d-flex flex-column justify-content-between">
-            <div class="content_card-produto d-flex flex-column justify-content-between">
-              <h3>Redondo 4</h3>
-              <p>R$ 5,00</p>
-            </div>
-            <div class="footer_card-produto d-flex justify-content-end">
-              <button>
-                <img src="../assets/icons/pen.svg" alt="editar">
-              </button>
-              <button>
-                <img src="../assets/icons/trash-alt.svg" alt="excluir">
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-produto d-flex justify-content-between">
-          <div class="card-produto_img d-flex justify-content-center align-items-center">
-            <img class="produto_img" src="../../upload/brasão 14.jpg" alt="img_produto">
-          </div>
-          <div class="d-flex flex-column justify-content-between">
-            <div class="content_card-produto d-flex flex-column justify-content-between">
-              <h3>Caminhão 1</h3>
-              <p>R$ 5,00</p>
-            </div>
-            <div class="footer_card-produto d-flex justify-content-end">
-              <button>
-                <img src="../assets/icons/pen.svg" alt="editar">
-              </button>
-              <button>
-                <img src="../assets/icons/trash-alt.svg" alt="excluir">
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-produto d-flex justify-content-between">
-          <div class="card-produto_img d-flex justify-content-center align-items-center">
-            <img class="produto_img" src="../../upload/brasão 14.jpg" alt="img_produto">
-          </div>
-          <div class="d-flex flex-column justify-content-between">
-            <div class="content_card-produto d-flex flex-column justify-content-between">
-              <h3>Retangular 2</h3>
-              <p>R$ 5,00</p>
-            </div>
-            <div class="footer_card-produto d-flex justify-content-end">
-              <button>
-                <img src="../assets/icons/pen.svg" alt="editar">
-              </button>
-              <button>
-                <img src="../assets/icons/trash-alt.svg" alt="excluir">
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-produto d-flex justify-content-between">
-          <div class="card-produto_img d-flex justify-content-center align-items-center">
-            <img class="produto_img" src="../../upload/brasão 14.jpg" alt="img_produto">
-          </div>
-          <div class="d-flex flex-column justify-content-between">
-            <div class="content_card-produto d-flex flex-column justify-content-between">
-              <h3>Redondo 6 Meia Lua</h3>
-              <p>R$ 5,00</p>
-            </div>
-            <div class="footer_card-produto d-flex justify-content-end">
-              <button>
-                <img src="../assets/icons/pen.svg" alt="editar">
-              </button>
-              <button>
-                <img src="../assets/icons/trash-alt.svg" alt="excluir">
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        <?php
+              }
+            ?>
+    </div> 
   </main>
   <script src="../assets/js/style.js"></script>
   <script src="../assets/js/modal.js"></script>
+  <scipt  src="../assets/js/cadModelo.js"></scipt>
 </body>

@@ -6,7 +6,6 @@ var_dump($_POST);
 if(isset($_FILES['file'])){
     
     $arr_file_types = ['image/png','image/jpg', 'image/jpeg'];
-
     if (!(in_array($_FILES['file']['type'], $arr_file_types))) {
         echo "false";
         return;
