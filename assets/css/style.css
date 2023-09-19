@@ -47,6 +47,8 @@ header {
   padding: 0 35px;
   width: 100%;
   height: 13vh;
+  display: flex;
+  justify-content: space-between;
   background: var(--first-grayscale);
 }
 
@@ -125,16 +127,17 @@ select {
 }
 
 /* MENU */
-header nav #menu-responsivo_checkbox{
+header #menu-responsivo{
   opacity: 0;
   visibility: hidden;
   position: absolute;
-  right: 0;
 }
 
 .nav_items {
+  margin: 0;
   width: 770px;
 }
+
 .nav_items li {
   list-style: none;
 }
@@ -147,6 +150,7 @@ header nav #menu-responsivo_checkbox{
   color: var(--primary-color);
   transition: 0.5s;
 }
+
 .nav_items li .item:hover {
   text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.15);
   color: var(--secondary-color);
@@ -164,16 +168,25 @@ header nav #menu-responsivo_checkbox{
 
 /* Media Query */
 @media (max-width: 1008px){
-  .nav_items{
-    width: 260px;
-    padding: 20px !important;
-    border-radius: 0 0 0 10px;
+  header{
+    padding: 40px;
+    width: 300px;
+    height: 100%;
     flex-direction: column;
-    position: fixed;
-    z-index: 3;
-    top: 90px;
+    justify-content: flex-start;
+    position: absolute;
     right: 0;
-    background: var(--first-grayscale);
+    z-index: 3;
+  }
+
+  .logo {
+    margin-bottom: 30px;
+  }
+
+  .nav_items {
+    margin: 10px 0 0 20px;
+    width: 190px;
+    flex-direction: column;
   }
 
   .nav_items li{
@@ -185,4 +198,35 @@ header nav #menu-responsivo_checkbox{
     width: 0;
     height: 0;
   }
+
+  /* Menu Hamburguer */
+	#menu-responsivo_label {
+    padding: 10px 0;
+		width: 30px;
+		height: 10px;
+    display: block;
+		position: absolute;
+    left: 15px;
+    top: 50%;
+		cursor: pointer;
+	}
+
+	#menu-responsivo_label span, 
+  #menu-responsivo_label span::after, 
+  #menu-responsivo_label span::before {
+		content: "";
+		width: 100%;
+		height: 3px;
+		display: block;
+		position: absolute;
+		background: var(--primary-color);
+		transition: .5s;
+	}
+
+  #menu-responsivo_label span::before {
+		transform: translateY(-10px);
+	}
+	#menu-responsivo_label span::after {
+		transform: translateY(10px);
+	}
 }

@@ -11,15 +11,14 @@
 </head>
 
 <body>
-  <header class="d-flex align-items-center justify-content-between">
+  <header class="d-flex align-items-center">
     <a href="../appAdmin/home.php">
       <img src="../../assets/img/Logo.png" alt="Logo" class="logo">
     </a>
+    <label for="menu-responsivo" id="menu-responsivo_label"><span></span></label>
+    <input type="checkbox" id="menu-responsivo">
     <nav class="d-flex">
-      <label for="menu-responsivo" id="menu-responsivo_label"></label>
-      <input type="checkbox" name="menu-responsivo" id="menu-responsivo_checkbox">
-
-      <ul class="nav_items d-flex justify-content-between p-0 m-0">
+      <ul class="nav_items d-flex justify-content-between p-0">
         <li><a href="../appAdmin/cadModelo.php" class="item">Modelo</a></li>
         <li><a href="../appAdmin/cadFragrancia.php" class="item">Fragrância</a></li>
         <li><a href="../appAdmin/cadCliente.php" class="item">Cliente</a></li>
