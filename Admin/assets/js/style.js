@@ -32,3 +32,14 @@ $(".inner").each(function(i) {
     $(this).on("mouseout", () => {$(this).css("min-height","165px")});
   }
 });
+
+// Animação menu responsivo
+console.log($("#menu-responsivo"))
+
+$("#menu-responsivo_label").on("click", () => {
+  if($("#menu-responsivo").prop("checked")){
+    $("header").css("transform", "translateX(80%)")
+  } else {
+    $("header").css("transform", "translateX(0%)")
+  }
+})

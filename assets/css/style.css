@@ -127,11 +127,11 @@ select {
 }
 
 /* MENU */
-header #menu-responsivo{
+/* #menu-responsivo{
   opacity: 0;
   visibility: hidden;
   position: absolute;
-}
+} */
 
 .nav_items {
   margin: 0;
@@ -168,6 +168,10 @@ header #menu-responsivo{
 
 /* Media Query */
 @media (max-width: 1008px){
+  body{
+    overflow-x: hidden;
+  }
+
   header{
     padding: 40px;
     width: 300px;
@@ -177,6 +181,7 @@ header #menu-responsivo{
     position: absolute;
     right: 0;
     z-index: 3;
+    transform: translateX(80%);
   }
 
   .logo {

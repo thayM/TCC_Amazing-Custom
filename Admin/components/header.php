@@ -12,11 +12,13 @@
 
 <body>
   <header class="d-flex align-items-center">
+    <label for="menu-responsivo" id="menu-responsivo_label"><span></span></label>
+    <input type="checkbox" id="menu-responsivo">
+
     <a href="../appAdmin/home.php">
       <img src="../../assets/img/Logo.png" alt="Logo" class="logo">
     </a>
-    <label for="menu-responsivo" id="menu-responsivo_label"><span></span></label>
-    <input type="checkbox" id="menu-responsivo">
+
     <nav class="d-flex">
       <ul class="nav_items d-flex justify-content-between p-0">
         <li><a href="../appAdmin/cadModelo.php" class="item">Modelo</a></li>
@@ -32,4 +34,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <!-- JQUERY -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+<script src="../assets/js/style.js"></script>
 </html>
