@@ -123,6 +123,7 @@ h3{
     justify-content: space-between;
     background-color: #333333;
     border-radius: 10px;
+    margin: 10% 20%;
 }
 
 .container_modal{
@@ -165,14 +166,15 @@ h3{
 
 .etapas{
     display: flex;
-    justify-content: space-between;
 }
 
+
 .linha{
-    background-color: red;
+    margin: 35px;
+    background-color: #898989;
     width: 516px;
     height: 6px;
-    border-color: red;
+    border-color: #898989;
     border-style: none;
 }
 
@@ -183,16 +185,52 @@ h3{
 }
 
 .circulo{   
-    background-color: red;
+    background-color:#898989;
     border-radius: 50%;
     width: 25px;
     height: 25px;
 }
 
+.etapaPag{
+    margin: 0 16px;
+}
+
+.etapaPag p{
+    margin: 0 -16px;
+    color: #898989;
+}
+
+.etapaArt{
+    margin: 0 55px;
+}
+
+.etapaArt p{
+    margin: 0 -7px;
+    color: #898989;
+}
+
+.etapaProd{
+    margin: 0 75px;
+}
+
+.etapaProd p{
+    margin: 0 -37px;
+    color: #898989;
+}
+
+.etapaEnvio{
+    margin: 0 53px;
+}
+
+.etapaEnvio p{
+    margin: 0 -10px;
+    color: #898989;
+}
+
 .fechar{
     position: absolute;
     top: 3%;
-    left: 4%;
+    left: 92%;
     z-index: 5;
     width: 10%;
     height: 5%;
@@ -201,10 +239,33 @@ h3{
 .dirInferior{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     border-top: 2px dashed #898989;
+    height: 200px;
 }
 
 .endereco{
-    border-left: 2px dashed #898989;
     width: 290px;
+    border-left: 2px dashed #898989;
+    margin-top: 40px;
+    padding: 0;
+} 
+
+.infos{
+    margin-left: 20px;
+}
+
+.endereco .infos p {
+    margin: 1px;
+    color: #FFFFA1;
+    font-size: 20px;
+}
+
+.descEtapas{
+    color: #A3A3A3;
+    font-size: 20px;
+}
+
+.hrDt{
+    display: flex;
 }

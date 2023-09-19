@@ -53,17 +53,21 @@
             <div class="dirInferior">
                 <div class="descEtapas">
                     <p>Arte finalizada</p>
+                    <div class="hrDt">
                     <p>--/--/----</p>
                     <p>--:--</p>
+                    </div>
                 </div>
 
                 <div class="endereco">
+                    <div class="infos">
                     <p>Rua:</p>
                     <p>N°:</p>
                     <p>Bairro:</p>
                     <p>Cidade:</p>
                     <p>CEP:</p>
                     <p>Complemento:</p>
+                    </div>
                 </div>
             </div>
         </div>
