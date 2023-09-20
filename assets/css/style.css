@@ -42,20 +42,6 @@ body::-webkit-scrollbar-thumb {
   background: var(--first-grayscale);
 }
 
-/* HEADER */
-header {
-  padding: 0 35px;
-  width: 100%;
-  height: 13vh;
-  display: flex;
-  justify-content: space-between;
-  background: var(--first-grayscale);
-}
-
-.logo {
-  height: 50px;
-}
-
 /* CSS PADRÃO DE INPUTS */
 input,
 select,
@@ -126,12 +112,30 @@ select {
   overflow: hidden;
 }
 
+/* HEADER */
+header {
+  padding: 0 35px;
+  width: 100%;
+  height: 13vh;
+  background: var(--first-grayscale);
+}
+
+.menu{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 50px;
+}
+
 /* MENU */
-/* #menu-responsivo{
+#menu-responsivo{
   opacity: 0;
   visibility: hidden;
   position: absolute;
-} */
+}
 
 .nav_items {
   margin: 0;
@@ -168,28 +172,32 @@ select {
 
 /* Media Query */
 @media (max-width: 1008px){
-  body{
-    overflow-x: hidden;
+  header{
+    padding: 40px 0;
+    width: 60px;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    z-index: 3;
+    transition: .5s all;
   }
 
-  header{
-    padding: 40px;
-    width: 300px;
+  /* Menu Responsivo */
+  .menu{
+    margin-right: 30px;
+    width: 200px;
     height: 100%;
     flex-direction: column;
     justify-content: flex-start;
-    position: absolute;
-    right: 0;
-    z-index: 3;
-    transform: translateX(80%);
+    transform: translateX(280px);
+    transition: .5s;
   }
 
   .logo {
-    margin-bottom: 30px;
+    margin: 0 30px 30px 0;
   }
 
   .nav_items {
-    margin: 10px 0 0 20px;
     width: 190px;
     flex-direction: column;
   }
@@ -204,15 +212,21 @@ select {
     height: 0;
   }
 
+  #menu-responsivo:checked ~ header{
+    width: 300px;
+  }
+  #menu-responsivo:checked ~ header .menu{
+    transform: translateX(0px);
+  }
+
   /* Menu Hamburguer */
 	#menu-responsivo_label {
+    margin: 0 auto;
     padding: 10px 0;
 		width: 30px;
-		height: 10px;
     display: block;
-		position: absolute;
+    position: absolute;
     left: 15px;
-    top: 50%;
 		cursor: pointer;
 	}
 
@@ -220,12 +234,12 @@ select {
   #menu-responsivo_label span::after, 
   #menu-responsivo_label span::before {
 		content: "";
-		width: 100%;
+		width: 30px;
 		height: 3px;
 		display: block;
 		position: absolute;
 		background: var(--primary-color);
-		transition: .5s;
+    transition: .5s;
 	}
 
   #menu-responsivo_label span::before {
@@ -234,4 +248,14 @@ select {
 	#menu-responsivo_label span::after {
 		transform: translateY(10px);
 	}
+
+  #menu-responsivo:checked ~ #menu-responsivo_label span{
+    background: transparent;
+  }
+  #menu-responsivo:checked ~ #menu-responsivo_label span::before{
+    transform: rotate(45deg);
+  }
+  #menu-responsivo:checked ~ #menu-responsivo_label span::after{
+    transform: rotate(-45deg);
+  }
 }

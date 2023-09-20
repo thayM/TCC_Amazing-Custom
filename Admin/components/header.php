@@ -11,23 +11,25 @@
 </head>
 
 <body>
-  <header class="d-flex align-items-center">
+  <input type="checkbox" id="menu-responsivo">
+  <header class="d-flex align-items-center justify-content-end">
     <label for="menu-responsivo" id="menu-responsivo_label"><span></span></label>
-    <input type="checkbox" id="menu-responsivo">
 
-    <a href="../appAdmin/home.php">
-      <img src="../../assets/img/Logo.png" alt="Logo" class="logo">
-    </a>
-
-    <nav class="d-flex">
-      <ul class="nav_items d-flex justify-content-between p-0">
-        <li><a href="../appAdmin/cadModelo.php" class="item">Modelo</a></li>
-        <li><a href="../appAdmin/cadFragrancia.php" class="item">Fragrância</a></li>
-        <li><a href="../appAdmin/cadCliente.php" class="item">Cliente</a></li>
-        <li><a href="../appAdmin/cadPedido.php" class="item">Cadastro Pedidos</a></li>
-        <li><a href="../appAdmin/home.php" class="item">Listagem Pedidos</a></li>
-      </ul>
-    </nav>
+    <div class="menu menuHidden d-flex align-items-center">
+      <a href="../appAdmin/home.php">
+        <img src="../../assets/img/Logo.png" alt="Logo" class="logo">
+      </a>
+  
+      <nav>
+        <ul class="nav_items d-flex justify-content-between p-0">
+          <li><a href="../appAdmin/cadModelo.php" class="item">Modelo</a></li>
+          <li><a href="../appAdmin/cadFragrancia.php" class="item">Fragrância</a></li>
+          <li><a href="../appAdmin/cadCliente.php" class="item">Cliente</a></li>
+          <li><a href="../appAdmin/cadPedido.php" class="item">Cadastro Pedidos</a></li>
+          <li><a href="../appAdmin/home.php" class="item">Listagem Pedidos</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 </body>
 <!-- JS BOOTSTRAP -->

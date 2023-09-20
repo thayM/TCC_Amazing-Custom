@@ -120,7 +120,7 @@
     max-width: 870px;
   }
 }
-@media(max-width:969px){
+@media(max-width:981px){
   .container_cards{
     width: 680px;
   }
