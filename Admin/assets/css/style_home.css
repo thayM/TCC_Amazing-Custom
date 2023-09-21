@@ -1,5 +1,5 @@
 .search{
-  margin-top: 4%;
+  margin: 3% 0;
   display: flex;
   justify-content: space-between;
 }
@@ -29,10 +29,9 @@
 
 .card-pedidos{
   position: relative;
-  margin-top: 5%;
+  margin-top: 20px;
   width: 1006px;
   border: 1px solid var(--background-color);
-  border-radius: 20px;
 }
 
 .nomeClie{
@@ -79,7 +78,7 @@
 .status{
   background-color: var(--first-grayscale);
   padding: 0 10px;
-  width: 35%;
+  width: 372px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -112,10 +111,10 @@
   background-color: var(--second-grayscale);
   color: var(--light-color);
   padding: 0;
-  border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0!important;
 }
 
-.card-header .cabecalho{
+.cabecalho{
   padding: 0 10px;
   width: 65%;
   display: flex;
