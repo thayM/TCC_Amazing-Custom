@@ -16,8 +16,8 @@
   height: 45px;
   position: relative;
   left: -5%;  
-  background-color: #ff6600;
-  border: 1px solid #ff6600;
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
   border-radius: 0 10px 10px 0px;
 }
 
@@ -31,7 +31,7 @@
   position: relative;
   margin-top: 5%;
   width: 1006px;
-  border: 1px solid #333333;
+  border: 1px solid var(--background-color);
   border-radius: 20px;
 }
 
@@ -56,8 +56,8 @@
   justify-content: space-between;
   padding: 10px;
   align-items: center;
-  border-bottom: 2px solid #333333;
-  border-left: 2px solid #333333;
+  border-bottom: 2px solid var(--background-color);
+  border-left: 2px solid var(--background-color);
 }
 
 .caneta{
@@ -120,7 +120,7 @@
   width: 65%;
   display: flex;
   justify-content: space-between;
-  border-bottom: 2px solid #333333;
+  border-bottom: 2px solid var(--background-color);
 }
 
 .card-header .cabecalho div{
@@ -144,17 +144,17 @@
 }
 
 h3{
-  border-bottom: 2px solid #333333;
+  border-bottom: 2px solid var(--background-color);
 }
 
 .card-title:nth-child(1){
   border-radius: 0 0 0 5px;
-  border-right: 2px solid #333333;
+  border-right: 2px solid var(--background-color);
 }
 
 .card-title:nth-child(3){
   border-radius: 0 0 5px 0;
-  border-left: 2px solid #333333;
+  border-left: 2px solid var(--background-color);
 }
 
 .card-text{
