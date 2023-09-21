@@ -2,27 +2,30 @@ const divProdutos = document.querySelector(".container_produtos");
 const produto = divProdutos.innerHTML;
 var index = 0;
 
-// function excluirProduto(i) {
-//   var ArProdutos = document.querySelectorAll(".produto_content");
+function excluirProduto(i) {
+  const produtos = document.querySelectorAll(".novo_produto");
+  produtos[i].remove();
 
-//   console.log(ArProdutos);
-//   console.log(index)
+  const lixeirasProd = document.querySelectorAll(".produto_lixeira");
+  lixeirasProd.forEach((element, i) => {
+    element.href = `javascript:excluirProduto(${i})`;
+  });
 
-//   ArProdutos.splice(i, 1)[0];
-
-//   ArProdutos = document.querySelectorAll(".produto_content");
-//   console.log(ArProdutos);
-
-// }
+  index--;
+}
 
 $(".produto_btn").on("click", () => {
   var novoProduto = produto;
-  index++;
+  let divNovoProd = document.createElement("div");
+  divNovoProd.classList.add("novo_produto");
 
   novoProduto = novoProduto.replace("<!-- lixeira -->", `
   <a href="javascript:excluirProduto(${index})" class="produto_lixeira">
     <img src="../assets/icons/trash-alt.svg" alt="lixeira">
   </a>`);
 
-  divProdutos.innerHTML += novoProduto;
+  divNovoProd.innerHTML = novoProduto;
+  divProdutos.appendChild(divNovoProd);
+
+  index++;
 });
