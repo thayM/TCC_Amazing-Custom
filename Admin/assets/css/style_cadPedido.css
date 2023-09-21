@@ -26,7 +26,12 @@
 }
 
 /* Produto */
+.produto_title span{
+  margin-right: 15px;
+}
+
 .produto_content{
+  margin-bottom: 15px;
   padding: 10px;
   width: 750px;
   height: 115px;

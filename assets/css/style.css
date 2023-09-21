@@ -178,8 +178,8 @@ header {
     height: 100%;
     position: fixed;
     right: 0;
-    z-index: 3;
-    transition: .5s all;
+    z-index: 4;
+    transition: .5s;
   }
 
   /* Menu Responsivo */
@@ -212,11 +212,19 @@ header {
     height: 0;
   }
 
-  #menu-responsivo:checked ~ header{
+  #menu-responsivo:checked ~header{
     width: 300px;
   }
-  #menu-responsivo:checked ~ header .menu{
+
+  #menu-responsivo:checked ~header .menu{
     transform: translateX(0px);
+  }
+
+  #menu-responsivo:checked ~.menu_aberto{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 3;
   }
 
   /* Menu Hamburguer */
@@ -249,13 +257,13 @@ header {
 		transform: translateY(10px);
 	}
 
-  #menu-responsivo:checked ~ #menu-responsivo_label span{
+  #menu-responsivo:checked ~header #menu-responsivo_label span{
     background: transparent;
   }
-  #menu-responsivo:checked ~ #menu-responsivo_label span::before{
+  #menu-responsivo:checked ~header #menu-responsivo_label span::before{
     transform: rotate(45deg);
   }
-  #menu-responsivo:checked ~ #menu-responsivo_label span::after{
+  #menu-responsivo:checked ~header #menu-responsivo_label span::after{
     transform: rotate(-45deg);
   }
 }

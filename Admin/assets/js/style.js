@@ -32,3 +32,8 @@ $(".inner").each(function(i) {
     $(this).on("mouseout", () => {$(this).css("min-height","165px")});
   }
 });
+
+// FECHAR MENU RESPONSIVO
+$(".menu_aberto").on("click", () => {
+  document.getElementById("menu-responsivo").checked = false;
+});

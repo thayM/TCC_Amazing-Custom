@@ -36,32 +36,20 @@
           <span>Quantidade</span>
         </div>
 
-        <div class="produto_content d-flex flex-column">
-          <div class="d-flex justify-content-between align-items-center">
-            <select name="modelo" id="modelo" class="produto_select w-75">
-              <option value="" selected>Selecione o modelo</option>
-            </select>
-            <input type="number" name="numModel" id="numModel" class="produto_input" placeholder="000">
-          </div>
-          <select name="fragrancia" id="fragrancia" class="produto_select w-75">
-            <option value="" selected>Selecione a Fragrância</option>
-          </select>
-        </div>
-
-        <div class="produto_content d-flex flex-column">
-          <div class="d-flex justify-content-between align-items-center">
-            <select name="modelo" id="modelo" class="produto_select w-75">
-              <option value="" selected>Selecione o modelo</option>
-            </select>
-            <input type="number" name="numModel" id="numModel" class="produto_input" placeholder="000">
-          </div>
-          <div class="d-flex justify-content-between align-items-center">
-            <select name="fragrancia" id="fragrancia" class="produto_select w-75">
-              <option value="" selected>Selecione a Fragrância</option>
-            </select>
-            <a href="#" class="produto_lixeira">
-              <img src="../assets/icons/trash-alt.svg" alt="lixeira">
-            </a>
+        <div class="container_produtos">
+          <div class="produto_content d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-center">
+              <select name="modelo" id="modelo" class="produto_select w-75">
+                <option value="" selected>Selecione o modelo</option>
+              </select>
+              <input type="number" name="numModel" id="numModel" class="produto_input" placeholder="000">
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <select name="fragrancia" id="fragrancia" class="produto_select w-75">
+                <option value="" selected>Selecione a Fragrância</option>
+              </select>
+              <!-- lixeira -->
+            </div>
           </div>
         </div>
 
@@ -82,5 +70,6 @@
       </div>
     </form>
   </div>
+  <script src="../assets/js/cadPedido.js"></script>
 </body>
 </html>
