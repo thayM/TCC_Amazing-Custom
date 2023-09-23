@@ -1,34 +1,81 @@
+/* Pesquisa */
 .search{
   margin: 3% 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 #barraBusca{
-  width: 735px;
+  width: 680px;
   height: 45px;
   border: 1px solid #494949;
-  border-radius: 10px;
+  border-radius: 10px 0 0 10px;
 }
 
 .btnBuscar{
   width: 45px;
   height: 45px;
-  position: relative;
-  left: -5%;  
   background-color: var(--primary-color);
-  border: 1px solid var(--primary-color);
+  border: 0;
   border-radius: 0 10px 10px 0px;
 }
 
-.imgFilter{
+.filtro_listagens{
   position: relative;
-  top: -7px;
-  left: -4%;
 }
 
+.filtro_popover{
+  display: none;
+  border: 0;
+  width: 165px;
+  height: 92px;
+  position: absolute;
+}
+
+.filtro_popover ul::before{
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 20px;
+  top: -5px;
+  z-index: -1;
+  background: var(--second-grayscale);
+  transform: rotate(45deg);
+}
+
+.filtro_popover ul li{
+  display: flex;
+  list-style: none;
+  background: var(--second-grayscale);
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+.filtro_popover ul li:first-child{
+  border-bottom: 2px solid var(--first-grayscale);
+  border-radius: 10px 10px 0 0;
+}
+.filtro_popover ul li:last-child{
+  border-radius: 0 0 10px 10px;
+}
+
+.filtro_popover ul li:active{
+  background-color: var(--first-grayscale);
+}
+
+.filtro_popover ul li a{
+  width: 100%;
+  height: 45px;
+  font-size: 1.3rem;
+  text-align: center;
+  text-decoration: none;
+  line-height: 2.2;
+  color: var(--light-color);
+}
+
+/* Cards */
 .card-pedidos{
-  position: relative;
   margin-top: 20px;
   width: 1006px;
   border: 1px solid var(--background-color);
@@ -75,13 +122,11 @@
   left: 5%;
 }
 
-.status{
+#status{
   background-color: var(--first-grayscale);
   padding: 0 10px;
-  width: 372px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  height: 45px;
+  width: 374px;
   border-radius: 0 5px 0 0;
 }
 
@@ -92,14 +137,13 @@
 }
 
 .etapaImg{
-  position: relative;
   left: 19%;
 }
 
 .card-body{
   display: flex;
   width: 100%;
-  min-height: 180px;
+  min-height: 160px;
   justify-content: space-between;
   padding: 0;
 }
@@ -136,10 +180,10 @@
 }
 
 .card-title h3{
-  margin-top: 9px;
   height: 40px;
-  line-height: 1.5;
-  position: relative;
+  line-height: 1.7;
+  font-size: 1.5rem;
+  margin: 0;
 }
 
 h3{
@@ -163,7 +207,7 @@ h3{
 }
 
 .cardInfo{
-  height: 70%;
+  height: 75%;
   display: flex;
   justify-content: space-between;
   align-items: center;

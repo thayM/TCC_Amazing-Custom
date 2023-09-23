@@ -34,6 +34,11 @@ $(".inner").each(function(i) {
 });
 
 // FECHAR MENU RESPONSIVO
-$(".menu_aberto").on("click", () => {
-  document.getElementById("menu-responsivo").checked = false;
+$("menu-responsivo").on("click", () => {
+  $("header").toggle();
+});
+
+// POPOVER HOME LISTAGENS
+$(".imgFilter").on("click", () => {
+  $(".filtro_popover").toggle();
 });
