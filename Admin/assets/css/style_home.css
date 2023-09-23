@@ -215,14 +215,13 @@ h3{
 
 /* Modal */
 
-.modal{
+.content_modal{
   display: flex;
   width: 980px;
   height: 463px;
   justify-content: space-between;
   background-color: var(--background-color);
   border-radius: 10px;
-  margin: 10% 225px;
 }
 
 .container_modal{
@@ -232,6 +231,7 @@ h3{
   height: 100%;
   z-index: 2;
   justify-content: center;
+  align-items: center;
   background: var(--bg-input-color);
 }
 
@@ -316,8 +316,8 @@ h3{
 
 .fechar{
   position: absolute;
-  top: 3%;
-  left: 92%;
+  left: 77%;
+  top: 22%;
   z-index: 5;
   width: 10%;
   height: 5%;

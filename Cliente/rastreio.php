@@ -9,7 +9,7 @@
 
 
 <div class="container_modal modalCad">
-    <div class="modal">
+    <div class="content_modal">
         <div class="parteEsq">
             <h2 class="tituloEsq">Dados do pedido</h2>
             <p class="atributo">N° pedido:</p>
