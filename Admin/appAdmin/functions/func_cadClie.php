@@ -12,4 +12,4 @@ $stmt->bindValue(":endereco", $endereco);
 $stmt->bindValue(":email", $email);
 $stmt->execute();
 ?>
-<!-- <meta http-equiv="refresh" content="0; url=../cadFragrancia"> -->
+<meta http-equiv="refresh" content="0; url=../cadCliente.php">

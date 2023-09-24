@@ -9,7 +9,8 @@
   width: 680px;
   height: 45px;
   border: 1px solid #494949;
-  border-radius: 10px 0 0 10px;
+  border-radius: 5px 0 0 5px;
+  z-index: 2;
 }
 
 .btnBuscar{
@@ -18,10 +19,19 @@
   background-color: var(--primary-color);
   border: 0;
   border-radius: 0 5px 5px 0px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+.btnBuscar img{
+  height: 25px;
 }
 
 .filtro_listagens{
   position: relative;
+}
+
+.imgFilter{
+  cursor: pointer;
 }
 
 .filtro_popover{
@@ -77,8 +87,6 @@
 /* Cards */
 .card-pedidos{
   margin-top: 20px;
-  width: 1006px;
-  border: 1px solid var(--background-color);
 }
 
 .nomeClie{
@@ -95,6 +103,7 @@
 .imgData{
   position: relative;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 .icons{
@@ -107,37 +116,30 @@
 }
 
 .caneta{
-  display: flex;
-  position: relative;
-  width: 30px;
-  height: 30px;
-  left: -2%;
+  height: 26px;
+  cursor: pointer;
 }
 
 .lixeira{
-  display: flex;
-  position: relative;
-  width: 35px;
-  height: 35px;
-  left: 5%;
+  height: 26px;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 #status{
   background-color: var(--first-grayscale);
   padding: 0 10px;
   height: 45px;
-  width: 374px;
+  width: 372px;
   border-radius: 0 5px 0 0;
+  cursor: pointer;
+  box-shadow: none;
 }
 
 .etapa{
   position: relative;
   font-size: 20px;
   margin: 0;
-}
-
-.etapaImg{
-  left: 19%;
 }
 
 .card-body{
@@ -222,6 +224,7 @@ h3{
   justify-content: space-between;
   background-color: var(--background-color);
   border-radius: 10px;
+  position: relative;
 }
 
 .container_modal{
@@ -245,7 +248,6 @@ h3{
   color: var(--primary-color);
   border-bottom: 2px dashed #898989;
   margin: 35px -10px;
-
 }
 
 .atributo{
@@ -316,12 +318,9 @@ h3{
 
 .fechar{
   position: absolute;
-  left: 77%;
-  top: 22%;
-  z-index: 5;
-  width: 10%;
-  height: 5%;
-  color: var(--secondary-color);
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
 }
 
 .dirInferior{

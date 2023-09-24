@@ -11,6 +11,7 @@
   padding: 20px 40px;
   width: 580px;
   border-radius: 5px;
+  position: relative;
   background: var(--background-color);
 }
 
@@ -24,7 +25,7 @@
   height: 20px;
   cursor: pointer;
   position: absolute;
-  transform: translateX(500px);
+  right: 20px;
 }
 
 .modal_input-nome label{
