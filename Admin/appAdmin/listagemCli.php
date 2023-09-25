@@ -15,7 +15,7 @@
 <body>
 <div class="search">
     <input type="text" name="" id="barraBusca" placeholder="Buscar...">
-    <button class="btnBuscar"><img src="../assets/icons/lupa.svg" alt=""></button>
+    <button class="btnBuscar"><img src="../../assets/img/lupa.svg" alt=""></button>
     <img src="../assets/icons/Filter.svg" class="imgFilter" alt="">
 </div>
 

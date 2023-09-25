@@ -19,6 +19,9 @@
     margin-left: 10px;
     cursor: pointer;
 }
+.imgData:hover{
+    filter: brightness(70%);
+}
 
 .status{
     background-color: var(--first-grayscale);

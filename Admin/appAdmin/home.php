@@ -98,7 +98,7 @@ include_once('../components/header.php');
     <div class="search d-flex align-items-center">
       <input type="text" name="" id="barraBusca" placeholder="Buscar...">
       <button class="btnBuscar">
-        <img src="../assets/icons/lupa.svg" alt="">
+        <img src="../../assets/img/lupa.svg" alt="">
       </button>
       <div class="filtro_listagens">
         <img src="../assets/icons/Filter.svg" class="imgFilter" alt="">

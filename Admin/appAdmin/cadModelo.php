@@ -47,7 +47,7 @@ $listMods = $stmt->fetchAll(PDO::FETCH_OBJ);
       <div class="pesquisa_input d-flex">
         <input type="text" placeholder="Buscar...">
         <button class="btn-buscar">
-          <img src="../assets/icons/lupa.svg" alt="lupa">
+          <img src="../../assets/img/lupa.svg" alt="lupa">
         </button>
       </div>
       <button onclick="addStyle()" type="button" class="btnAbrirModal produto_btn d-flex justify-content-between">
@@ -74,7 +74,7 @@ $listMods = $stmt->fetchAll(PDO::FETCH_OBJ);
               <button>
                 <img src="../assets/icons/pen.svg" alt="editar">
               </button>
-              <button oncli>
+              <button>
                 <img src="../assets/icons/trash-alt.svg" alt="excluir">
               </button>
             </div>
