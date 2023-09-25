@@ -138,7 +138,9 @@ include_once('../components/header.php');
         <div class="card-title">
           <h3 class="titulo">MODELO</h3>
           <div class="cardInfo">
-            <img src="" alt="">
+            <div class="imgModelo">
+            <img class="produto_img" src="../../upload/1695034978_brasão 5.jpg" alt="">
+            </div>
             <p class="card-text">Quadrado</p>
           </div>
         </div>

@@ -18,6 +18,7 @@ if(isset($_GET["busca__frag"])){
   $sqlSelect = "SELECT * FROM fragrancia ORDER BY cod_frag DESC";
   $stmt = $conn->query($sqlSelect);
   $fragrancias = $stmt->fetchAll(PDO::FETCH_OBJ);
+  $busca = "";
 }
 ?>
 
@@ -51,7 +52,7 @@ if(isset($_GET["busca__frag"])){
   <main class="w-100 d-flex flex-column align-items-center">
     <div class="header_pesquisa d-flex justify-content-center">
       <form class="pesquisa_input d-flex">
-        <input type="text" name="busca__frag" class="busca" placeholder="Buscar...">
+        <input type="text" name="busca__frag" class="busca" placeholder="Buscar..." value="<?=$busca?>">
         <button class="btn-buscar" type="submit">
           <img src="../../assets/img/lupa.svg" alt="lupa">
         </button>

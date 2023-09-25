@@ -197,10 +197,6 @@
   margin: 0;
 }
 
-h3{
-  border-bottom: 2px solid var(--background-color);
-}
-
 .card-title:nth-child(1){
   border-radius: 0 0 0 5px;
   border-right: 2px solid var(--background-color);
@@ -213,15 +209,25 @@ h3{
 
 .card-text{
   color: var(--light-color);
-  width: 100%;
   font-size: 28px;
+  margin-right: 20px;
 }
 
 .cardInfo{
-  height: 75%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  min-height: 115px;
+  border-top:  2px solid var(--background-color);
+}
+
+.imgModelo{
+  border-radius: 5px;
+  padding: 10px;
+  height: 90px;
+  width: 90px;
+  margin: 8px 40px 8px 8px;
+  background-color: #ffff;
 }
 
 /* Modal */

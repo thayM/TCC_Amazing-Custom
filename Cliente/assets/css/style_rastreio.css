@@ -41,7 +41,6 @@
 .card-body{
     display: flex;
     width: 100%;
-    min-height: 160px;
     justify-content: space-between;
     padding: 0;
 }
@@ -84,10 +83,6 @@
     margin: 0;
 }
 
-h3{
-    border-bottom: 2px solid var(--background-color);
-}
-
 .titulo{
     margin:0;
 }
@@ -107,15 +102,25 @@ h3{
 
 .card-text{
     color: var(--light-color);
-    width: 100%;
+    margin-right: 20px;
     font-size: 28px;
 }
 
 .cardInfo{
-    height: 75%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    min-height: 115px;
+    border-top:  2px solid var(--background-color);
+}
+
+.imgModelo{
+    border-radius: 5px;
+    padding: 10px;
+    height: 90px;
+    width: 90px;
+    margin: 8px 40px 8px 8px;
+    background-color: #ffff;
 }
 
 /* Modal */
