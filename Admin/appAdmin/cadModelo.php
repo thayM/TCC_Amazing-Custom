@@ -74,7 +74,7 @@ $listMods = $stmt->fetchAll(PDO::FETCH_OBJ);
               <button>
                 <img src="../assets/icons/pen.svg" alt="editar">
               </button>
-              <button>
+              <button oncli>
                 <img src="../assets/icons/trash-alt.svg" alt="excluir">
               </button>
             </div>
