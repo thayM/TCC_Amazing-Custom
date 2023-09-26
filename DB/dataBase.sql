@@ -33,6 +33,7 @@ create table CLIENTE(
 create table PEDIDO(
     cod_ped int primary key auto_increment,
     fkcod_cli int,
+    cod_rastreamento char(9) not null,
     frete decimal(8,2) not null,
     valor decimal(8,2) not null,
     data_ped date not null,
