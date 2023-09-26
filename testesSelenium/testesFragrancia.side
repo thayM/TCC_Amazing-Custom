@@ -1,0 +1,401 @@
+{
+  "id": "9730726f-1758-4e45-a458-fbb1b29f45c2",
+  "version": "2.0",
+  "name": "TCC-amazingCustom",
+  "url": "http://aula/TCC_Amazing-Custom/Admin/appAdmin/cadFragrancia.php",
+  "tests": [{
+    "id": "fa4fce13-d648-4ab6-b978-f60c61770ccb",
+    "name": "teste frag cad",
+    "commands": [{
+      "id": "fe0a625a-a6bd-4f8f-9f27-1d31c1fb40b9",
+      "comment": "",
+      "command": "open",
+      "target": "http://aula/TCC_Amazing-Custom/Admin/appAdmin/cadFragrancia.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d321657e-596b-4c89-a935-7828c2024c71",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1050x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ce6e3f52-aff0-4896-9671-21fe79002596",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btnAbrirModal",
+      "targets": [
+        ["css=.btnAbrirModal", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//main/div/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "88b94a08-e0e5-4a53-bbb9-cdee1f18c75a",
+      "comment": "",
+      "command": "click",
+      "target": "id=nome__Frag",
+      "targets": [
+        ["id=nome__Frag", "id"],
+        ["name=nome__frag", "name"],
+        ["css=#nome__Frag", "css:finder"],
+        ["xpath=//input[@id='nome__Frag']", "xpath:attributes"],
+        ["xpath=//div[4]/form/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "58b03452-4984-4728-a325-f32a85eb0a00",
+      "comment": "",
+      "command": "type",
+      "target": "id=nome__Frag",
+      "targets": [
+        ["id=nome__Frag", "id"],
+        ["name=nome__frag", "name"],
+        ["css=#nome__Frag", "css:finder"],
+        ["xpath=//input[@id='nome__Frag']", "xpath:attributes"],
+        ["xpath=//div[4]/form/div/div/input", "xpath:position"]
+      ],
+      "value": "Aroma Flor"
+    }, {
+      "id": "17c45a1e-114c-4e12-ac05-16364f1cade9",
+      "comment": "",
+      "command": "click",
+      "target": "id=desc__Frag",
+      "targets": [
+        ["id=desc__Frag", "id"],
+        ["name=desc__frag", "name"],
+        ["css=#desc__Frag", "css:finder"],
+        ["xpath=//textarea[@id='desc__Frag']", "xpath:attributes"],
+        ["xpath=//div[4]/form/div/textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "422504ed-1484-4304-b3b6-d54ee6a3ca4b",
+      "comment": "",
+      "command": "type",
+      "target": "id=desc__Frag",
+      "targets": [
+        ["id=desc__Frag", "id"],
+        ["name=desc__frag", "name"],
+        ["css=#desc__Frag", "css:finder"],
+        ["xpath=//textarea[@id='desc__Frag']", "xpath:attributes"],
+        ["xpath=//div[4]/form/div/textarea", "xpath:position"]
+      ],
+      "value": "cheiro de flor"
+    }, {
+      "id": "d6aa56ae-96a1-4916-9fff-3faa850d7034",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-cadastrar",
+      "targets": [
+        ["css=.btn-cadastrar", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//div[4]/form/div/div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6a3fdd58-06de-4731-9204-c3e13178f962",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btnAbrirModal",
+      "targets": [
+        ["css=.btnAbrirModal", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//main/div/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8063b263-efd8-4bad-84de-adc8ea0452f1",
+      "comment": "",
+      "command": "click",
+      "target": "id=nome__Frag",
+      "targets": [
+        ["id=nome__Frag", "id"],
+        ["name=nome__frag", "name"],
+        ["css=#nome__Frag", "css:finder"],
+        ["xpath=//input[@id='nome__Frag']", "xpath:attributes"],
+        ["xpath=//div[4]/form/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1d57c20d-0e94-40d5-af24-ddcc35260d01",
+      "comment": "",
+      "command": "type",
+      "target": "id=nome__Frag",
+      "targets": [
+        ["id=nome__Frag", "id"],
+        ["name=nome__frag", "name"],
+        ["css=#nome__Frag", "css:finder"],
+        ["xpath=//input[@id='nome__Frag']", "xpath:attributes"],
+        ["xpath=//div[4]/form/div/div/input", "xpath:position"]
+      ],
+      "value": "Aroma mar"
+    }, {
+      "id": "68194ae4-5187-414f-a519-af9755a31675",
+      "comment": "",
+      "command": "click",
+      "target": "id=desc__Frag",
+      "targets": [
+        ["id=desc__Frag", "id"],
+        ["name=desc__frag", "name"],
+        ["css=#desc__Frag", "css:finder"],
+        ["xpath=//textarea[@id='desc__Frag']", "xpath:attributes"],
+        ["xpath=//div[4]/form/div/textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2bd1ef75-55c8-4e83-987e-1890a25ba2d0",
+      "comment": "",
+      "command": "type",
+      "target": "id=desc__Frag",
+      "targets": [
+        ["id=desc__Frag", "id"],
+        ["name=desc__frag", "name"],
+        ["css=#desc__Frag", "css:finder"],
+        ["xpath=//textarea[@id='desc__Frag']", "xpath:attributes"],
+        ["xpath=//div[4]/form/div/textarea", "xpath:position"]
+      ],
+      "value": "cheiro de mar"
+    }, {
+      "id": "17cd94fe-bad0-4341-befa-b17f3016d6cf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-cadastrar",
+      "targets": [
+        ["css=.btn-cadastrar", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//div[4]/form/div/div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "2f14879c-3345-4225-981e-ba463c9b5415",
+    "name": "teste frag editar",
+    "commands": [{
+      "id": "179ad9e0-bf33-4a6d-9715-fbbdca4bec2e",
+      "comment": "",
+      "command": "open",
+      "target": "http://aula/TCC_Amazing-Custom/Admin/appAdmin/cadFragrancia.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b5b85fe5-70c9-4cec-96d5-3329b7eae6a4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1050x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b16446e1-e122-43e4-9f65-ec2c1d2c57e0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.card-produto:nth-child(1) button:nth-child(1) > img",
+      "targets": [
+        ["css=.card-produto:nth-child(1) button:nth-child(1) > img", "css:finder"],
+        ["xpath=//img[@alt='editar']", "xpath:img"],
+        ["xpath=//div[2]/button/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c56c6b0e-392c-4bf4-91e0-45cf76007e57",
+      "comment": "",
+      "command": "click",
+      "target": "id=newNome__Frag",
+      "targets": [
+        ["id=newNome__Frag", "id"],
+        ["name=newNome__frag", "name"],
+        ["css=#newNome__Frag", "css:finder"],
+        ["xpath=//input[@id='newNome__Frag']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "579ebec5-ad11-4436-afd3-3e09b96d9bc6",
+      "comment": "",
+      "command": "type",
+      "target": "id=newNome__Frag",
+      "targets": [
+        ["id=newNome__Frag", "id"],
+        ["name=newNome__frag", "name"],
+        ["css=#newNome__Frag", "css:finder"],
+        ["xpath=//input[@id='newNome__Frag']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "Aroma Mar"
+    }, {
+      "id": "edb9ce88-bf53-4958-8732-0232c1a5abba",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-editar",
+      "targets": [
+        ["css=.btn-editar", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "bd2727fd-41b3-4a5f-a7b4-8cad908930ac",
+    "name": "teste frag excluir \"aroma mar\"",
+    "commands": [{
+      "id": "d93575cb-0db3-4ec8-a3f4-bb5f224bac22",
+      "comment": "",
+      "command": "open",
+      "target": "http://aula/TCC_Amazing-Custom/Admin/appAdmin/cadFragrancia.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0f330144-1834-4e28-85bc-85f1ae5a0e6a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1050x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f93cfac2-e482-4aa7-bbed-b76606c7005c",
+      "comment": "",
+      "command": "click",
+      "target": "name=busca__frag",
+      "targets": [
+        ["name=busca__frag", "name"],
+        ["css=.busca", "css:finder"],
+        ["xpath=//input[@name='busca__frag']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9fbd515e-ce86-4c7f-9e93-bf7e6881a2f8",
+      "comment": "",
+      "command": "type",
+      "target": "name=busca__frag",
+      "targets": [
+        ["name=busca__frag", "name"],
+        ["css=.busca", "css:finder"],
+        ["xpath=//input[@name='busca__frag']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": "Aroma Mar"
+    }, {
+      "id": "bb3a6c39-444d-4b4c-abbe-75ba9a71071f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-buscar > img",
+      "targets": [
+        ["css=.btn-buscar > img", "css:finder"],
+        ["xpath=//img[@alt='lupa']", "xpath:img"],
+        ["xpath=//button/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2de80a71-c26f-4bbe-812e-f2861ae99f6d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.container_btn > button:nth-child(2) > img",
+      "targets": [
+        ["css=.container_btn > button:nth-child(2) > img", "css:finder"],
+        ["xpath=//img[@alt='excluir']", "xpath:img"],
+        ["xpath=//button[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9b5a9324-967d-4ee9-b31b-07854521f741",
+      "comment": "",
+      "command": "click",
+      "target": "css=.excluir",
+      "targets": [
+        ["css=.excluir", "css:finder"],
+        ["xpath=//button[@onclick='excluirFrag(31)']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EXCLUIR')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "bb323a7a-c260-4377-967a-bb0fd9d8be9e",
+    "name": "teste frag excluir \"aroma flor\" ",
+    "commands": [{
+      "id": "5c40ea84-8582-44fa-b90a-fd12dcb6a76e",
+      "comment": "",
+      "command": "open",
+      "target": "http://aula/TCC_Amazing-Custom/Admin/appAdmin/cadFragrancia.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "30b818ab-1cba-4f12-87a7-020649cc5fbb",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1050x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "21ceaee5-f36f-4822-912a-9dc14c36d61e",
+      "comment": "",
+      "command": "click",
+      "target": "name=busca__frag",
+      "targets": [
+        ["name=busca__frag", "name"],
+        ["css=.busca", "css:finder"],
+        ["xpath=//input[@name='busca__frag']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4d11595c-10a2-4b59-ab91-2fa0a0ce1c62",
+      "comment": "",
+      "command": "type",
+      "target": "name=busca__frag",
+      "targets": [
+        ["name=busca__frag", "name"],
+        ["css=.busca", "css:finder"],
+        ["xpath=//input[@name='busca__frag']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": "Aroma flor"
+    }, {
+      "id": "5996a9ec-7748-4de1-96d8-75a58b0ff0a7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-buscar > img",
+      "targets": [
+        ["css=.btn-buscar > img", "css:finder"],
+        ["xpath=//img[@alt='lupa']", "xpath:img"],
+        ["xpath=//button/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9ecb682f-3248-461f-adf6-0d23bc1e29a8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.container_btn > button:nth-child(2) > img",
+      "targets": [
+        ["css=.container_btn > button:nth-child(2) > img", "css:finder"],
+        ["xpath=//img[@alt='excluir']", "xpath:img"],
+        ["xpath=//button[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "da14d86c-136f-4e11-b1e8-51d842fb1e45",
+      "comment": "",
+      "command": "click",
+      "target": "css=.excluir",
+      "targets": [
+        ["css=.excluir", "css:finder"],
+        ["xpath=//button[@onclick='excluirFrag(31)']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'EXCLUIR')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "9968e477-cca9-47c4-8c63-dd7e200a6f5a",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://aula/TCC_Amazing-Custom/Admin/appAdmin/cadFragrancia.php"],
+  "plugins": []
+}
