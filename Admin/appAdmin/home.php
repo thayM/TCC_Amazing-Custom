@@ -12,6 +12,7 @@ include_once('../components/header.php');
   <div class="content_modal">
     <div class="parteEsq">
       <h2 class="tituloEsq">Dados do pedido</h2>
+      <div class="atributos">
       <p class="atributo">N° pedido:</p>
       <p class="atributo">Cliente:</p>
       <p class="atributo">Modelo:</p>
@@ -19,6 +20,7 @@ include_once('../components/header.php');
       <p class="atributo">Sub valor: R$--,--</p>
       <p class="atributo">Frete: R$--,--</p>
       <p class="atributo">Valor total: R$--,--</p>
+    </div>
     </div>
 
     <div class="parteDir">
