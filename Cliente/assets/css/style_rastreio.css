@@ -133,6 +133,7 @@
     background-color: var(--background-color);
     border-radius: 10px;
     position: relative;
+    padding: 0 40px;
 }
 
 .container_modal{
@@ -148,19 +149,19 @@
 
 .parteEsq{
     position: relative;
-    left: 5%;
     font-size: 24px;
 }
 
 .tituloEsq{
     color: var(--primary-color);
     border-bottom: 2px dashed #898989;
-    margin: 35px -10px;
-
+    margin: 35px 0;
+    height: 45px;
+    font-size: 34px;
 }
 
 .atributo{
-    margin: 10px;
+    margin: 10px 0;
     color: var(--light-color);
 }
 
