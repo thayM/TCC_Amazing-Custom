@@ -25,18 +25,9 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
       <h3>Novo Pedido</h3>
       <div class="content_form-cliente d-flex flex-column">
         <p class="divisoria m-0">Cliente</p>
-        <select name="cliente" id="cliente">
-          <option value="">Selecione um cliente</option>
-          <?php
-          foreach ($clientes as $cliente) {
-          ?>
-            <option value="<?=$cliente->cod_cli?>"><?=$cliente->nome?></option>
-          <?php
-          }
-          ?>
-        </select>
-
-        <div class="d-flex justify-content-between">
+        <input name="nome" type="text" placeholder="Nome Completo" class="nome" id="nomeCli" onkeyup="filtroCli(this.value)">
+        <span id="resultPesquisaCli"></span>
+      <div class="d-flex justify-content-between">
           <label for="dataPag">Data de Pagamento</label>
           <input name="data_ped" type="date" class="data" id="dataPag">
         </div>
@@ -73,16 +64,8 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
               <input type="number" name="quantidade" id="numModel" class="produto_input" placeholder="000">
             </div>
             <div class="d-flex justify-content-between align-items-center">
-              <select name="fragrancia" id="fragrancia" class="produto_select w-75">
-                <option value="" selected>Selecione a Fragrância</option>
-                <?php
-                foreach ($fragrancias as $fragrancia) {
-                ?>
-                  <option value="<?=$fragrancia->cod_frag?>"><?=$fragrancia->nome_frag?></option>
-                <?php
-                }
-                ?>
-              </select>
+            <input name="nome" type="text" placeholder="Nome da Fragrância" class="nome" id="nomeFrag" onkeyup="filtroFrag(this.value)">
+            <span id="resultPesquisaFrag"></span>
               <!-- lixeira -->
             </div>
           </div>
@@ -110,6 +93,7 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
     </form>
   </div>
   <script src="../assets/js/cadPedido.js"></script>
+  <script src="../assets/js/filtroIn.js"></script>
 </body>
 
 </html>
