@@ -3,6 +3,8 @@ include_once('../components/header.php');
 ?>
 
 <head>
+  <link rel="stylesheet" href="../../assets/css/style_rastreamento.css">
+  <link rel="stylesheet" href="../assets/css/style_admin.css">
   <link rel="stylesheet" href="../assets/css/style_home.css">
   <link rel="stylesheet" href="../assets/css/style.css">
   <title>Home | Listagem Pedidos</title>
@@ -13,14 +15,14 @@ include_once('../components/header.php');
     <div class="parteEsq">
       <h2 class="tituloEsq">Dados do pedido</h2>
       <div class="atributos">
-      <p class="atributo">N° pedido:</p>
-      <p class="atributo">Cliente:</p>
-      <p class="atributo">Modelo:</p>
-      <p class="atributo">Fragrância:</p>
-      <p class="atributo">Sub valor: R$--,--</p>
-      <p class="atributo">Frete: R$--,--</p>
-      <p class="atributo">Valor total: R$--,--</p>
-    </div>
+        <p class="atributo">N° pedido:</p>
+        <p class="atributo">Cliente:</p>
+        <p class="atributo">Modelo:</p>
+        <p class="atributo">Fragrância:</p>
+        <p class="atributo">Sub valor: R$--,--</p>
+        <p class="atributo">Frete: R$--,--</p>
+        <p class="atributo">Valor total: R$--,--</p>
+      </div>
     </div>
 
     <div class="parteDir">

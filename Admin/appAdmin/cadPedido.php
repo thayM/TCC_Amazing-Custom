@@ -14,7 +14,7 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
 ?>
 
 <head>
-  <link rel="stylesheet" href="../assets/css/style_cadastros.css">
+  <link rel="stylesheet" href="../assets/css/style_admin.css">
   <link rel="stylesheet" href="../assets/css/style_cadPedido.css">
   <title>Cadastro Pedido</title>
 </head>

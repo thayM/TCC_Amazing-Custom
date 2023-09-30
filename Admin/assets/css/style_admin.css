@@ -1,0 +1,255 @@
+/* MENU */
+#menu-responsivo{
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+.nav_items{
+  margin: 0;
+  width: 715px;
+}
+
+.nav_items li{
+  list-style: none;
+}
+
+.nav_items li .item{
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  transition: 0.5s;
+}
+
+.nav_items li .item:hover{
+  text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.15);
+  color: var(--secondary-color);
+  transition: ease 0.5s;
+}
+
+.nav_items li:nth-child(1n+2) .item::before{
+  content: "";
+  display: inline-block;
+  margin: 0 15px;
+  width: 3px;
+  height: 15px;
+  background: var(--primary-color);
+}
+
+/* Media Query */
+@media (max-width: 1008px){
+  header{
+    padding: 40px 0;
+    width: 60px;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    z-index: 4;
+    transition: 0.5s;
+  }
+
+  /* Menu Responsivo */
+  .menu{
+    margin-right: 30px;
+    width: 200px;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    transform: translateX(280px);
+    transition: 0.5s;
+  }
+
+  .logo{
+    margin: 0 30px 30px 0;
+  }
+
+  .nav_items{
+    width: 190px;
+    flex-direction: column;
+  }
+
+  .nav_items li{
+    margin: 8px 0;
+  }
+
+  .nav_items li:nth-child(1n + 2) .item::before{
+    margin: 0;
+    width: 0;
+    height: 0;
+  }
+
+  #menu-responsivo:checked ~ header{
+    width: 300px;
+  }
+
+  #menu-responsivo:checked ~ header .menu{
+    transform: translateX(0px);
+  }
+
+  #menu-responsivo:checked ~ .menu_aberto{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 3;
+  }
+
+  /* Menu Hamburguer */
+  #menu-responsivo_label{
+    margin: 0 auto;
+    padding: 10px 0;
+    width: 30px;
+    display: block;
+    position: absolute;
+    left: 15px;
+    cursor: pointer;
+  }
+
+  #menu-responsivo_label span,
+  #menu-responsivo_label span::after,
+  #menu-responsivo_label span::before{
+    content: "";
+    width: 30px;
+    height: 3px;
+    display: block;
+    position: absolute;
+    background: var(--primary-color);
+    transition: 0.5s;
+  }
+
+  #menu-responsivo_label span::before{
+    transform: translateY(-10px);
+  }
+  #menu-responsivo_label span::after{
+    transform: translateY(10px);
+  }
+
+  #menu-responsivo:checked ~ header #menu-responsivo_label span{
+    background: transparent;
+  }
+  #menu-responsivo:checked ~ header #menu-responsivo_label span::before{
+    transform: rotate(45deg);
+  }
+  #menu-responsivo:checked ~ header #menu-responsivo_label span::after{
+    transform: rotate(-45deg);
+  }
+}
+
+/* MODAIS */
+.container_modal-php {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  background: var(--bg-input-color);
+}
+.container_modal-php .content_modal-php{
+  padding: 20px 40px;
+  border-radius: 10px;
+  width: 500px;
+  min-height: 300px;
+  word-wrap: break-word;
+  background: var(--background-color);
+}
+.content_modal-php h3{
+  margin: 20px;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--light-color);
+}
+.content_modal-php p{
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--input-color);
+}
+.btn_modal{
+  margin: 20px 0;
+  border: 0;
+  border-radius: 10px;
+  width: 180px;
+  height: 60px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: .5s;
+}
+.btn_modal.cancelar{
+  border: 3px solid var(--primary-color);
+  background: transparent;
+  color: var(--primary-color);
+}
+.btn_modal.excluir{
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background: var(--primary-color);
+  color: var(--light-color);
+}
+
+/* FORMULÁRIO */
+.container_form{
+  margin-top: 40px;
+  width: 85%;
+}
+
+.container_form h3{
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--light-color);
+}
+
+.content_form{
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--light-color);
+}
+
+/* Btn Cadastro */
+.btn-cadastrar, .btn-editar{
+  margin: 20px 0;
+  border: 0;
+  border-radius: 10px;
+  width: 180px;
+  height: 60px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background: var(--primary-color);
+  color: var(--light-color);
+  transition: .5s;
+}
+
+.btn-cadastrar:hover{
+  background: var(--tertiary-color);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+  transition: .5s;
+}
+
+/* Btn Adicionar */
+.produto_btn{
+  border: 3px solid var(--primary-color);
+  border-radius: 5px;
+  padding: 5px;
+  min-width: 240px;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--primary-color);
+  transition: 0.5s;
+}
+
+.produto_btn-add{
+  margin-left: 10px;
+  font-size: 1.5rem;
+  line-height: 0.9;
+}
+
+.produto_btn:hover{
+  box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background: var(--primary-color);
+  color: var(--light-color);
+  transition: ease 0.5s;
+}

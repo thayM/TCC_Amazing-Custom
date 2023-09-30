@@ -23,7 +23,7 @@ if(isset($_GET["busca__frag"])){
 ?>
 
 <head>
-  <link rel="stylesheet" href="../assets/css/style_cadastros.css">
+  <link rel="stylesheet" href="../assets/css/style_admin.css">
   <link rel="stylesheet" href="../assets/css/style_listagens.css">
   <link rel="stylesheet" href="../assets/css/style_fragrancia.css">
   <title>Cadastro Fragrância</title>

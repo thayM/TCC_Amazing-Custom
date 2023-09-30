@@ -7,8 +7,9 @@
 ?>
 
 <head>
-<link rel="stylesheet" href="../../assets/css/style.css">
-<link rel="stylesheet" href="../assets/css/style_listagemCli.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style_admin.css">
+    <link rel="stylesheet" href="../assets/css/style_listagemCli.css">
 <title>Clientes</title>
 </head>
 
