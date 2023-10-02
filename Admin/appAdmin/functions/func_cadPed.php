@@ -11,15 +11,15 @@ extract($_POST);
 // $sqlClientes = $conn->query("SELECT * FROM CLIENTE");
 // $clientes = $sqlClientes->fetchAll(PDO::FETCH_OBJ);
 // var_dump($client);
-do{
-    $alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    $codRastreamento ="AC";
-    $codRastreamento .= str_pad(rand(0,99999), 5, "0", STR_PAD_LEFT);
-    $codRastreamento .= $alfabeto[rand(0,25)] . $alfabeto[rand(0,25)];
+// do{
+//     $alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+//     $codRastreamento ="AC";
+//     $codRastreamento .= str_pad(rand(0,99999), 5, "0", STR_PAD_LEFT);
+//     $codRastreamento .= $alfabeto[rand(0,25)] . $alfabeto[rand(0,25)];
 
-    $sqlSelect = "SELECT * FROM PEDIDO WHERE cod_rastreamento = " . $codRastreamento;
-    $pedido = $conn->query($sqlSelect);
-}while($pedido);
+//     $sqlSelect = "SELECT * FROM PEDIDO WHERE cod_rastreamento = " . $codRastreamento;
+//     $pedido = $conn->query($sqlSelect);
+// }while($pedido);
 
 $sqlInsert = "INSERT INTO PEDIDO VALUES(0, :cliente,:rastreamento, :frete, :valor, :data_ped, 100, :estado_pedido)";
 $stmt = $conn->prepare($sqlInsert);

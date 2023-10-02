@@ -29,3 +29,21 @@ $(".produto_btn").on("click", () => {
 
   index++;
 });
+
+var POST_modelos = [];
+var POST_fragrancias = [];
+$(".btn-cadastro").on("click", () => {
+
+  $(".modelos").each(function() {
+    POST_modelos.push($(this)[0].value);
+    console.log(POST_modelos);
+  });
+
+  $(".fragrancias").each(function() {
+    POST_fragrancias.push($(this)[0].value);
+    console.log(POST_fragrancias);
+  });
+  document.querySelector(".form_pedido").action = `./functions/func_cadPed.php?modelos=${POST_modelos}&fragrancias=${POST_fragrancias}`;
+  $(".form_pedido").trigger("submit")
+});
+

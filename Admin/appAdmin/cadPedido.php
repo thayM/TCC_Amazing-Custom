@@ -21,11 +21,11 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
 
 <body>
   <div class="container_form d-flex flex-column align-items-center">
-    <form action="./functions/func_cadPed.php" method="POST" class="content_form">
+    <form action="./functions/func_cadPed.php" method="POST" class="content_form form_pedido">
       <h3>Novo Pedido</h3>
       <div class="content_form-cliente d-flex flex-column">
         <p class="divisoria m-0">Cliente</p>
-        <input name="nome" type="text" placeholder="Nome Completo" class="nome" id="nomeCli" onkeyup="filtroCli(this.value)">
+        <input name="nome" type="text" placeholder="Nome Completo" class="clientes" id="nomeCli" onkeyup="filtroCli(this.value)">
         <span id="resultPesquisaCli"></span>
       <div class="d-flex justify-content-between">
           <label for="dataPag">Data de Pagamento</label>
@@ -51,7 +51,7 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
         <div class="container_produtos">
           <div class="produto_content d-flex flex-column">
             <div class="d-flex justify-content-between align-items-center">
-              <select name="modelo" id="modelo" class="produto_select w-75">
+              <select name="modelo" id="modelo" class="modelos produto_select w-75">
                 <option value="" selected>Selecione o Modelo</option>
                 <?php
                 foreach ($modelos as $modelo) {
@@ -64,7 +64,7 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
               <input type="number" name="quantidade" id="numModel" class="produto_input" placeholder="000">
             </div>
             <div class="d-flex justify-content-between align-items-center">
-            <input name="nome" type="text" placeholder="Nome da Fragrância" class="nome" id="nomeFrag" onkeyup="filtroFrag(this.value)">
+            <input name="nome" type="text" placeholder="Nome da Fragrância" class="fragrancias" id="nomeFrag" onkeyup="filtroFrag(this.value)">
             <span id="resultPesquisaFrag"></span>
               <!-- lixeira -->
             </div>
@@ -87,7 +87,7 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
           </select>
         </div>
         <div class="btn-cadastro d-flex justify-content-end p-0 w-100">
-          <button class="btn-cadastrar">CADASTRAR</button>
+          <button type="button" class="btn-cadastrar">CADASTRAR</button>
         </div>
       </div>
     </form>
