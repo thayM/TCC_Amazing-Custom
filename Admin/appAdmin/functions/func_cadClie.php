@@ -1,15 +1,37 @@
 <?php
 require '../../../lib/conn.php';
 extract($_POST);
-$tel = $telefone."/".$telefone2;
-$endereco = $cep.".".$logradouro.",".$num.".".$bairro.".".$cidade."-".$uf.".".$complemento;
 
-$sqlInsert='INSERT INTO cliente VALUES(0, :nome, 123,:tel,:endereco,:email)';
+var_dump($_POST);
+$tel = $telefone."/".$telefone2;
+
+$sqlInsert='INSERT INTO endereco VALUES(0,:nomeCli,:cep,:logradouro,:num,:cidade,:bairro,:uf,:complemento)';
+$stmt = $conn->prepare($sqlInsert);
+$stmt->bindValue(":cep", $cep);
+$stmt->bindValue(":nomeCli", $nome);
+$stmt->bindValue(":logradouro", $logradouro);
+$stmt->bindValue(":num", $num);
+$stmt->bindValue(":cidade", $cidade);
+$stmt->bindValue(":bairro", $bairro);
+$stmt->bindValue(":uf", $uf);
+$stmt->bindValue(":complemento", $complemento);
+$stmt->execute();
+
+$sqlSelect = "SELECT cod_endereco FROM endereco WHERE nomeCli = :nome";
+$stmt = $conn->prepare($sqlSelect);
+$stmt->bindValue(":nome", $nome);
+$stmt->execute();
+$endereco = $stmt->fetch(PDO::FETCH_OBJ);
+
+var_dump($endereco);
+echo intval($endereco->cod_endereco);
+
+$sqlInsert='INSERT INTO cliente VALUES(0, :idEnd, :nome, "123",:tel,:email)';
 $stmt = $conn->prepare($sqlInsert);
 $stmt->bindValue(":nome", $nome);
+$stmt->bindValue(":idEnd", intval($endereco->cod_endereco));
 $stmt->bindValue(":tel", $tel);
-$stmt->bindValue(":endereco", $endereco);
 $stmt->bindValue(":email", $email);
 $stmt->execute();
 ?>
-<meta http-equiv="refresh" content="0; url=../cadCliente.php">
+<!-- <meta http-equiv="refresh" content="0; url=../cadCliente.php"> -->

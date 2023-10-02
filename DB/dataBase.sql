@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS amazingCustom;
+
 create database amazingCustom;
 use amazingCustom;
 
@@ -23,10 +25,10 @@ create table FRAGRANCIA(
 
 create table CLIENTE(
     cod_cli int primary key auto_increment,
+    fkcod_endereco int,
     nome varchar(50) not null,
     senha varchar(50) not null,
     tel varchar(40) not null,
-    endereco varchar(100) not null,
     email varchar(100) not null
 );
 
@@ -56,6 +58,17 @@ create table PEDIDO_PRODUTO(
     qtd_prod int not null
 );
 
+create table ENDERECO(
+    cod_endereco int primary key auto_increment,
+    nomeCli varchar(70) not null,
+    cep varchar(10) not null,
+    logradouro varchar(70) not null,
+    num int not null,
+    cidade varchar(50) not null,
+    bairro varchar(70) not null,
+    uf char(2) not null,
+    complemento varchar(60)
+);
 -- relacionamento (chaves estrangeiras)
 
 alter table PEDIDO
@@ -82,5 +95,11 @@ alter table PEDIDO_PRODUTO
 add constraint fk_pedidoProduto_produto
 foreign key (fkcod_prod)
 references PRODUTO(cod_prod);
+
+
+alter table CLIENTE
+add constraint fk_endereco_cliente
+foreign key (fkcod_endereco)
+references ENDERECO(cod_enereco);
 
 INSERT INTO adm(nome_adm,senha_adm) VALUES("123","123");
