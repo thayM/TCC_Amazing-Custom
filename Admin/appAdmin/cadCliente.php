@@ -23,7 +23,7 @@
       </div>
 
       <div class="endereco d-flex flex-wrap">
-        <input type="text" name="cep" onblur="pesquisacep(this.value);" placeholder="CEP">
+        <input type="text" name="cep" onchange="pesquisacep(this.value);" onkeyup="pesquisacep(this.value);" placeholder="CEP">
         <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" class="endereco_buscar-cep">
           <p>Não sabe o CEP?</p>
         </a>

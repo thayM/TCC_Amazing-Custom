@@ -5,10 +5,9 @@ extract($_POST);
 var_dump($_POST);
 $tel = $telefone."/".$telefone2;
 
-$sqlInsert='INSERT INTO endereco VALUES(0,:nomeCli,:cep,:logradouro,:num,:cidade,:bairro,:uf,:complemento)';
+$sqlInsert='INSERT INTO endereco VALUES(0,:cep,:logradouro,:num,:cidade,:bairro,:uf,:complemento)';
 $stmt = $conn->prepare($sqlInsert);
 $stmt->bindValue(":cep", $cep);
-$stmt->bindValue(":nomeCli", $nome);
 $stmt->bindValue(":logradouro", $logradouro);
 $stmt->bindValue(":num", $num);
 $stmt->bindValue(":cidade", $cidade);
@@ -17,9 +16,9 @@ $stmt->bindValue(":uf", $uf);
 $stmt->bindValue(":complemento", $complemento);
 $stmt->execute();
 
-$sqlSelect = "SELECT cod_endereco FROM endereco WHERE nomeCli = :nome";
+$sqlSelect = "SELECT cod_endereco FROM endereco WHERE num = :num";
 $stmt = $conn->prepare($sqlSelect);
-$stmt->bindValue(":nome", $nome);
+$stmt->bindValue(":num", $num);
 $stmt->execute();
 $endereco = $stmt->fetch(PDO::FETCH_OBJ);
 

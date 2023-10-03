@@ -47,8 +47,6 @@ create table PRODUTO(
     cod_prod int primary key auto_increment,
     fkcod_frag int,
     fkcod_modelo int,
-    desc_modelo varchar(50),
-    obs varchar(50)
 );
 
 create table PEDIDO_PRODUTO(
@@ -60,7 +58,6 @@ create table PEDIDO_PRODUTO(
 
 create table ENDERECO(
     cod_endereco int primary key auto_increment,
-    nomeCli varchar(70) not null,
     cep varchar(10) not null,
     logradouro varchar(70) not null,
     num int not null,

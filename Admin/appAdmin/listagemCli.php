@@ -1,7 +1,7 @@
 <?php
   include_once('../components/header.php');
   require "../../lib/conn.php";
-  $sqlSelect = "SELECT * FROM Cliente";
+  $sqlSelect = "SELECT * FROM Cliente INNER JOIN Endereco on fkcod_endereco = cod_endereco";
   $stmt = $conn->query($sqlSelect);
   $clientes = $stmt->fetchAll(PDO::FETCH_OBJ);
 ?>
@@ -44,8 +44,8 @@
         </div>
 
         <div class="coluna">
-            <p class="card-text">Endereço:<?= $cliente->endereco?></p>
-        </div>
+            </div>
+            <p class="card-text">Endereço:<?= $cliente->logradouro?> <?= $cliente->num?> <?= $cliente->bairro?> <?= $cliente->cidade?><?= $cliente->uf?> <?= $cliente->complemento?></p>
 
         <div class="colunaImg">
             <img src="../assets/icons/pen.svg" alt="">
