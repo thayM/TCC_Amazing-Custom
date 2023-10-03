@@ -6,7 +6,6 @@ body{
 .container{
     width: 100%;
     height: 100vh;
-    margin: 0 50px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -14,7 +13,23 @@ body{
 }
 
 .imgLeao{
-    width: 550px;
+    width: 510px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+}
+
+.imgLeao span{
+    font-family: 'Mukta', sans-serif;
+    font-size: 1.35rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    position: absolute;
+    right: 30px;
+    bottom: 10px;
+    opacity: 0;
+    transition: .5s ease-out;
 }
 
 .logoLeao{
@@ -23,7 +38,12 @@ body{
 } 
 
 .logoLeao:hover{
-    transform: scale(1.1) translateY(-20px);
+    transform: scale(1.025) translateY(-20px);
+}
+
+.imgLeao:hover span{
+    right: 45px;
+    opacity: 1;
 }
 
 .logo{
@@ -34,6 +54,7 @@ body{
 }
 
 .campos{
+    margin: 15px;
     border-radius: 10px;
     background-color: var(--background-color);
     width: 470px;
@@ -64,4 +85,17 @@ body{
     top: 11em;
     left: 30%;
     transition: .5s;
+}
+
+@media (max-width: 1024px){
+    .imgLeao{
+        height: 100%;
+        align-items: center;
+    }
+
+    .container_form{
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
 }

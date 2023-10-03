@@ -10,21 +10,24 @@
 <body>
   <div class="container">
 
-    <div class="imgLeao d-flex align-items-center">
+    <div class="imgLeao">
       <img class="logoLeao" src="../assets/img/Logo_leao.png" alt="brasãoLeão">
+      <span>Amazing Custom &reg;</span>
     </div>
   
-    <div class="campos">
-      <img class="logo" src="../assets/img/Logo.png" alt="logo">
-      <form action="./functions/func_login.php" method="POST">
-        <div>
-          <input type="text" name="nome" id="nome" placeholder="Nome">
-        </div>
-        <div>
-          <input type="password" name="senha" id="senha" placeholder="Senha">
-        </div>
-        <button class="btn-cadastrar" type="submit">ENTRAR</button>
-      </form>
+    <div class="container_form">
+      <div class="campos">
+        <img class="logo" src="../assets/img/Logo.png" alt="logo">
+        <form action="./functions/func_login.php" method="POST">
+          <div>
+            <input type="text" name="nome" id="nome" placeholder="Nome">
+          </div>
+          <div>
+            <input type="password" name="senha" id="senha" placeholder="Senha">
+          </div>
+          <button class="btn-cadastrar" type="submit">ENTRAR</button>
+        </form>
+      </div>
     </div>
   </div>
 
