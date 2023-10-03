@@ -30,20 +30,27 @@ $(".produto_btn").on("click", () => {
   index++;
 });
 
-var POST_modelos = [];
-var POST_fragrancias = [];
+var GET_modelos = [];
+var GET_fragrancias = [];
+var GET_produtos = [];
 $(".btn-cadastro").on("click", () => {
 
   $(".modelos").each(function() {
-    POST_modelos.push($(this)[0].value);
-    console.log(POST_modelos);
+    GET_modelos.push($(this)[0].value);
+    console.log(GET_modelos);
   });
 
   $(".fragrancias").each(function() {
-    POST_fragrancias.push($(this)[0].value);
-    console.log(POST_fragrancias);
+    GET_fragrancias.push($(this)[0].value);
+    console.log(GET_fragrancias);
   });
-  document.querySelector(".form_pedido").action = `./functions/func_cadPed.php?modelos=${POST_modelos}&fragrancias=${POST_fragrancias}`;
+
+  GET_modelos.forEach((element, i) =>{
+    GET_produtos.push([element, GET_fragrancias[i]])
+  })
+  console.log(GET_produtos)
+  alert("A")
+  document.querySelector(".form_pedido").action = `./functions/func_cadPed.php?produtos=${JSON.stringify(GET_produtos)}`;
   $(".form_pedido").trigger("submit")
 });
 
