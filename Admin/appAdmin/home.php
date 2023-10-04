@@ -4,9 +4,7 @@ include_once('../components/header.php');
 
 <head>
   <link rel="stylesheet" href="../../assets/css/style_rastreamento.css">
-  <link rel="stylesheet" href="../assets/css/style_admin.css">
   <link rel="stylesheet" href="../assets/css/style_home.css">
-  <link rel="stylesheet" href="../assets/css/style.css">
   <title>Home | Listagem Pedidos</title>
 </head>
 

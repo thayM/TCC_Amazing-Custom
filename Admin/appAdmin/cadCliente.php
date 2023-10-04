@@ -2,7 +2,6 @@
   include_once('../components/header.php');
 ?>
 <head>
-  <link rel="stylesheet" href="../assets/css/style_admin.css">
   <link rel="stylesheet" href="../assets/css/style_cadCliente.css">
   <title>Cadastro Cliente</title>
 </head>
@@ -44,5 +43,6 @@
       </div>
     </form>
   </div>
+  <script src="../assets/js/style.js"></script>
 </body>
 </html>

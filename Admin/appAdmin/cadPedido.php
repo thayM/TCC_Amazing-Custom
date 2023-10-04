@@ -14,7 +14,6 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
 ?>
 
 <head>
-  <link rel="stylesheet" href="../assets/css/style_admin.css">
   <link rel="stylesheet" href="../assets/css/style_cadPedido.css">
   <title>Cadastro Pedido</title>
 </head>
@@ -92,8 +91,8 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
       </div>
     </form>
   </div>
+  <script src="../assets/js/style.js"></script>
   <script src="../assets/js/cadPedido.js"></script>
   <script src="../assets/js/filtroIn.js"></script>
 </body>
-
 </html>

@@ -46,7 +46,7 @@ create table PEDIDO(
 create table PRODUTO(
     cod_prod int primary key auto_increment,
     fkcod_frag int,
-    fkcod_modelo int,
+    fkcod_modelo int
 );
 
 create table PEDIDO_PRODUTO(
