@@ -24,7 +24,7 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
       <h3>Novo Pedido</h3>
       <div class="content_form-cliente d-flex flex-column">
         <p class="divisoria m-0">Cliente</p>
-        <input name="nome" type="text" placeholder="Nome Completo" class="nome" id="nomeCli" onkeyup="filtroCli(this.value)">
+        <input name="cliente" type="text" placeholder="Nome Completo" class="nome" id="nomeCli" onkeyup="filtroCli(this.value)">
         <div class="listagem_items" id="resultPesquisaCli"></div>
       <div class="d-flex justify-content-between">
           <label for="dataPag">Data de Pagamento</label>
@@ -60,10 +60,10 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
                 }
                 ?>
               </select>
-              <input type="number" name="quantidade" id="numModel" class="produto_input" placeholder="000">
+              <input type="number" name="quantidade" id="numModel" class="quantidade produto_input" placeholder="000">
             </div>
             <div class="d-flex justify-content-between align-items-center">
-            <input name="nome" type="text" placeholder="Nome da Fragrância" class="nome" id="nomeFrag" onkeyup="filtroFrag(this.value)">
+            <input name="fragrancia" type="text" placeholder="Nome da Fragrância" class="fragrancias nome" id="nomeFrag" onkeyup="filtroFrag(this.value)">
             <div class="listagem_items" id="resultPesquisaFrag"></div>
               <!-- lixeira -->
             </div>

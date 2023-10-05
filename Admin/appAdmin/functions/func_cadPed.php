@@ -2,10 +2,6 @@
 require '../../../lib/conn.php';
 
 extract($_POST);
-// $sqlSelect = "SELECT cod_cli FROM CLIENTE WHERE cod_cli = :cod_cli";
-// $client = $conn->prepare($sqlSelect);
-// $client->bindValue(":cod_cli", $cliente);
-// $client->execute();
 
 $sqlInsert = "INSERT INTO PEDIDO VALUES(0, :cliente, :frete, :valor, CURDATE(), :valor_total, :estado_pedido)";
 $stmt = $conn->prepare($sqlInsert);
@@ -16,12 +12,11 @@ $stmt->bindValue(":valor_total", $valor+$frete);
 $stmt->bindValue(":estado_pedido", $estado_pedido);
 $stmt->execute();
 
-$sqlSelect = $conn->query("SELECT cod_cli FROM cliente ORDER BY cod_cli DESC LIMIT 1");
-$codCli = $sqlSelect->fetch(PDO::FETCH_OBJ);
-var_dump($codCli);
-$produtos = json_decode($_GET["produtos"]);
-foreach ($produtos as $key => $value) {
+$codPed = $conn->lastInsertId();
 
+$produtos = json_decode($_GET["produtos"]);
+
+foreach ($produtos as $key => $value) {
     $sqlSelect = "SELECT * FROM produto WHERE fkcod_frag = :codFrag AND fkcod_modelo = :codModelo";
     $produto = $conn->prepare($sqlSelect);
     $produto->bindValue(":codModelo",$value[0]);
@@ -36,13 +31,24 @@ foreach ($produtos as $key => $value) {
         $stmt->execute();
         $produto->execute();
     }
+
+    $codProd = $produto->fetch(PDO::FETCH_OBJ);
+    $codProd = $codProd->cod_prod;
+
+    $sqlSelect = "SELECT * FROM modelo WHERE cod_modelo = :cod_modelo";
+    $modelo = $conn->prepare($sqlSelect);
+    $modelo->bindValue(":cod_modelo", $value[0]);
+    $modelo->execute();
+    $valor = $modelo->fetch(PDO::FETCH_OBJ);
+    $valor = $valor->valor_modelo;
+
     $sqlInsert = "INSERT INTO pedido_produto VALUES(:cod_ped, :cod_prod, :sub_total, :qtd_prod)";
     $stmt = $conn->prepare($sqlInsert);
-    // $stmt->bindValue(":cod_ped", $)
+    $stmt->bindValue(":cod_ped", $codPed);
+    $stmt->bindValue(":cod_prod", $codProd);
+    $stmt->bindValue(":sub_total", ($value[2]*$valor));
+    $stmt->bindValue(":qtd_prod", $value[2]);
+    $stmt->execute();
 }
-
-var_dump($stmt); 
-
-var_dump($_POST);
 ?>
 <!-- <meta http-equiv="refresh" content="0; url=../cadPedido.php"> -->
