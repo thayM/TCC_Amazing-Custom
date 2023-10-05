@@ -2,7 +2,6 @@
   include_once('../components/header.php');
 ?>
 <head>
-  <link rel="stylesheet" href="../assets/css/style_admin.css">
   <link rel="stylesheet" href="../assets/css/style_cadCliente.css">
   <title>Cadastro Cliente</title>
 </head>
@@ -23,7 +22,7 @@
       </div>
 
       <div class="endereco d-flex flex-wrap">
-        <input type="text" name="cep" onblur="pesquisacep(this.value);" placeholder="CEP">
+        <input type="text" name="cep" onchange="pesquisacep(this.value);" onkeyup="pesquisacep(this.value);" placeholder="CEP">
         <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" class="endereco_buscar-cep">
           <p>Não sabe o CEP?</p>
         </a>
@@ -44,5 +43,6 @@
       </div>
     </form>
   </div>
+  <script src="../assets/js/style.js"></script>
 </body>
 </html>

@@ -7,7 +7,6 @@ function limparEndereco() {
         document.getElementById('complemento__cli').value=("");
 }
 function pesquisacep(valor) {
-    console.log("oi");
     if (valor.includes("-")) {
         var cep = valor.replace(/\D/g, '');
     }else{
@@ -22,7 +21,7 @@ function pesquisacep(valor) {
             fetch(url)
             .then((response) => response.json())
             .then((dados)=>{
-            if(!dados) {
+            if(dados.erro) {
                 console.log('ERROR');
                 limparEndereco();
             }else{

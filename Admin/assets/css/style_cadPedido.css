@@ -12,12 +12,13 @@
   margin-top: 20px;
   width: 750px;
   gap: 20px;
+  position: relative;
 }
 .content_form-cliente{
   width: 560px;
 }
 
-.content_form-cliente .nome{
+.content_form-cliente input{
   width: 100%;
 }
 .content_form-cliente .data{
@@ -48,4 +49,54 @@
 }
 .produto_lixeira img:hover{
   filter: brightness(70%);
+}
+
+#nomeFrag{
+  width: 75%;
+}
+
+/* Listagem Input */
+.listagem_items{
+  padding: 5px 0;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 2;
+  background: var(--second-grayscale);
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+.listagem_items ul{
+  margin: 0;
+  padding: 0;
+  min-width: 450px;
+  list-style: none;
+  top: 40px;
+  border-radius: 5px;
+}
+
+.listagem_items ul li{
+  padding: 0 10px;
+  min-height: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 2px solid var(--background-color);
+  font-family: 'Mukta', sans-serif;
+  cursor: pointer;
+}
+
+.listagem_items ul li:last-child{
+  border: 0;
+}
+
+.listagem_items ul li:hover{
+  background-color: var(--first-grayscale);
+}
+
+#resultPesquisaCli{
+  top: 105px;
+}
+
+#resultPesquisaFrag{
+  top: 230px;
 }

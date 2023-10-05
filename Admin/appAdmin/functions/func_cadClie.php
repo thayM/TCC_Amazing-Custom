@@ -5,7 +5,7 @@ extract($_POST);
 var_dump($_POST);
 $tel = $telefone."/".$telefone2;
 
-$sqlInsert='INSERT INTO endereco VALUES(0, :cep,:logradouro,:num,:cidade,:bairro,:uf,:complemento)';
+$sqlInsert='INSERT INTO endereco VALUES(0,:cep,:logradouro,:num,:cidade,:bairro,:uf,:complemento)';
 $stmt = $conn->prepare($sqlInsert);
 $stmt->bindValue(":cep", $cep);
 $stmt->bindValue(":logradouro", $logradouro);

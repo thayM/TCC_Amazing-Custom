@@ -1,11 +1,9 @@
 // CLi
 
 async function filtroCli(value) {
-    console.log(value)
+    if(value.length !=0){
     const require = await fetch('../appAdmin/functions/filtrar/filtrarCli.php?value='+value);
     const data = await require.json();
-    console.log(data)
-    console.log(require)
     var listaHTML = '<ul>';
     
     if(data['status']){
@@ -16,6 +14,9 @@ async function filtroCli(value) {
         listaHTML += "<li>"+ data["msg"]+"</li>";
     }
     listaHTML+= "</ul>";
+    }else{
+        var listaHTML = " ";
+    }
     document.getElementById("resultPesquisaCli").innerHTML = listaHTML;
 }
 
@@ -27,13 +28,10 @@ function inputValueCli(nome) {
 
 // Frag
 async function filtroFrag(value) {
-    console.log(value)
+    if(value.length !=0){
     const require = await fetch('../appAdmin/functions/filtrar/filtrarFrag.php?value='+value);
     const data = await require.json();
-    console.log(data)
-    console.log(require)
     var listaHTML = '<ul>';
-    
     if(data['status']){
         for (let i = 0; i < data['dados'].length; i++) {
             listaHTML+= `<li onclick='inputValueFrag(${JSON.stringify(data['dados'][i].nome_frag)})'>${data["dados"][i].nome_frag}</li>`;
@@ -42,6 +40,9 @@ async function filtroFrag(value) {
         listaHTML += "<li>"+ data["msg"]+"</li>";
     }
     listaHTML+= "</ul>";
+    }else{
+        var listaHTML = " ";
+    }
     document.getElementById("resultPesquisaFrag").innerHTML = listaHTML;
 }
 function inputValueFrag(nome) {
