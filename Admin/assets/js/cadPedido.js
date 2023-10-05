@@ -29,3 +29,34 @@ $(".produto_btn").on("click", () => {
 
   index++;
 });
+
+var GET_modelos = [];
+var GET_fragrancias = [];
+var GET_qtdd = [];
+var GET_produtos = [];
+$(".btn-cadastro").on("click", () => {
+
+  $(".modelos").each(function() {
+    GET_modelos.push($(this)[0].value);
+    console.log(GET_modelos);
+  });
+
+  $(".fragrancias").each(function() {
+    GET_fragrancias.push($(this)[0].value);
+    console.log(GET_fragrancias);
+  });
+
+  $(".quantidade").each(function() {
+    GET_qtdd.push($(this)[0].value);
+    console.log(GET_qtdd);
+  });
+
+  GET_modelos.forEach((element, i) =>{
+    GET_produtos.push([element, GET_fragrancias[i], GET_qtdd[i]])
+  })
+  console.log(GET_produtos)
+  alert("A")
+  document.querySelector(".form_pedido").action = `./functions/func_cadPed.php?produtos=${JSON.stringify(GET_produtos)}`;
+  $(".form_pedido").trigger("submit")
+});
+
