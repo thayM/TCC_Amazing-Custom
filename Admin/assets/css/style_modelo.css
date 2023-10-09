@@ -12,7 +12,7 @@
 }
 
 /* Upload */
-.upload-area{
+.upload-area, .new-upload-area{
   border-radius: 5px;
   padding: 10px;
   height: 45%;

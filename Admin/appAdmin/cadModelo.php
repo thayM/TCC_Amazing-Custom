@@ -1,5 +1,7 @@
 <?php
 include_once('../components/header.php');
+include_once('../components/modalEdicaoModelo.php');
+include_once('../components/modalExclusao.php');
 require '../../lib/conn.php';
 
 $sql = "SELECT * FROM modelo";
@@ -70,10 +72,10 @@ $listMods = $stmt->fetchAll(PDO::FETCH_OBJ);
               <p>R$<?=$listMod->valor_modelo?></p>
             </div>
             <div class="footer_card-produto d-flex justify-content-end">
-              <button>
+              <button onclick="abrirModalEditar(<?=$listMod->cod_modelo?>, '<?=$listMod->nome_modelo?>', <?=$listMod->valor_modelo?>,'<?=$listMod->nomeArq_modelo?>')">
                 <img src="../assets/icons/pen.svg" alt="editar">
               </button>
-              <button>
+              <button onclick="abrirModalExcluir(<?=$listMod->cod_modelo?>, '<?=$listMod->nome_modelo?>')">
                 <img src="../assets/icons/trash-alt.svg" alt="excluir">
               </button>
             </div>
@@ -87,4 +89,5 @@ $listMods = $stmt->fetchAll(PDO::FETCH_OBJ);
   <script src="../assets/js/style.js"></script>
   <script src="../assets/js/modal.js"></script>
   <script src="../assets/js/cadModelo.js"></script>
+  <script src="../assets/js/modalModelo.js"></script>
 </body>
