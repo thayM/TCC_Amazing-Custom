@@ -27,14 +27,14 @@ function inputValueCli(nome) {
 }
 
 // Frag
-async function filtroFrag(value) {
+async function filtroFrag(value, destino) {
     if(value.length !=0){
     const require = await fetch('../appAdmin/functions/filtrar/filtrarFrag.php?value='+value);
     const data = await require.json();
     var listaHTML = '<ul>';
     if(data['status']){
         for (let i = 0; i < data['dados'].length; i++) {
-            listaHTML+= `<li onclick='inputValueFrag(${JSON.stringify(data['dados'][i].nome_frag)})'>${data["dados"][i].nome_frag}</li>`;
+            listaHTML+= `<li onclick='inputValueFrag(${JSON.stringify(data['dados'][i].nome_frag)}, ${destino})'>${data["dados"][i].nome_frag}</li>`;
         }
     }else{
         listaHTML += "<li>"+ data["msg"]+"</li>";
@@ -43,10 +43,11 @@ async function filtroFrag(value) {
     }else{
         var listaHTML = " ";
     }
-    document.getElementById("resultPesquisaFrag").innerHTML = listaHTML;
+    document.querySelectorAll(".resultPesquisaFrag")[destino].innerHTML = listaHTML;
 }
-function inputValueFrag(nome) {
-    document.getElementById("nomeFrag").value = "";
-    document.getElementById("nomeFrag").value = nome;
-    document.getElementById("resultPesquisaFrag").innerHTML = "";
+function inputValueFrag(nome, destino) {
+    console.log(destino)
+    document.querySelectorAll(".fragrancias")[destino].value = "";
+    document.querySelectorAll(".fragrancias")[destino].value = nome;
+    document.querySelectorAll(".resultPesquisaFrag")[destino].innerHTML = "";
 }

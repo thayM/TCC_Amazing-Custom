@@ -23,12 +23,15 @@ $(".produto_btn").on("click", () => {
   <a href="javascript:excluirProduto(${index})" class="produto_lixeira">
     <img src="../assets/icons/trash-alt.svg" alt="lixeira">
   </a>`);
+  novoProduto = novoProduto.replace("filtroFrag(this.value, 0)", `filtroFrag(this.value, ${index+1})`);
 
   divNovoProd.innerHTML = novoProduto;
   divProdutos.appendChild(divNovoProd);
 
   index++;
 });
+
+
 
 var GET_modelos = [];
 var GET_fragrancias = [];

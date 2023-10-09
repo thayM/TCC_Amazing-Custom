@@ -63,8 +63,8 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
               <input type="number" name="quantidade" id="numModel" class="quantidade produto_input" placeholder="000">
             </div>
             <div class="d-flex justify-content-between align-items-center">
-            <input name="fragrancia" type="text" placeholder="Nome da Fragrância" class="fragrancias nome" id="nomeFrag" onkeyup="filtroFrag(this.value)">
-            <div class="listagem_items" id="resultPesquisaFrag"></div>
+            <input name="fragrancia" type="text" placeholder="Nome da Fragrância" class="fragrancias nome" id="nomeFrag" onkeyup="filtroFrag(this.value, 0)">
+            <div class="listagem_items resultPesquisaFrag"></div>
               <!-- lixeira -->
             </div>
           </div>
