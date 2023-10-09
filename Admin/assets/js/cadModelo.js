@@ -61,3 +61,7 @@ if (tiposAceitados.includes(tipoArq)) {
 }
 }
 
+// Mask inputs
+$(document).ready(function(){
+    $('.preco').mask("#.##0,00", {reverse: true, placeholder: "R$ 00,00"});
+});

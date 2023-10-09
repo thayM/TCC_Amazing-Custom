@@ -1,4 +1,3 @@
-
 function limparEndereco() {
         document.getElementById('logradouro__cli').value=("");
         document.getElementById('bairro__cli').value=("");
@@ -36,3 +35,9 @@ function pesquisacep(valor) {
         }else limparEndereco(); 
     } else limparEndereco();
 };
+
+// Mask inputs
+$(document).ready(function(){
+    $('.info_tel-input').mask('(00) 00000-0000', {placeholder: "( _ ) _____ - ____"});
+    $('.cep').mask('00000-000', {placeholder: "CEP"});
+});

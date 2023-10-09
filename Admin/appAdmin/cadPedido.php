@@ -75,8 +75,8 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
           <span class="w-75">Frete</span>
         </div>
         <div class="d-flex justify-content-between">
-          <input name="valor" type="Number" id="valor" placeholder="R$ 000,00" class="produto_input">
-          <input name="frete" type="Number" id="frete" placeholder="R$ 000,00" class="produto_input">
+          <input name="valor" type="text" id="valor" class="preco produto_input">
+          <input name="frete" type="text" id="frete" class="preco produto_input">
           <select name="estado_pedido" id="status" class="w-50">
             <option value="" selected>Status do Pedido</option>
             <option value="1">Pagamento Aprovado</option>

@@ -14,15 +14,15 @@
       <input type="email" name="email"placeholder="E-mail">
 
       <div class="d-flex justify-content-between">
-        <label for="telefone">Telefone:</label>
-        <input type="tel" name="telefone" class="info_tel-input">
+        <label for="telefone-1">Telefone:</label>
+        <input type="text" name="telefone" id="telefone-1" class="info_tel-input">
 
-        <label for="telefone">Opcional:</label>
-        <input type="tel" name="telefone2" class="info_tel-input">
+        <label for="telefone-2">Tel Opcional:</label>
+        <input type="text" name="telefone2" id="telefone-2" class="info_tel-input">
       </div>
 
       <div class="endereco d-flex flex-wrap">
-        <input type="text" name="cep" onchange="pesquisacep(this.value);" onkeyup="pesquisacep(this.value);" placeholder="CEP">
+        <input type="text" name="cep" class="cep" onchange="pesquisacep(this.value)" onkeyup="pesquisacep(this.value)">
         <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" class="endereco_buscar-cep">
           <p>Não sabe o CEP?</p>
         </a>

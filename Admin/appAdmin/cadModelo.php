@@ -26,7 +26,7 @@ $listMods = $stmt->fetchAll(PDO::FETCH_OBJ);
         <input type="text" id="nome__Modelo" name="nome__Modelo" placeholder="Nome do modelo">
 
         <label for="valor">Valor</label>
-        <input type="number" id="valor__Modelo" name="valor__Modelo" placeholder="R$ 00,00">
+        <input type="text" id="valor__Modelo" name="valor__Modelo" class="preco">
       </div>
 
       <div class="upload-area" onclick="procurarArq()">
