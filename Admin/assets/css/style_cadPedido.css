@@ -25,6 +25,60 @@
   width: 45%;
 }
 
+/* Info Cliente */
+.infomacao_cliente{
+  padding: 15px;
+  height: 200px;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
+  background: var(--second-grayscale);
+  position: relative;
+}
+
+.content_infomacao_cliente{
+  width: 85%;
+}
+
+.infomacao_cliente h3{
+  font-size: 1.2rem;
+}
+.infomacao_cliente p{
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+.infomacao_cliente .compl{
+  min-width: 190px;
+}
+.infomacao_cliente .endereco{
+  height: 50px;
+}
+
+/* Btn Alterar Cliente */
+.editCliente{
+  font-size: 1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  color: var(--primary-color);
+}
+
+.editCliente img{
+  height: 20px;
+  margin-left: 5px;
+}
+
+.editCliente span{
+  width: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.editCliente:hover span{
+  width: 65px;
+}
+
 /* Produto */
 .produto_title span{
   margin-right: 15px;

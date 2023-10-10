@@ -52,7 +52,7 @@ if(isset($_GET["busca__frag"])){
     <div class="header_pesquisa d-flex justify-content-center">
       <form class="pesquisa_input d-flex">
         <input type="text" name="busca__frag" class="busca" placeholder="Buscar..." value="<?=$busca?>">
-        <button class="btn-buscar" type="submit">
+        <button class="btn-buscar d-flex justify-content-center align-items-center" type="submit">
           <img src="../../assets/img/lupa.svg" alt="lupa">
         </button>
       </form>

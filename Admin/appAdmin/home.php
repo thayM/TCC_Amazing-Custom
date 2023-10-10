@@ -125,7 +125,9 @@ include_once('../components/header.php');
           </div>
         </div>
         <div class="icons">
-          <img class="caneta" src="../../Admin/assets/icons/pen.svg" alt=""></img>
+          <a href="editPedido.php">
+            <img class="caneta" src="../../Admin/assets/icons/pen.svg" alt="">
+          </a>
           <img class="lixeira" src="../../Admin/assets/icons/trash-alt.svg" alt=""></img>
         </div>
         <select name="status" id="status">

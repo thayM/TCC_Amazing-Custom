@@ -47,7 +47,7 @@ $listMods = $stmt->fetchAll(PDO::FETCH_OBJ);
     <div class="header_pesquisa d-flex">
       <div class="pesquisa_input d-flex">
         <input type="text" placeholder="Buscar...">
-        <button class="btn-buscar">
+        <button class="btn-buscar d-flex justify-content-center align-items-center">
           <img src="../../assets/img/lupa.svg" alt="lupa">
         </button>
       </div>

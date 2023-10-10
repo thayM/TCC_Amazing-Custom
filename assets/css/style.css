@@ -1,18 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend&family=Mitr&family=Mukta:wght@300&display=swap");
 
 :root {
-  --primary-color: rgb(255, 102, 0);
-  --secondary-color: rgb(255, 255, 161);
-  --tertiary-color: rgba(226, 90, 0, 0.74);
+  --primary-color   : rgb(255, 102, 0);
+  --secondary-color : rgb(255, 255, 161);
+  --tertiary-color  : rgba(226, 90, 0, 0.74);
 
   --background-color: rgb(51, 51, 51);
 
-  --first-grayscale: rgb(37, 37, 37);
+  --first-grayscale : rgb(37, 37, 37);
   --second-grayscale: rgb(73, 73, 73);
 
-  --light-color: rgba(255, 255, 255, 1);
-  --input-color: rgba(255, 255, 255, 0.4);
-  --bg-input-color: rgba(0, 0, 0, 0.425);
+  --light-color     : rgba(255, 255, 255, 1);
+  --input-color     : rgba(255, 255, 255, 0.4);
+  --bg-input-color  : rgba(0, 0, 0, 0.425);
 }
 
 * {

@@ -26,20 +26,8 @@ $clientes = $stmt->fetchAll(PDO::FETCH_OBJ);
                 <div class="card-body">
                     <div class="coluna d-flex flex-column justify-content-center">
                         <h3 class="card-title">Nome: <?= $cliente->nome ?></h3>
-                        <h5 class="card-subtitle">Email: <?= $cliente->email ?></h5>
-                    </div>
-                    <?php
-                    $telefones = explode("/", $cliente->tel);
-                    ?>
-                    <div class="coluna">
-                        <p class="card-text">Tel: <?= $telefones[0] ?></p>
-                        <?php
-                        if ($telefones[1] != "") {
-                        ?>
-                            <p class="card-text">Tel: <?= $telefones[1] ?></p>
-                        <?php
-                        }
-                        ?>
+                        <p class="card-text">Email: <?= $cliente->email ?></p>
+                        <p class="card-text">Telefones: <?= $cliente->tel?></p>
                     </div>
 
                     <div class="coluna">
@@ -51,7 +39,9 @@ $clientes = $stmt->fetchAll(PDO::FETCH_OBJ);
                     </div>
 
                     <div class="colunaImg">
-                        <img src="../assets/icons/pen.svg" alt="">
+                        <a href="./editCliente.php">
+                            <img src="../assets/icons/pen.svg" alt="">
+                        </a>
                         <img src="../assets/icons/trash-alt.svg" alt="">
                     </div>
                 </div>
