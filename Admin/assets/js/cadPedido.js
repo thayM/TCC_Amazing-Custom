@@ -24,6 +24,7 @@ $(".produto_btn").on("click", () => {
     <img src="../assets/icons/trash-alt.svg" alt="lixeira">
   </a>`);
   novoProduto = novoProduto.replace("filtroFrag(this.value, 0)", `filtroFrag(this.value, ${index+1})`);
+  novoProduto = novoProduto.replace("filtroModelo(this.value, 0)", `filtroModelo(this.value, ${index+1})`);
 
   divNovoProd.innerHTML = novoProduto;
   divProdutos.appendChild(divNovoProd);

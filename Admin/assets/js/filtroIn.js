@@ -51,3 +51,28 @@ function inputValueFrag(nome, destino) {
     document.querySelectorAll(".fragrancias")[destino].value = nome;
     document.querySelectorAll(".resultPesquisaFrag")[destino].innerHTML = "";
 }
+
+async function filtroModelo(value, destino) {
+    if(value.length !=0){
+    const require = await fetch('../appAdmin/functions/filtrar/filtrarModelo.php?value='+value);
+    const data = await require.json();
+    var listaHTML = '<ul>';
+    if(data['status']){
+        for (let i = 0; i < data['dados'].length; i++) {
+            listaHTML+= `<li onclick='inputValueModelo(${JSON.stringify(data['dados'][i].nome_modelo)}, ${destino})'>${data["dados"][i].nome_modelo}</li>`;
+        }
+    }else{
+        listaHTML += "<li>"+ data["msg"]+"</li>";
+    }
+    listaHTML+= "</ul>";
+    }else{
+        var listaHTML = " ";
+    }
+    document.querySelectorAll(".resultPesquisaModelo")[destino].innerHTML = listaHTML;
+}
+function inputValueModelo(nome, destino) {
+    console.log(destino)
+    document.querySelectorAll(".modelos")[destino].value = "";
+    document.querySelectorAll(".modelos")[destino].value = nome;
+    document.querySelectorAll(".resultPesquisaModelo")[destino].innerHTML = "";
+}

@@ -50,16 +50,8 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
         <div class="container_produtos">
           <div class="produto_content d-flex flex-column">
             <div class="d-flex justify-content-between align-items-center">
-              <select name="modelo" id="modelo" class="modelos produto_select w-75">
-                <option value="" selected>Selecione o Modelo</option>
-                <?php
-                foreach ($modelos as $modelo) {
-                ?>
-                  <option value="<?=$modelo->cod_modelo?>"><?=$modelo->nome_modelo?></option>
-                <?php
-                }
-                ?>
-              </select>
+              <input name="modelo" id="modelo" class="modelos produto_select w-75" placeholder="Nome do Modelo" onkeyup="filtroModelo(this.value, 0)">
+              <div class="listagem_items resultPesquisaModelo"></div>
               <input type="number" name="quantidade" id="numModel" class="quantidade produto_input" placeholder="000">
             </div>
             <div class="d-flex justify-content-between align-items-center">
