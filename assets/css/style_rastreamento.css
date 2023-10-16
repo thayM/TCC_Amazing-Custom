@@ -1,5 +1,6 @@
 .card-pedidos{
     margin-top: 60px;
+    width: 810px;
 }
 
 .nomeClie{
@@ -25,7 +26,7 @@
 .status{
     background-color: var(--first-grayscale);
     padding: 0 10px;
-    width: 336px;
+    width: 270px;
     display: flex;
     align-items: center;
     border-radius: 0 5px 0 0;
@@ -40,7 +41,7 @@
 .card-body{
     display: flex;
     width: 100%;
-    min-height: 160px;
+    min-height: 75px;
     justify-content: space-between;
     padding: 0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -71,16 +72,16 @@
 
 .card-title{
     color: var(--light-color);
-    width: 335px;
+    width: 270px;
     background-color: var(--second-grayscale);
     margin: 0;
     text-align: center;
 }
 
 .card-title h3{
-    height: 40px;
+    height: 30px;
     line-height: 1.7;
-    font-size: 1.5rem;
+    font-size: 17px;
     margin: 0;
 }
 
@@ -103,22 +104,22 @@
 
 .card-text{
     color: var(--light-color);
-    font-size: 28px;
+    font-size: 22px;
 }
 
 .cardInfo{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 115px;
+    height:  75px;
     border-top:  2px solid var(--background-color);
 }
 
 .imgModelo{
     border-radius: 5px;
     padding: 10px;
-    height: 90px;
-    width: 90px;
+    height: 60px;
+    width: 60px;
     margin: 8px 40px 8px 8px;
     background-color: #ffff;
 }
