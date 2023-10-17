@@ -11,7 +11,6 @@ $listPeds = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 foreach($listPeds as $pedidos){
   $cod = $pedidos->cod_ped;
-  echo $cod;
   $sql = "SELECT * FROM pedido_produto pp INNER JOIN produto p INNER JOIN modelo m INNER JOIN fragrancia f ON pp.fkcod_prod = p.cod_prod AND p.fkcod_frag = f.cod_frag AND p.fkcod_modelo = m.cod_modelo WHERE pp.fkcod_ped = :cod";
   $stmt = $conn->prepare($sql);
   $stmt->bindValue(":cod", $cod);
