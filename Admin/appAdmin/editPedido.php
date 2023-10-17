@@ -20,7 +20,7 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
 
 <body>
   <div class="container_form d-flex flex-column align-items-center">
-    <form action="./functions/func_cadPed.php" method="POST" class="content_form form_pedido">
+    <form action="./functions/func_editPed.php" method="POST" class="content_form form_pedido">
       <h3>Editando Pedido</h3>
       <div class="content_form-cliente d-flex flex-column">
         <p class="divisoria m-0">Cliente</p>

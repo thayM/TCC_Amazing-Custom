@@ -1,9 +1,10 @@
 <?php
 require '../../../../lib/conn.php';
+$id = $_GET['id'];  
 
-$sqlDelete = "DELETE FROM PEDIDO WHERE cod_ped = :cod_ped";
+$sqlDelete = "DELETE FROM pedido WHERE cod_ped = :id";
 $stmt = $conn->prepare($sqlDelete);
-$stmt->bindValue(":cod_ped", $cod_ped);
+$stmt->bindValue(":id", $id);
 $stmt->execute();
 
 ?>

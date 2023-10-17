@@ -1,7 +1,7 @@
 <?php
 include_once('../components/header.php');
 include_once('../../lib/conn.php');
-
+include_once('../components/modalExclusao.php');
 
 // fora do modal:
 
@@ -148,7 +148,9 @@ foreach($listPeds as $pedidos){
           <a href="editPedido.php">
             <img class="caneta" src="../../Admin/assets/icons/pen.svg" alt="">
           </a>
+          <button onclick="abrirModalExcluir(<?=$listPeds->cod_ped?>)">
           <img class="lixeira" src="../../Admin/assets/icons/trash-alt.svg" alt=""></img>
+          </button>
         </div>
         <select name="status" id="status" value="<?=$pedido->estado_pedido?>">
           <option value="">Pagamento Aprovado</option>
@@ -212,4 +214,6 @@ foreach($listPeds as $pedidos){
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="../assets/js/style.js"></script>
   <script src="../assets/js/modal.js"></script>
+  <script src="../assets/js/modalPed.js"></script>
+
 </body>
