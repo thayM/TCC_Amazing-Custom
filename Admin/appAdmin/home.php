@@ -10,7 +10,6 @@ $stmt = $conn->query($sql);
 $listPeds = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 foreach($listPeds as $pedidos){
-  var_dump($pedidos);
   $cod = $pedidos->cod_ped;
   echo $cod;
   $sql = "SELECT * FROM pedido_produto pp INNER JOIN produto p INNER JOIN modelo m INNER JOIN fragrancia f ON pp.fkcod_prod = p.cod_prod AND p.fkcod_frag = f.cod_frag AND p.fkcod_modelo = m.cod_modelo WHERE pp.fkcod_ped = :cod";
@@ -18,7 +17,6 @@ foreach($listPeds as $pedidos){
   $stmt->bindValue(":cod", $cod);
   $stmt->execute();
   $produtos[$cod] = $stmt->fetchAll(PDO::FETCH_OBJ);
-  var_dump($produtos[$cod]);
 }
 ?>
 
@@ -164,44 +162,44 @@ foreach($listPeds as $pedidos){
       <div class="card-body">
         <div class="card-title">
           <h3 class="titulo">MODELO</h3>
-          <div class="cardInfo">
             <?php
             foreach($produtos[$pedido->cod_ped] as $produto){
             ?>
+          <div class="cardInfo">
             <div class="imgModelo">
             <img class="produto_img" src="../../upload/<?=$produto->nomeArq_modelo?>" alt="">
             </div>
             <p class="card-text"><?=$produto->nome_modelo?></p>
+          </div>
             <?php
             }
             ?>
-          </div>
         </div>
 
         <div class="card-title">
           <h3 class="titulo">FRAGRÂNCIA</h3>
-          <div class="cardInfo">
           <?php
             foreach($produtos[$pedido->cod_ped] as $produto){
             ?>
+          <div class="cardInfo">
             <p class="card-text"><?=$produto->nome_frag?></p>
+          </div>
             <?php
             }
             ?>
-          </div>
         </div>
 
         <div class="card-title">
           <h3>QUANTIDADE</h3>
-          <div class="cardInfo">
           <?php
             foreach($produtos[$pedido->cod_ped] as $produto){
             ?>
+          <div class="cardInfo">
             <p class="card-text"><?=$produto->qtd_prod?></p>
+          </div>
             <?php
             }
             ?>
-          </div>
         </div>
       </div>
     </div>
