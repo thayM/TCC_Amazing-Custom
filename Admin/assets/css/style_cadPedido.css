@@ -92,6 +92,7 @@
   border-radius: 10px;
   gap: 15px;
   background: rgba(27, 27, 27, 0.46);
+  position: relative;
 }
 
 .produto_input{
@@ -151,6 +152,9 @@
   top: 105px;
 }
 
-#resultPesquisaFrag{
-  top: 230px;
+.resultPesquisaModelo{
+  top: 60px;
+}
+.resultPesquisaFrag{
+  top: 115px;
 }

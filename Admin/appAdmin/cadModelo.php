@@ -17,7 +17,7 @@ $listMods = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 
 <div class="container_modal justify-content-center align-items-center modalCad">
-  <form class="box" method="POST" action="./functions/func_cadMod.php" enctype="multipart/form-data">
+  <form class="form_modelo" method="POST" action="./functions/func_cadMod.php" enctype="multipart/form-data">
     <div class="content_modal d-flex justify-content-between flex-column">
       <img onclick="removeStyle()" src="../assets/icons/x.svg" alt="fechar" class="fechar fecharCad">
       <h3>Adicionar novo modelo</h3>
@@ -64,7 +64,7 @@ $listMods = $stmt->fetchAll(PDO::FETCH_OBJ);
       ?>
         <div class="card-produto d-flex justify-content-between">
           <div class="card-produto_img d-flex justify-content-center align-items-center">
-                <img class="produto_img" src="../../upload/<?=$listMod->nomeArq_modelo?>" alt="img_produto">
+            <img class="produto_img" src="../../upload/<?=$listMod->nomeArq_modelo?>" alt="img_produto">
           </div>
           <div class="d-flex flex-column justify-content-between">
             <div class="content_card-produto d-flex flex-column justify-content-between">
@@ -82,8 +82,8 @@ $listMods = $stmt->fetchAll(PDO::FETCH_OBJ);
           </div>
         </div>
         <?php
-              }
-            ?>
+          }
+        ?>
     </div> 
   </main>
   <script src="../assets/js/style.js"></script>

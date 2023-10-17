@@ -38,7 +38,7 @@ var GET_modelos = [];
 var GET_fragrancias = [];
 var GET_qtdd = [];
 var GET_produtos = [];
-$(".btn-cadastro").on("click", () => {
+$(".btn-cadastrar").on("click", () => {
 
   $(".modelos").each(function() {
     GET_modelos.push($(this)[0].value);
@@ -61,6 +61,16 @@ $(".btn-cadastro").on("click", () => {
   console.log(GET_produtos)
   alert("A")
   document.querySelector(".form_pedido").action = `./functions/func_cadPed.php?produtos=${JSON.stringify(GET_produtos)}`;
+
+  var valor = document.getElementById('valor').value;
+  valor = valor.replace('.', '');
+  valor = valor.replace(',', '.');
+  document.getElementById('valor').value = valor
+
+  var frete = document.getElementById('frete').value;
+  frete = frete.replace('.', '');
+  frete = frete.replace(',', '.');
+  document.getElementById('frete').value = frete
   $(".form_pedido").trigger("submit")
 });
 

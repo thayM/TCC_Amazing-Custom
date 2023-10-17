@@ -25,6 +25,20 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
       <div class="content_form-cliente d-flex flex-column">
         <p class="divisoria m-0">Cliente</p>
         <input name="cliente" type="text" placeholder="Nome Completo" class="nome" id="nomeCli" onkeyup="filtroCli(this.value)">
+        <div class="infomacao_cliente d-flex">
+          <div class="content_infomacao_cliente d-flex flex-column">
+            <h3>Informações do cliente</h3>
+            <p>Email: b@gmail.com</p>
+            <p>Telefones: (13) 21313-1323/(87) 98798-7987</p>
+            <div>
+              <p class="endereco">Endereço: Avenida Bernardino de Campos, 222, Paraíso, São Paulo-SP</p>
+              <div class="d-flex justify-content-between w-100">
+                <p>CEP: 13789-789</p>
+                <p class="compl">Compl: até 250 - lado par</p>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="listagem_items" id="resultPesquisaCli"></div>
       <div class="d-flex justify-content-between">
           <label for="dataPag">Data de Pagamento</label>
@@ -83,7 +97,6 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
       </div>
     </form>
   </div>
-  <script src="../assets/js/style.js"></script>
   <script src="../assets/js/cadPedido.js"></script>
   <script src="../assets/js/filtroIn.js"></script>
 </body>
