@@ -1,5 +1,25 @@
 <?php
 include_once('../components/header.php');
+include_once('../../lib/conn.php');
+
+
+// fora do modal:
+
+$sql = "SELECT  * FROM pedido p INNER JOIN cliente c INNER JOIN endereco e ON p.fkcod_cli = c.cod_cli AND c.fkcod_endereco = e.cod_endereco";
+$stmt = $conn->query($sql);
+$listPeds = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+foreach($listPeds as $pedidos){
+  var_dump($pedidos);
+  $cod = $pedidos->cod_ped;
+  echo $cod;
+  $sql = "SELECT * FROM pedido_produto pp INNER JOIN produto p INNER JOIN modelo m INNER JOIN fragrancia f ON pp.fkcod_prod = p.cod_prod AND p.fkcod_frag = f.cod_frag AND p.fkcod_modelo = m.cod_modelo WHERE pp.fkcod_ped = :cod";
+  $stmt = $conn->prepare($sql);
+  $stmt->bindValue(":cod", $cod);
+  $stmt->execute();
+  $produtos[$cod] = $stmt->fetchAll(PDO::FETCH_OBJ);
+  var_dump($produtos[$cod]);
+}
 ?>
 
 <head>
@@ -97,6 +117,7 @@ include_once('../components/header.php');
 
 <body>
   <main>
+    
     <div class="search d-flex align-items-center">
       <input type="text" name="" id="barraBusca" placeholder="Buscar...">
       <button class="btnBuscar">
@@ -112,13 +133,15 @@ include_once('../components/header.php');
         </div>
       </div>
     </div>
-
+    <?php
+    foreach($listPeds as $pedido){
+    ?>
     <div class="card-pedidos">
       <div class="card-header">
         <div class="cabecalho">
-          <p class="nomeClie">Neusa</p>
+          <p class="nomeClie"><?=$pedido->nome?></p>
           <div>
-            <p class="data">20/02/2020</p>
+            <p class="data"><?=$pedido->data_ped?></p>
             <div onclick="addStyle()" class="btnAbrirModal">
               <img class="imgData" src="../../assets/img/open.png" alt=""></img>
             </div>
@@ -130,7 +153,7 @@ include_once('../components/header.php');
           </a>
           <img class="lixeira" src="../../Admin/assets/icons/trash-alt.svg" alt=""></img>
         </div>
-        <select name="status" id="status">
+        <select name="status" id="status" value="<?=$pedido->estado_pedido?>">
           <option value="">Pagamento Aprovado</option>
           <option value="">Arte Finalizada</option>
           <option value="">Em Produção</option>
@@ -142,28 +165,49 @@ include_once('../components/header.php');
         <div class="card-title">
           <h3 class="titulo">MODELO</h3>
           <div class="cardInfo">
+            <?php
+            foreach($produtos[$pedido->cod_ped] as $produto){
+            ?>
             <div class="imgModelo">
-            <img class="produto_img" src="../../upload/1695034978_brasão 5.jpg" alt="">
+            <img class="produto_img" src="../../upload/<?=$produto->nomeArq_modelo?>" alt="">
             </div>
-            <p class="card-text">Quadrado</p>
+            <p class="card-text"><?=$produto->nome_modelo?></p>
+            <?php
+            }
+            ?>
           </div>
         </div>
 
         <div class="card-title">
           <h3 class="titulo">FRAGRÂNCIA</h3>
           <div class="cardInfo">
-            <p class="card-text">Gold</p>
+          <?php
+            foreach($produtos[$pedido->cod_ped] as $produto){
+            ?>
+            <p class="card-text"><?=$produto->nome_frag?></p>
+            <?php
+            }
+            ?>
           </div>
         </div>
 
         <div class="card-title">
           <h3>QUANTIDADE</h3>
           <div class="cardInfo">
-            <p class="card-text">150</p>
+          <?php
+            foreach($produtos[$pedido->cod_ped] as $produto){
+            ?>
+            <p class="card-text"><?=$produto->qtd_prod?></p>
+            <?php
+            }
+            ?>
           </div>
         </div>
       </div>
     </div>
+    <?php
+    }
+    ?>
   </main>
   <!-- JS BOOTSTRAP -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
