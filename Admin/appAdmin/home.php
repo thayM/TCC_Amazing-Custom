@@ -148,9 +148,9 @@ foreach($listPeds as $pedidos){
           <a href="editPedido.php">
             <img class="caneta" src="../../Admin/assets/icons/pen.svg" alt="">
           </a>
-          <button onclick="abrirModalExcluir(<?=$listPeds->cod_ped?>)">
+          <a onclick="abrirModalExcluir(<?=$pedido->cod_ped?>)">
           <img class="lixeira" src="../../Admin/assets/icons/trash-alt.svg" alt=""></img>
-          </button>
+          </a>
         </div>
         <select name="status" id="status" value="<?=$pedido->estado_pedido?>">
           <option value="">Pagamento Aprovado</option>

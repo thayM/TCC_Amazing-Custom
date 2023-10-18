@@ -8,7 +8,7 @@ function excluirPedido(id) {
 }
 function abrirModalExcluir(cod) {
     modalExcluir.style.display = "flex";
-    msgExclusao.textContent = `Tem certeza que quer apagar item?`
+    msgExclusao.textContent = `Tem certeza que quer apagar este item?`
     addStyle()
     excluir.innerHTML=`
     <button class="btn_modal excluir" onclick="excluirPedido(${cod})">
