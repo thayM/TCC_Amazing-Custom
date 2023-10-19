@@ -17,6 +17,7 @@ foreach($listPeds as $pedidos){
   $stmt->execute();
   $produtos[$cod] = $stmt->fetchAll(PDO::FETCH_OBJ);
 }
+
 ?>
 
 <head>
@@ -145,19 +146,20 @@ foreach($listPeds as $pedidos){
           </div>
         </div>
         <div class="icons">
-          <a href="editPedido.php">
+          <a onclick="editarPed(<?=$pedido->cod_ped?>)">
             <img class="caneta" src="../../Admin/assets/icons/pen.svg" alt="">
           </a>
           <a onclick="abrirModalExcluir(<?=$pedido->cod_ped?>)">
           <img class="lixeira" src="../../Admin/assets/icons/trash-alt.svg" alt=""></img>
           </a>
         </div>
-        <select name="status" id="status" value="<?=$pedido->estado_pedido?>">
-          <option value="">Pagamento Aprovado</option>
-          <option value="">Arte Finalizada</option>
-          <option value="">Em Produção</option>
-          <option value="">Enviado</option>
+        <select name="status" id="status">
+          <option value="1" <?= $pedido->estado_pedido == 1 ? 'selected' : '' ?>>Pagamento Aprovado</option>
+          <option value="2" <?= $pedido->estado_pedido == 2 ? 'selected' : '' ?>>Arte Finalizada</option>
+          <option value="3" <?= $pedido->estado_pedido == 3 ? 'selected' : '' ?>>Em Produção</option>
+          <option value="4" <?= $pedido->estado_pedido == 4 ? 'selected' : '' ?>>Enviado</option>
         </select>
+
       </div>
 
       <div class="card-body">

@@ -11,6 +11,21 @@ $modelos = $sqlModelos->fetchAll(PDO::FETCH_OBJ);
 
 $sqlFragrancias = $conn->query("SELECT * FROM FRAGRANCIA");
 $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
+
+$id = $_GET['id'];
+
+$sql = "SELECT  * FROM pedido p INNER JOIN cliente c INNER JOIN endereco e ON p.fkcod_cli = c.cod_cli AND c.fkcod_endereco = e.cod_endereco";
+$stmt = $conn->query($sql);
+$listPeds = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+foreach($listPeds as $pedidos){
+  $cod = $pedidos->cod_ped;
+  $sql = "SELECT * FROM pedido_produto pp INNER JOIN produto p INNER JOIN modelo m INNER JOIN fragrancia f ON pp.fkcod_prod = p.cod_prod AND p.fkcod_frag = f.cod_frag AND p.fkcod_modelo = m.cod_modelo WHERE pp.fkcod_ped = :id";
+  $stmt = $conn->prepare($sql);
+  $stmt->bindValue(":id", $id);
+  $stmt->execute();
+  $produtos[$id] = $stmt->fetchAll(PDO::FETCH_OBJ);
+}
 ?>
 
 <head>
@@ -20,11 +35,14 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
 
 <body>
   <div class="container_form d-flex flex-column align-items-center">
-    <form action="./functions/func_editPed.php" method="POST" class="content_form form_pedido">
+    <form action="./functions/editar/func_editPed.php?id=<?=$id?>" method="POST" class="content_form form_pedido">
       <h3>Editando Pedido</h3>
       <div class="content_form-cliente d-flex flex-column">
         <p class="divisoria m-0">Cliente</p>
-        <input name="cliente" type="text" placeholder="Nome Completo" class="nome" id="nomeCli" onkeyup="filtroCli(this.value)">
+            <?php
+            foreach($listPeds as $pedido){
+              ?>
+        <input name="cliente" value="<?=$pedido->nome?>" type="text" placeholder="Nome Completo" class="nome" id="nomeCli" onkeyup="filtroCli(this.value)">
         <div class="infomacao_cliente d-flex">
           <a href="./editCliente.php" class="editCliente d-flex align-items-center justify-content-between">
             <span>Editar</span>
@@ -46,10 +64,9 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
         <div class="listagem_items" id="resultPesquisaCli"></div>
       <div class="d-flex justify-content-between">
           <label for="dataPag">Data de Pagamento</label>
-          <input name="data_ped" type="date" class="data" id="dataPag">
+          <input value="<?=$pedido->data_ped?>" name="data_ped" type="date" class="data" id="dataPag">
         </div>
       </div>
-
       <div class="content_form-pedido  d-flex flex-column">
         <div class="content_pedido d-flex justify-content-between w-100">
           <p class="divisoria m-0">Pedido</p>
@@ -68,20 +85,19 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
         <div class="container_produtos">
           <div class="produto_content d-flex flex-column">
             <div class="d-flex justify-content-between align-items-center">
-              <select name="modelo" id="modelo" class="modelos produto_select w-75">
-                <option value="" selected>Selecione o Modelo</option>
-                <?php
-                foreach ($modelos as $modelo) {
-                ?>
-                  <option value="<?=$modelo->cod_modelo?>"><?=$modelo->nome_modelo?></option>
-                <?php
-                }
-                ?>
-              </select>
-              <input type="number" name="quantidade" id="numModel" class="quantidade produto_input" placeholder="000">
+            <?php
+            foreach($produtos[$pedido->cod_ped] as $produto){
+            ?>
+              <input name="modelo" id="modelo" class="modelos produto_select w-75" value="<?=$produto->nome_modelo?>" onkeyup="filtroModelo(this.value, 0)">
+              <div class="listagem_items resultPesquisaModelo"></div>
+              <input value="<?=$produto->qtd_prod?>" type="number" name="quantidade" id="numModel" class="quantidade produto_input" placeholder="000">
+
             </div>
             <div class="d-flex justify-content-between align-items-center">
-            <input name="fragrancia" type="text" placeholder="Nome da Fragrância" class="fragrancias nome" id="nomeFrag" onkeyup="filtroFrag(this.value, 0)">
+            <input value="<?=$produto->nome_frag?>" name="fragrancia" type="text" placeholder="Nome da Fragrância" class="fragrancias nome" id="nomeFrag" onkeyup="filtroFrag(this.value, 0)">
+            <?php
+            }
+            ?>
             <div class="listagem_items resultPesquisaFrag"></div>
               <!-- lixeira -->
             </div>
@@ -93,16 +109,18 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
           <span class="w-75">Frete</span>
         </div>
         <div class="d-flex justify-content-between">
-          <input name="valor" type="text" id="valor" class="preco produto_input">
-          <input name="frete" type="text" id="frete" class="preco produto_input">
-          <select name="estado_pedido" id="status" class="w-50">
-            <option value="" selected>Status do Pedido</option>
-            <option value="1">Pagamento Aprovado</option>
-            <option value="2">Arte Finalizada</option>
-            <option value="3">Em Produção</option>
-            <option value="4">Enviado</option>
-          </select>
+          <input value="<?=$pedido->valor?>" name="valor" type="text" id="valor" class="preco produto_input">
+          <input value="<?=$pedido->frete?>" name="frete" type="text" id="frete" class="preco produto_input">
+          <select name="status" id="status" class="w-50">
+          <option value="1" <?= $pedido->estado_pedido == 1 ? 'selected' : '' ?>>Pagamento Aprovado</option>
+          <option value="2" <?= $pedido->estado_pedido == 2 ? 'selected' : '' ?>>Arte Finalizada</option>
+          <option value="3" <?= $pedido->estado_pedido == 3 ? 'selected' : '' ?>>Em Produção</option>
+          <option value="4" <?= $pedido->estado_pedido == 4 ? 'selected' : '' ?>>Enviado</option>
+        </select>
         </div>
+        <?php
+        }
+        ?>
         <div class="btn-cadastro d-flex justify-content-end p-0 w-100">
           <button type="button" class="btn-cadastrar">ATUALIZAR</button>
         </div>
@@ -110,7 +128,7 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
     </form>
   </div>
   <script src="../assets/js/style.js"></script>
-  <script src="../assets/js/cadPedido.js"></script>
+  <script src="../assets/js/editarPedido.js"></script>
   <script src="../assets/js/filtroIn.js"></script>
 </body>
 </html>

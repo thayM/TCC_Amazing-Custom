@@ -3,6 +3,11 @@ const cancelarExcluir = document.querySelector(".cancelar");
 const msgExclusao = document.querySelector(".msgExclusao");
 const excluir = document.querySelector(".divExcluir");
 
+
+function editarPed(id) {
+    console.log("pa")
+    window.location.href=`editPedido.php?id=${id}`
+}
 function excluirPedido(id) {
     window.location.href=`functions/excluir/func_excluirPed.php?id=${id}`
 }
