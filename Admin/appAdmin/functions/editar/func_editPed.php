@@ -39,7 +39,7 @@ foreach ($produtos as $key => $value) {
 
   $sqlSelectMod = "SELECT valor_modelo FROM modelo WHERE cod_modelo = :cod_mod";
   $sqlModelo = $conn->prepare($sqlSelectMod);
-  $sqlModelo->bindValue("cod_mod", $codModelo); 
+  $sqlModelo->bindValue(":cod_mod", $codModelo); 
   $sqlModelo->execute();
   $valorMod = $sqlModelo->fetch(PDO::FETCH_OBJ);
   $valorMod = $valorMod->valor_modelo;
