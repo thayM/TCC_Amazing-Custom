@@ -1,8 +1,8 @@
 <?php
 require '../../../lib/conn.php';
-
 extract($_POST);
 var_dump($_POST);
+
 $sqlSelect = "SELECT * FROM cliente WHERE nome = :nome";
 $sqlCliente = $conn->prepare($sqlSelect);
 $sqlCliente->bindValue(":nome", $cliente); 
@@ -73,4 +73,4 @@ foreach ($produtos as $key => $value) {
     $stmt->execute();
 }
 ?>
-<!-- <meta http-equiv="refresh" content="0; url=../cadPedido.php"> -->
+<meta http-equiv="refresh" content="0; url=../home.php">

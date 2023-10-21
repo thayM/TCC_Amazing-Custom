@@ -32,46 +32,92 @@ $(".produto_btn").on("click", () => {
   index++;
 });
 
+function enviarFormulario(cod) {
+  var GET_id = cod;
+  var GET_modelos = [];
+  var GET_fragrancias = [];
+  var GET_qtdd = [];
+  var GET_produtos = [];
+
+  $(".modelos").each(function() {
+      GET_modelos.push($(this).val());
+  });
+
+  $(".fragrancias").each(function() {
+      GET_fragrancias.push($(this).val());
+  });
+
+  $(".quantidade").each(function() {
+      GET_qtdd.push($(this).val());
+  });
+
+  GET_modelos.forEach(function(element, i) {
+      GET_produtos.push([element, GET_fragrancias[i], GET_qtdd[i], GET_id]);
+  });
+
+  console.log(GET_produtos);
+
+  // Configurar o valor e o frete antes de enviar o formulário
+  var valor = document.getElementById('valor').value;
+  valor = valor.replace('.', '');
+  valor = valor.replace(',', '.');
+  document.getElementById('valor').value = valor;
+
+  var frete = document.getElementById('frete').value;
+  frete = frete.replace('.', '');
+  frete = frete.replace(',', '.');
+  document.getElementById('frete').value = frete;
+
+  // Configurar a ação do formulário com os dados dos produtos
+  document.querySelector(".form_pedido").action = `./functions/editar/func_editPed.php?produtos=${JSON.stringify(GET_produtos)}`;
+
+  // Submeter o formulário
+  $(".form_pedido").trigger("submit");
+}
 
 
-var GET_modelos = [];
-var GET_fragrancias = [];
-var GET_qtdd = [];
-var GET_produtos = [];
-$(".btn-cadastrar").on("click", () => {
+// var GET_modelos = [];
+// var GET_fragrancias = [];
+// var GET_qtdd = [];
+// var GET_produtos = [];
 
-    $(".modelos").each(function() {
-    GET_modelos.push($(this)[0].value);
-    console.log(GET_modelos);
-    });
+// function enviarFormulario(cod){
+// var GET_id = cod;
+// $(".btn-cadastrar").on("click", () => {
 
-    $(".fragrancias").each(function() {
-    GET_fragrancias.push($(this)[0].value);
-    console.log(GET_fragrancias);
-    });
+//     $(".modelos").each(function() {
+//     GET_modelos.push($(this)[0].value);
+//     console.log(GET_modelos);
+//     });
 
-    $(".quantidade").each(function() {
-    GET_qtdd.push($(this)[0].value);
-    console.log(GET_qtdd);
-    });
+//     $(".fragrancias").each(function() {
+//     GET_fragrancias.push($(this)[0].value);
+//     console.log(GET_fragrancias);
+//     });
 
-    GET_modelos.forEach((element, i) =>{
-    GET_produtos.push([element, GET_fragrancias[i], GET_qtdd[i]])
-    })
-    console.log(GET_produtos)
-    // document.querySelector(".form_pedido").action = `./functions/editar/func_editPed.php?produtos=${JSON.stringify(GET_produtos)}`;
+//     $(".quantidade").each(function() {
+//     GET_qtdd.push($(this)[0].value);
+//     console.log(GET_qtdd);
+//     });
 
-    var valor = document.getElementById('valor').value;
-    valor = valor.replace('.', '');
-    valor = valor.replace(',', '.');
-    document.getElementById('valor').value = valor
+//     GET_modelos.forEach((element, i) =>{
+//     GET_produtos.push([element, GET_fragrancias[i], GET_qtdd[i], GET_id])
+//     })
+//     console.log(GET_produtos)
+//     document.querySelector(".form_pedido").action = `./functions/editar/func_editPed.php?produtos=${JSON.stringify(GET_produtos)}`;
 
-    var frete = document.getElementById('frete').value;
-    frete = frete.replace('.', '');
-    frete = frete.replace(',', '.');
-    document.getElementById('frete').value = frete
-    $(".form_pedido").trigger("submit")
-});
+//     var valor = document.getElementById('valor').value;
+//     valor = valor.replace('.', '');
+//     valor = valor.replace(',', '.');
+//     document.getElementById('valor').value = valor
+
+//     var frete = document.getElementById('frete').value;
+//     frete = frete.replace('.', '');
+//     frete = frete.replace(',', '.');
+//     document.getElementById('frete').value = frete
+//     $(".form_pedido").trigger("submit")
+// });
+// }
 
 // Mask inputs
 $(document).ready(function(){

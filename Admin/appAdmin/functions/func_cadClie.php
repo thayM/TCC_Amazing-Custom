@@ -33,4 +33,4 @@ $stmt->bindValue(":tel", $tel);
 $stmt->bindValue(":email", $email);
 $stmt->execute();
 ?>
-<!-- <meta http-equiv="refresh" content="0; url=../cadCliente.php"> -->
+<meta http-equiv="refresh" content="0; url=../home.php">
