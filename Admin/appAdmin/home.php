@@ -153,12 +153,14 @@ foreach($listPeds as $pedidos){
           <img class="lixeira" src="../../Admin/assets/icons/trash-alt.svg" alt=""></img>
           </a>
         </div>
-        <select name="status" id="status">
+        <form method="post" action="functions/editar/func_edicaoStatus.php?id=<?=$pedido->cod_ped?>">
+        <select name="status" id="status" onchange="this.form.submit()">
           <option value="1" <?= $pedido->estado_pedido == 1 ? 'selected' : '' ?>>Pagamento Aprovado</option>
           <option value="2" <?= $pedido->estado_pedido == 2 ? 'selected' : '' ?>>Arte Finalizada</option>
           <option value="3" <?= $pedido->estado_pedido == 3 ? 'selected' : '' ?>>Em Produção</option>
           <option value="4" <?= $pedido->estado_pedido == 4 ? 'selected' : '' ?>>Enviado</option>
         </select>
+        </form>
 
       </div>
 
