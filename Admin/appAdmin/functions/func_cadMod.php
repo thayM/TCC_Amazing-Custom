@@ -1,6 +1,8 @@
 <?php
 require '../../../lib/conn.php';
 
+var_dump($_POST);
+var_dump($_FILES);
 
 if(isset($_FILES['file'])){
     
@@ -31,4 +33,4 @@ if(isset($_FILES['file'])){
 
 
 ?>
-<meta http-equiv="refresh" content="0; url=../cadModelo">
+<!-- <meta http-equiv="refresh" content="0; url=../cadModelo"> -->

@@ -8,16 +8,25 @@ $clientes = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 <head>
     <link rel="stylesheet" href="../assets/css/style_listagemCli.css">
-    <title>Clientes</title>
+    <title>Home | Listagem Pedidos</title>
 </head>
 
 <body>
-    <div class="search">
-        <input type="text" name="" id="barraBusca" placeholder="Buscar...">
-        <button class="btnBuscar"><img src="../../assets/img/lupa.svg" alt=""></button>
+<div class="search d-flex align-items-center">
+      <input type="text" name="" id="barraBusca" placeholder="Buscar...">
+      <button class="btnBuscar">
+        <img src="../../assets/img/lupa.svg" alt="">
+      </button>
+      <div class="filtro_listagens">
         <img src="../assets/icons/Filter.svg" class="imgFilter" alt="">
+        <div class="filtro_popover">
+          <ul class="p-0 m-0">
+            <li><a href="./home.php">Pedidos</a></li>
+            <li><a href="#">Clientes</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
-
     <div class="container_clientes">
         <?php
         foreach ($clientes as $cliente) {

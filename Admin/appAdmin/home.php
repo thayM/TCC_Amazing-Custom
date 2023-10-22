@@ -3,13 +3,31 @@ include_once('../components/header.php');
 include_once('../../lib/conn.php');
 include_once('../components/modalExclusao.php');
 
-// fora do modal:
+// listagem fora do modal:
 
 $sql = "SELECT  * FROM pedido p INNER JOIN cliente c INNER JOIN endereco e ON p.fkcod_cli = c.cod_cli AND c.fkcod_endereco = e.cod_endereco";
 $stmt = $conn->query($sql);
 $listPeds = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 foreach($listPeds as $pedidos){
+  $cod = $pedidos->cod_ped;
+  $sql = "SELECT * FROM pedido_produto pp INNER JOIN produto p INNER JOIN modelo m INNER JOIN fragrancia f ON pp.fkcod_prod = p.cod_prod AND p.fkcod_frag = f.cod_frag AND p.fkcod_modelo = m.cod_modelo WHERE pp.fkcod_ped = :cod";
+  $stmt = $conn->prepare($sql);
+  $stmt->bindValue(":cod", $cod);
+  $stmt->execute();
+  $produtos[$cod] = $stmt->fetchAll(PDO::FETCH_OBJ);
+}
+
+// listagem dentro do modal:
+
+$sqlModal = "SELECT  * FROM pedido p INNER JOIN cliente c INNER JOIN endereco e ON p.fkcod_cli = c.cod_cli AND c.fkcod_endereco = e.cod_endereco";
+$stmt = $conn->query($sqlModal);
+$listPedsModal = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+
+$subtotal = 0;
+
+foreach($listPedsModal as $pedidos){
   $cod = $pedidos->cod_ped;
   $sql = "SELECT * FROM pedido_produto pp INNER JOIN produto p INNER JOIN modelo m INNER JOIN fragrancia f ON pp.fkcod_prod = p.cod_prod AND p.fkcod_frag = f.cod_frag AND p.fkcod_modelo = m.cod_modelo WHERE pp.fkcod_ped = :cod";
   $stmt = $conn->prepare($sql);
@@ -26,18 +44,26 @@ foreach($listPeds as $pedidos){
   <title>Home | Listagem Pedidos</title>
 </head>
 
+<?php
+    foreach($listPedsModal as $pedido){
+      foreach($produtos[$pedido->cod_ped] as $produto){
+        $subtotal += $produto->sub_total;
+      }
+      $subtotal= str_replace(".", ",", $subtotal);
+      $frete = str_replace(".", ",", $pedido->frete);
+      $valorFinal = str_replace(".", ",", $pedido->valor);
+      $dataFormatada= date("d/m/Y", strtotime($pedido->data_ped));
+?>
 <div class="container_modal modalCad">
   <div class="content_modal">
     <div class="parteEsq">
       <h2 class="tituloEsq">Dados do pedido</h2>
       <div class="atributos">
-        <p class="atributo">N° pedido:</p>
-        <p class="atributo">Cliente:</p>
-        <p class="atributo">Modelo:</p>
-        <p class="atributo">Fragrância:</p>
-        <p class="atributo">Sub valor: R$--,--</p>
-        <p class="atributo">Frete: R$--,--</p>
-        <p class="atributo">Valor total: R$--,--</p>
+        <p class="atributo">N° pedido: <?=$pedido->cod_rastreamento?></p>
+        <p class="atributo">Cliente: <?=$pedido->nome?></p>
+        <p class="atributo">Sub valor: R$<?=$subtotal?></p>
+        <p class="atributo">Frete: R$<?=$frete?></p>
+        <p class="atributo">Valor total: R$<?=$valorFinal?></p>
       </div>
     </div>
 
@@ -72,37 +98,37 @@ foreach($listPeds as $pedidos){
 
       <div class="dirInferior">
         <div class="descEtapas">
-          <p>Arte finalizada</p>
+          <p>Data Pedido</p>
           <div class="hrDt">
-            <p>--/--/----</p>
-            <p>--:--</p>
+            <p><?=$dataFormatada?></p>
+            <!-- <p>--:--</p> -->
           </div>
         </div>
 
         <div class="endereco">
           <div class="infos">
             <div class="ruaInfo">
-              <h3>Rua:</h3>
+              <h3>Rua: <?=$pedido->logradouro?></h3>
               <p></p>
             </div>
             <div class="numeroInfo">
-              <h3>N°:</h3>
+              <h3>N°: <?=$pedido->num?></h3>
               <p></p>
             </div>
             <div class="bairroInfo">
-              <h3>Bairro:</h3>
+              <h3>Bairro: <?=$pedido->bairro?></h3>
               <p></p>
             </div>
             <div class="cidadeInfo">
-              <h3>Cidade:</h3>
+              <h3>Cidade: <?=$pedido->cidade?></h3>
               <p></p>
             </div>
             <div class="cepInfo">
-              <h3>CEP:</h3>
+              <h3>CEP: <?=$pedido->cep?></h3>
               <p></p>
             </div>
             <div class="complementoInfo">
-              <h3>Complemento:</h3>
+              <h3>Complemento: <?=$pedido->complemento == "" ? 'Nenhum' : $pedido->complemento ?></h3>
               <p></p>
             </div>
           </div>
@@ -112,7 +138,9 @@ foreach($listPeds as $pedidos){
     <img onclick="removeStyle()" src="../assets/icons/x.svg" alt="fechar" class="fechar fecharCad">
   </div>
 </div>
-
+<?php
+    }
+  ?>
 <body>
   <main>
     
@@ -126,7 +154,7 @@ foreach($listPeds as $pedidos){
         <div class="filtro_popover">
           <ul class="p-0 m-0">
             <li><a href="#">Pedidos</a></li>
-            <li><a href="#">Clientes</a></li>
+            <li><a href="./listagemCli.php">Clientes</a></li>
           </ul>
         </div>
       </div>
