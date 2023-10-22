@@ -4,28 +4,36 @@ include_once('../../lib/conn.php');
 include_once('../components/modalExclusao.php');
 
 // listagem fora do modal:
+  if(isset($_GET["busca__pedido"])){
+    $busca = trim(strip_tags($_GET["busca__pedido"]));
+    if($busca==""){
+      ?>
+      <meta http-equiv="refresh" content="0; url=home">
+      <?php
+    }
+    $sql = "SELECT  * FROM pedido p INNER JOIN cliente c INNER JOIN endereco e ON p.fkcod_cli = c.cod_cli AND c.fkcod_endereco = e.cod_endereco WHERE c.nome LIKE '%".$busca."%' ORDER BY cod_ped DESC";
+    $stmt = $conn->query($sql);
+    $listPeds = $stmt->fetchAll(PDO::FETCH_OBJ);
+    }else{
+    $sql = "SELECT  * FROM pedido p INNER JOIN cliente c INNER JOIN endereco e ON p.fkcod_cli = c.cod_cli AND c.fkcod_endereco = e.cod_endereco";
+    $stmt = $conn->query($sql);
+    $listPeds = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-$sql = "SELECT  * FROM pedido p INNER JOIN cliente c INNER JOIN endereco e ON p.fkcod_cli = c.cod_cli AND c.fkcod_endereco = e.cod_endereco";
-$stmt = $conn->query($sql);
-$listPeds = $stmt->fetchAll(PDO::FETCH_OBJ);
+  }
 
-foreach($listPeds as $pedidos){
-  $cod = $pedidos->cod_ped;
-  $sql = "SELECT * FROM pedido_produto pp INNER JOIN produto p INNER JOIN modelo m INNER JOIN fragrancia f ON pp.fkcod_prod = p.cod_prod AND p.fkcod_frag = f.cod_frag AND p.fkcod_modelo = m.cod_modelo WHERE pp.fkcod_ped = :cod";
-  $stmt = $conn->prepare($sql);
-  $stmt->bindValue(":cod", $cod);
-  $stmt->execute();
-  $produtos[$cod] = $stmt->fetchAll(PDO::FETCH_OBJ);
-}
-
+  foreach($listPeds as $pedidos){
+    $cod = $pedidos->cod_ped;
+    $sql = "SELECT * FROM pedido_produto pp INNER JOIN produto p INNER JOIN modelo m INNER JOIN fragrancia f ON pp.fkcod_prod = p.cod_prod AND p.fkcod_frag = f.cod_frag AND p.fkcod_modelo = m.cod_modelo WHERE pp.fkcod_ped = :cod";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindValue(":cod", $cod);
+    $stmt->execute();
+    $produtos[$cod] = $stmt->fetchAll(PDO::FETCH_OBJ);
+  }
 // listagem dentro do modal:
 
 $sqlModal = "SELECT  * FROM pedido p INNER JOIN cliente c INNER JOIN endereco e ON p.fkcod_cli = c.cod_cli AND c.fkcod_endereco = e.cod_endereco";
 $stmt = $conn->query($sqlModal);
 $listPedsModal = $stmt->fetchAll(PDO::FETCH_OBJ);
-
-
-$subtotal = 0;
 
 foreach($listPedsModal as $pedidos){
   $cod = $pedidos->cod_ped;
@@ -35,7 +43,7 @@ foreach($listPedsModal as $pedidos){
   $stmt->execute();
   $produtos[$cod] = $stmt->fetchAll(PDO::FETCH_OBJ);
 }
-
+  $subtotal = 0;
 ?>
 
 <head>
