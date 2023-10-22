@@ -54,7 +54,7 @@ foreach($listPedsModal as $pedidos){
       $valorFinal = str_replace(".", ",", $pedido->valor);
       $dataFormatada= date("d/m/Y", strtotime($pedido->data_ped));
 ?>
-<div class="container_modal modalCad">
+<div class="container_modal modalCad "id="pedido_<?=$pedido->cod_ped?>">
   <div class="content_modal">
     <div class="parteEsq">
       <h2 class="tituloEsq">Dados do pedido</h2>
@@ -145,10 +145,12 @@ foreach($listPedsModal as $pedidos){
   <main>
     
     <div class="search d-flex align-items-center">
-      <input type="text" name="" id="barraBusca" placeholder="Buscar...">
-      <button class="btnBuscar">
+      <form>
+      <input type="text" name="busca__pedido" id="barraBusca" placeholder="Buscar...">
+      <button class="btnBuscar" type="submit">
         <img src="../../assets/img/lupa.svg" alt="">
       </button>
+      </form>
       <div class="filtro_listagens">
         <img src="../assets/icons/Filter.svg" class="imgFilter" alt="">
         <div class="filtro_popover">
@@ -168,7 +170,7 @@ foreach($listPedsModal as $pedidos){
           <p class="nomeClie"><?=$pedido->nome?></p>
           <div>
             <p class="data"><?=$pedido->data_ped?></p>
-            <div onclick="addStyle()" class="btnAbrirModal">
+            <div onclick="abrirModalPedido(<?=$pedido->cod_ped?>)" >
               <img class="imgData" src="../../assets/img/open.png" alt=""></img>
             </div>
           </div>

@@ -3,6 +3,12 @@ const cancelarExcluir = document.querySelector(".cancelar");
 const msgExclusao = document.querySelector(".msgExclusao");
 const excluir = document.querySelector(".divExcluir");
 
+function abrirModalPedido(target) {
+    addStyle();
+    const modal = document.querySelector("#pedido_"+target)
+    modal.style.display = "flex";
+    console.log("ALO");
+}
 
 function editarPed(id) {
     console.log("pa")
