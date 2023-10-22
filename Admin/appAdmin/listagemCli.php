@@ -1,9 +1,24 @@
 <?php
 include_once('../components/header.php');
 require "../../lib/conn.php";
-$sqlSelect = "SELECT * FROM Cliente INNER JOIN Endereco on fkcod_endereco = cod_endereco";
-$stmt = $conn->query($sqlSelect);
-$clientes = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+if(isset($_GET["busca__cliente"])){
+    $busca = trim(strip_tags($_GET["busca__cliente"]));
+    if($busca==""){
+      ?>
+      <meta http-equiv="refresh" content="0; url=listagemCli">
+      <?php
+    }
+    $sqlSelect = "SELECT * FROM Cliente INNER JOIN Endereco on fkcod_endereco = cod_endereco WHERE nome LIKE '%".$busca."%' ORDER BY cod_cli DESC";
+    $stmt = $conn->query($sqlSelect);
+    $clientes = $stmt->fetchAll(PDO::FETCH_OBJ);
+    }else{
+    $sqlSelect = "SELECT * FROM Cliente INNER JOIN Endereco on fkcod_endereco = cod_endereco";
+    $stmt = $conn->query($sqlSelect);
+    $clientes = $stmt->fetchAll(PDO::FETCH_OBJ);
+    $busca = "";
+}
+
 ?>
 
 <head>
@@ -13,10 +28,12 @@ $clientes = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 <body>
 <div class="search d-flex align-items-center">
-      <input type="text" name="" id="barraBusca" placeholder="Buscar...">
-      <button class="btnBuscar">
+      <form>
+      <input type="text" name="busca__cliente" id="barraBusca" placeholder="Buscar...">
+      <button class="btnBuscar"type="submit">
         <img src="../../assets/img/lupa.svg" alt="">
       </button>
+      </form>
       <div class="filtro_listagens">
         <img src="../assets/icons/Filter.svg" class="imgFilter" alt="">
         <div class="filtro_popover">

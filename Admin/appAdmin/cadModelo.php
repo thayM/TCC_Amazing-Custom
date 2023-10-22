@@ -4,9 +4,23 @@ include_once('../components/modalEdicaoModelo.php');
 include_once('../components/modalExclusao.php');
 require '../../lib/conn.php';
 
-$sql = "SELECT * FROM modelo";
-$stmt = $conn->query($sql);
-$listMods = $stmt->fetchAll(PDO::FETCH_OBJ);
+if(isset($_GET["busca__modelo"])){
+  $busca = trim(strip_tags($_GET["busca__modelo"]));
+  if($busca==""){
+    ?>
+    <meta http-equiv="refresh" content="0; url=cadModelo">
+    <?php
+  }
+  $sqlSelect = "SELECT * FROM modelo WHERE nome_modelo LIKE '%".$busca."%' ORDER BY cod_modelo DESC";
+  $stmt = $conn->query($sqlSelect);
+  $listMods = $stmt->fetchAll(PDO::FETCH_OBJ);
+}else{
+  $sql = "SELECT * FROM modelo";
+  $stmt = $conn->query($sql);
+  $listMods = $stmt->fetchAll(PDO::FETCH_OBJ);
+  $busca = "";
+}
+
 ?>
 
 <head>
@@ -45,12 +59,12 @@ $listMods = $stmt->fetchAll(PDO::FETCH_OBJ);
 <body>
   <main class="w-100 d-flex flex-column align-items-center">
     <div class="header_pesquisa d-flex">
-      <div class="pesquisa_input d-flex">
-        <input type="text" placeholder="Buscar...">
-        <button class="btn-buscar d-flex justify-content-center align-items-center">
+      <form class="pesquisa_input d-flex">
+        <input type="text" name="busca__modelo" class="busca" placeholder="Buscar..." value="<?=$busca?>">
+        <button class="btn-buscar d-flex justify-content-center align-items-center" type="submit">
           <img src="../../assets/img/lupa.svg" alt="lupa">
         </button>
-      </div>
+      </form>
       <button onclick="addStyle()" type="button" class="btnAbrirModal produto_btn d-flex justify-content-between">
         Adicionar Modelo
         <span class="produto_btn-add">+</span>

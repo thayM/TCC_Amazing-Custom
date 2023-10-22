@@ -33,4 +33,4 @@ $stmt->bindValue(":tel", $tel);
 $stmt->bindValue(":email", $email);
 $stmt->execute();
 ?>
-<meta http-equiv="refresh" content="0; url=../home.php">
+<meta http-equiv="refresh" content="0; url=../listagemCli.php">
