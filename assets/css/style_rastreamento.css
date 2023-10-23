@@ -197,6 +197,10 @@ main{
     left: 25px;
 }
 
+.linhas{
+    display: flex;
+}
+
 .circEtapas{
     margin: -10px;
     display: flex;

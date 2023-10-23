@@ -33,4 +33,4 @@ if(isset($_FILES['file'])){
 
 
 ?>
-<!-- <meta http-equiv="refresh" content="0; url=../cadModelo"> -->
+<meta http-equiv="refresh" content="0; url=../cadModelo">

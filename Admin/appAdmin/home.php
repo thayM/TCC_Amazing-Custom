@@ -37,6 +37,7 @@ $listPedsModal = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 foreach($listPedsModal as $pedidos){
   $cod = $pedidos->cod_ped;
+  $estadoPed = $pedidos->estado_pedido;
   $sql = "SELECT * FROM pedido_produto pp INNER JOIN produto p INNER JOIN modelo m INNER JOIN fragrancia f ON pp.fkcod_prod = p.cod_prod AND p.fkcod_frag = f.cod_frag AND p.fkcod_modelo = m.cod_modelo WHERE pp.fkcod_ped = :cod";
   $stmt = $conn->prepare($sql);
   $stmt->bindValue(":cod", $cod);
@@ -78,32 +79,38 @@ foreach($listPedsModal as $pedidos){
     <div class="parteDir">
       <div class="linha">
         <div class="circEtapas">
-          <div class="circulo"></div>
-          <div class="circulo"></div>
-          <div class="circulo"></div>
-          <div class="circulo"></div>
+          <div id="cirEtapaPag" class="circulo"></div>
+          <div id="cirEtapaArt" class="circulo"></div>
+          <div id="cirEtapaProd" class="circulo"></div>
+          <div id="cirEtapaEnvio" class="circulo"></div>
+        </div>
+
+        <div class="linhas">
+        <div id="linhaPA"></div>
+        <div id="linhaAP"></div>
+        <div id="linhaPE"></div>
         </div>
       </div>
 
       <div class="etapas">
         <div class="etapa etapaPag">
-          <img class="icons" src="../../Cliente/assets/img/fi-sr-dollar.svg" alt="">
-          <p>Pagamento</p>
+          <img id="iconPag" class="icons" src="../../Cliente/assets/img/fi-sr-dollar.svg" alt="">
+          <p id="pPag">Pagamento</p>
         </div>
         <div class="etapa etapaArt">
-          <img class="icons" src="../../Cliente/assets/img/fi-sr-edit-alt.svg" alt="">
-          <p>Arte</p>
+          <img id="iconArt" class="icons" src="../../Cliente/assets/img/fi-sr-edit-alt.svg" alt="">
+          <p id="pArt">Arte</p>
         </div>
         <div class="etapa etapaProd">
-          <img class="icons" src="../../Cliente/assets/img/fi-sr-settings.svg" alt="">
-          <p>Produção</p>
+          <img id="iconProd" class="icons" src="../../Cliente/assets/img/fi-sr-settings.svg" alt="">
+          <p id="pProd">Produção</p>
         </div>
         <div class="etapa etapaEnvio">
-          <img class="icons" src="../../Cliente/assets/img/Vector.svg" alt="">
-          <p>Envio</p>
+          <img id="iconEnvio" class="icons" src="../../Cliente/assets/img/Vector.svg" alt="">
+          <p id="pEnvio">Envio</p>
         </div>
       </div>
-
+      
       <div class="dirInferior">
         <div class="descEtapas">
           <p>Data Pedido</p>
@@ -178,7 +185,7 @@ foreach($listPedsModal as $pedidos){
           <p class="nomeClie"><?=$pedido->nome?></p>
           <div>
             <p class="data"><?=$pedido->data_ped?></p>
-            <div onclick="abrirModalPedido(<?=$pedido->cod_ped?>)" >
+            <div onclick="abrirModalPedido(<?=$pedido->cod_ped?>, <?=$pedido->estado_pedido?>)" >
               <img class="imgData" src="../../assets/img/open.png" alt=""></img>
             </div>
           </div>
@@ -255,6 +262,7 @@ foreach($listPedsModal as $pedidos){
   <!-- JQUERY -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="../assets/js/style.js"></script>
+  <script src="../assets/js/visualRastreamento.js"></script>
   <script src="../assets/js/modal.js"></script>
   <script src="../assets/js/modalPed.js"></script>
 
