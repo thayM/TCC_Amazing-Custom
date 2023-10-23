@@ -3,6 +3,17 @@
 require '../../../../lib/conn.php';
 extract($_POST);
 $produtos = json_decode($_GET["produtos"]);
+$pegarId = json_decode($_GET["produtos"]);
+var_dump($produtos);
+
+foreach($pegarId as $key => $value){
+  $sqlSelectPedPro = "SELECT fkcod_prod FROM pedido_produto WHERE fkcod_ped = :id";
+  $sqlPedido_produto = $conn->prepare($sqlSelectPedPro);
+  $sqlPedido_produto->bindValue(":id", $value[3]); 
+  $sqlPedido_produto->execute();
+  $codProd = $sqlPedido_produto->fetchAll(PDO::FETCH_OBJ);
+}
+var_dump($codProd);
 
 foreach ($produtos as $key => $value) {
   $sqlSelect = "SELECT cod_cli FROM cliente WHERE nome = :nome";
@@ -27,8 +38,7 @@ foreach ($produtos as $key => $value) {
   $sqlPedido_produto = $conn->prepare($sqlSelectPedPro);
   $sqlPedido_produto->bindValue(":id", $value[3]); 
   $sqlPedido_produto->execute();
-  $codProd = $sqlPedido_produto->fetch(PDO::FETCH_OBJ);
-  $codProd = $codProd->fkcod_prod;
+  $codProd = $sqlPedido_produto->fetchAll(PDO::FETCH_OBJ);
 
   $sqlSelectModelo = "SELECT cod_modelo FROM modelo WHERE nome_modelo = :modelo";
   $sqlModelo = $conn->prepare($sqlSelectModelo);
@@ -55,16 +65,16 @@ foreach ($produtos as $key => $value) {
   $stmt = $conn->prepare($sqlUpProds);
   $stmt->bindValue(":cod_frag", $codFragrancia);
   $stmt->bindValue(":cod_modelo", $codModelo);
-  $stmt->bindValue(":id", $codProd);
+  $stmt->bindValue(":id", $idprod);
   $stmt->execute();
 
   $sqlUpSub_total = "UPDATE pedido_produto SET qtd_prod = :qtd_prod, sub_total = :sub_total WHERE fkcod_prod = :codProd";
   $stmt = $conn->prepare($sqlUpSub_total);
   $stmt->bindValue(":qtd_prod", $value[2]);
   $stmt->bindValue(":sub_total", $valorMod*$value[2]);
-  $stmt->bindValue(":codProd", $codProd);
+  $stmt->bindValue(":codProd", $idprod);
   $stmt->execute();
 }
 ?>
 
-<meta http-equiv="refresh" content="0; url=../../home.php">
+<!-- <meta http-equiv="refresh" content="0; url=../../home.php"> -->

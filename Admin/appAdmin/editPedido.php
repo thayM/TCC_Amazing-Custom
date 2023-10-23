@@ -13,8 +13,10 @@ $sqlFragrancias = $conn->query("SELECT * FROM FRAGRANCIA");
 $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
 
 $id = $_GET['id'];
-$sql = "SELECT  * FROM pedido p INNER JOIN cliente c INNER JOIN endereco e ON p.fkcod_cli = c.cod_cli AND c.fkcod_endereco = e.cod_endereco";
-$stmt = $conn->query($sql);
+$sql = "SELECT  * FROM pedido p INNER JOIN cliente c INNER JOIN endereco e ON p.fkcod_cli = c.cod_cli AND c.fkcod_endereco = e.cod_endereco WHERE p.cod_ped = :cod_ped";
+$stmt = $conn->prepare($sql);
+$stmt->bindValue(":cod_ped", $id);
+$stmt->execute();
 $listPeds = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 foreach($listPeds as $pedidos){

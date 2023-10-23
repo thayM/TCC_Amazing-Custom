@@ -76,7 +76,7 @@ foreach($listPedsModal as $pedidos){
       </div>
     </div>
 
-    <div class="parteDir">
+    <div class="parteDir estado<?=$pedido->estado_pedido?>">
       <div class="linha">
         <div class="circEtapas">
           <div id="cirEtapaPag" class="circulo"></div>

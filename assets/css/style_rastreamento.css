@@ -303,3 +303,143 @@ main{
 .ruaInfo, .numeroInfo, .bairroInfo, .cidadeInfo, .cepInfo, .complementoInfo{
     display: flex;
 }
+
+/* RASTREAMENTO */
+
+/* ETAPA PAGAMENTO */
+.estado1 #cirEtapaPag{
+    background-color:#FFFFA1;
+}
+
+.estado1 #pPag{
+    color:#FFFFA1;
+}
+
+/* ETAPA ARTE */
+
+.estado2 #cirEtapaPag{
+    background-color:#FFFFA2;
+}
+
+.estado2 #pPag{
+    color:#FFFFA1;
+}
+
+.estado2 #cirEtapaArt{
+    background-color:#FFFFA1;
+}
+
+.estado2 #linhaPA{
+    background-color:#FFFFA1;
+    width : 160px;
+    height : 6px;
+    position : relative;
+    top : -5px;
+}
+
+.estado2 #pArt{
+    color:#FFFFA1;
+}
+
+/* ETAPA PRODUÇÃO */
+.estado3 #cirEtapaPag{
+    background-color:#FFFFA3;
+}
+
+.estado3 #pPag{
+    color:#FFFFA1;
+}
+
+.estado3 #cirEtapaArt{
+    background-color:#FFFFA1;
+}
+
+.estado3 #linhaPA{
+    background-color:#FFFFA1;
+    width : 160px;
+    height : 6px;
+    position : relative;
+    top : -5px;
+}
+
+.estado3 #pArt{
+    color:#FFFFA1;
+}
+
+
+.estado3 #cirEtapaProd{
+    background-color:#FFFFA1;
+}
+
+.estado3 #linhaAP{
+    background-color: #FFFFA1;
+    width: 160px;
+    height: 6px;
+    position: relative;
+    left: 10px;
+    top: -5px; 
+}
+
+.estado3 #pProd{
+    color:#FFFFA1;
+}
+
+/* ETAPA ENVIO */
+.estado4 #cirEtapaPag{
+    background-color:#FFFFA4;
+}
+
+.estado4 #pPag{
+    color:#FFFFA1;
+}
+
+.estado4 #cirEtapaArt{
+    background-color:#FFFFA1;
+}
+
+.estado4 #linhaPA{
+    background-color:#FFFFA1;
+    width : 160px;
+    height : 6px;
+    position : relative;
+    top : -5px;
+}
+
+.estado4 #pArt{
+    color:#FFFFA1;
+}
+
+
+.estado4 #cirEtapaProd{
+    background-color:#FFFFA1;
+}
+
+.estado4 #linhaAP{
+    background-color: #FFFFA1;
+    width: 160px;
+    height: 6px;
+    position: relative;
+    left: 10px;
+    top: -5px; 
+}
+
+.estado4 #pProd{
+    color:#FFFFA1;
+}
+
+.estado4 #cirEtapaEnvio{
+    background-color:#FFFFA1;
+}
+
+.estado4 #linhaPE{
+    background-color: #FFFFA1;
+    width: 160px;
+    height: 6px;
+    position: relative;
+    left: 10px;
+    top: -5px; 
+}
+
+.estado4 #pEnvio{
+    color:#FFFFA1;
+}
