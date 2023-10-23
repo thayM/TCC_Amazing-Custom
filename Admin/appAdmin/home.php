@@ -94,19 +94,19 @@ foreach($listPedsModal as $pedidos){
 
       <div class="etapas">
         <div class="etapa etapaPag">
-          <img id="iconPag" class="icons" src="../../Cliente/assets/img/fi-sr-dollar.svg" alt="">
+          <div id="iconPag" class="icons"></div>
           <p id="pPag">Pagamento</p>
         </div>
         <div class="etapa etapaArt">
-          <img id="iconArt" class="icons" src="../../Cliente/assets/img/fi-sr-edit-alt.svg" alt="">
+          <div id="iconArt" class="icons"></div>
           <p id="pArt">Arte</p>
         </div>
         <div class="etapa etapaProd">
-          <img id="iconProd" class="icons" src="../../Cliente/assets/img/fi-sr-settings.svg" alt="">
+          <div id="iconProd" class="icons"></div>
           <p id="pProd">Produção</p>
         </div>
         <div class="etapa etapaEnvio">
-          <img id="iconEnvio" class="icons" src="../../Cliente/assets/img/Vector.svg" alt="">
+          <div id="iconEnvio" class="icons"></div>
           <p id="pEnvio">Envio</p>
         </div>
       </div>

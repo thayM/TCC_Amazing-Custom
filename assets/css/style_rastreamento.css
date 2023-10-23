@@ -225,6 +225,18 @@ main{
     margin-top: -4px;
 }
 
+.etapaArt p{
+    margin-left: 10px;
+}
+
+.etapaProd p{
+    margin-left: 35px;
+}
+
+.etapaEnvio p{
+    margin-left: 35px;
+}
+
 .etapa{
     display: flex;
     flex-direction: column;
@@ -238,6 +250,38 @@ main{
 
 .etapaEnvio{
     margin-right: 15px;
+}
+
+#iconPag{
+    background-image: url(../../Cliente/assets/img/fi-sr-dollar.svg);
+    background-repeat: no-repeat;
+    width: 61px;
+    height: 64px;
+    background-position: left 8px top 10px;
+}
+
+#iconArt{
+    background-image: url(../../Cliente/assets/img/fi-sr-edit-alt.svg);
+    background-repeat: no-repeat;
+    width: 61px;
+    height: 61px;
+    background-position: left 15px top 10px;
+}
+
+#iconProd{
+    background-image: url(../../Cliente/assets/img/fi-sr-settings.svg);
+    background-repeat: no-repeat;
+    width: 73px;
+    height: 61px;
+    background-position: left 35px top 10px;
+}
+
+#iconEnvio{
+    background-image: url(../../Cliente/assets/img/Vector.svg);
+    background-repeat: no-repeat;
+    width: 80px;
+    height: 61px;
+    background-position: left 35px top 10px;
 }
 
 .fechar{
@@ -315,6 +359,14 @@ main{
     color:#FFFFA1;
 }
 
+.estado1 #iconPag{
+    background-image: url(../../Admin/assets/icons/fi-sr-dollar.svg);
+    background-repeat: no-repeat;
+    width: 61px;
+    height: 64px;
+    background-position: left 8px top 10px;
+}
+
 /* ETAPA ARTE */
 
 .estado2 #cirEtapaPag{
@@ -339,6 +391,23 @@ main{
 
 .estado2 #pArt{
     color:#FFFFA1;
+}
+
+.estado2 #iconPag{
+    background-image: url(../../Admin/assets/icons/fi-sr-dollar.svg);
+    background-repeat: no-repeat;
+    width: 61px;
+    height: 64px;
+    background-position: left 8px top 10px;
+}
+
+
+.estado2 #iconArt{
+    background-image: url(../../Admin/assets/icons/fi-sr-edit-alt.svg);
+    background-repeat: no-repeat;
+    width: 61px;
+    height: 61px;
+    background-position: left 15px top 10px;
 }
 
 /* ETAPA PRODUÇÃO */
@@ -382,6 +451,32 @@ main{
 
 .estado3 #pProd{
     color:#FFFFA1;
+}
+
+
+.estado3 #iconPag{
+    background-image: url(../../Admin/assets/icons/fi-sr-dollar.svg);
+    background-repeat: no-repeat;
+    width: 61px;
+    height: 64px;
+    background-position: left 8px top 10px;
+}
+
+
+.estado3 #iconArt{
+    background-image: url(../../Admin/assets/icons/fi-sr-edit-alt.svg);
+    background-repeat: no-repeat;
+    width: 61px;
+    height: 61px;
+    background-position: left 15px top 10px;
+}
+
+.estado3 #iconProd{
+    background-image: url(../../Admin/assets/icons/fi-sr-settings.svg);
+    background-repeat: no-repeat;
+    width: 73px;
+    height: 61px;
+    background-position: left 35px top 10px;
 }
 
 /* ETAPA ENVIO */
@@ -442,4 +537,37 @@ main{
 
 .estado4 #pEnvio{
     color:#FFFFA1;
+}
+
+.estado4 #iconPag{
+    background-image: url(../../Admin/assets/icons/fi-sr-dollar.svg);
+    background-repeat: no-repeat;
+    width: 61px;
+    height: 64px;
+    background-position: left 8px top 10px;
+}
+
+
+.estado4 #iconArt{
+    background-image: url(../../Admin/assets/icons/fi-sr-edit-alt.svg);
+    background-repeat: no-repeat;
+    width: 61px;
+    height: 61px;
+    background-position: left 15px top 10px;
+}
+
+.estado4 #iconProd{
+    background-image: url(../../Admin/assets/icons/fi-sr-settings.svg);
+    background-repeat: no-repeat;
+    width: 73px;
+    height: 61px;
+    background-position: left 35px top 10px;
+}
+
+.estado4 #iconEnvio{
+    background-image: url(../../Admin/assets/icons/Vector.svg);
+    background-repeat: no-repeat;
+    width: 80px;
+    height: 61px;
+    background-position: left 35px top 10px;
 }
