@@ -160,7 +160,7 @@ foreach($listPedsModal as $pedidos){
   <main>
     
     <div class="search d-flex align-items-center">
-      <form>
+      <form class="d-flex">
       <input type="text" name="busca__pedido" id="barraBusca" placeholder="Buscar...">
       <button class="btnBuscar" type="submit">
         <img src="../../assets/img/lupa.svg" alt="">
