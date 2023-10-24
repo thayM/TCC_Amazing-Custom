@@ -1,5 +1,6 @@
 <?php
 include_once('../components/header.php');
+include_once('../components/modalExclusao.php');
 require "../../lib/conn.php";
 
 if(isset($_GET["busca__cliente"])){
@@ -27,22 +28,22 @@ if(isset($_GET["busca__cliente"])){
 </head>
 
 <body>
-<div class="search d-flex align-items-center">
+    <div class="search d-flex align-items-center">
       <form>
       <input type="text" name="busca__cliente" id="barraBusca" placeholder="Buscar...">
       <button class="btnBuscar"type="submit">
         <img src="../../assets/img/lupa.svg" alt="">
       </button>
       </form>
-      <div class="filtro_listagens">
-        <img src="../assets/icons/Filter.svg" class="imgFilter" alt="">
-        <div class="filtro_popover">
-          <ul class="p-0 m-0">
-            <li><a href="./home.php">Pedidos</a></li>
-            <li><a href="#">Clientes</a></li>
-          </ul>
+        <div class="filtro_listagens">
+            <img src="../assets/icons/Filter.svg" class="imgFilter" alt="">
+            <div class="filtro_popover">
+                <ul class="p-0 m-0">
+                    <li><a href="./home.php">Pedidos</a></li>
+                    <li><a href="#">Clientes</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
     </div>
     <div class="container_clientes">
         <?php
@@ -65,10 +66,12 @@ if(isset($_GET["busca__cliente"])){
                     </div>
 
                     <div class="colunaImg">
-                        <a href="./editCliente.php">
+                        <a href="./editCliente.php?id=<?=$cliente->cod_cli?>">
                             <img src="../assets/icons/pen.svg" alt="">
                         </a>
-                        <img src="../assets/icons/trash-alt.svg" alt="">
+                        <a href="#" onclick="modalExcluirCliente(<?=$cliente->cod_cli?>,'<?=$cliente->nome?>')">
+                            <img src="../assets/icons/trash-alt.svg" alt="">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -76,5 +79,6 @@ if(isset($_GET["busca__cliente"])){
         }
         ?>
     </div>
-    <script src="../assets/js/style.js"></script>
 </body>
+    <script src="../assets/js/style.js"></script>
+    <script src="../assets/js/excluirCliente.js"></script>

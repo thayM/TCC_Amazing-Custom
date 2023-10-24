@@ -6,7 +6,7 @@
   <div class="content_modal-php d-flex justify-content-between flex-column">
     <h3 class="msgExclusao"></h3>
     <p>Esta opção não poderá ser desfeita.</p>
-    <div class="d-flex justify-content-around">
+    <div class="d-flex justify-content-around" onclick="fecharModalExcluir()">
       <button class="btn_modal cancelar">
         CANCELAR
       </button>
