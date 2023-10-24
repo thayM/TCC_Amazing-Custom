@@ -59,7 +59,6 @@ $(".btn-cadastrar").on("click", () => {
     GET_produtos.push([element, GET_fragrancias[i], GET_qtdd[i]])
   })
   console.log(GET_produtos)
-  alert("A")
   document.querySelector(".form_pedido").action = `./functions/func_cadPed.php?produtos=${JSON.stringify(GET_produtos)}`;
 
   var valor = document.getElementById('valor').value;
