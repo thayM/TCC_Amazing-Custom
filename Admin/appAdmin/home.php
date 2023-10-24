@@ -56,7 +56,7 @@ foreach($listPedsModal as $pedidos){
 <?php
     foreach($listPedsModal as $pedido){
       foreach($produtos[$pedido->cod_ped] as $produto){
-        $subtotal += $produto->sub_total;
+        $subtotal = $produto->sub_total;
       }
       $subtotal= str_replace(".", ",", $subtotal);
       $frete = str_replace(".", ",", $pedido->frete);
