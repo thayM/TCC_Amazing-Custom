@@ -24,7 +24,7 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
       <h3>Novo Pedido</h3>
       <div class="content_form-cliente d-flex flex-column">
         <p class="divisoria m-0">Cliente</p>
-        <input name="cliente" type="text" placeholder="Nome Completo" class="nome" id="nomeCli" onkeyup="filtroCli(this.value)">
+        <input name="cliente" type="text" placeholder="Nome Completo" class="nome" id="nomeCli" autocomplete="off" onkeyup="filtroCli(this.value)">
         <!-- <div class="infomacao_cliente d-flex">
           <div class="content_infomacao_cliente d-flex flex-column">
             <h3>Informações do cliente</h3>
@@ -64,12 +64,12 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
         <div class="container_produtos">
           <div class="produto_content d-flex flex-column">
             <div class="d-flex justify-content-between align-items-center">
-              <input name="modelo" id="modelo" class="modelos produto_select w-75" placeholder="Nome do Modelo" onkeyup="filtroModelo(this.value, 0)">
+              <input name="modelo" id="modelo" class="modelos produto_select w-75" placeholder="Nome do Modelo" autocomplete="off" onkeyup="filtroModelo(this.value, 0)">
               <div class="listagem_items resultPesquisaModelo"></div>
               <input type="number" name="quantidade" id="numModel" class="quantidade produto_input" placeholder="000">
             </div>
             <div class="d-flex justify-content-between align-items-center">
-            <input name="fragrancia" type="text" placeholder="Nome da Fragrância" class="fragrancias nome" id="nomeFrag" onkeyup="filtroFrag(this.value, 0)">
+            <input name="fragrancia" type="text" placeholder="Nome da Fragrância" class="fragrancias nome" id="nomeFrag" autocomplete="off" onkeyup="filtroFrag(this.value, 0)">
             <div class="listagem_items resultPesquisaFrag"></div>
               <!-- lixeira -->
             </div>
