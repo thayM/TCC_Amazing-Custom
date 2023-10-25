@@ -15,7 +15,7 @@ if(isset($_GET["busca__modelo"])){
   $stmt = $conn->query($sqlSelect);
   $listMods = $stmt->fetchAll(PDO::FETCH_OBJ);
 }else{
-  $sql = "SELECT * FROM modelo";
+  $sql = "SELECT * FROM modelo ORDER BY cod_modelo DESC";
   $stmt = $conn->query($sql);
   $listMods = $stmt->fetchAll(PDO::FETCH_OBJ);
   $busca = "";

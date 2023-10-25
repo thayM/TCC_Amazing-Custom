@@ -14,7 +14,7 @@ if(isset($_GET["busca__cliente"])){
     $stmt = $conn->query($sqlSelect);
     $clientes = $stmt->fetchAll(PDO::FETCH_OBJ);
     }else{
-    $sqlSelect = "SELECT * FROM Cliente INNER JOIN Endereco on fkcod_endereco = cod_endereco";
+    $sqlSelect = "SELECT * FROM Cliente INNER JOIN Endereco on fkcod_endereco = cod_endereco ORDER BY cod_cli DESC";
     $stmt = $conn->query($sqlSelect);
     $clientes = $stmt->fetchAll(PDO::FETCH_OBJ);
     $busca = "";

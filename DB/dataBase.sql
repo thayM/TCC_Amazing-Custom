@@ -65,6 +65,7 @@ create table ENDERECO(
     uf char(2) not null,
     complemento varchar(60)
 );
+
 -- relacionamento (chaves estrangeiras)
 
 alter table PEDIDO
@@ -92,10 +93,39 @@ add constraint fk_pedidoProduto_produto
 foreign key (fkcod_prod)
 references PRODUTO(cod_prod);
 
-
 alter table CLIENTE
 add constraint fk_endereco_cliente
 foreign key (fkcod_endereco)
 references ENDERECO(cod_enereco);
 
 INSERT INTO adm(nome_adm,senha_adm) VALUES("123","123");
+
+-- INSERTS PARA APRESENTAÇÃO EPA
+INSERT INTO MODELO VALUES (0, "Brasão 1", 3.50, "brasão 1.jpg");
+INSERT INTO MODELO VALUES (0, "Redondo Meia Lua", 8.00, "redondo 5 meia lua.jpg");
+INSERT INTO MODELO VALUES (0, "Diamante 1", 5.50, "diamante 1.jpg");
+INSERT INTO MODELO VALUES (0, "Brasão 2", 5.00, "brasão 2.jpg");
+INSERT INTO MODELO VALUES (0, "Redondo", 5.50, "redondo 3.jpg");
+INSERT INTO MODELO VALUES (0, "Brasão 3", 5.00, "brasão 3.jpg");
+INSERT INTO MODELO VALUES (0, "Octógono", 5.50, "octogono.jpg");
+
+INSERT INTO FRAGRANCIA VALUES(0, "Lorem ipsum", "Nibh mauris cursus mattis molestie a iaculis.");
+INSERT INTO FRAGRANCIA VALUES(0, "Lord", "Aroma com tom amadeirado.");
+INSERT INTO FRAGRANCIA VALUES(0, "Lorem ipsum", "Faucibus vitae aliquet nec ullamcorper sit amet risus nullam. Condimentum vitae sapien pellentesque habitant morbi tristique senectus et netus.");
+INSERT INTO FRAGRANCIA VALUES(0, "Vanilla", "Aroma doce.");
+INSERT INTO FRAGRANCIA VALUES(0, "Flor", "Cheiro de lavanda.");
+
+INSERT INTO ENDERECO VALUES(0, "04004-040", "Avenida Bernardino de Campos", 100, "São Paulo", "Paraíso", "SP", "até 250 - lado par");
+INSERT INTO ENDERECO VALUES(0, "18270-020", "Praça Adelaide Guedes", 01, "Tatuí", "Centro", "SP", "");
+
+INSERT INTO CLIENTE VALUES(0, 1, "Beatriz", "AM9030", "(11) 90000-9999/(15) 98888-1111", "beatriz@gmail.com");
+INSERT INTO CLIENTE VALUES(0, 2, "Pedro Aguiar", "AM7777", "(15) 94444-2222", "aguiarpedro@gmail.com");
+
+INSERT INTO PEDIDO VALUES(0, 1, 15.50, 800, "2023-11-30", 815.50, 2);
+INSERT INTO PEDIDO VALUES(0, 2, 10, 825, "2024-01-10", 835, 1);
+
+INSERT INTO PRODUTO VALUES(0, 2, 2);
+INSERT INTO PRODUTO VALUES(0, 4, 3);
+
+INSERT INTO PEDIDO_PRODUTO VALUES(1, 1, 800, 100);
+INSERT INTO PEDIDO_PRODUTO VALUES(2, 2, 825, 150);

@@ -15,7 +15,7 @@ include_once('../components/modalExclusao.php');
     $stmt = $conn->query($sql);
     $listPeds = $stmt->fetchAll(PDO::FETCH_OBJ);
     }else{
-    $sql = "SELECT  * FROM pedido p INNER JOIN cliente c INNER JOIN endereco e ON p.fkcod_cli = c.cod_cli AND c.fkcod_endereco = e.cod_endereco";
+    $sql = "SELECT  * FROM pedido p INNER JOIN cliente c INNER JOIN endereco e ON p.fkcod_cli = c.cod_cli AND c.fkcod_endereco = e.cod_endereco ORDER BY cod_ped DESC";
     $stmt = $conn->query($sql);
     $listPeds = $stmt->fetchAll(PDO::FETCH_OBJ);
 
@@ -60,7 +60,7 @@ foreach($listPedsModal as $pedidos){
       }
       $subtotal= str_replace(".", ",", $subtotal);
       $frete = str_replace(".", ",", $pedido->frete);
-      $valorFinal = str_replace(".", ",", $pedido->valor);
+      $valorFinal = str_replace(".", ",", $pedido->valor_total);
       $dataFormatada= date("d/m/Y", strtotime($pedido->data_ped));
 ?>
 <div class="container_modal modalCad "id="pedido_<?=$pedido->cod_ped?>">
@@ -123,28 +123,28 @@ foreach($listPedsModal as $pedidos){
         <div class="endereco">
           <div class="infos">
             <div class="ruaInfo">
-              <h3>Rua: <?=$pedido->logradouro?></h3>
-              <p></p>
+              <h3>Rua: </h3>
+              <p><?=$pedido->logradouro?></p>
             </div>
             <div class="numeroInfo">
-              <h3>N°: <?=$pedido->num?></h3>
-              <p></p>
+              <h3>N°: </h3>
+              <p><?=$pedido->num?></p>
             </div>
             <div class="bairroInfo">
-              <h3>Bairro: <?=$pedido->bairro?></h3>
-              <p></p>
+              <h3>Bairro: </h3>
+              <p><?=$pedido->bairro?></p>
             </div>
             <div class="cidadeInfo">
-              <h3>Cidade: <?=$pedido->cidade?></h3>
-              <p></p>
+              <h3>Cidade: </h3>
+              <p><?=$pedido->cidade?></p>
             </div>
             <div class="cepInfo">
-              <h3>CEP: <?=$pedido->cep?></h3>
-              <p></p>
+              <h3>CEP: </h3>
+              <p><?=$pedido->cep?></p>
             </div>
             <div class="complementoInfo">
-              <h3>Complemento: <?=$pedido->complemento == "" ? 'Nenhum' : $pedido->complemento ?></h3>
-              <p></p>
+              <h3>Complemento: </h3>
+              <p><?=$pedido->complemento == "" ? 'Nenhum' : $pedido->complemento ?></p>
             </div>
           </div>
         </div>
@@ -217,7 +217,7 @@ foreach($listPedsModal as $pedidos){
             ?>
           <div class="cardInfo">
             <div class="cardInfoInner d-flex justify-content-between align-items-center">
-              <div class="imgModelo">
+              <div class="imgModelo d-flex align-items-center">
               <img class="produto_img" src="../../upload/<?=$produto->nomeArq_modelo?>" alt="">
               </div>
               <p class="card-text"><?=$produto->nome_modelo?></p>

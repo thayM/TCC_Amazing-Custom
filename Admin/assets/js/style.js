@@ -16,7 +16,12 @@ $(".produto_img").each(function() {
   let height = $(this).height();
   let width = $(this).width();
 
-  (height > width) ? $(this).css("height","100%") : $(this).css("width","100%");
+  if(height > width){
+    $(this).css("height","100%");
+  } else {
+    $(this).addClass("w-100");
+    $(this).css("height","min-content");
+  }
 });
 
 // CARD FRAGRÂNCIA -- animação altura

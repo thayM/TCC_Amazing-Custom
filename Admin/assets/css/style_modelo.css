@@ -67,6 +67,10 @@
   background: var(--light-color);
 }
 
+.produto_img{
+  height: 90px;
+}
+
 .content_card-produto{
   width: 110px;
   height: 65%;
