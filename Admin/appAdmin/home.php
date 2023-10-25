@@ -216,10 +216,12 @@ foreach($listPedsModal as $pedidos){
             foreach($produtos[$pedido->cod_ped] as $produto){
             ?>
           <div class="cardInfo">
-            <div class="imgModelo">
-            <img class="produto_img" src="../../upload/<?=$produto->nomeArq_modelo?>" alt="">
+            <div class="cardInfoInner d-flex justify-content-between align-items-center">
+              <div class="imgModelo">
+              <img class="produto_img" src="../../upload/<?=$produto->nomeArq_modelo?>" alt="">
+              </div>
+              <p class="card-text"><?=$produto->nome_modelo?></p>
             </div>
-            <p class="card-text"><?=$produto->nome_modelo?></p>
           </div>
             <?php
             }

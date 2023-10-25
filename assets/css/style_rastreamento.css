@@ -2,6 +2,66 @@ main{
     margin: 0 40px;
 }
 
+
+.filtro_listagens{
+position: relative;
+}
+
+.imgFilter{
+cursor: pointer;
+}
+
+.filtro_popover{
+display: none;
+border: 0;
+width: 165px;
+height: 92px;
+position: absolute;
+}
+
+.filtro_popover ul::before{
+content: '';
+display: block;
+width: 20px;
+height: 20px;
+position: absolute;
+left: 20px;
+top: -5px;
+z-index: -1;
+background: var(--second-grayscale);
+transform: rotate(45deg);
+}
+
+.filtro_popover ul li{
+display: flex;
+list-style: none;
+background: var(--second-grayscale);
+box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+.filtro_popover ul li:first-child{
+border-bottom: 2px solid var(--first-grayscale);
+border-radius: 10px 10px 0 0;
+}
+.filtro_popover ul li:last-child{
+border-radius: 0 0 10px 10px;
+}
+
+.filtro_popover ul li:active{
+background-color: var(--first-grayscale);
+}
+
+.filtro_popover ul li a{
+width: 100%;
+height: 45px;
+font-size: 1.3rem;
+text-align: center;
+text-decoration: none;
+line-height: 2.2;
+color: var(--light-color);
+}
+
+
 .card-pedidos{
     margin: 35px;
     width: 810px;
@@ -115,17 +175,25 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    height:  75px;
+    height:  80px;
     border-top:  2px solid var(--background-color);
+}
+
+.cardInfoInner{
+    width: 90%;
 }
 
 .imgModelo{
     border-radius: 5px;
     padding: 10px;
-    height: 60px;
-    width: 60px;
-    margin: 8px 40px 8px 8px;
+    height: 65px;
+    width: 65px;
     background-color: #ffff;
+}
+
+.cardInfoInner p{
+    text-align: start;
+    min-width: 130px;
 }
 
 /* Modal */
