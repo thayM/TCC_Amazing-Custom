@@ -182,7 +182,7 @@ foreach($listPedsModal as $pedidos){
     <div class="card-pedidos">
       <div class="card-header">
         <div class="cabecalho">
-          <p class="nomeClie"><?=$pedido->nome?></p>
+          <p class="nomeClie"><abbr title="<?=$pedido->nome?>"><?=$pedido->nome?></abbr></p>
           <div>
             <p class="data"><?=$pedido->data_ped?></p>
             <div onclick="abrirModalPedido(<?=$pedido->cod_ped?>, <?=$pedido->estado_pedido?>)" >
@@ -200,6 +200,7 @@ foreach($listPedsModal as $pedidos){
         </div>
         <form method="post" action="functions/editar/func_edicaoStatus.php?id=<?=$pedido->cod_ped?>">
         <select name="status" id="status" onchange="this.form.submit()">
+          <option value="1" <?= $pedido->estado_pedido == 0 ? 'selected' : '' ?>>Pendente</option>
           <option value="1" <?= $pedido->estado_pedido == 1 ? 'selected' : '' ?>>Pagamento Aprovado</option>
           <option value="2" <?= $pedido->estado_pedido == 2 ? 'selected' : '' ?>>Arte Finalizada</option>
           <option value="3" <?= $pedido->estado_pedido == 3 ? 'selected' : '' ?>>Em Produção</option>

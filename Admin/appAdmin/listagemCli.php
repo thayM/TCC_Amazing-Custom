@@ -52,8 +52,8 @@ if(isset($_GET["busca__cliente"])){
             <div class="card">
                 <div class="card-body">
                     <div class="coluna d-flex flex-column justify-content-center">
-                        <h3 class="card-title">Nome: <?= $cliente->nome ?></h3>
-                        <p class="card-text">Email: <?= $cliente->email ?></p>
+                        <h3 class="card-title">Nome: <abbr title="<?= $cliente->nome ?>"><?= $cliente->nome ?></abbr></h3>
+                        <p class="card-text">Email: <abbr title="<?= $cliente->email ?>"><?= $cliente->email ?></abbr></p>
                         <p class="card-text">Telefones: <?= $cliente->tel?></p>
                     </div>
 
@@ -61,7 +61,7 @@ if(isset($_GET["busca__cliente"])){
                         <p class="card-text">Endereço: <?= $cliente->logradouro ?>, <?= $cliente->num ?>, <?= $cliente->bairro ?>, <?= $cliente->cidade ?>-<?= $cliente->uf ?></p>
                         <div class="card-text_complemento d-flex justify-content-between">
                             <p>CEP: <?= $cliente->cep ?></p>
-                            <p class="compl">Compl: <?= $cliente->complemento ?></p>
+                            <p class="compl">Compl: <abbr title="<?= $cliente->complemento ?>"><?= $cliente->complemento ?></abbr></p>
                         </div>
                     </div>
 

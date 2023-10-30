@@ -29,6 +29,11 @@ body {
   background: var(--background-color);
 }
 
+abbr[title]{
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /* SCROLL */
 body::-webkit-scrollbar {
   width: 12px;
