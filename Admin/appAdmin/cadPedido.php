@@ -81,7 +81,7 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
           <span class="w-75">Frete</span>
         </div>
         <div class="d-flex justify-content-between">
-          <input name="valor" type="text" id="valor" class="preco produto_input">
+          <input name="valor" type="text" id="valor" disable class="preco produto_input">
           <input name="frete" type="text" id="frete" class="preco produto_input">
           <select name="estado_pedido" id="status" class="w-50">
             <option value="" selected hidden>Status do Pedido</option>
