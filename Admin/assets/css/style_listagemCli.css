@@ -93,9 +93,9 @@
 
 /* card listagem */
 .container_clientes {
-    position: relative;
-    z-index: 0; 
+    margin-bottom: 70px;
 }
+
 .card{
     background: var(--second-grayscale);
     min-height: 120px;

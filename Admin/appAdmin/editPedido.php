@@ -128,7 +128,7 @@ foreach($listPeds as $pedidos){
     </form>
   </div>
   <script src="../assets/js/style.js"></script>
- <script src="../assets/js/editarPedido.js"></script> 
+  <script src="../assets/js/editarPedido.js"></script> 
   <script src="../assets/js/filtroIn.js"></script>
 </body>
 </html>

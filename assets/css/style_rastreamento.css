@@ -60,8 +60,13 @@ main{
     color: var(--light-color);
 }
 
+/* CARDS */
+.container_pedidos{
+    margin-bottom: 70px;
+}
+
 .card-pedidos{
-    margin: 20px 0;
+    margin: 10px;
     width: 810px;
 }
 
@@ -190,6 +195,10 @@ main{
     height: 65px;
     width: 65px;
     background-color: #ffff;
+}
+
+.imgModelo img{
+    height: 65px;
 }
 
 .cardInfoInner p{

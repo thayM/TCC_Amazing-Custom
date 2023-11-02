@@ -157,8 +157,7 @@ foreach($listPedsModal as $pedidos){
     }
   ?>
 <body>
-  <main>
-    
+  <main class="d-flex flex-column align-items-center">
     <div class="search d-flex align-items-center">
       <form class="d-flex">
       <input type="text" name="busca__pedido" id="barraBusca" placeholder="Buscar...">
@@ -176,6 +175,8 @@ foreach($listPedsModal as $pedidos){
         </div>
       </div>
     </div>
+
+    <div class="container_pedidos d-flex flex-column">
     <?php
     foreach($listPeds as $pedido){
     ?>
@@ -200,14 +201,12 @@ foreach($listPedsModal as $pedidos){
         </div>
         <form method="post" action="functions/editar/func_edicaoStatus.php?id=<?=$pedido->cod_ped?>">
         <select name="status" id="status" onchange="this.form.submit()">
-          <option value="1" <?= $pedido->estado_pedido == 0 ? 'selected' : '' ?>>Pendente</option>
           <option value="1" <?= $pedido->estado_pedido == 1 ? 'selected' : '' ?>>Pagamento Aprovado</option>
           <option value="2" <?= $pedido->estado_pedido == 2 ? 'selected' : '' ?>>Arte Finalizada</option>
           <option value="3" <?= $pedido->estado_pedido == 3 ? 'selected' : '' ?>>Em Produção</option>
           <option value="4" <?= $pedido->estado_pedido == 4 ? 'selected' : '' ?>>Enviado</option>
         </select>
         </form>
-
       </div>
 
       <div class="card-body">
@@ -259,14 +258,10 @@ foreach($listPedsModal as $pedidos){
     <?php
     }
     ?>
+    </div>
   </main>
-  <!-- JS BOOTSTRAP -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  <!-- JQUERY -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="../assets/js/style.js"></script>
   <script src="../assets/js/visualRastreamento.js"></script>
   <script src="../assets/js/modal.js"></script>
   <script src="../assets/js/modalPed.js"></script>
-
 </body>
