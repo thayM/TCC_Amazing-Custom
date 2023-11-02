@@ -2,14 +2,35 @@ const modalExcluir = document.querySelector(".modalExcluir");
 const cancelarExcluir = document.querySelector(".cancelar");
 const msgExclusao = document.querySelector(".msgExclusao");
 const excluir = document.querySelector(".divExcluir");
+const linhaDoTempo = document.querySelector(".parteDir");
+const modalDiv = document.querySelector("#fecharModalPed");
 
-function abrirModalPedido(target) {
+function abrirModalPedido(codRastreamento,nomeCli,subTotal,frete,valorFinal,estadoPed,dataPed,cep,rua,numEnd,cidade,bairro,complemento) {
     addStyle();
-    const modal = document.querySelector("#pedido_"+target)
-    modal.style.display = "flex";
-    console.log("ALO");
-}
+    abrirModal()
 
+    linhaDoTempo.classList.add("estado"+estadoPed);
+    document.getElementById("nPed").textContent = `N° pedido: ${codRastreamento}`;
+    document.getElementById("cliente").textContent = `Cliente: ${nomeCli}`;
+    document.getElementById("subValor").textContent = `Sub valor: ${subTotal}`;
+    document.getElementById("frete").textContent = `Frete: ${frete}`;
+    document.getElementById("valorTotal").textContent = `Valor total: ${valorFinal}`;
+    document.getElementById("dataPed").textContent = `${dataPed}`;
+    document.getElementById("cep").textContent = `${cep}`;
+    document.getElementById("logradouro").textContent = `${rua}`;
+    document.getElementById("num").textContent = `${numEnd}`;
+    document.getElementById("bairro").textContent = `${bairro}`;
+    document.getElementById("cidade").textContent = `${cidade}`;
+    document.getElementById("complemento").textContent = `${complemento}`;
+
+    modalDiv.innerHTML += `<img onclick="fecharModalPed(${estadoPed})" src='../assets/icons/x.svg' alt='fechar' class='fechar'>`
+}
+function fecharModalPed(estadoPedido) {
+    linhaDoTempo.classList.remove("estado"+estadoPedido);
+    modalDiv.innerHTML= " "
+    fecharModal()
+    removeStyle();
+}
 function editarPed(id) {
     console.log("pa")
     window.location.href=`editPedido.php?id=${id}`

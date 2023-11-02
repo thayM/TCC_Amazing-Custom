@@ -2,6 +2,8 @@
 include_once('../components/header.php');
 include_once('../../lib/conn.php');
 include_once('../components/modalExclusao.php');
+include_once('../components/modalPedido.php');
+
 
 // listagem fora do modal:
   if(isset($_GET["busca__pedido"])){
@@ -29,21 +31,6 @@ include_once('../components/modalExclusao.php');
     $stmt->execute();
     $produtos[$cod] = $stmt->fetchAll(PDO::FETCH_OBJ);
   }
-// listagem dentro do modal:
-
-$sqlModal = "SELECT  * FROM pedido p INNER JOIN cliente c INNER JOIN endereco e ON p.fkcod_cli = c.cod_cli AND c.fkcod_endereco = e.cod_endereco";
-$stmt = $conn->query($sqlModal);
-$listPedsModal = $stmt->fetchAll(PDO::FETCH_OBJ);
-
-foreach($listPedsModal as $pedidos){
-  $cod = $pedidos->cod_ped;
-  $estadoPed = $pedidos->estado_pedido;
-  $sql = "SELECT * FROM pedido_produto pp INNER JOIN produto p INNER JOIN modelo m INNER JOIN fragrancia f ON pp.fkcod_prod = p.cod_prod AND p.fkcod_frag = f.cod_frag AND p.fkcod_modelo = m.cod_modelo WHERE pp.fkcod_ped = :cod";
-  $stmt = $conn->prepare($sql);
-  $stmt->bindValue(":cod", $cod);
-  $stmt->execute();
-  $produtos[$cod] = $stmt->fetchAll(PDO::FETCH_OBJ);
-}
   $subtotal = 0;
 ?>
 
@@ -52,110 +39,6 @@ foreach($listPedsModal as $pedidos){
   <link rel="stylesheet" href="../assets/css/style_home.css">
   <title>Home | Listagem Pedidos</title>
 </head>
-
-<?php
-    foreach($listPedsModal as $pedido){
-      foreach($produtos[$pedido->cod_ped] as $produto){
-        $subtotal = $produto->sub_total;
-      }
-      $subtotal= str_replace(".", ",", $subtotal);
-      $frete = str_replace(".", ",", $pedido->frete);
-      $valorFinal = str_replace(".", ",", $pedido->valor_total);
-      $dataFormatada= date("d/m/Y", strtotime($pedido->data_ped));
-?>
-<div class="container_modal modalCad "id="pedido_<?=$pedido->cod_ped?>">
-  <div class="content_modal">
-    <div class="parteEsq">
-      <h2 class="tituloEsq">Dados do pedido</h2>
-      <div class="atributos">
-        <p class="atributo">N° pedido: <?=$pedido->cod_rastreamento?></p>
-        <p class="atributo">Cliente: <?=$pedido->nome?></p>
-        <p class="atributo">Sub valor: R$<?=$subtotal?></p>
-        <p class="atributo">Frete: R$<?=$frete?></p>
-        <p class="atributo">Valor total: R$<?=$valorFinal?></p>
-      </div>
-    </div>
-
-    <div class="parteDir estado<?=$pedido->estado_pedido?>">
-      <div class="linha">
-        <div class="circEtapas">
-          <div id="cirEtapaPag" class="circulo"></div>
-          <div id="cirEtapaArt" class="circulo"></div>
-          <div id="cirEtapaProd" class="circulo"></div>
-          <div id="cirEtapaEnvio" class="circulo"></div>
-        </div>
-
-        <div class="linhas">
-        <div id="linhaPA"></div>
-        <div id="linhaAP"></div>
-        <div id="linhaPE"></div>
-        </div>
-      </div>
-
-      <div class="etapas">
-        <div class="etapa etapaPag">
-          <div id="iconPag" class="icons"></div>
-          <p id="pPag">Pagamento</p>
-        </div>
-        <div class="etapa etapaArt">
-          <div id="iconArt" class="icons"></div>
-          <p id="pArt">Arte</p>
-        </div>
-        <div class="etapa etapaProd">
-          <div id="iconProd" class="icons"></div>
-          <p id="pProd">Produção</p>
-        </div>
-        <div class="etapa etapaEnvio">
-          <div id="iconEnvio" class="icons"></div>
-          <p id="pEnvio">Envio</p>
-        </div>
-      </div>
-      
-      <div class="dirInferior">
-        <div class="descEtapas">
-          <p>Data Pedido</p>
-          <div class="hrDt">
-            <p><?=$dataFormatada?></p>
-            <!-- <p>--:--</p> -->
-          </div>
-        </div>
-
-        <div class="endereco">
-          <div class="infos">
-            <div class="ruaInfo">
-              <h3>Rua: </h3>
-              <p><?=$pedido->logradouro?></p>
-            </div>
-            <div class="numeroInfo">
-              <h3>N°: </h3>
-              <p><?=$pedido->num?></p>
-            </div>
-            <div class="bairroInfo">
-              <h3>Bairro: </h3>
-              <p><?=$pedido->bairro?></p>
-            </div>
-            <div class="cidadeInfo">
-              <h3>Cidade: </h3>
-              <p><?=$pedido->cidade?></p>
-            </div>
-            <div class="cepInfo">
-              <h3>CEP: </h3>
-              <p><?=$pedido->cep?></p>
-            </div>
-            <div class="complementoInfo">
-              <h3>Complemento: </h3>
-              <p><?=$pedido->complemento == "" ? 'Nenhum' : $pedido->complemento ?></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <img onclick="removeStyle()" src="../assets/icons/x.svg" alt="fechar" class="fechar fecharCad">
-  </div>
-</div>
-<?php
-    }
-  ?>
 <body>
   <main>
     
@@ -178,14 +61,21 @@ foreach($listPedsModal as $pedidos){
     </div>
     <?php
     foreach($listPeds as $pedido){
+      foreach($produtos[$pedido->cod_ped] as $produto){
+        $subtotal = $produto->sub_total;
+      }
+      $subtotal= str_replace(".", ",", $subtotal);
+      $frete = str_replace(".", ",", $pedido->frete);
+      $valorFinal = str_replace(".", ",", $pedido->valor_total);
+      $dataFormatada= date("d/m/Y", strtotime($pedido->data_ped));
     ?>
     <div class="card-pedidos">
       <div class="card-header">
         <div class="cabecalho">
-          <p class="nomeClie"><abbr title="<?=$pedido->nome?>"><?=$pedido->nome?></abbr></p>
+          <p class="nomeClie"><abbr title=""><?=$pedido->nome?></abbr></p>
           <div>
-            <p class="data"><?=$pedido->data_ped?></p>
-            <div onclick="abrirModalPedido(<?=$pedido->cod_ped?>, <?=$pedido->estado_pedido?>)" >
+            <p class="data"><?=$dataFormatada?></p>
+            <div onclick="abrirModalPedido('<?=$pedido->cod_rastreamento?>', '<?=$pedido->nome?>', '<?=$subtotal?>', '<?=$frete?>', '<?=$valorFinal?>', <?=$pedido->estado_pedido?>,' <?=$dataFormatada?>', '<?=$pedido->cep?>','<?=$pedido->logradouro?>', '<?=$pedido->num?>', '<?=$pedido->cidade?>','<?=$pedido->bairro?>','<?=$pedido->complemento == ''? 'Nenhum': $pedido->complemento?>')" >
               <img class="imgData" src="../../assets/img/open.png" alt=""></img>
             </div>
           </div>
