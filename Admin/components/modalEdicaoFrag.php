@@ -1,9 +1,3 @@
-<head>
-  <link rel="stylesheet" href="../assets/css/style_cadastros.css">
-  <link rel="stylesheet" href="../assets/css/style_listagens.css">
-  <link rel="stylesheet" href="../assets/css/style_fragrancia.css">
-</head>
-
 <div class="container_modal justify-content-center align-items-center modalEdit">
   <form action="" method="POST" class="formEdit">
     <div class="content_modal d-flex justify-content-between flex-column">

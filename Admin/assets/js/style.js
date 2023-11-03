@@ -1,3 +1,18 @@
+// MODAIS
+function abrirModal() {
+  $(".modalCad").css("display", "flex");
+}
+function fecharModal() {
+  $(".modalCad").css("display", "none");
+}
+
+$(".btnAbrirModal").on("click", () => {
+  abrirModal();
+});
+$(".fecharCad").on("click", () => {
+  fecharModal();
+});
+
 // MODAIS -- add blur e overflow
 function addStyle() {
   $("body").addClass("overflow");
@@ -21,20 +36,6 @@ $(".produto_img").each(function() {
   } else {
     $(this).addClass("w-100");
     $(this).css("height","min-content");
-  }
-});
-
-// CARD FRAGRÂNCIA -- animação altura
-$(".inner").each(function(i) {
-  let heightTitle = $(".content_card-produto>h3")[i].offsetHeight;
-  let heightText  = $(".content_card-produto>p")[i].offsetHeight;
-  let heightSum = heightText + heightTitle;
-  let minHeightSum = 87;
-
-  if(heightSum > minHeightSum) {
-    $(this).addClass("aumentarCard");
-    $(this).on("mouseover", () => {$(this).css("min-height",`calc(165px + (${heightSum}px - 87px))`);});
-    $(this).on("mouseout", () => {$(this).css("min-height","165px")});
   }
 });
 

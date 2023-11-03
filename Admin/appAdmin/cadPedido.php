@@ -98,6 +98,5 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
     </form>
   </div>
   <script src="../assets/js/cadPedido.js"></script>
-  <script src="../assets/js/filtroIn.js"></script>
 </body>
 </html>

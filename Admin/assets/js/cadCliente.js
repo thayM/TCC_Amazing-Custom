@@ -36,7 +36,7 @@ function pesquisacep(valor) {
     } else limparEndereco();
 };
 
-// Mask inputs
+// MASKS INPUTS
 $(document).ready(function(){
     $('.info_tel-input').mask('(00) 00000-0000', {placeholder: "( _ ) _____ - ____"});
     $('.cep').mask('00000-000', {placeholder: "CEP"});

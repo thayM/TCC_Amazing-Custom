@@ -1,3 +1,4 @@
+// CAD PEDIDO
 const divProdutos = document.querySelector(".container_produtos");
 const produto = divProdutos.innerHTML;
 var respostaGetValor =[]
@@ -47,13 +48,10 @@ function excluirProduto(i) {
 $(".quantidade").on('change', ()=>{
   attValor();
 })
-  
 
 $(".modelos").on('change',()=>{
   attValor();
 })
-
-
 
 $(".produto_btn").on("click", () => {
   var novoProduto = produto;
@@ -73,10 +71,7 @@ $(".produto_btn").on("click", () => {
   index++;
 });
 
-
-
 $(".btn-cadastrar").on("click", () => {
-
   let GET_modelos = [];
   let GET_fragrancias = [];
   let GET_qtdd = [];
@@ -112,10 +107,91 @@ $(".btn-cadastrar").on("click", () => {
   frete = frete.replace('.', '');
   frete = frete.replace(',', '.');
   document.getElementById('frete').value = frete
+
+  attValor();
   $(".form_pedido").trigger("submit")
 });
 
-// Mask inputs
+// FILTRO DE PESQUISA
+// CLiente
+async function filtroCli(value) {
+  if(value.length !=0){
+  const require = await fetch('../appAdmin/functions/filtrar/filtrarCli.php?value='+value);
+  const data = await require.json();
+  var listaHTML = '<ul>';
+
+  if(data['status']){
+      for (let i = 0; i < data['dados'].length; i++) {
+          listaHTML+= `<li onclick='inputValueCli(${JSON.stringify(data['dados'][i].nome)})'>${data["dados"][i].nome}</li>`;
+      }
+  }else{
+      listaHTML += "<li>"+ data["msg"]+"</li>";
+  }
+  listaHTML+= "</ul>";
+  }else{
+      var listaHTML = " ";
+  }
+  document.getElementById("resultPesquisaCli").innerHTML = listaHTML;
+}
+
+function inputValueCli(nome) {
+  document.getElementById("nomeCli").value = "";
+  document.getElementById("nomeCli").value = nome;
+  document.getElementById("resultPesquisaCli").innerHTML = "";
+}
+
+// Fragrancia
+async function filtroFrag(value, destino) {
+  if(value.length !=0){
+  const require = await fetch('../appAdmin/functions/filtrar/filtrarFrag.php?value='+value);
+  const data = await require.json();
+  var listaHTML = '<ul>';
+  if(data['status']){
+      for (let i = 0; i < data['dados'].length; i++) {
+          listaHTML+= `<li onclick='inputValueFrag(${JSON.stringify(data['dados'][i].nome_frag)}, ${destino})'>${data["dados"][i].nome_frag}</li>`;
+      }
+  }else{
+      listaHTML += "<li>"+ data["msg"]+"</li>";
+  }
+  listaHTML+= "</ul>";
+  }else{
+      var listaHTML = " ";
+  }
+  document.querySelectorAll(".resultPesquisaFrag")[destino].innerHTML = listaHTML;
+}
+function inputValueFrag(nome, destino) {
+  console.log(destino)
+  document.querySelectorAll(".fragrancias")[destino].value = "";
+  document.querySelectorAll(".fragrancias")[destino].value = nome;
+  document.querySelectorAll(".resultPesquisaFrag")[destino].innerHTML = "";
+}
+
+async function filtroModelo(value, destino) {
+  if(value.length !=0){
+  const require = await fetch('../appAdmin/functions/filtrar/filtrarModelo.php?value='+value);
+  const data = await require.json();
+  var listaHTML = '<ul>';
+  if(data['status']){
+      for (let i = 0; i < data['dados'].length; i++) {
+          listaHTML+= `<li onclick='inputValueModelo(${JSON.stringify(data['dados'][i].nome_modelo)}, ${destino})'>${data["dados"][i].nome_modelo}</li>`;
+      }
+  }else{
+      listaHTML += "<li>"+ data["msg"]+"</li>";
+  }
+  listaHTML+= "</ul>";
+  }else{
+      var listaHTML = " ";
+  }
+  document.querySelectorAll(".resultPesquisaModelo")[destino].innerHTML = listaHTML;
+}
+function inputValueModelo(nome, destino) {
+  console.log(destino)
+  document.querySelectorAll(".modelos")[destino].value = "";
+  document.querySelectorAll(".modelos")[destino].value = nome;
+  document.querySelectorAll(".resultPesquisaModelo")[destino].innerHTML = "";
+}
+
+// MASKS INPUTS
 $(document).ready(function () {
   $('.preco').mask("#.##0,00", { reverse: true, placeholder: "R$ 00,00" });
 });

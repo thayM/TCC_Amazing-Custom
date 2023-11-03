@@ -20,7 +20,6 @@ if(isset($_GET["busca__modelo"])){
   $listMods = $stmt->fetchAll(PDO::FETCH_OBJ);
   $busca = "";
 }
-
 ?>
 
 <head>
@@ -28,7 +27,6 @@ if(isset($_GET["busca__modelo"])){
   <link rel="stylesheet" href="../assets/css/style_modelo.css">
   <title>Cadastro Modelo</title>
 </head>
-
 
 <div class="container_modal justify-content-center align-items-center modalCad">
   <form class="form_modelo" method="POST" action="./functions/func_cadMod.php" enctype="multipart/form-data">
@@ -101,7 +99,5 @@ if(isset($_GET["busca__modelo"])){
     </div> 
   </main>
   <script src="../assets/js/style.js"></script>
-  <script src="../assets/js/modal.js"></script>
   <script src="../assets/js/cadModelo.js"></script>
-  <script src="../assets/js/modalModelo.js"></script>
 </body>

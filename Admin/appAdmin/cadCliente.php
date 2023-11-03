@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="../assets/css/style_cadCliente.css">
   <title>Cadastro Cliente</title>
 </head>
-<script src="../assets/js/cadCliente.js"></script>
+
 <body>
   <div class="container_form d-flex flex-column align-items-center">
     <form action="./functions/func_cadClie.php" method="post" class="content_form d-flex flex-column">
@@ -44,5 +44,6 @@
     </form>
   </div>
   <script src="../assets/js/style.js"></script>
+  <script src="../assets/js/cadCliente.js"></script>
 </body>
 </html>

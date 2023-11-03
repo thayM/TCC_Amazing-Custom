@@ -151,7 +151,6 @@ include_once('../components/modalPedido.php');
     </div>
   </main>
   <script src="../assets/js/style.js"></script>
-  <script src="../assets/js/visualRastreamento.js"></script>
   <script src="../assets/js/modal.js"></script>
   <script src="../assets/js/modalPed.js"></script>
 </body>

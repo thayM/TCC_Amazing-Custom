@@ -94,7 +94,6 @@ if(isset($_GET["busca__frag"])){
     </div>
   </main>
   <script src="../assets/js/style.js"></script> 
-  <script src="../assets/js/modal.js"></script>
-  <script src="../assets/js/modalFrag.js"></script>
+  <script src="../assets/js/cadFragrancia.js"></script>
 </body>
 </html>
