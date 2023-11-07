@@ -1,4 +1,4 @@
-<div class="container_modal modalCad modalPed">
+<div class="container_modal modalCad modalPed" style="display:none">
   <div class="content_modal">
     <div class="parteEsq">
       <h2 class="tituloEsq">Dados do pedido</h2>
