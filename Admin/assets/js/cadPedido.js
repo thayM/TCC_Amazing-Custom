@@ -1,8 +1,19 @@
 // CAD PEDIDO
 const divProdutos = document.querySelector(".container_produtos");
-const produto = divProdutos.innerHTML;
+const produto = `<div class="produto_content d-flex flex-column produto-0">
+<div class="d-flex justify-content-between align-items-center">
+  <input name="modelo" id="modelo" class="modelos produto_select w-75" placeholder="Nome do Modelo" autocomplete="off" onkeyup="filtroModelo(this.value, 'produto-0')">
+  <div class="listagem_items resultPesquisaModelo_produto-0"></div>
+  <input type="number" name="quantidade" id="numModel" class="quantidade produto_input" placeholder="000">
+</div>
+<div class="d-flex justify-content-between align-items-center">
+<input name="fragrancia" type="text" placeholder="Nome da Fragrância" class="fragrancias nome" id="nomeFrag" autocomplete="off" onkeyup="filtroFrag(this.value, 'produto-0')">
+<div class="listagem_items resultPesquisaFrag_produto-0 "></div>
+  <!-- lixeira -->
+</div>
+</div>`;
 var respostaGetValor =[]
-var index = 0;
+var index = 1;
 
 async function getValor(modeloNome) {
   let require = await fetch('../appAdmin/functions/getValues/getValorModelo.php?value='+modeloNome);
@@ -34,19 +45,14 @@ function attValor() {
 }
 
 function excluirProduto(i) {
-  const produtos = document.querySelectorAll(".novo_produto");
-  produtos[i].remove();
-
-  const lixeirasProd = document.querySelectorAll(".produto_lixeira");
-  lixeirasProd.forEach((element, i) => {
-    element.href = `javascript:excluirProduto(${i})`;
-  });
-
-  index--;
+  $(`.${i}`).remove();
 }
 
 $(".quantidade").on('change', ()=>{
-  attValor();
+  alert("teste 1");
+})
+$(".quantidade").on('change', ()=>{
+  alert("teste 2  ")
 })
 
 $(".modelos").on('change',()=>{
@@ -54,19 +60,20 @@ $(".modelos").on('change',()=>{
 })
 
 $(".produto_btn").on("click", () => {
-  var novoProduto = produto;
-  let divNovoProd = document.createElement("div");
-  divNovoProd.classList.add("novo_produto");
+  let novoProduto = produto;
+  let idProduto = `produto-${index}`
 
   novoProduto = novoProduto.replace("<!-- lixeira -->", `
-  <a href="javascript:excluirProduto(${index})" class="produto_lixeira">
+  <a href="javascript:excluirProduto('${idProduto}')" class="produto_lixeira">
     <img src="../assets/icons/trash-alt.svg" alt="lixeira">
   </a>`);
-  novoProduto = novoProduto.replace("filtroFrag(this.value, 0)", `filtroFrag(this.value, ${index + 1})`);
-  novoProduto = novoProduto.replace("filtroModelo(this.value, 0)", `filtroModelo(this.value, ${index + 1})`);
+  novoProduto = novoProduto.replace("produto-0", idProduto);
+  novoProduto = novoProduto.replace("filtroFrag(this.value, 'produto-0')", `filtroFrag(this.value, '${idProduto}')`);
+  novoProduto = novoProduto.replace("filtroModelo(this.value, 'produto-0')", `filtroModelo(this.value, '${idProduto}')`);
+  novoProduto = novoProduto.replace("resultPesquisaModelo_produto-0", `resultPesquisaModelo_${idProduto}`);
+  novoProduto = novoProduto.replace("resultPesquisaFrag_produto-0", `resultPesquisaFrag_${idProduto}`);
 
-  divNovoProd.innerHTML = novoProduto;
-  divProdutos.appendChild(divNovoProd);
+  divProdutos.innerHTML+=(novoProduto);
 
   index++;
 });
@@ -111,85 +118,6 @@ $(".btn-cadastrar").on("click", () => {
   attValor();
   $(".form_pedido").trigger("submit")
 });
-
-// FILTRO DE PESQUISA
-// CLiente
-async function filtroCli(value) {
-  if(value.length !=0){
-  const require = await fetch('../appAdmin/functions/filtrar/filtrarCli.php?value='+value);
-  const data = await require.json();
-  var listaHTML = '<ul>';
-
-  if(data['status']){
-      for (let i = 0; i < data['dados'].length; i++) {
-          listaHTML+= `<li onclick='inputValueCli(${JSON.stringify(data['dados'][i].nome)})'>${data["dados"][i].nome}</li>`;
-      }
-  }else{
-      listaHTML += "<li>"+ data["msg"]+"</li>";
-  }
-  listaHTML+= "</ul>";
-  }else{
-      var listaHTML = " ";
-  }
-  document.getElementById("resultPesquisaCli").innerHTML = listaHTML;
-}
-
-function inputValueCli(nome) {
-  document.getElementById("nomeCli").value = "";
-  document.getElementById("nomeCli").value = nome;
-  document.getElementById("resultPesquisaCli").innerHTML = "";
-}
-
-// Fragrancia
-async function filtroFrag(value, destino) {
-  if(value.length !=0){
-  const require = await fetch('../appAdmin/functions/filtrar/filtrarFrag.php?value='+value);
-  const data = await require.json();
-  var listaHTML = '<ul>';
-  if(data['status']){
-      for (let i = 0; i < data['dados'].length; i++) {
-          listaHTML+= `<li onclick='inputValueFrag(${JSON.stringify(data['dados'][i].nome_frag)}, ${destino})'>${data["dados"][i].nome_frag}</li>`;
-      }
-  }else{
-      listaHTML += "<li>"+ data["msg"]+"</li>";
-  }
-  listaHTML+= "</ul>";
-  }else{
-      var listaHTML = " ";
-  }
-  document.querySelectorAll(".resultPesquisaFrag")[destino].innerHTML = listaHTML;
-}
-function inputValueFrag(nome, destino) {
-  console.log(destino)
-  document.querySelectorAll(".fragrancias")[destino].value = "";
-  document.querySelectorAll(".fragrancias")[destino].value = nome;
-  document.querySelectorAll(".resultPesquisaFrag")[destino].innerHTML = "";
-}
-
-async function filtroModelo(value, destino) {
-  if(value.length !=0){
-  const require = await fetch('../appAdmin/functions/filtrar/filtrarModelo.php?value='+value);
-  const data = await require.json();
-  var listaHTML = '<ul>';
-  if(data['status']){
-      for (let i = 0; i < data['dados'].length; i++) {
-          listaHTML+= `<li onclick='inputValueModelo(${JSON.stringify(data['dados'][i].nome_modelo)}, ${destino})'>${data["dados"][i].nome_modelo}</li>`;
-      }
-  }else{
-      listaHTML += "<li>"+ data["msg"]+"</li>";
-  }
-  listaHTML+= "</ul>";
-  }else{
-      var listaHTML = " ";
-  }
-  document.querySelectorAll(".resultPesquisaModelo")[destino].innerHTML = listaHTML;
-}
-function inputValueModelo(nome, destino) {
-  console.log(destino)
-  document.querySelectorAll(".modelos")[destino].value = "";
-  document.querySelectorAll(".modelos")[destino].value = nome;
-  document.querySelectorAll(".resultPesquisaModelo")[destino].innerHTML = "";
-}
 
 // MASKS INPUTS
 $(document).ready(function () {

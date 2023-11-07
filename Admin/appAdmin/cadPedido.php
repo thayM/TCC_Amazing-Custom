@@ -50,7 +50,7 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
         <div class="content_pedido d-flex justify-content-between w-100">
           <p class="divisoria m-0">Pedido</p>
 
-          <button type="button" class="btnAbrirModal produto_btn d-flex justify-content-between">
+          <button type="button" class="produto_btn d-flex justify-content-between">
             Novo Produto
             <span class="produto_btn-add">+</span>
           </button>
@@ -62,15 +62,16 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
         </div>
 
         <div class="container_produtos">
-          <div class="produto_content d-flex flex-column">
+
+          <div class="produto_content d-flex flex-column produto-0">
             <div class="d-flex justify-content-between align-items-center">
-              <input name="modelo" id="modelo" class="modelos produto_select w-75" placeholder="Nome do Modelo" autocomplete="off" onkeyup="filtroModelo(this.value, 0)">
-              <div class="listagem_items resultPesquisaModelo"></div>
+              <input name="modelo" id="modelo" class="modelos produto_select w-75" placeholder="Nome do Modelo" autocomplete="off" onkeyup="filtroModelo(this.value, 'produto-0')">
+              <div class="listagem_items resultPesquisaModelo_produto-0"></div>
               <input type="number" name="quantidade" id="numModel" class="quantidade produto_input" placeholder="000">
             </div>
             <div class="d-flex justify-content-between align-items-center">
-            <input name="fragrancia" type="text" placeholder="Nome da Fragrância" class="fragrancias nome" id="nomeFrag" autocomplete="off" onkeyup="filtroFrag(this.value, 0)">
-            <div class="listagem_items resultPesquisaFrag"></div>
+            <input name="fragrancia" type="text" placeholder="Nome da Fragrância" class="fragrancias nome" id="nomeFrag" autocomplete="off" onkeyup="filtroFrag(this.value, 'produto-0')">
+            <div class="listagem_items resultPesquisaFrag_produto-0 "></div>
               <!-- lixeira -->
             </div>
           </div>
@@ -98,5 +99,6 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
     </form>
   </div>
   <script src="../assets/js/cadPedido.js"></script>
+  <script src="../assets/js/filtroPedido.js"></script>
 </body>
 </html>
