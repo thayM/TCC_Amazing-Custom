@@ -1,5 +1,16 @@
 const divProdutos = document.querySelector(".container_produtos");
-const produto = divProdutos.innerHTML;
+const produto = `<div class="produto_content d-flex flex-column produto-0">
+<div class="d-flex justify-content-between align-items-center">
+  <input name="modelo" id="modelo" class="modelos produto_select w-75" placeholder="Nome do Modelo" autocomplete="off" onkeyup="filtroModelo(this.value, 'produto-0')">
+  <div class="listagem_items pesquisaModelo resultPesquisaModelo_produto-0"></div>
+  <input type="number" name="quantidade" id="numModel" class="quantidade produto_input" placeholder="000">
+</div>
+<div class="d-flex justify-content-between align-items-center">
+<input name="fragrancia" type="text" placeholder="Nome da Fragrância" class="fragrancias nome" id="nomeFrag" autocomplete="off" onkeyup="filtroFrag(this.value, 'produto-0')">
+<div class="listagem_items pesquisaFrag resultPesquisaFrag_produto-0 "></div>
+  <!-- lixeira -->
+</div>
+</div>`;
 var index = 0;
 
 function excluirProduto(i) {
@@ -15,19 +26,33 @@ function excluirProduto(i) {
 }
 
 $(".produto_btn").on("click", () => {
-  var novoProduto = produto;
-  let divNovoProd = document.createElement("div");
-  divNovoProd.classList.add("novo_produto");
+  let novoProduto = produto;
+  let idProduto = `produto-${index}`
 
   novoProduto = novoProduto.replace("<!-- lixeira -->", `
-  <a href="javascript:excluirProduto(${index})" class="produto_lixeira">
+  <a href="javascript:excluirProduto('${idProduto}')" class="produto_lixeira">
     <img src="../assets/icons/trash-alt.svg" alt="lixeira">
   </a>`);
-  novoProduto = novoProduto.replace("filtroFrag(this.value, 0)", `filtroFrag(this.value, ${index+1})`);
-  novoProduto = novoProduto.replace("filtroModelo(this.value, 0)", `filtroModelo(this.value, ${index+1})`);
+  novoProduto = novoProduto.replace("produto-0", idProduto);
+  novoProduto = novoProduto.replace("filtroFrag(this.value, 'produto-0')", `filtroFrag(this.value, '${idProduto}')`);
+  novoProduto = novoProduto.replace("filtroModelo(this.value, 'produto-0')", `filtroModelo(this.value, '${idProduto}')`);
+  novoProduto = novoProduto.replace("resultPesquisaModelo_produto-0", `resultPesquisaModelo_${idProduto}`);
+  novoProduto = novoProduto.replace("resultPesquisaFrag_produto-0", `resultPesquisaFrag_${idProduto}`);
 
-  divNovoProd.innerHTML = novoProduto;
-  divProdutos.appendChild(divNovoProd);
+  var elemento = document.createElement('div');
+  elemento.innerHTML=novoProduto
+  divProdutos.appendChild(elemento);
+
+  $(".modelos").on('change',()=>{
+    attValor();
+  })
+  $(".quantidade")
+  .on('change',()=>{
+    attValor();
+  })
+  .on('keyup',()=>{
+    attValor();
+  })
 
   index++;
 });
