@@ -3,12 +3,12 @@ const divProdutos = document.querySelector(".container_produtos");
 const produto = `<div class="produto_content d-flex flex-column produto-0">
 <div class="d-flex justify-content-between align-items-center">
   <input name="modelo" id="modelo" class="modelos produto_select w-75" placeholder="Nome do Modelo" autocomplete="off" onkeyup="filtroModelo(this.value, 'produto-0')">
-  <div class="listagem_items resultPesquisaModelo_produto-0"></div>
+  <div class="listagem_items pesquisaModelo resultPesquisaModelo_produto-0"></div>
   <input type="number" name="quantidade" id="numModel" class="quantidade produto_input" placeholder="000">
 </div>
 <div class="d-flex justify-content-between align-items-center">
 <input name="fragrancia" type="text" placeholder="Nome da Fragrância" class="fragrancias nome" id="nomeFrag" autocomplete="off" onkeyup="filtroFrag(this.value, 'produto-0')">
-<div class="listagem_items resultPesquisaFrag_produto-0 "></div>
+<div class="listagem_items pesquisaFrag resultPesquisaFrag_produto-0 "></div>
   <!-- lixeira -->
 </div>
 </div>`;
@@ -45,12 +45,17 @@ function attValor() {
   console.log(valorFinal)
 
   if(valorFinal){
+    valorFinal = valorFinal.toFixed(2);
+    valorFinal = valorFinal.replace(".", ",");
     $("#valor")[0].value=valorFinal
+  } else {
+    $("#valor")[0].value=""
   }
 }
 
 function excluirProduto(i) {
   $(`.${i}`).remove();
+  attValor();
 }
 
 $(".modelos").on('change',()=>{

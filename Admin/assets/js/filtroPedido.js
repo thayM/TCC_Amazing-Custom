@@ -1,4 +1,30 @@
 // Cliente
+async function infoCliente(name) {
+	let require = await fetch('../appAdmin/functions/filtrar/filtrarCli.php?value=' + name);
+	let data = await require.json();
+
+	console.log(data)
+	$(".infomacao_cliente").css("display", "flex");
+
+	let infoContent = `
+	<div class="content_infomacao_cliente d-flex flex-column">
+		<h3>Informações do cliente</h3>
+		<p>Código de rastreamento: ${data["dados"][0].cod_rastreamento}</p>
+		<p>Email: ${data["dados"][0].email}</p>
+		<p>Telefones: ${data["dados"][0].tel}</p>
+		<div>
+			<p class="endereco">Endereço: ${data["dados"][0].logradouro}, ${data["dados"][0].num}, ${data["dados"][0].bairro}, ${data["dados"][0].cidade}-${data["dados"][0].uf}</p>
+			<div class="d-flex justify-content-between w-100">
+				<p>CEP: ${data["dados"][0].cep}</p>
+				<p class="compl">Compl: ${data["dados"][0].complemento}</p>
+			</div>
+		</div>
+	</div>
+	`;
+
+	$(".infomacao_cliente").html(infoContent);
+}
+
 async function filtroCli(value) {
 	if (value.length != 0) {
 		const require = await fetch('../appAdmin/functions/filtrar/filtrarCli.php?value=' + value);
@@ -14,7 +40,8 @@ async function filtroCli(value) {
 		}
 		listaHTML += "</ul>";
 	} else {
-		var listaHTML = " ";
+		var listaHTML = "";
+		$(".infomacao_cliente").css("display", "none");
 	}
 	document.getElementById("resultPesquisaCli").innerHTML = listaHTML;
 }
@@ -23,6 +50,7 @@ function inputValueCli(nome) {
 	document.getElementById("nomeCli").value = "";
 	document.getElementById("nomeCli").value = nome;
 	document.getElementById("resultPesquisaCli").innerHTML = "";
+	infoCliente(nome);
 }
 
 // Fragrancia

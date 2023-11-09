@@ -6,7 +6,7 @@ $valorInput = filter_input(INPUT_GET, "value", FILTER_DEFAULT);
 if (!empty($valorInput)) {
     $pesquisarValor = $valorInput . "%";
 
-    $sqlQuerry = 'SELECT cod_cli, nome FROM Cliente WHERE nome LIKE :nome';
+    $sqlQuerry = 'SELECT * FROM Cliente INNER JOIN ENDERECO ON cod_endereco = fkcod_endereco WHERE nome LIKE :nome';
     $sqlResult= $conn->prepare($sqlQuerry);
     $sqlResult->bindValue(":nome", $pesquisarValor);
     $sqlResult->execute();

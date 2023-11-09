@@ -12,9 +12,9 @@ function abrirModalPedido(codRastreamento,nomeCli,subTotal,frete,valorFinal,esta
     linhaDoTempo.classList.add("estado"+estadoPed);
     document.getElementById("nPed").textContent = `N° pedido: ${codRastreamento}`;
     document.getElementById("cliente").textContent = `Cliente: ${nomeCli}`;
-    document.getElementById("subValor").textContent = `Sub valor: ${subTotal}`;
+    document.getElementById("subValor").textContent = `Subtotal: ${subTotal}`;
     document.getElementById("frete").textContent = `Frete: ${frete}`;
-    document.getElementById("valorTotal").textContent = `Valor total: ${valorFinal}`;
+    document.getElementById("valorTotal").textContent = `Total: ${valorFinal}`;
     document.getElementById("dataPed").textContent = `${dataPed}`;
     document.getElementById("cep").textContent = `${cep}`;
     document.getElementById("logradouro").textContent = `${rua}`;

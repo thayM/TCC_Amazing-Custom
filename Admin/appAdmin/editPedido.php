@@ -45,7 +45,7 @@ foreach($listPeds as $pedidos){
           foreach($listPeds as $pedido){
         ?>
         <input name="cliente" value="<?=$pedido->nome?>" type="text" placeholder="Nome Completo" class="nome" id="nomeCli" onkeyup="filtroCli(this.value)">
-        <div class="infomacao_cliente d-flex">
+        <!-- <div class="infomacao_cliente d-flex">
           <a href="./editCliente.php" class="editCliente d-flex align-items-center justify-content-between">
             <span>Editar</span>
             <img src="../assets/icons/pen.svg" alt="caneta_edit">
@@ -62,7 +62,7 @@ foreach($listPeds as $pedidos){
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="listagem_items" id="resultPesquisaCli"></div>
       <div class="d-flex justify-content-between">
           <label for="dataPag">Data de Pagamento</label>
