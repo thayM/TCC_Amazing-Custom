@@ -7,6 +7,10 @@ async function infoCliente(name) {
 	$(".infomacao_cliente").css("display", "flex");
 
 	let infoContent = `
+	<a href="./editCliente.php" class="editCliente d-flex align-items-center justify-content-between">
+		<span>Editar</span>
+		<img src="../assets/icons/pen.svg" alt="caneta_edit">
+  	</a>
 	<div class="content_infomacao_cliente d-flex flex-column">
 		<h3>Informações do cliente</h3>
 		<p>Código de rastreamento: ${data["dados"][0].cod_rastreamento}</p>

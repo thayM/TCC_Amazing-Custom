@@ -45,24 +45,7 @@ foreach($listPeds as $pedidos){
           foreach($listPeds as $pedido){
         ?>
         <input name="cliente" value="<?=$pedido->nome?>" type="text" placeholder="Nome Completo" class="nome" id="nomeCli" onkeyup="filtroCli(this.value)">
-        <!-- <div class="infomacao_cliente d-flex">
-          <a href="./editCliente.php" class="editCliente d-flex align-items-center justify-content-between">
-            <span>Editar</span>
-            <img src="../assets/icons/pen.svg" alt="caneta_edit">
-          </a>
-          <div class="content_infomacao_cliente d-flex flex-column">
-            <h3>Informações do cliente</h3>
-            <p>Email: b@gmail.com</p>
-            <p>Telefones: (13) 21313-1323/(87) 98798-7987</p>
-            <div>
-              <p class="endereco">Endereço: Avenida Bernardino de Campos, 222, Paraíso, São Paulo-SP</p>
-              <div class="d-flex justify-content-between w-100">
-                <p>CEP: 13789-789</p>
-                <p class="compl">Compl: até 250 - lado par</p>
-              </div>
-            </div>
-          </div>
-        </div> -->
+        <div class="infomacao_cliente"></div>
         <div class="listagem_items" id="resultPesquisaCli"></div>
       <div class="d-flex justify-content-between">
           <label for="dataPag">Data de Pagamento</label>
@@ -130,5 +113,6 @@ foreach($listPeds as $pedidos){
   <script src="../assets/js/style.js"></script>
   <script src="../assets/js/editarPedido.js"></script> 
   <script src="../assets/js/filtroPedido.js"></script>
+  <script>infoCliente('<?=$pedido->nome?>')</script>
 </body>
 </html>
