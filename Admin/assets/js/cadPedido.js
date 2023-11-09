@@ -61,10 +61,12 @@ function excluirProduto(i) {
 $(".modelos").on('change',()=>{
   attValor();
 })
-$(".quantidade").on('change',()=>{
+
+$(".quantidade")
+.on('change',()=>{
   attValor();
 })
-$(".quantidade").on('keyup',()=>{
+.on('keyup',()=>{
   attValor();
 })
 
@@ -89,10 +91,11 @@ $(".produto_btn").on("click", () => {
   $(".modelos").on('change',()=>{
     attValor();
   })
-  $(".quantidade").on('change',()=>{
+  $(".quantidade")
+  .on('change',()=>{
     attValor();
   })
-  $(".quantidade").on('keyup',()=>{
+  .on('keyup',()=>{
     attValor();
   })
 

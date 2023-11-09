@@ -7,10 +7,10 @@ async function infoCliente(name) {
 	$(".infomacao_cliente").css("display", "flex");
 
 	let infoContent = `
-	<a href="./editCliente.php" class="editCliente d-flex align-items-center justify-content-between">
+	<a href="./editCliente.php?id=${data["dados"][0].cod_cli}" class="editCliente d-flex align-items-center justify-content-between">
 		<span>Editar</span>
 		<img src="../assets/icons/pen.svg" alt="caneta_edit">
-  	</a>
+	</a>
 	<div class="content_infomacao_cliente d-flex flex-column">
 		<h3>Informações do cliente</h3>
 		<p>Código de rastreamento: ${data["dados"][0].cod_rastreamento}</p>
@@ -33,11 +33,20 @@ async function filtroCli(value) {
 	if (value.length != 0) {
 		const require = await fetch('../appAdmin/functions/filtrar/filtrarCli.php?value=' + value);
 		const data = await require.json();
+		let clienteExiste=0
 		var listaHTML = '<ul>';
 
 		if (data['status']) {
 			for (let i = 0; i < data['dados'].length; i++) {
+				if (data['dados'][i].nome == value){
+					clienteExiste = 1
+				}
 				listaHTML += `<li onclick='inputValueCli(${JSON.stringify(data['dados'][i].nome)})'>${data["dados"][i].nome}</li>`;
+			}
+			if(clienteExiste==0){
+				$(".infomacao_cliente").css("display", "none");
+			}else{
+				infoCliente(value) 
 			}
 		} else {
 			listaHTML += "<li>" + data["msg"] + "</li>";
@@ -76,6 +85,11 @@ async function filtroFrag(value, destino) {
 		var listaHTML = " ";
 	}
 	console.log(listaHTML)
+	$(`.${destino}`).focusout(function(){
+		setTimeout(() => {
+		$(`.resultPesquisaFrag_${destino}`).html("")
+		}, 1000);
+	})
 	$(`.resultPesquisaFrag_${destino}`).html(listaHTML)
 }
 
@@ -95,10 +109,14 @@ async function filtroModelo(value, destino) {
 		}
 		listaHTML += "</ul>";
 	} else {
-		var listaHTML = " ";
+		var listaHTML = "";
 	}
+	$(`.${destino}`).focusout(function(){
+		setTimeout(() => {
+			$(`.resultPesquisaModelo_${destino}`).html("")			
+		}, 1000);
+	})
 	$(`.resultPesquisaModelo_${destino}`).html(listaHTML)
-	
 }
 
 function inputValue(nome, destino, campo) {
@@ -106,3 +124,9 @@ function inputValue(nome, destino, campo) {
 	$(`.${destino}`)[0].children[campo].children[1].innerHTML = ""
 	attValor()
 }
+
+$("input").focusout(function(){
+	setTimeout(() => {
+		$(`#resultPesquisaCli`).html("")
+	}, 1000);
+})
