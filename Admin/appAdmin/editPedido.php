@@ -55,38 +55,50 @@ foreach($listPeds as $pedidos){
       <div class="content_form-pedido  d-flex flex-column">
         <div class="content_pedido d-flex justify-content-between w-100">
           <p class="divisoria m-0">Pedido</p>
-<!-- 
+
           <button type="button" class="btnAbrirModal produto_btn d-flex justify-content-between">
             Novo Produto
             <span class="produto_btn-add">+</span>
-          </button> -->
+          </button>
         </div>
 
         <div class="produto_title d-flex justify-content-between">
           <span>Produto</span>
           <span>Quantidade</span>
         </div>
+
+        <div class="container_produtos">
         <?php
+        $index = 0;
           foreach($produtos[$pedido->cod_ped] as $produto){
         ?>
-        <div class="container_produtos">
-          <div class="produto_content d-flex flex-column">
+          <div class="produto_content d-flex flex-column produto-<?=$index?>">
             <div class="d-flex justify-content-between align-items-center">
-              <input name="modelo" id="modelo" class="modelos produto_select w-75" value="<?=$produto->nome_modelo?>" onkeyup="filtroModelo(this.value, <?=$qtdProd?>)">
-              <div class="listagem_items resultPesquisaModelo"></div>
-              <input value="<?=$produto->qtd_prod?>" type="number" name="quantidade" id="numModel" class="quantidade produto_input" placeholder="000">
+              <input name="modelo" id="modelo" class="modelos produto_select w-75" value="<?=$produto->nome_modelo?>" placeholder="Nome do Modelo" autocomplete="off" onkeyup="filtroModelo(this.value, 'produto-<?=$index?>')">
+            <div class="listagem_items resultPesquisaModelo_produto-<?=$index?>"></div>
+              <input type="number" value="<?=$produto->qtd_prod?>" name="quantidade" id="numModel" class="quantidade produto_input" placeholder="000">
             </div>
             <div class="d-flex justify-content-between align-items-center">
-            <input value="<?=$produto->nome_frag?>" name="fragrancia" type="text" placeholder="Nome da Fragrância" class="fragrancias nome" id="nomeFrag" onkeyup="filtroFrag(this.value,  <?=$qtdProd?>)">
-            <div class="listagem_items resultPesquisaFrag"></div>
-              <!-- lixeira -->
+              <input value="<?=$produto->nome_frag?>" name="fragrancia" type="text" placeholder="Nome da Fragrância" class="fragrancias nome" id="nomeFrag" autocomplete="off" onkeyup="filtroFrag(this.value, 'produto-<?=$index?>')">
+            <div class="listagem_items resultPesquisaFrag_produto-<?=$index?> "></div>
+            <?php
+            if ($index == 0){
+              ?>
+                <!-- lixeira -->
+              <?php } else { ?>
+                <a href="javascript:excluirProduto('produto-<?=$index?>')" class="produto_lixeira">
+                  <img src="../assets/icons/trash-alt.svg" alt="lixeira">
+                </a>
+              <?php } ?>
             </div>
           </div>
-        </div>
-        <?php
+          <?php
           $qtdProd += 1;
+          $index += 1;
           }
         ?>
+        </div>
+
         <div class="produto_title d-flex justify-content-between">
           <span class="w-25">Valor</span>
           <span class="w-75">Frete</span>
