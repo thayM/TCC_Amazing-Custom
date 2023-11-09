@@ -75,12 +75,12 @@ foreach($listPeds as $pedidos){
           <div class="produto_content d-flex flex-column produto-<?=$index?>">
             <div class="d-flex justify-content-between align-items-center">
               <input name="modelo" id="modelo" class="modelos produto_select w-75" value="<?=$produto->nome_modelo?>" placeholder="Nome do Modelo" autocomplete="off" onkeyup="filtroModelo(this.value, 'produto-<?=$index?>')">
-            <div class="listagem_items resultPesquisaModelo_produto-<?=$index?>"></div>
+            <div class="listagem_items pesquisaModelo resultPesquisaModelo_produto-<?=$index?>"></div>
               <input type="number" value="<?=$produto->qtd_prod?>" name="quantidade" id="numModel" class="quantidade produto_input" placeholder="000">
             </div>
             <div class="d-flex justify-content-between align-items-center">
               <input value="<?=$produto->nome_frag?>" name="fragrancia" type="text" placeholder="Nome da Fragrância" class="fragrancias nome" id="nomeFrag" autocomplete="off" onkeyup="filtroFrag(this.value, 'produto-<?=$index?>')">
-            <div class="listagem_items resultPesquisaFrag_produto-<?=$index?> "></div>
+            <div class="listagem_items pesquisaFrag resultPesquisaFrag_produto-<?=$index?> "></div>
             <?php
             if ($index == 0){
               ?>

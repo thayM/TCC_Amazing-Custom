@@ -49,13 +49,14 @@ if(isset($_GET["busca__cliente"])){
         <div class="container_clientes d-flex flex-column">
             <?php
             foreach ($clientes as $cliente) {
+                $tel = str_replace("/", ",", $cliente->tel);
             ?>
                 <div class="card">
                     <div class="card-body">
                         <div class="coluna d-flex flex-column justify-content-center">
                             <h3 class="card-title">Nome: <abbr title="<?= $cliente->nome ?>"><?= $cliente->nome ?></abbr></h3>
                             <p class="card-text">Email: <abbr title="<?= $cliente->email ?>"><?= $cliente->email ?></abbr></p>
-                            <p class="card-text">Telefones: <?= $cliente->tel?></p>
+                            <p class="card-text">Telefones: <?= $tel?></p>
                         </div>
     
                         <div class="coluna">

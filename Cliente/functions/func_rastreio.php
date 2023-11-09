@@ -14,7 +14,7 @@ if ($verificarCliente->rowCount() === 1) {
     session_start();
     
     $_SESSION['loggIn'] = true;
-    header("Location: ../rastreio.php?id=$idCliente");
+    header("Location: ../appCliente/rastreio.php?id=$idCliente");
 }else{
     header("Location: ../codRastreio.php");
 }
