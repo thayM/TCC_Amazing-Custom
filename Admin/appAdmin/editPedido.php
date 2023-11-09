@@ -72,11 +72,11 @@ foreach($listPeds as $pedidos){
       <div class="content_form-pedido  d-flex flex-column">
         <div class="content_pedido d-flex justify-content-between w-100">
           <p class="divisoria m-0">Pedido</p>
-<!-- 
+
           <button type="button" class="btnAbrirModal produto_btn d-flex justify-content-between">
             Novo Produto
             <span class="produto_btn-add">+</span>
-          </button> -->
+          </button> 
         </div>
 
         <div class="produto_title d-flex justify-content-between">

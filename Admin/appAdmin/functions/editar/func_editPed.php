@@ -7,6 +7,7 @@ $produtos = json_decode($_GET["produtos"]);
 $id_pedido = $produtos[0][3];
 var_dump($produtos);
 
+$tamanhoArray= count($produtos);
 $sqlSelect = "SELECT cod_cli FROM cliente WHERE nome = :nome";
 $sqlCliente = $conn->prepare($sqlSelect);
 $sqlCliente->bindValue(":nome", $cliente); 
@@ -33,37 +34,96 @@ $produto_ids = $stmtProdutoID->fetchAll(PDO::FETCH_OBJ);
 var_dump($produto_ids);
 $posicao = 0;
 
-foreach ($produto_ids as $produto_id){
+$sqlLinhas = "SELECT * FROM pedido_produto WHERE fkcod_ped = :id";
+$stmtLinhas = $conn->prepare($sqlLinhas);
+$stmtLinhas->bindValue(":id", $id_pedido);
+$stmtLinhas->execute();
+$qtdLinhas = $stmtLinhas->fetchAll(PDO::FETCH_OBJ);
+
+while ($posicao <= count($qtdLinhas)-1) {
     $sqlModelo = "SELECT cod_modelo FROM modelo WHERE nome_modelo = :modelo";
     $stmtModelo = $conn->prepare($sqlModelo);
     $stmtModelo->bindValue(":modelo", $produtos[$posicao][0]);
     $stmtModelo->execute();
     $codModelo = $stmtModelo->fetch(PDO::FETCH_OBJ);
-    var_dump($produtos[$posicao][0]);
-
+    
     $sqlFragrancia = "SELECT cod_frag FROM fragrancia WHERE nome_frag = :fragrancia";
     $stmtFragrancia = $conn->prepare($sqlFragrancia);
     $stmtFragrancia->bindValue(":fragrancia",  $produtos[$posicao][1]);
     $stmtFragrancia->execute();
     $codFragrancia = $stmtFragrancia->fetch(PDO::FETCH_OBJ);
-    var_dump($produtos[$posicao][1]);
-
+    
     $sqlUpdateProduto = "UPDATE produto SET fkcod_frag = :cod_frag, fkcod_modelo = :cod_modelo WHERE cod_prod = :produto_id";
     $stmtUpdateProduto = $conn->prepare($sqlUpdateProduto);
     $stmtUpdateProduto->bindValue(":cod_frag", $codFragrancia->cod_frag);
     $stmtUpdateProduto->bindValue(":cod_modelo", $codModelo->cod_modelo);
-    $stmtUpdateProduto->bindValue(":produto_id", $produto_id->fkcod_prod);
+    $stmtUpdateProduto->bindValue(":produto_id", $produto_ids[$posicao]->fkcod_prod);
     $stmtUpdateProduto->execute();
-    
+        
     $sqlUpdateQuantidade = "UPDATE pedido_produto SET qtd_prod = :quantidade WHERE fkcod_prod = :produto_id AND fkcod_ped = :cod_pedido";
     $stmtUpdateQuantidade = $conn->prepare($sqlUpdateQuantidade);
-    $stmtUpdateQuantidade->bindValue(":quantidade", $produtos[$posicao][2]);
+    $stmtUpdateQuantidade->bindValue(":quantidade",$produtos[$posicao][2]);
     $stmtUpdateQuantidade->bindValue(":cod_pedido", $id_pedido);
-    $stmtUpdateQuantidade->bindValue(":produto_id", $produto_id->fkcod_prod);
+    $stmtUpdateQuantidade->bindValue(":produto_id", $produto_ids[$posicao]->fkcod_prod);
     $stmtUpdateQuantidade->execute();
-
+    
     $posicao++;
 }
+    
+$a = $posicao;
+echo $a."<br>";
+echo "tamanho:".$tamanhoArray."<br>";
+while ($a <= $tamanhoArray-1) {
+        echo $a."<br>";
+
+        $sqlModelo = "SELECT cod_modelo FROM modelo WHERE nome_modelo = :modelo";
+        $stmtModelo = $conn->prepare($sqlModelo);
+        $stmtModelo->bindValue(":modelo", $produtos[$a][0]);
+        $stmtModelo->execute();
+        $codModelo = $stmtModelo->fetch(PDO::FETCH_OBJ);
+        $codModelo = $codModelo->cod_modelo;
+
+        $sqlFragrancia = "SELECT cod_frag FROM fragrancia WHERE nome_frag = :fragrancia";
+        $stmtFragrancia = $conn->prepare($sqlFragrancia);
+        $stmtFragrancia->bindValue(":fragrancia",  $produtos[$a][1]);
+        $stmtFragrancia->execute();
+        $codFragrancia = $stmtFragrancia->fetch(PDO::FETCH_OBJ);
+        $codFragrancia = $codFragrancia->cod_frag;
+        echo "b";
+        $sqlSelect = "SELECT * FROM produto WHERE fkcod_frag = :codFrag AND fkcod_modelo = :codModelo";
+        $produto = $conn->prepare($sqlSelect);
+        $produto->bindValue(":codModelo",$codModelo);
+        $produto->bindValue(":codFrag",$codFragrancia);
+        $produto->execute();
+        if($produto->rowCount()==0){
+            $sqlInsert = "INSERT INTO produto VALUES(0, :codFrag, :codModelo)";
+            $stmt = $conn->prepare($sqlInsert);
+            $stmt->bindValue(":codModelo",$codModelo);
+            $stmt->bindValue(":codFrag",$codFragrancia);
+            $stmt->execute();
+            $produto->execute();
+            echo "KKKKKKKKKKKK";
+        }
+        $codProd = $produto->fetch(PDO::FETCH_OBJ);
+        $codProd = $codProd->cod_prod;
+    
+        $sqlSelect = "SELECT * FROM modelo WHERE cod_modelo = :cod_modelo";
+        $modelo = $conn->prepare($sqlSelect);
+        $modelo->bindValue(":cod_modelo", $codModelo);
+        $modelo->execute();
+        $valor = $modelo->fetch(PDO::FETCH_OBJ);
+        $valor = $valor->valor_modelo;
+
+        $sqlInsert = "INSERT INTO pedido_produto VALUES(:cod_ped, :cod_prod, :sub_total, :qtd_prod)";
+        $stmt = $conn->prepare($sqlInsert);
+        $stmt->bindValue(":cod_ped", $id_pedido);
+        $stmt->bindValue(":cod_prod", $codProd);
+        $stmt->bindValue(":sub_total", ($produtos[$a][2]*$valor));
+        $stmt->bindValue(":qtd_prod", $produtos[$a][2]);
+        $stmt->execute();
+        $a++;
+}
+
 ?>
 
 <meta http-equiv="refresh" content="0; url=../../home.php">
