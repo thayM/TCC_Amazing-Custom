@@ -27,6 +27,7 @@ getValor()
 function attValor() {
   let valor = []
   let qttd = []
+  let subValor = 0
   let valorFinal = 0
   $(".quantidade").each(function (){
     qttd.push((this).value)
@@ -36,9 +37,13 @@ function attValor() {
     valor.push(respostaGetValor[nome_modelo]);
   })
   valor.forEach((element,i)=>{
-    valorFinal+=element*qttd[i]
+    subValor = element*qttd[i]
+    if(subValor){
+      valorFinal += subValor
+    }
   })
   console.log(valorFinal)
+
   if(valorFinal){
     $("#valor")[0].value=valorFinal
   }
@@ -48,14 +53,13 @@ function excluirProduto(i) {
   $(`.${i}`).remove();
 }
 
-$(".quantidade").on('change', ()=>{
-  alert("teste 1");
-})
-$(".quantidade").on('change', ()=>{
-  alert("teste 2  ")
-})
-
 $(".modelos").on('change',()=>{
+  attValor();
+})
+$(".quantidade").on('change',()=>{
+  attValor();
+})
+$(".quantidade").on('keyup',()=>{
   attValor();
 })
 
@@ -73,7 +77,19 @@ $(".produto_btn").on("click", () => {
   novoProduto = novoProduto.replace("resultPesquisaModelo_produto-0", `resultPesquisaModelo_${idProduto}`);
   novoProduto = novoProduto.replace("resultPesquisaFrag_produto-0", `resultPesquisaFrag_${idProduto}`);
 
-  divProdutos.innerHTML+=(novoProduto);
+  var elemento = document.createElement('div');
+  elemento.innerHTML=novoProduto
+  divProdutos.appendChild(elemento);
+
+  $(".modelos").on('change',()=>{
+    attValor();
+  })
+  $(".quantidade").on('change',()=>{
+    attValor();
+  })
+  $(".quantidade").on('keyup',()=>{
+    attValor();
+  })
 
   index++;
 });

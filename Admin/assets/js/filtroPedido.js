@@ -34,7 +34,7 @@ async function filtroFrag(value, destino) {
 		var listaHTML = '<ul>';
 		if (data['status']) {
 			for (let i = 0; i < data['dados'].length; i++) {
-				listaHTML += `<li onclick='inputValueFrag(${JSON.stringify(data['dados'][i].nome_frag)}, ${destino})'>${data["dados"][i].nome_frag}</li>`;
+				listaHTML += `<li onclick='inputValue(${JSON.stringify(data['dados'][i].nome_frag)}, "${destino}", 1)'>${data["dados"][i].nome_frag}</li>`;
 			}
 		} else {
 			listaHTML += "<li>" + data["msg"] + "</li>";
@@ -46,12 +46,6 @@ async function filtroFrag(value, destino) {
 	console.log(listaHTML)
 	$(`.resultPesquisaFrag_${destino}`).html(listaHTML)
 }
-function inputValueFrag(nome, destino) {
-	console.log(destino)
-	document.querySelectorAll(".fragrancias")[destino].value = "";
-	document.querySelectorAll(".fragrancias")[destino].value = nome;
-	document.querySelectorAll(".resultPesquisaFrag")[destino].innerHTML = "";
-}
 
 // Modelo
 async function filtroModelo(value, destino) {
@@ -60,8 +54,9 @@ async function filtroModelo(value, destino) {
 		const data = await require.json();
 		var listaHTML = '<ul>';
 		if (data['status']) {
+			console.log(destino)
 			for (let i = 0; i < data['dados'].length; i++) {
-				listaHTML += `<li onclick='inputValueModelo(${JSON.stringify(data['dados'][i].nome_modelo)}, ${destino})'>${data["dados"][i].nome_modelo}</li>`;
+				listaHTML += `<li onclick='inputValue(${JSON.stringify(data['dados'][i].nome_modelo)}, "${destino}", 0)'>${data["dados"][i].nome_modelo}</li>`;
 			}
 		} else {
 			listaHTML += "<li>" + data["msg"] + "</li>";
@@ -73,9 +68,9 @@ async function filtroModelo(value, destino) {
 	$(`.resultPesquisaModelo_${destino}`).html(listaHTML)
 	
 }
-function inputValueModelo(nome, destino) {
-	console.log(destino)
-	document.querySelectorAll(".modelos")[destino].value = "";
-	document.querySelectorAll(".modelos")[destino].value = nome;
-	document.querySelectorAll(".resultPesquisaModelo")[destino].innerHTML = "";
+
+function inputValue(nome, destino, campo) {
+	$(`.${destino}`)[0].children[campo].children[0].value = nome
+	$(`.${destino}`)[0].children[campo].children[1].innerHTML = ""
+	attValor()
 }
