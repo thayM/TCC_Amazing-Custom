@@ -45,7 +45,7 @@ foreach($listPeds as $pedidos){
           foreach($listPeds as $pedido){
         ?>
         <input name="cliente" value="<?=$pedido->nome?>" type="text" placeholder="Nome Completo" class="nome" id="nomeCli" onkeyup="filtroCli(this.value)">
-        <!-- <div class="infomacao_cliente d-flex">
+        <div class="infomacao_cliente d-flex">
           <a href="./editCliente.php" class="editCliente d-flex align-items-center justify-content-between">
             <span>Editar</span>
             <img src="../assets/icons/pen.svg" alt="caneta_edit">
@@ -62,7 +62,7 @@ foreach($listPeds as $pedidos){
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
         <div class="listagem_items" id="resultPesquisaCli"></div>
       <div class="d-flex justify-content-between">
           <label for="dataPag">Data de Pagamento</label>
@@ -76,34 +76,46 @@ foreach($listPeds as $pedidos){
           <button type="button" class="btnAbrirModal produto_btn d-flex justify-content-between">
             Novo Produto
             <span class="produto_btn-add">+</span>
-          </button> 
+          </button>
         </div>
 
         <div class="produto_title d-flex justify-content-between">
           <span>Produto</span>
           <span>Quantidade</span>
         </div>
+
+        <div class="container_produtos">
         <?php
+        $index = 0;
           foreach($produtos[$pedido->cod_ped] as $produto){
         ?>
-        <div class="container_produtos">
-          <div class="produto_content d-flex flex-column">
+          <div class="produto_content d-flex flex-column produto-<?=$index?>">
             <div class="d-flex justify-content-between align-items-center">
-              <input name="modelo" id="modelo" class="modelos produto_select w-75" value="<?=$produto->nome_modelo?>" onkeyup="filtroModelo(this.value, <?=$qtdProd?>)">
-              <div class="listagem_items resultPesquisaModelo"></div>
-              <input value="<?=$produto->qtd_prod?>" type="number" name="quantidade" id="numModel" class="quantidade produto_input" placeholder="000">
+              <input name="modelo" id="modelo" class="modelos produto_select w-75" value="<?=$produto->nome_modelo?>" placeholder="Nome do Modelo" autocomplete="off" onkeyup="filtroModelo(this.value, 'produto-<?=$index?>')">
+            <div class="listagem_items resultPesquisaModelo_produto-<?=$index?>"></div>
+              <input type="number" value="<?=$produto->qtd_prod?>" name="quantidade" id="numModel" class="quantidade produto_input" placeholder="000">
             </div>
             <div class="d-flex justify-content-between align-items-center">
-            <input value="<?=$produto->nome_frag?>" name="fragrancia" type="text" placeholder="Nome da Fragrância" class="fragrancias nome" id="nomeFrag" onkeyup="filtroFrag(this.value,  <?=$qtdProd?>)">
-            <div class="listagem_items resultPesquisaFrag"></div>
-              <!-- lixeira -->
+              <input value="<?=$produto->nome_frag?>" name="fragrancia" type="text" placeholder="Nome da Fragrância" class="fragrancias nome" id="nomeFrag" autocomplete="off" onkeyup="filtroFrag(this.value, 'produto-<?=$index?>')">
+            <div class="listagem_items resultPesquisaFrag_produto-<?=$index?> "></div>
+            <?php
+            if ($index == 0){
+              ?>
+                <!-- lixeira -->
+              <?php } else { ?>
+                <a href="javascript:excluirProduto('produto-<?=$index?>')" class="produto_lixeira">
+                  <img src="../assets/icons/trash-alt.svg" alt="lixeira">
+                </a>
+              <?php } ?>
             </div>
           </div>
-        </div>
-        <?php
+          <?php
           $qtdProd += 1;
+          $index += 1;
           }
         ?>
+        </div>
+
         <div class="produto_title d-flex justify-content-between">
           <span class="w-25">Valor</span>
           <span class="w-75">Frete</span>
@@ -130,5 +142,8 @@ foreach($listPeds as $pedidos){
   <script src="../assets/js/style.js"></script>
   <script src="../assets/js/editarPedido.js"></script> 
   <script src="../assets/js/filtroPedido.js"></script>
+  <script>
+    var index = <?=$index?>
+  </script>
 </body>
 </html>
