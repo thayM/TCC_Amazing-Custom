@@ -11,7 +11,10 @@ const msgEdicao = document.querySelector(".msgEdicao");
 const formEdit = document.querySelector(".formEdit");
 
 $(".btn-cadastrar").on("click", () => {
-  if ($("#nome__Frag").val() == 0 || $("#desc__Frag").val() == 0) {
+  if ($("#nome__Frag").val() == 0 || $("#nome__Frag").val() > 3 || $("#desc__Frag").val() == 0) {
+    $("#nome__Frag").css("border", "1px solid #E02D15")
+    let index = ($("#nome__Frag").val() == 0) ? 0 : 1;
+    $("#nome__Frag").parent().append(messagesError("nome", index));
   } else {
     $(".formCad").trigger("submit");
   }
@@ -21,7 +24,7 @@ $(".btn-editar").on("click", () => {
   } else {
     $(".formEdit").trigger("submit");
   }
-});
+}); 
 
 function excluirFrag(id) {
   window.location.href = `functions/excluir/func_excluirFrag.php?id=${id}`;

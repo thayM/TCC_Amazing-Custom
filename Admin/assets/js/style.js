@@ -1,3 +1,16 @@
+// MENSAGENS DE ERRO
+function messagesError(input, index){
+  let error = [
+    `Campo '${input}' obrigatório*`,
+    `Campo '${input}' ultrapassou o número máximo de caracteres*`,
+    `Campo '${input}' inválido*`,
+    `Arquivo inválido`
+  ];
+
+  let html = `<p class="error">${error[index]}</p>`;
+  return html;
+}
+
 // MODAIS
 function abrirModal() {
   $(".modalCad").css("display", "flex");

@@ -34,13 +34,15 @@ if(isset($_GET["busca__frag"])){
     <div class="content_modal d-flex justify-content-between flex-column">
       <img onclick="removeStyle()" src="../assets/icons/x.svg" alt="fechar" class="fechar fecharCad">
       <h3>Adicionar nova fragrância</h3>
-      <div class="modal_input-nome">
+      <div class="modal_input-nome d-flex">
         <label for="nomeFrag">Nome</label>
-        <input type="text" id="nome__Frag" name="nome__frag" placeholder="Nome da fragrância">
+        <div>
+          <input type="text" id="nome__Frag" name="nome__frag" placeholder="Nome da fragrância">
+        </div>
       </div>
       <textarea type="text" id="desc__Frag" class="desc_frag" name="desc__frag" placeholder="Adicione uma descrição"></textarea>
       <div class="btn-cadastro d-flex justify-content-end">
-        <button type="submit" class="btn-cadastrar">Cadastrar</button>
+        <button type="button" class="btn-cadastrar">Cadastrar</button>
       </div>
     </div>
   </form>
