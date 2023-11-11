@@ -11,18 +11,10 @@ const produto = `<div class="produto_content d-flex flex-column produto-0">
   <!-- lixeira -->
 </div>
 </div>`;
-var index = 0;
 
 function excluirProduto(i) {
-  const produtos = document.querySelectorAll(".novo_produto");
-  produtos[i].remove();
-
-  const lixeirasProd = document.querySelectorAll(".produto_lixeira");
-  lixeirasProd.forEach((element, i) => {
-    element.href = `javascript:excluirProduto(${i})`;
-  });
-
-  index--;
+  $(`.${i}`).remove();
+  attValor();
 }
 
 $(".produto_btn").on("click", () => {

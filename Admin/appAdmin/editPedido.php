@@ -125,6 +125,9 @@ foreach($listPeds as $pedidos){
   <script src="../assets/js/style.js"></script>
   <script src="../assets/js/editarPedido.js"></script> 
   <script src="../assets/js/filtroPedido.js"></script>
-  <script>infoCliente('<?=$pedido->nome?>')</script>
+  <script>
+  infoCliente('<?=$pedido->nome?>');
+  var index = <?=$index?>;
+  </script>
 </body>
 </html>
