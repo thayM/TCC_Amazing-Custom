@@ -209,6 +209,14 @@ main{
     width: 140px;
 }
 
+.msg{
+    font-weight:bold;
+    color: var(--primary-color);
+    display: flex;
+    margin: 50px -90px;
+    font-size: 58px;
+}
+
 /* Modal */
 
 .content_modal{

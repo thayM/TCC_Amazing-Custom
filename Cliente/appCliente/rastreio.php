@@ -30,103 +30,20 @@ $subtotal = 0;
 <title>Página de rastreio</title>
 </head>
 
-
-<!-- <div class="container_modal modalCad">
-    <div class="content_modal">
-        <div class="parteEsq">
-            <h2 class="tituloEsq">Dados do pedido</h2>
-            <div class="atributos">
-            <p id="nPed" class="atributo">N° pedido:</p>
-            <p id="cliente" class="atributo">Cliente:</p>
-            <p id="subValor" class="atributo">Sub valor: R$--,--</p>
-            <p id="frete" class="atributo">Frete: R$--,--</p>
-            <p id="valorTotal" class="atributo">Valor total: R$--,--</p>
-            </div>
-        </div>
-
-        <div class="parteDir">
-            <div class="linha">
-                <div class="circEtapas">
-                    <div class="circulo"></div>
-                    <div class="circulo"></div>
-                    <div class="circulo"></div>
-                    <div class="circulo"></div>
-                </div>
-            </div>
-
-
-            <div class="etapas">
-                <div class="etapa etapaPag">
-                    <img class="icons" src="assets/img/fi-sr-dollar.svg" alt="">
-                    <p>Pagamento</p>
-                </div>
-                <div class="etapa etapaArt">
-                    <img class="icons" src="assets/img/fi-sr-edit-alt.svg" alt="">
-                    <p>Arte</p>
-                </div>
-                <div class="etapa etapaProd">
-                    <img class="icons" src="assets/img/fi-sr-settings.svg" alt="">
-                    <p>Produção</p>
-                </div>
-                <div class="etapa etapaEnvio">
-                    <img class="icons" src="assets/img/Vector.svg" alt="">
-                    <p>Envio</p>
-                </div>
-            </div>
-
-            <div class="dirInferior">
-                <div class="descEtapas">
-                    <p>Arte finalizada</p>
-                    <div class="hrDt">
-                    <p>--/--/----</p>
-                    <p>--:--</p>
-                    </div>
-                </div>
-
-                <div class="endereco">
-                    <div class="infos">
-                        <div class="ruaInfo">
-                            <h3>Rua:</h3>
-                            <p></p>
-                        </div>
-                        <div class="numeroInfo">
-                            <h3>N°:</h3>
-                            <p></p>
-                        </div>
-                        <div class="bairroInfo">
-                            <h3>Bairro:</h3>
-                            <p></p>
-                        </div>
-                        <div class="cidadeInfo">
-                            <h3>Cidade:</h3>
-                            <p></p>
-                        </div>
-                        <div class="cepInfo">
-                            <h3>CEP:</h3>
-                            <p></p>
-                        </div>
-                        <div class="complementoInfo">
-                            <h3>Complemento:</h3>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <img onclick="removeStyle()" src="../../Admin/assets/icons/x.svg" alt="fechar" class="fechar fecharCad">
-    </div>
-</div> -->
-
 <body>
 <header class="d-flex align-items-center">
     <img src="../../assets/img/Logo.png" alt="Logo" class="logo">
 </header>
 
 <main>
-    <h3>Bem-vindo <?=$pedido->cliente?></h3>
-    <div class="container_pedidos d-flex flex-column">
-        <?php
-    foreach($listPeds as $pedido){
+
+<?php
+foreach($listPeds as $pedido){
+?>
+
+<h1 class="msg">Bem-vindo(a) <?=$pedido->nome?></h1>
+
+<?php
         if ((int)$pedido->estado_pedido == 1) {
             $pedidoStt='Pagamento Aprovado';
         } else if((int)$pedido->estado_pedido == 2){
