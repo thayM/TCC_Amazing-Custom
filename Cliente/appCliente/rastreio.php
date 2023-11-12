@@ -11,6 +11,7 @@ $listPeds = $stmtPed->fetchAll(PDO::FETCH_OBJ);
 
 foreach($listPeds as $pedidos){
     $cod = $pedidos->cod_ped;
+    $nome= $pedidos->nome;
     $sql = "SELECT * FROM pedido_produto pp INNER JOIN produto p INNER JOIN modelo m INNER JOIN fragrancia f ON pp.fkcod_prod = p.cod_prod AND p.fkcod_frag = f.cod_frag AND p.fkcod_modelo = m.cod_modelo WHERE pp.fkcod_ped = :cod";
     $stmt = $conn->prepare($sql);
     $stmt->bindValue(":cod", $cod);
@@ -37,12 +38,13 @@ $subtotal = 0;
 
 <main>
 
+
+<h1 class="msg">Bem-vindo(a) <?=$nome?></h1>
+
+
 <?php
 foreach($listPeds as $pedido){
 ?>
-
-<h1 class="msg">Bem-vindo(a) <?=$pedido->nome?></h1>
-
 <?php
         if ((int)$pedido->estado_pedido == 1) {
             $pedidoStt='Pagamento Aprovado';
