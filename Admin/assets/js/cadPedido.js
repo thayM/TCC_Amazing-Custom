@@ -46,7 +46,7 @@ function attValor() {
 
   if(valorFinal){
     valorFinal = valorFinal.toFixed(2);
-    valorFinal = valorFinal.replace(".", ",");
+    // valorFinal = valorFinal.replace(".", ",");
     $("#valor")[0].value=valorFinal
   } else {
     $("#valor")[0].value=""

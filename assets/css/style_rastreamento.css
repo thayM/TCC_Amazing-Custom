@@ -67,7 +67,6 @@ main{
 
 .card-pedidos{
     margin: 10px;
-    width: 810px;
 }
 
 .nomeClie{
@@ -96,10 +95,14 @@ main{
 .status{
     background-color: var(--first-grayscale);
     padding: 0 10px;
-    width: 270px;
+    width: 271px;
     display: flex;
     align-items: center;
     border-radius: 0 5px 0 0;
+}
+
+.status p{
+    font-family: 'Mukta', sans-serif;
 }
 
 .etapa{

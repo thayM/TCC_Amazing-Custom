@@ -14,7 +14,6 @@ if ($erro==1){
 
 }else{
     $sqlInsert='UPDATE fragrancia SET nome_frag= :nome, desc_frag= :descricao WHERE cod_frag = :id';
-    echo $sqlInsert;
     $stmt = $conn->prepare($sqlInsert);
     $stmt->bindValue(":nome", $newNome__frag);
     $stmt->bindValue(":descricao", $newDesc__frag);

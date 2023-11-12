@@ -1,7 +1,6 @@
 <?php
 require "../../../../lib/conn.php";
 $id = $_GET['id'];   
-echo $_GET['id'];   
 $sqlDelete = "DELETE FROM fragrancia WHERE cod_frag = :id";
 $stmt = $conn->prepare($sqlDelete);
 $stmt->bindValue(":id", $id);
