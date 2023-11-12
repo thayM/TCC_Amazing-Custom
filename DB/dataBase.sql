@@ -118,8 +118,11 @@ INSERT INTO FRAGRANCIA VALUES(0, "Flor", "Cheiro de lavanda.");
 INSERT INTO ENDERECO VALUES(0, "04004-040", "Avenida Bernardino de Campos", 100, "São Paulo", "Paraíso", "SP", "até 250 - lado par");
 INSERT INTO ENDERECO VALUES(0, "18270-020", "Praça Adelaide Guedes", 01, "Tatuí", "Centro", "SP", "");
 
+INSERT INTO ENDERECO VALUES(0, "18270-300", "Praça Manoel Guedes", 98, "Tatuí", "Centro", "SP", "");
+
 INSERT INTO CLIENTE VALUES(0, 1, "Beatriz", "AM9030", "(11) 90000-9999/(15) 98888-1111", "beatriz@gmail.com");
-INSERT INTO CLIENTE VALUES(0, 2, "Pedro Aguiar", "AM7777", "(15) 94444-2222", "aguiarpedro@gmail.com");
+INSERT INTO CLIENTE VALUES(0, 2, "Pedro Aguiar", "AM7777", "(15) 94444-2222/", "aguiarpedro@gmail.com");
+INSERT INTO CLIENTE VALUES(0, 3, "Thayná Marostica", "AM0305", "(15) 996505-7979/(11) 99877-7744", "thaymarostica@gmail.com");
 
 INSERT INTO PEDIDO VALUES(0, 1, 15.50, 800, "2023-11-30", 815.50, 2);
 INSERT INTO PEDIDO VALUES(0, 2, 10, 825, "2024-01-10", 835, 1);

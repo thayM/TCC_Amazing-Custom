@@ -123,7 +123,9 @@ $subtotal = 0;
 </header>
 
 <main>
-<?php
+    <h3>Bem-vindo <?=$pedido->cliente?></h3>
+    <div class="container_pedidos d-flex flex-column">
+        <?php
     foreach($listPeds as $pedido){
         if ((int)$pedido->estado_pedido == 1) {
             $pedidoStt='Pagamento Aprovado';
@@ -143,74 +145,75 @@ $subtotal = 0;
     $valorFinal = str_replace(".", ",", $pedido->valor_total);
     $dataFormatada= date("d/m/Y", strtotime($pedido->data_ped));
     ?> 
-    <div class="card-pedidos">
-        <div class="card-header">
-            <div class="cabecalho">
-                <p class="nomeClie"><abbr title=""><?=$pedido->nome?></abbr></p>
-                <div>
-                    <p class="data"><?=$dataFormatada?></p>
-                    <div onclick="abrirModalPedido('<?=$pedido->cod_rastreamento?>', '<?=$pedido->nome?>', '<?=$subtotal?>', '<?=$frete?>', '<?=$valorFinal?>', <?=$pedido->estado_pedido?>,' <?=$dataFormatada?>', '<?=$pedido->cep?>','<?=$pedido->logradouro?>', '<?=$pedido->num?>', '<?=$pedido->cidade?>','<?=$pedido->bairro?>','<?=$pedido->complemento == ''? 'Nenhum': $pedido->complemento?>')" >
-                        <img class="imgData" src="../../assets/img/open.png" alt=""></img>
+        <div class="card-pedidos">
+            <div class="card-header">
+                <div class="cabecalho">
+                    <p class="nomeClie"><abbr title=""><?=$pedido->nome?></abbr></p>
+                    <div>
+                        <p class="data"><?=$dataFormatada?></p>
+                        <div onclick="abrirModalPedido('<?=$pedido->cod_rastreamento?>', '<?=$pedido->nome?>', '<?=$subtotal?>', '<?=$frete?>', '<?=$valorFinal?>', <?=$pedido->estado_pedido?>,' <?=$dataFormatada?>', '<?=$pedido->cep?>','<?=$pedido->logradouro?>', '<?=$pedido->num?>', '<?=$pedido->cidade?>','<?=$pedido->bairro?>','<?=$pedido->complemento == ''? 'Nenhum': $pedido->complemento?>')" >
+                            <img class="imgData" src="../../assets/img/open.png" alt=""></img>
+                        </div>
                     </div>
                 </div>
+                <div class="status">
+                    <p class="etapa"><?= $pedidoStt?></p>
+                </div>
             </div>
-            <div class="status">
-                <p class="etapa"><?= $pedidoStt?></p>
-            </div>
-        </div>
-        <div class="card-body">
-            <div class="card-title">
-                <h3 class="titulo">MODELO</h3>
-                <?php
-            foreach($produtos[$pedido->cod_ped] as $produto){
-            ?>
-                <div class="cardInfo">
-                <div class="cardInfoInner d-flex justify-content-between align-items-center">
-                    <div class="imgModelo d-flex align-items-center">
-                    <img class="produto_img" src="../../upload/<?=$produto->nomeArq_modelo?>" alt="">
+            <div class="card-body">
+                <div class="card-title">
+                    <h3 class="titulo">MODELO</h3>
+                    <?php
+                foreach($produtos[$pedido->cod_ped] as $produto){
+                ?>
+                    <div class="cardInfo">
+                    <div class="cardInfoInner d-flex justify-content-between align-items-center">
+                        <div class="imgModelo d-flex align-items-center">
+                        <img class="produto_img" src="../../upload/<?=$produto->nomeArq_modelo?>" alt="">
+                        </div>
+                        <p class="card-text"><?=$produto->nome_modelo?></p>
                     </div>
-                    <p class="card-text"><?=$produto->nome_modelo?></p>
+                    </div>
+                    <?php
+                }
+                ?>
                 </div>
-                </div>
-                <?php
-            }
-            ?>
-            </div>
 
-            <div class="card-title">
-                <h3 class="titulo">FRAGRÂNCIA</h3>
-                <?php
-            foreach($produtos[$pedido->cod_ped] as $produto){
-            ?>
-                <div class="cardInfo">
-                    <p class="card-text"><?=$produto->nome_frag?>
+                <div class="card-title">
+                    <h3 class="titulo">FRAGRÂNCIA</h3>
+                    <?php
+                foreach($produtos[$pedido->cod_ped] as $produto){
+                ?>
+                    <div class="cardInfo">
+                        <p class="card-text"><?=$produto->nome_frag?>
+                    
+                    </p>
+                    </div>
+                    <?php
+                }
+                ?>
+                </div>
+
+
+                <div class="card-title">
+                    <h3 class="titulo">QUANTIDADE</h3>
+                    <?php
+                foreach($produtos[$pedido->cod_ped] as $produto){
+                ?>
+                    <div class="cardInfo">
+                        <p class="card-text"><?=$produto->qtd_prod?></p>
+                    </div>
+                    <?php
+                }
+                ?>
+                </div>
                 
-                </p>
-                </div>
-                <?php
-            }
-            ?>
             </div>
-
-
-            <div class="card-title">
-                <h3 class="titulo">QUANTIDADE</h3>
-                <?php
-            foreach($produtos[$pedido->cod_ped] as $produto){
-            ?>
-                <div class="cardInfo">
-                    <p class="card-text"><?=$produto->qtd_prod?></p>
-                </div>
-                <?php
-            }
-            ?>
-            </div>
-            
         </div>
-    </div>
     <?php
     }
     ?> 
+    </div>
 </main>
 
 <!-- JS BOOTSTRAP -->

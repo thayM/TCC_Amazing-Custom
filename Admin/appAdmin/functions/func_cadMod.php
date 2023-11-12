@@ -1,9 +1,6 @@
 <?php
 require '../../../lib/conn.php';
 
-var_dump($_POST);
-var_dump($_FILES);
-
 if(isset($_FILES['file'])){
     
     $arr_file_types = ['image/png','image/jpg', 'image/jpeg'];
@@ -30,7 +27,6 @@ if(isset($_FILES['file'])){
     $stmt->execute();
     };
 }
-
 
 ?>
 <meta http-equiv="refresh" content="0; url=../cadModelo">

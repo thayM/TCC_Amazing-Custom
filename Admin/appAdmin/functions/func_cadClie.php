@@ -2,7 +2,6 @@
 require '../../../lib/conn.php';
 extract($_POST);
 
-var_dump($_POST);
 $tel = $telefone."/".$telefone2;
 
 $sqlInsert='INSERT INTO endereco VALUES(0,:cep,:logradouro,:num,:cidade,:bairro,:uf,:complemento)';

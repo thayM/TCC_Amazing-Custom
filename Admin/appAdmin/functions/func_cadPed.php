@@ -1,7 +1,6 @@
 <?php
 require '../../../lib/conn.php';
 extract($_POST);
-var_dump($_POST);
 
 $sqlSelect = "SELECT * FROM cliente WHERE nome = :nome";
 $sqlCliente = $conn->prepare($sqlSelect);
