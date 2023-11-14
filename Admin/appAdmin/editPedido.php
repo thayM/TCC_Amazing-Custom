@@ -86,7 +86,7 @@ foreach($listPeds as $pedidos){
               ?>
                 <!-- lixeira -->
               <?php } else { ?>
-                <a href="javascript:excluirProduto('produto-<?=$index?>')" class="produto_lixeira">
+                <a href="javascript:excluirProduto('produto-<?=$index?>', <?=$produto->cod_prod?>)" class="produto_lixeira">
                   <img src="../assets/icons/trash-alt.svg" alt="lixeira">
                 </a>
               <?php } ?>

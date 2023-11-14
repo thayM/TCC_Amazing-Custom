@@ -22,9 +22,10 @@ async function getValor(modeloNome) {
 }
 getValor()
 
-function excluirProduto(i) {
+function excluirProduto(i, id) {
   $(`.${i}`).remove();
   attValor();
+  window.location.href = `functions/excluir/func_excluirProd.php?id=${id}`;
 }
 
 function attValor() {
