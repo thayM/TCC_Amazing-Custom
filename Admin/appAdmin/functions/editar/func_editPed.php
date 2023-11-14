@@ -40,6 +40,8 @@ $stmtLinhas->bindValue(":id", $id_pedido);
 $stmtLinhas->execute();
 $qtdLinhas = $stmtLinhas->fetchAll(PDO::FETCH_OBJ);
 
+var_dump($qtdLinhas);
+
 while ($posicao <= count($qtdLinhas)-1) {
     $sqlModelo = "SELECT cod_modelo FROM modelo WHERE nome_modelo = :modelo";
     $stmtModelo = $conn->prepare($sqlModelo);
@@ -53,20 +55,32 @@ while ($posicao <= count($qtdLinhas)-1) {
     $stmtFragrancia->execute();
     $codFragrancia = $stmtFragrancia->fetch(PDO::FETCH_OBJ);
     
-    $sqlUpdateProduto = "UPDATE produto SET fkcod_frag = :cod_frag, fkcod_modelo = :cod_modelo WHERE cod_prod = :produto_id";
-    $stmtUpdateProduto = $conn->prepare($sqlUpdateProduto);
-    $stmtUpdateProduto->bindValue(":cod_frag", $codFragrancia->cod_frag);
-    $stmtUpdateProduto->bindValue(":cod_modelo", $codModelo->cod_modelo);
-    $stmtUpdateProduto->bindValue(":produto_id", $produto_ids[$posicao]->fkcod_prod);
-    $stmtUpdateProduto->execute();
-        
-    $sqlUpdateQuantidade = "UPDATE pedido_produto SET qtd_prod = :quantidade WHERE fkcod_prod = :produto_id AND fkcod_ped = :cod_pedido";
+    $sqlSelect = "SELECT * FROM produto WHERE fkcod_frag = :codFrag AND fkcod_modelo = :codModelo";
+    $produto = $conn->prepare($sqlSelect);
+    $produto->bindValue(":codModelo",$codModelo->cod_modelo);
+    $produto->bindValue(":codFrag",$codFragrancia->cod_frag);
+    $produto->execute();
+    
+    if($produto->rowCount()==0){
+        $sqlInsert = "INSERT INTO produto VALUES(0, :codFrag, :codModelo)";
+        $stmt = $conn->prepare($sqlInsert);
+        $stmt->bindValue(":codModelo",$codModelo->cod_modelo);
+        $stmt->bindValue(":codFrag",$codFragrancia->cod_frag);
+        $stmt->execute();
+        $produto->execute();
+    }
+    $codProd = $produto->fetch(PDO::FETCH_OBJ);
+    $codProd = $codProd->cod_prod;
+
+    echo $codProd." ";
+
+    $sqlUpdateQuantidade = "UPDATE pedido_produto SET qtd_prod = :quantidade, fkcod_prod = :produto_id where fkcod_ped = :cod_pedido AND fkcod_prod = :cod_prod";
     $stmtUpdateQuantidade = $conn->prepare($sqlUpdateQuantidade);
     $stmtUpdateQuantidade->bindValue(":quantidade",$produtos[$posicao][2]);
     $stmtUpdateQuantidade->bindValue(":cod_pedido", $id_pedido);
-    $stmtUpdateQuantidade->bindValue(":produto_id", $produto_ids[$posicao]->fkcod_prod);
+    $stmtUpdateQuantidade->bindValue(":produto_id", $codProd);
+    $stmtUpdateQuantidade->bindValue(":cod_prod", $qtdLinhas[$posicao]->fkcod_prod);
     $stmtUpdateQuantidade->execute();
-    
     $posicao++;
 }
     
@@ -102,7 +116,6 @@ while ($a <= $tamanhoArray-1) {
             $stmt->bindValue(":codFrag",$codFragrancia);
             $stmt->execute();
             $produto->execute();
-            echo "KKKKKKKKKKKK";
         }
         $codProd = $produto->fetch(PDO::FETCH_OBJ);
         $codProd = $codProd->cod_prod;

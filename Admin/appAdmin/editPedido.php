@@ -123,10 +123,11 @@ foreach($listPeds as $pedidos){
     </form>
   </div>
   <script src="../assets/js/style.js"></script>
-  <script src="../assets/js/editarPedido.js"></script> 
+  <script defer src="../assets/js/editarPedido.js"></script> 
   <script src="../assets/js/filtroPedido.js"></script>
   <script>
   infoCliente('<?=$pedido->nome?>');
+  var idPedido = <?=$id?>;
   var index = <?=$index?>;
   </script>
 </body>

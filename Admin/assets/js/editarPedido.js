@@ -22,10 +22,14 @@ async function getValor(modeloNome) {
 }
 getValor()
 
-function excluirProduto(i, id) {
+function excluirNovoProduto(i) {
   $(`.${i}`).remove();
   attValor();
-  window.location.href = `functions/excluir/func_excluirProd.php?id=${id}`;
+}
+
+function excluirProduto(i, id) {
+  excluirNovoProduto(i)
+  window.location.href = `functions/excluir/func_excluirProd.php?idProd=${id}&idPed=${idPedido}&valor=${document.getElementById("valor").value}`;
 }
 
 function attValor() {
@@ -62,7 +66,7 @@ $(".produto_btn").on("click", () => {
   let idProduto = `produto-${index}`
 
   novoProduto = novoProduto.replace("<!-- lixeira -->", `
-  <a href="javascript:excluirProduto('${idProduto}')" class="produto_lixeira">
+  <a href="javascript:excluirNovoProduto('${idProduto}')" class="produto_lixeira">
     <img src="../assets/icons/trash-alt.svg" alt="lixeira">
   </a>`);
   novoProduto = novoProduto.replace("produto-0", idProduto);
@@ -143,4 +147,4 @@ function enviarFormulario(cod) {
 // Mask inputs
 $(document).ready(function(){
     $('.preco').mask("#.##0,00", {reverse: true, placeholder: "R$ 00,00"});
-});
+}); 
