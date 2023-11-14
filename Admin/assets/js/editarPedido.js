@@ -11,10 +11,49 @@ const produto = `<div class="produto_content d-flex flex-column produto-0">
   <!-- lixeira -->
 </div>
 </div>`;
+var respostaGetValor =[]
+
+async function getValor(modeloNome) {
+  let require = await fetch('../appAdmin/functions/getValues/getValorModelo.php?value='+modeloNome);
+  let data = await require.json();
+  data["dados"].forEach((valor)=>{
+    respostaGetValor[valor["nome_modelo"]]=valor["valor_modelo"];
+  })
+}
+getValor()
 
 function excluirProduto(i) {
   $(`.${i}`).remove();
   attValor();
+}
+
+function attValor() {
+  let valor = []
+  let qttd = []
+  let subValor = 0
+  let valorFinal = 0
+  $(".quantidade").each(function (){
+    qttd.push((this).value)
+  })
+  $(".modelos").each(function (){
+    let nome_modelo = ((this).value);
+    valor.push(respostaGetValor[nome_modelo]);
+  })
+  valor.forEach((element,i)=>{
+    subValor = element*qttd[i]
+    if(subValor){
+      valorFinal += subValor
+    }
+  })
+  console.log(valorFinal)
+
+  if(valorFinal){
+    valorFinal = valorFinal.toFixed(2);
+    // valorFinal = valorFinal.replace(".", ",");
+    $("#valor")[0].value=valorFinal
+  } else {
+    $("#valor")[0].value=""
+  }
 }
 
 $(".produto_btn").on("click", () => {
@@ -48,6 +87,17 @@ $(".produto_btn").on("click", () => {
 
   index++;
 });
+$(".modelos").on('change',()=>{
+  attValor();
+})
+$(".quantidade")
+.on('change',()=>{
+  attValor();
+})
+.on('keyup',()=>{
+  attValor();
+})
+
 
 function enviarFormulario(cod) {
   var GET_id = cod;

@@ -6,11 +6,9 @@ function limparEndereco() {
         document.getElementById('complemento__cli').value=("");
 }
 function pesquisacep(valor) {
-    if (valor.includes("-")) {
-        var cep = valor.replace(/\D/g, '');
-    }else{
-        var cep = valor;
-    }
+    limparEndereco()
+    let cep
+    let formatacep = (valor.includes("-")?cep = valor.replace(/\D/g, ''):cep = valor)
     console.log(cep);
     if (cep != "") {
         var validacep = /^[0-9]{8}$/;
@@ -31,9 +29,9 @@ function pesquisacep(valor) {
                 document.getElementById('complemento__cli').value=dados.complemento;
             }
             })
-            
-        }else limparEndereco(); 
-    } else limparEndereco();
+        }
+    }
+    
 };
 
 // MASKS INPUTS
