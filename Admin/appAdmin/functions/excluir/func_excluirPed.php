@@ -19,9 +19,5 @@ $stmt = $conn->prepare($sqlDeletePP);
 $stmt->bindValue(":id", $id);
 $stmt->execute();
 
-$sqlDeleteProd = "DELETE FROM produto WHERE cod_prod = :id";
-$stmt = $conn->prepare($sqlDeleteProd);
-$stmt->bindValue(":id", $codProd);
-$stmt->execute();
 ?>
 <meta http-equiv="refresh" content="0; url=../../home.php">
