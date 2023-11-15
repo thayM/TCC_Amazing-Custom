@@ -1,5 +1,5 @@
 <head>
-  <link rel="stylesheet" href="../assets/css/style_admin .css">
+  <link rel="stylesheet" href="../assets/css/style_admin.css">
 </head>
 
 <div class="container_modal-php justify-content-center align-items-center modalExcluir">
