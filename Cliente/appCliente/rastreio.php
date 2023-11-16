@@ -49,7 +49,7 @@ $subtotal = 0;
     include('../../Admin/components/modalPedido.php');
     ?>
 
-<h1 class="msg">Bem-vindo(a) <?= $nome ?> mmmmmmm mmmmmmmm</h1>
+<h1 class="msg">Bem-vindo(a) <?= $nome ?></h1>
     <main>
         <?php
         foreach ($listPeds as $pedido) {
