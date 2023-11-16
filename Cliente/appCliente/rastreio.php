@@ -1,6 +1,5 @@
 <?php
 include_once('../../lib/conn.php');
-include_once('../../Admin/components/modalPedido.php');
 $id_clie = $_GET['id'];
 
 $sqlPeds = "SELECT  * FROM pedido p INNER JOIN cliente c INNER JOIN endereco e ON p.fkcod_cli = c.cod_cli AND c.fkcod_endereco = e.cod_endereco WHERE p.fkcod_cli = :cod ORDER BY cod_ped DESC";
@@ -28,29 +27,29 @@ $subtotal = 0;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-
+    
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/9dabb0ed4f.js" crossorigin="anonymous"></script>
-
+    
     <link rel="shortcut icon" href="../../assets/img/favicon.ico">
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/style_rastreamento.css">
-
+    
     <title>Página de rastreamento</title>
 </head>
-
-<body>
+<body style="height:100vh;">
     <header class="d-flex align-items-center">
         <img src="../../assets/img/Logo.png" alt="Logo" class="logo">
     </header>
-
+    <?php
+    include('../../Admin/components/modalPedido.php');
+    ?>
     <main>
         <h1 class="msg">Bem-vindo(a) <?= $nome ?></h1>
-
         <?php
         foreach ($listPeds as $pedido) {
             if ((int)$pedido->estado_pedido == 1) {
@@ -62,7 +61,7 @@ $subtotal = 0;
             } else {
                 $pedidoStt = 'Enviado';
             }
-
+            
             foreach ($produtos[$pedido->cod_ped] as $produto) {
                 $subtotal = $produto->sub_total;
             }
@@ -78,20 +77,20 @@ $subtotal = 0;
                     <div>
                         <p class="data"><?= $dataFormatada ?></p>
                         <div onclick="abrirModalPedido('<?= $pedido->cod_rastreamento ?>', '<?= $pedido->nome ?>', '<?= $subtotal ?>', '<?= $frete ?>', '<?= $valorFinal ?>', <?= $pedido->estado_pedido ?>,' <?= $dataFormatada ?>', '<?= $pedido->cep ?>','<?= $pedido->logradouro ?>', '<?= $pedido->num ?>', '<?= $pedido->cidade ?>','<?= $pedido->bairro ?>','<?= $pedido->complemento == '' ? 'Nenhum' : $pedido->complemento ?>')">
-                            <img class="imgData" src="../../assets/img/open.png" alt=""></img>
-                        </div>
+                        <img class="imgData" src="../../assets/img/open.png" alt=""></img>
                     </div>
                 </div>
-                <div class="status">
-                    <p class="etapa"><?= $pedidoStt ?></p>
-                </div>
             </div>
-            <div class="card-body">
-                <div class="card-title">
-                    <h3 class="titulo">MODELO</h3>
-                    <?php
+            <div class="status">
+                <p class="etapa"><?= $pedidoStt ?></p>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="card-title">
+                <h3 class="titulo">MODELO</h3>
+                <?php
                     foreach ($produtos[$pedido->cod_ped] as $produto) {
-                    ?>
+                        ?>
                         <div class="cardInfo">
                             <div class="cardInfoInner d-flex justify-content-between align-items-center">
                                 <div class="imgModelo d-flex align-items-center justify-content-center">
@@ -100,36 +99,36 @@ $subtotal = 0;
                                 <p class="card-text"><?= $produto->nome_modelo ?></p>
                             </div>
                         </div>
-                    <?php
+                        <?php
                     }
                     ?>
                 </div>
-
+                
                 <div class="card-title">
                     <h3 class="titulo">FRAGRÂNCIA</h3>
                     <?php
                     foreach ($produtos[$pedido->cod_ped] as $produto) {
-                    ?>
+                        ?>
                         <div class="cardInfo">
                             <p class="card-text"><?= $produto->nome_frag ?>
-
-                            </p>
-                        </div>
+                            
+                        </p>
+                    </div>
                     <?php
                     }
                     ?>
                 </div>
-
-
+                
+                
                 <div class="card-title">
                     <h3 class="titulo">QUANTIDADE</h3>
                     <?php
                     foreach ($produtos[$pedido->cod_ped] as $produto) {
-                    ?>
+                        ?>
                         <div class="cardInfo">
                             <p class="card-text"><?= $produto->qtd_prod ?></p>
                         </div>
-                    <?php
+                        <?php
                     }
                     ?>
                 </div>
@@ -139,43 +138,39 @@ $subtotal = 0;
         }
         ?>
     </main>
-
+    
     <footer class="d-flex justify-content-around">
-        <div class="footer__container d-flex justify-content-between flex-wrap">
-            <div>
-                <h3 class="title">Siga nossas redes:</h3>
-                <div class="footer__content d-flex flex-column">
-                    <a href="https://www.instagram.com/amazingcustom_perfumecar" target="_blank">
-                        <i class="fa-brands fa-instagram"></i>
-                        amazingcustom_perfumecar
-                    </a>
-                    <a href="https://www.facebook.com/AmazingCustomPerfumeCar" target="_blank">
-                        <i class="fa-brands fa-facebook-f"></i>
-                        Amazing Custom Perfume Car
-                    </a>
-                </div>
+        <div class="footer__container d-flex justify-content-between flex-column">
+            <h3 class="title">Siga nossas redes:</h3>
+            <div class="footer__content d-flex flex-column">
+                <a href="https://www.instagram.com/amazingcustom_perfumecar" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+                amazingcustom_perfumecar
+            </a>
+            <a href="https://www.facebook.com/AmazingCustomPerfumeCar" target="_blank">
+            <i class="fa-brands fa-facebook-f"></i>
+            Amazing Custom Perfume Car
+                </a>
             </div>
-            <div>
-                <h3 class="title">Contato:</h3>
-                <div class="footer__content d-flex flex-column">
-                    <a href="">
-                        <i class="fa-brands fa-whatsapp"></i>
-                        (15) 98162-2454
-                    </a>
-                    <a href="">
-                        <i class="fa-regular fa-envelope"></i>
-                        atendimento@amazingcustom.com.br
-                    </a>
-                </div>
+            <h3 class="title">Acesse nosso site:</h3>
+            <div class="footer__content">
+                <a href="https://www.amazingcustom.com.br/" target="_blank">
+                <i class="fa-solid fa-link"></i>
+                amazingcustom.com.br
+            </a>
             </div>
-            <div>
-                <h3 class="title">Acesse nosso site:</h3>
-                <div class="footer__content">
-                    <a href="https://www.amazingcustom.com.br/" target="_blank">
-                        <i class="fa-solid fa-link"></i>
-                        amazingcustom.com.br
-                    </a>
-                </div>
+        </div>
+        <div class="footer__container">
+            <h3 class="title">Contato:</h3>
+            <div class="footer__content d-flex flex-column">
+                <a href="">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    (15) 98162-2454
+                </a>
+                <a href="">
+                    <i class="fa-regular fa-envelope"></i>
+                    atendimento@amazingcustom.com.br
+                </a>
             </div>
         </div>
         <div class="footer__container">
@@ -183,7 +178,7 @@ $subtotal = 0;
             <div class="footer__content d-flex flex-column">
                 <a href="https://github.com/thayM" target="_blank">Thayná Marostica</a>
                 <a href="https://github.com/mygk-bea" target="_blank">Beatriz Meyagusko</a>
-                <a href="https://github.com/kaikeBG" target="_blank">Kaike Bulsing</a>
+                <a href="https://github.com/kaikeBG" target="_blank">Kaike Grando</a>
                 <a href="https://github.com/aguiarhub" target="_blank">Pedro Aguiar</a>
             </div>
         </div>

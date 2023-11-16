@@ -145,11 +145,7 @@ footer .title{
   color: var(--secondary-color);
 }
 
-.footer__container:nth-child(1){
-  width: 50%;
-}
-
-.footer__container:nth-child(2) .footer__content a::before{
+.footer__container:nth-child(3) .footer__content a::before{
   content: '';
   display: inline-block;
   width: 5px;

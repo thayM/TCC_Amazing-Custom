@@ -19,6 +19,7 @@ body{
     align-items: flex-end;
     position: relative;
     cursor: none;
+
 }
 
 .imgLeao span{
@@ -40,6 +41,7 @@ body{
 
 .logoLeao:hover{
     transform: scale(1.025) translateY(-20px);
+    filter: drop-shadow(0 8px 15px var(--bg-input-color));
 }
 
 .imgLeao:hover span{

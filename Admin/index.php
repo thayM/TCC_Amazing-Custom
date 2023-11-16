@@ -28,7 +28,7 @@
           <div>
             <input type="password" name="senha" id="senha" placeholder="Senha">
           </div>
-          <button class="btn-cadastrar" type="submit">ENTRAR</button>
+          <button class="btn-default btn-cadastrar" type="submit">ENTRAR</button>
         </form>
       </div>
     </div>

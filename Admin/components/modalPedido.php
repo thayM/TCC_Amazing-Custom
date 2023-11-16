@@ -90,5 +90,3 @@
     </div>
   </div>
 </div>
-
-<script src="../assets/js/modalPed.js"></script>
