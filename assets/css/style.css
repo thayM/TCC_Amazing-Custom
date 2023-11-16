@@ -23,9 +23,11 @@
 
 body {
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   background: var(--background-color);
 }
 
@@ -95,9 +97,8 @@ select {
 
 /* HEADER */
 header {
-  padding: 0 35px;
+  padding: 15px 35px;
   width: 100%;
-  height: 85px;
   background: var(--first-grayscale);
 }
 
@@ -109,6 +110,59 @@ header {
 
 .logo {
   height: 50px;
+}
+
+/* FOOTER */
+footer{
+  margin-top: 50px;
+  padding: 30px 10px;
+  width: 100%;
+  background: var(--first-grayscale);
+}
+
+footer .title{
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.footer__content{
+  margin: 10px 0;
+}
+
+.footer__content a{
+  margin: 3px 0;
+  text-decoration: none;
+  color: var(--light-color);
+}
+
+.footer__content a i{
+  margin-right: 2px;
+  font-size: 20px;
+  color: var(--primary-color);
+}
+
+.footer__content a:hover{
+  color: var(--secondary-color);
+}
+
+.footer__container:nth-child(1){
+  width: 50%;
+}
+
+.footer__container:nth-child(2) .footer__content a::before{
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 15px;
+  margin-right: 5px;
+  background: var(--primary-color);
+}
+
+.footer__logo-leao{
+  height: 120px;
+}
+.footer__logo{
+  width: 110px;
 }
 
 /* Btn Cadastro */
