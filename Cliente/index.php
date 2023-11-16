@@ -16,14 +16,17 @@
     <title>Página de rastreio</title>
 </head>
 
-<body>
     <header class="d-flex align-items-center">
         <img src="../assets/img/Logo.png" alt="Logo" class="logo">
     </header>
 
+<body>
+    <main>
     <div class="forms" tabindex="-1" role="dialog">
+        <div class="ladoEsq">
         <img src="assets/img/3df6ea7a81f431aebf154df61490823c.png" class="img" alt="ilustração">
-        <div class="">
+        </div>
+        <div class="ladoDir">
             <h2 class="titulo">Bem-vindo(a) ao rastreamento!</h2>
             <form action="functions/func_rastreio.php" method="post">
             <div class="search"> 
@@ -33,5 +36,6 @@
             </form>
         </div>
     </div>
+    </main>
 </body>
 </html>
