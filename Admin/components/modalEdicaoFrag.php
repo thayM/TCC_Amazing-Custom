@@ -9,7 +9,7 @@
       </div>
       <textarea type="text" id="newDesc__Frag" name="newDesc__frag" class="desc_frag" placeholder="Nova descrição"></textarea>
       <div class="d-flex justify-content-end">
-        <button type="submit" class="btn-editar">Editar</button>
+        <button type="submit" class="btn-default btn-editar">Editar</button>
       </div>
     </div>
   </form>

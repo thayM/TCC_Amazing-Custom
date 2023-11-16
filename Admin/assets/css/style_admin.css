@@ -175,15 +175,27 @@
   text-transform: uppercase;
   transition: .5s;
 }
+
 .btn_modal.cancelar{
   border: 3px solid var(--primary-color);
   background: transparent;
   color: var(--primary-color);
 }
+.btn_modal.cancelar:hover{
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--light-color);
+  transition: ease 0.5s;
+}
+
 .btn_modal.excluir{
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   background: var(--primary-color);
   color: var(--light-color);
+}
+.btn_modal.excluir:hover{
+  background: var(--tertiary-color);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+  transition: .5s;
 }
 
 /* FORMULÁRIO */

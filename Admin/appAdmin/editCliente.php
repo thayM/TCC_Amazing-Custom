@@ -49,7 +49,8 @@
         </div>
       </div>
       <div class="btn-cadastro d-flex justify-content-end p-0 w-100">
-        <button type="submit" class="btn-cadastrar">ATUALIZAR</button>
+        <button class="btn_modal cancelar">CANCELAR</button>
+        <button type="submit" class="btn-default btn-cadastrar">ATUALIZAR</button>
       </div>
     </form>
   </div>

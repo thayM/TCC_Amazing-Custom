@@ -166,8 +166,9 @@ footer .title{
 }
 
 /* Btn Cadastro */
-.btn-cadastrar, .btn-editar{
-  margin: 20px 0;
+.btn-default{
+  margin: 20px 15px;
+  margin-right: 0;
   border: 0;
   border-radius: 10px;
   width: 180px;
@@ -181,7 +182,7 @@ footer .title{
   transition: .5s;
 }
 
-.btn-cadastrar:hover{
+.btn-default:hover{
   background: var(--tertiary-color);
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
   transition: .5s;

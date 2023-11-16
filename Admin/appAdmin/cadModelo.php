@@ -48,7 +48,7 @@ if(isset($_GET["busca__modelo"])){
       </div>
       <input type="file" name="file" id="input" hidden>
       <div class="btn-cadastro d-flex justify-content-end">
-        <button type="submit" class="btn-cadastrar">Cadastrar</button>
+        <button type="submit" class="btn-default btn-cadastrar">Cadastrar</button>
       </div>
     </div>
   </form>
