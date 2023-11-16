@@ -80,7 +80,7 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
           </select>
         </div>
         <div class="btn-cadastro d-flex justify-content-end p-0 w-100">
-          <button type="button" class="btn-cadastrar">CADASTRAR</button>
+          <button type="button" class="btn-default btn-cadastrar">CADASTRAR</button>
         </div>
       </div>
     </form>

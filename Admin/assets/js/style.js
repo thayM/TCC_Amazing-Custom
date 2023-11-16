@@ -30,12 +30,14 @@ $(".fecharCad").on("click", () => {
 function addStyle() {
   $("body").addClass("overflow");
   $("header").addClass("blur");
+  $("footer").addClass("blur");
   $("main").addClass("blur");
 }
 
 function removeStyle() {
   $("body").removeClass("overflow");
   $("header").removeClass("blur");
+  $("footer").removeClass("blur");
   $("main").removeClass("blur");
 }
 

@@ -15,7 +15,7 @@
       </div>
       <input type="file" name="file" id="newInput" hidden>
       <div class="btn-cadastro d-flex justify-content-end">
-        <button type="submit" class="btn-cadastrar">Editar</button>
+        <button type="submit" class="btn-default btn-cadastrar">Editar</button>
       </div>
     </div>
   </form>

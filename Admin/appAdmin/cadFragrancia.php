@@ -42,7 +42,7 @@ if(isset($_GET["busca__frag"])){
       </div>
       <textarea type="text" id="desc__Frag" class="desc_frag" name="desc__frag" placeholder="Adicione uma descrição"></textarea>
       <div class="btn-cadastro d-flex justify-content-end">
-        <button type="button" class="btn-cadastrar">Cadastrar</button>
+        <button type="button" class="btn-default btn-cadastrar">Cadastrar</button>
       </div>
     </div>
   </form>

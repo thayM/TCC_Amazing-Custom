@@ -117,7 +117,8 @@ foreach($listPeds as $pedidos){
           }
         ?>
         <div class="btn-cadastro d-flex justify-content-end p-0 w-100">
-          <button onclick="enviarFormulario(<?=$id?>)" type="button" class="btn-cadastrar">ATUALIZAR</button>
+          <button class="btn_modal cancelar">CANCELAR</button>
+          <button onclick="enviarFormulario(<?=$id?>)" type="button" class="btn-default btn-cadastrar">ATUALIZAR</button>
         </div>
       </div>
     </form>

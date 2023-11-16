@@ -89,6 +89,6 @@ if(isset($GET["busca_cliente"])){
         }
         ?>
     </div>
-</body>
     <script src="../assets/js/style.js"></script>
     <script src="../assets/js/excluirCliente.js"></script>
+</body>

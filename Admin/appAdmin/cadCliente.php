@@ -39,7 +39,7 @@
         </div>
       </div>
       <div class="btn-cadastro d-flex justify-content-end p-0 w-100">
-        <button type="submit" class="btn-cadastrar">CADASTRAR</button>
+        <button type="submit" class="btn-default btn-cadastrar">CADASTRAR</button>
       </div>
     </form>
   </div>
