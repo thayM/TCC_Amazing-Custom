@@ -50,7 +50,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* INPUTS PADRÃO */
-
 option{
   font-family: "Mukta", sans-serif;
 }
@@ -86,6 +85,11 @@ select {
   background-repeat: no-repeat;
 }
 
+.error{
+  font-size: 1rem;
+  font-family: 'Mukta', sans-serif;
+  color: rgb(255, 50, 50);
+}
 /* BACKGROUND MODAIS */
 .blur{
   filter: blur(4px);
