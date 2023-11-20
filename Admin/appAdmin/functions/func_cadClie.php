@@ -11,15 +11,15 @@ foreach($_POST as $indice => $valor){
   }
 }
 
-if(!$errors['email'] && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-  $erro = "E-mail deve ser no formato nome@domínio";
+if(!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  $errors['email'] = "E-mail deve ser no formato nome@domínio";
 }
 
-if(!$errors['cep'] && strlen($cep) < 9) {
+if(!empty($cep) && strlen($cep) < 9) {
   $errors['cep'] = "O cep deve ter 8 caracteres.*";
 }
 
-if(!$errors['telefone'] && strlen($telefone) < 14) {
+if(!empty($telefone) && strlen($telefone) < 14) {
   $errors['telefone'] = "O telefone deve ter 11 caracteres.*";
 }
 
@@ -27,12 +27,12 @@ if(!empty($telefone_opcional) && strlen($telefone_opcional) < 14) {
   $errors['telefone_opcional'] = "O telefone deve ter 11 caracteres.*";
 }
 
-if(!$errors['uf'] && strlen($uf) != 2 || is_numeric($uf)) {
+if(!empty($uf) && strlen($uf) != 2 || is_numeric($uf)) {
   $errors['uf'] = "UF inválida*";
 }
 
 if(count($errors) == 0) {
-$tel = $telefone."/".$telefone2;
+$tel = $telefone."/".$telefone_opcional;
 
 $sqlInsert='INSERT INTO endereco VALUES(0,:cep,:logradouro,:num,:cidade,:bairro,:uf,:complemento)';
 $stmt = $conn->prepare($sqlInsert);
