@@ -1,35 +1,10 @@
 <?php
 require '../../../lib/conn.php';
 extract($_POST);
+require './validacao/validate_cliente.php';
+
 session_start();
 $_SESSION['valores'] = $_POST;
-
-$errors = [];
-foreach($_POST as $indice => $valor){
-  if(empty($valor) && $indice != 'telefone_opcional' && $indice != 'complemento'){
-    $errors[$indice] = "O campo $indice é obrigatório*";
-  }
-}
-
-if(!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-  $errors['email'] = "E-mail deve ser no formato nome@domínio";
-}
-
-if(!empty($cep) && strlen($cep) < 9) {
-  $errors['cep'] = "O cep deve ter 8 caracteres.*";
-}
-
-if(!empty($telefone) && strlen($telefone) < 14) {
-  $errors['telefone'] = "O telefone deve ter 11 caracteres.*";
-}
-
-if(!empty($telefone_opcional) && strlen($telefone_opcional) < 14) {
-  $errors['telefone_opcional'] = "O telefone deve ter 11 caracteres.*";
-}
-
-if(!empty($uf) && strlen($uf) != 2 || is_numeric($uf)) {
-  $errors['uf'] = "UF inválida*";
-}
 
 if(count($errors) == 0) {
 $tel = $telefone."/".$telefone_opcional;
