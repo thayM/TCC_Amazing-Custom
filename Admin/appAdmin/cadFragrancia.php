@@ -4,6 +4,13 @@ include_once('../components/modalExclusao.php');
 include_once('../components/modalEdicaoFrag.php');
 require "../../lib/conn.php";
 
+session_start();
+$errors = $_SESSION['errors'] ?? null;
+unset($_SESSION['errors']);
+
+$valores = $_SESSION['valores'] ?? null;
+unset($_SESSION['valores']);
+
 if(isset($_GET["busca__frag"])){
   $busca = trim(strip_tags($_GET["busca__frag"]));
   if($busca==""){
@@ -38,9 +45,11 @@ if(isset($_GET["busca__frag"])){
         <label for="nomeFrag">Nome</label>
         <div>
           <input type="text" id="nome__Frag" name="nome__frag" placeholder="Nome da fragrância">
+          <span class="error"><?= (isset($errors['nome__frag'])) ? $errors["nome__frag"] : null ?></span>
         </div>
       </div>
       <textarea type="text" id="desc__Frag" class="desc_frag" name="desc__frag" placeholder="Adicione uma descrição"></textarea>
+      <span class="error"><?= (isset($errors['desc__frag'])) ? $errors["desc__frag"] : null ?></span>
       <div class="btn-cadastro d-flex justify-content-end">
         <button type="button" class="btn-default btn-cadastrar">Cadastrar</button>
       </div>

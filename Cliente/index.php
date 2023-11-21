@@ -1,3 +1,15 @@
+<?php
+// include_once('../../Admin/components/header.php');
+session_start();
+$errors = $_SESSION['errors'] ?? null;
+unset($_SESSION['errors']);
+
+$valores = $_SESSION['valores'] ?? null;
+unset($_SESSION['valores']);
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -33,10 +45,11 @@
             <h2 class="titulo">Bem-vindo(a) ao rastreamento!</h2>
             <form action="functions/func_rastreio.php" method="post">
             <div class="search"> 
-                <input type="text" name="codClie" id="barraBusca" placeholder="Cole seu código aqui...">
+                <input type="text" name="codClie" id="barraBusca" placeholder="Cole seu código aqui..." value=<?= ($valores) ? $valores['codClie'] : null ?>>
                 <button class="btnCod"><img src="../assets/img/lupa.svg" alt=""></button>
             </div>
             </form>
+            <span style="margin-left: 20px;" class="error"><?= (isset($errors['codClie'])) ? $errors["codClie"] : null ?></span>
         </div>
     </div>
 </body>

@@ -1,11 +1,11 @@
 /* MODAL */
 .content_modal{
-  height: 350px;
+  min-height: 350px;
 }
 
 .desc_frag{
-  min-height: 45%;
-  max-height: 45%;
+  min-height: 140px;
+  max-height: 140px;
 }
 
 /* CARDS */

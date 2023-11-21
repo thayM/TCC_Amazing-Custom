@@ -1,23 +1,27 @@
 <?php
 require '../../../lib/conn.php';
-$erro = 0;
+extract($_POST);
+session_start();
+$_SESSION['valores'] = $_POST;
 
-foreach ($_POST as $index => $post) {
-    if(isset($post) && $post != ""){
-        $$index = trim(strip_tags($post));
-    }else{
-        $erro = 1;
-    }
+$errors = [];
+foreach($_POST as $indice => $valor){
+    $valores = strip_tags($valor);
+    if(empty($valor) || empty($valores)){
+    $errors[$indice] = "O campo $indice é obrigatório*";
+  }
 }
 
-if ($erro==1){
 
-}else{
+
+if(count($errors) == 0) {
     $sqlInsert='INSERT INTO fragrancia VALUES(0, :nome, :descricao)';
     $stmt = $conn->prepare($sqlInsert);
     $stmt->bindValue(":nome", $nome__frag);
     $stmt->bindValue(":descricao", $desc__frag);
     $stmt->execute();
+}else{
+    $_SESSION['errors'] = $errors; 
 }
 ?>
 <meta http-equiv="refresh" content="0; url=../cadFragrancia">
