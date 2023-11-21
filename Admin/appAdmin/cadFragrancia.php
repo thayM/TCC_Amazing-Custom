@@ -43,13 +43,13 @@ if(isset($_GET["busca__frag"])){
       <h3>Adicionar nova fragrância</h3>
       <div class="modal_input-nome d-flex">
         <label for="nomeFrag">Nome</label>
-        <div>
+        <div class="input__field d-flex flex-column">
           <input type="text" id="nome__Frag" name="nome__frag" placeholder="Nome da fragrância">
           <span class="error"><?= (isset($errors['nome__frag'])) ? $errors["nome__frag"] : null ?></span>
         </div>
       </div>
-      <textarea type="text" id="desc__Frag" class="desc_frag" name="desc__frag" placeholder="Adicione uma descrição"></textarea>
-      <span class="error"><?= (isset($errors['desc__frag'])) ? $errors["desc__frag"] : null ?></span>
+      <textarea type="text" id="desc__Frag" class="desc_frag" name="descricao__frag" placeholder="Adicione uma descrição"></textarea>
+      <span class="error"><?= (isset($errors['descricao__frag'])) ? $errors["descricao__frag"] : null ?></span>
       <div class="btn-cadastro d-flex justify-content-end">
         <button type="button" class="btn-default btn-cadastrar">Cadastrar</button>
       </div>
@@ -106,5 +106,11 @@ if(isset($_GET["busca__frag"])){
   </main>
   <script src="../assets/js/style.js"></script> 
   <script src="../assets/js/cadFragrancia.js"></script>
+  <script> 
+  if(<?=(isset($errors))?>){
+    abrirModal();
+    addStyle();
+  }
+  </script>
 </body>
 </html>

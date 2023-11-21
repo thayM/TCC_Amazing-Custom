@@ -11,19 +11,19 @@ const msgEdicao = document.querySelector(".msgEdicao");
 const formEdit = document.querySelector(".formEdit");
 
 $(".btn-cadastrar").on("click", () => {
-  if ($("#nome__Frag").val() == 0 || $("#nome__Frag").val() > 3 || $("#desc__Frag").val() == 0) {
-    $("#nome__Frag").css("border", "1px solid #E02D15")
-    let index = ($("#nome__Frag").val() == 0) ? 0 : 1;
-    $("#nome__Frag").parent().append(messagesError("nome", index));
-  } else {
-    $(".formCad").trigger("submit");
-  }
+  $(".formCad").trigger("submit");
+  // if ($("#nome__Frag").val() == 0 || $("#nome__Frag").val() > 3 || $("#desc__Frag").val() == 0) {
+  //   $("#nome__Frag").css("border", "1px solid #E02D15")
+  //   let index = ($("#nome__Frag").val() == 0) ? 0 : 1;
+  //   $("#nome__Frag").parent().append(messagesError("nome", index));
+  // } else {
+  // }
 });
 $(".btn-editar").on("click", () => {
-  if ($("newNnome__Frag").val() == 0 || $("#newDesc__Frag").val() == 0) {
-  } else {
-    $(".formEdit").trigger("submit");
-  }
+  $(".formEdit").trigger("submit");
+  // if ($("newNnome__Frag").val() == 0 || $("#newDesc__Frag").val() == 0) {
+  // } else {
+  // }
 }); 
 
 function excluirFrag(id) {
