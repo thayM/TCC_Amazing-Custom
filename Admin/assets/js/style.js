@@ -39,6 +39,9 @@ function removeStyle() {
   $("header").removeClass("blur");
   $("footer").removeClass("blur");
   $("main").removeClass("blur");
+  $(".error").each(function(){
+    $(this).text("");
+  })
 }
 
 // CARD MODELO -- imagem modelo

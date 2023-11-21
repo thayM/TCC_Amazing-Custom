@@ -1,24 +1,24 @@
 <?php
 require "../../../../lib/conn.php";
-$erro = 0;
+require '../validacao/validate_frag.php';
 
-foreach ($_POST as $index => $post) {
-    if(isset($post) && $post != ""){
-        $$index = trim(strip_tags($post));
-    }else{
-        $erro = 1;
-    }
-}
+session_start();
+extract($_POST);
 $id = $_GET['id'];
-if ($erro==1){
 
-}else{
+if(count($errors) == 0) {
     $sqlInsert='UPDATE fragrancia SET nome_frag= :nome, desc_frag= :descricao WHERE cod_frag = :id';
     $stmt = $conn->prepare($sqlInsert);
     $stmt->bindValue(":nome", $newNome__frag);
     $stmt->bindValue(":descricao", $newDesc__frag);
     $stmt->bindValue(":id", $id);
     $stmt->execute();
+}else{
+    $_SESSION['errors'] = $errors; 
+    $_SESSION['idFrag'] = $id;
+    $_SESSION['nomeFrag'] = $newNome__frag;
+    $_SESSION['descFrag'] = $newDesc__frag;
 }
+header('Location: ../../cadFragrancia.php');
 ?>
-<meta http-equiv="refresh" content="0; url=../../cadFragrancia">    
+<!-- <meta http-equiv="refresh" content="0; url=../../cadFragrancia">     -->

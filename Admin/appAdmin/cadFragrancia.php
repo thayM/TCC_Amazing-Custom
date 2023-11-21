@@ -1,12 +1,22 @@
 <?php
 include_once('../components/header.php');
 include_once('../components/modalExclusao.php');
-include_once('../components/modalEdicaoFrag.php');
 require "../../lib/conn.php";
-
 session_start();
 $errors = $_SESSION['errors'] ?? null;
+// var_dump($errors);
+
 unset($_SESSION['errors']);
+include_once('../components/modalEdicaoFrag.php');
+
+$id = $_SESSION['idFrag'] ?? "--";
+unset($_SESSION['idFrag']);
+
+$nome = $_SESSION['nomeFrag'] ?? null;
+unset($_SESSION['nomeFrag']);
+
+$desc = $_SESSION['descFrag'] ?? null;
+unset($_SESSION['descFrag']);
 
 $valores = $_SESSION['valores'] ?? null;
 unset($_SESSION['valores']);
@@ -106,8 +116,10 @@ if(isset($_GET["busca__frag"])){
   </main>
   <script src="../assets/js/style.js"></script> 
   <script src="../assets/js/cadFragrancia.js"></script>
-  <script> 
-  if(<?=(isset($errors))?>){
+  <script>
+    if("<?=$id?>" != "--"){
+      abrirModalEditar('<?=$id?>', "<?=$nome?>", "<?=$desc?>")
+    }else if(<?=(isset($errors))?>){
     abrirModal();
     addStyle();
   }

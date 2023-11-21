@@ -18,7 +18,9 @@ $(".btn-cadastrar").on("click", () => {
   //   $("#nome__Frag").parent().append(messagesError("nome", index));
   // } else {
   // }
+  
 });
+
 $(".btn-editar").on("click", () => {
   $(".formEdit").trigger("submit");
   // if ($("newNnome__Frag").val() == 0 || $("#newDesc__Frag").val() == 0) {
