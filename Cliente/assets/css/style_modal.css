@@ -26,6 +26,10 @@
     text-shadow: 4px 2px 1px #9C2400;
 }
 
+.input__field{
+    width: 560px;
+}
+
 .search{
     display: flex;
     justify-content: center;

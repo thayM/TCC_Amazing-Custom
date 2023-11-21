@@ -3,9 +3,6 @@
 session_start();
 $errors = $_SESSION['errors'] ?? null;
 unset($_SESSION['errors']);
-
-$valores = $_SESSION['valores'] ?? null;
-unset($_SESSION['valores']);
 ?>
 
 
@@ -41,15 +38,17 @@ unset($_SESSION['valores']);
         <div class="ladoEsq">
         <img src="assets/img/3df6ea7a81f431aebf154df61490823c.png" class="img" alt="ilustração">
         </div>
-        <div class="ladoDir">
+        <div class="ladoDir d-flex flex-column align-items-center">
             <h2 class="titulo">Bem-vindo(a) ao rastreamento!</h2>
             <form action="functions/func_rastreio.php" method="post">
-            <div class="search"> 
-                <input type="text" name="codClie" id="barraBusca" placeholder="Cole seu código aqui..." value=<?= ($valores) ? $valores['codClie'] : null ?>>
-                <button class="btnCod"><img src="../assets/img/lupa.svg" alt=""></button>
+            <div class="input__field d-flex flex-column">
+                <div class="search"> 
+                    <input type="text" name="codigo__Clie" id="barraBusca" placeholder="Cole seu código aqui...">
+                    <button class="btnCod"><img src="../assets/img/lupa.svg" alt=""></button>
+                </div>
+                <span class="error"><?= (isset($errors['codigo__Clie'])) ? $errors["codigo__Clie"] : null ?></span>
             </div>
             </form>
-            <span style="margin-left: 20px;" class="error"><?= (isset($errors['codClie'])) ? $errors["codClie"] : null ?></span>
         </div>
     </div>
 </body>
