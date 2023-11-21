@@ -15,7 +15,7 @@ if($verificarCliente->rowCount() === 1){
     $_SESSION['loggIn'] = true;
     header("Location: ../appCliente/rastreio.php?id=$idCliente");
   }else{
-    $errors['codigo__Clie'] = "código não existe";
+    $errors['codigo__Clie'] = "Código inválido*";
     foreach($_POST as $indice => $valor){
       if(empty($valor) || empty(strip_tags($valor))){
         $errors[$indice] = "O campo ".str_replace('__Clie', '', $indice)." é obrigatório*";
