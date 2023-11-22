@@ -1,11 +1,9 @@
 <?php
-
 require '../../../../lib/conn.php';
 extract($_POST);
 
 $produtos = json_decode($_GET["produtos"]);
 $id_pedido = $produtos[0][3];
-var_dump($produtos);
 
 $tamanhoArray= count($produtos);
 $sqlSelect = "SELECT cod_cli FROM cliente WHERE nome = :nome";
@@ -31,7 +29,6 @@ $stmtProdutoID = $conn->prepare($sqlProdutoID);
 $stmtProdutoID->bindValue(":pedido_id", $id_pedido);
 $stmtProdutoID->execute();
 $produto_ids = $stmtProdutoID->fetchAll(PDO::FETCH_OBJ);
-var_dump($produto_ids);
 $posicao = 0;
 
 $sqlLinhas = "SELECT * FROM pedido_produto WHERE fkcod_ped = :id";
@@ -39,8 +36,6 @@ $stmtLinhas = $conn->prepare($sqlLinhas);
 $stmtLinhas->bindValue(":id", $id_pedido);
 $stmtLinhas->execute();
 $qtdLinhas = $stmtLinhas->fetchAll(PDO::FETCH_OBJ);
-
-var_dump($qtdLinhas);
 
 while ($posicao <= count($qtdLinhas)-1) {
     $sqlModelo = "SELECT cod_modelo FROM modelo WHERE nome_modelo = :modelo";
@@ -72,8 +67,6 @@ while ($posicao <= count($qtdLinhas)-1) {
     $codProd = $produto->fetch(PDO::FETCH_OBJ);
     $codProd = $codProd->cod_prod;
 
-    echo $codProd." ";
-
     $sqlUpdateQuantidade = "UPDATE pedido_produto SET qtd_prod = :quantidade, fkcod_prod = :produto_id where fkcod_ped = :cod_pedido AND fkcod_prod = :cod_prod";
     $stmtUpdateQuantidade = $conn->prepare($sqlUpdateQuantidade);
     $stmtUpdateQuantidade->bindValue(":quantidade",$produtos[$posicao][2]);
@@ -83,13 +76,9 @@ while ($posicao <= count($qtdLinhas)-1) {
     $stmtUpdateQuantidade->execute();
     $posicao++;
 }
-    
-$a = $posicao;
-echo $a."<br>";
-echo "tamanho:".$tamanhoArray."<br>";
-while ($a <= $tamanhoArray-1) {
-        echo $a."<br>";
 
+$a = $posicao;
+while ($a <= $tamanhoArray-1) {
         $sqlModelo = "SELECT cod_modelo FROM modelo WHERE nome_modelo = :modelo";
         $stmtModelo = $conn->prepare($sqlModelo);
         $stmtModelo->bindValue(":modelo", $produtos[$a][0]);
@@ -103,7 +92,7 @@ while ($a <= $tamanhoArray-1) {
         $stmtFragrancia->execute();
         $codFragrancia = $stmtFragrancia->fetch(PDO::FETCH_OBJ);
         $codFragrancia = $codFragrancia->cod_frag;
-        echo "b";
+
         $sqlSelect = "SELECT * FROM produto WHERE fkcod_frag = :codFrag AND fkcod_modelo = :codModelo";
         $produto = $conn->prepare($sqlSelect);
         $produto->bindValue(":codModelo",$codModelo);
@@ -119,7 +108,7 @@ while ($a <= $tamanhoArray-1) {
         }
         $codProd = $produto->fetch(PDO::FETCH_OBJ);
         $codProd = $codProd->cod_prod;
-    
+
         $sqlSelect = "SELECT * FROM modelo WHERE cod_modelo = :cod_modelo";
         $modelo = $conn->prepare($sqlSelect);
         $modelo->bindValue(":cod_modelo", $codModelo);
@@ -136,7 +125,5 @@ while ($a <= $tamanhoArray-1) {
         $stmt->execute();
         $a++;
 }
-
 ?>
-
 <meta http-equiv="refresh" content="0; url=../../home.php">
