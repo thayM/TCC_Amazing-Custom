@@ -46,6 +46,10 @@
   height: 50px;
 }
 
+label{
+  margin-right: 10px;
+}
+
 /* INPUT PESQUISAR */
 .header_pesquisa{
   margin: 50px 0;

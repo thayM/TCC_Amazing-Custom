@@ -3,11 +3,11 @@
   height: 400px;
 }
 
-#nome__Modelo{
+.input__field-nome{
   margin-right: 20px;
   width: 45%;
 }
-#valor__Modelo{
+.input__field-valor{
   width: 25%;
 }
 
