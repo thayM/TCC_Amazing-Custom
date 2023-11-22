@@ -1,7 +1,6 @@
 <?php
 include_once('../components/header.php');
 include_once('../components/modalExclusao.php');
-include_once('../components/modalEdicaoFrag.php');
 require "../../lib/conn.php";
 session_start();
 $errors = $_SESSION['errors'] ?? null;
@@ -63,7 +62,7 @@ if(isset($_GET["busca__frag"])){
           <span class="error"><?= (isset($errors['nome__frag'])) ? $errors["nome__frag"] : null ?></span>
         </div>
       </div>
-      <textarea type="text" id="desc__Frag" class="desc_frag" name="descricao__frag" placeholder="Adicione uma descrição" value=""><?= ($valores) ? $valores['descricao__frag'] : null ?> </textarea>
+      <textarea type="text" id="desc__Frag" class="desc_frag" name="descricao__frag" placeholder="Adicione uma descrição" value=""></textarea>
       <span class="error"><?= (isset($errors['descricao__frag'])) ? $errors["descricao__frag"] : null ?></span>
       <div class="btn-cadastro d-flex justify-content-end">
         <button type="button" class="btn-default btn-cadastrar">Cadastrar</button>
