@@ -55,21 +55,25 @@ if(isset($_GET["busca__modelo"])){
     <div class="content_modal d-flex justify-content-between flex-column">
       <img onclick="removeStyle()" src="../assets/icons/x.svg" alt="fechar" class="fechar fecharCad">
       <h3>Adicionar novo modelo</h3>
-      <div class="modal_input-nome ">
+      <div class="modal_input-nome d-flex">
         <label for="modNome">Nome</label>
-        <input type="text" id="nome__Modelo" name="nome__Modelo" placeholder="Nome do modelo" value="<?=isset($nomeModelo)? $nomeModelo: null ?>">
-        <span class="error"><?= (isset($errors['nome__Modelo'])) ? $errors["nome__Modelo"] : null ?></span>
+        <div class="input__field-nome d-flex flex-column">
+          <input type="text" id="nome__Modelo" name="nome__Modelo" placeholder="Nome do modelo" value="<?=isset($nomeModelo)? $nomeModelo: null ?>">
+          <span class="error"><?= (isset($errors['nome__Modelo'])) ? $errors["nome__Modelo"] : null ?></span>
+        </div>
         
         <label for="valor">Valor</label>
-        <input type="text" id="valor__Modelo" name="valor__Modelo" class="preco" value="<?=isset($valorModelo)? $valorModelo: null?>">
-        <span class="error"><?= (isset($errors['valor__Modelo'])) ? $errors["valor__Modelo"] : null ?></span>
+        <div class="input__field-valor d-flex flex-column">
+          <input type="text" id="valor__Modelo" name="valor__Modelo" class="preco" value="<?=isset($valorModelo)? $valorModelo: null?>">
+          <span class="error"><?= (isset($errors['valor__Modelo'])) ? $errors["valor__Modelo"] : null ?></span>
+        </div>
       </div>
 
       <div class="upload-area" onclick="procurarArq()">
-          <div class="upload-area_border d-flex justify-content-center align-items-center">
-          <p id="upload-txt">Arraste a imagem aqui</p>
+        <div class="upload-area_border d-flex justify-content-center align-items-center">
+        <p id="upload-txt">Arraste a imagem aqui</p>
       </div>
-        <span class="error"><?= (isset($errors['file'])) ? $errors["file"] : null ?></span>
+      <span class="error"><?= (isset($errors['file'])) ? $errors["file"] : null ?></span>
       </div>
       <input type="file" name="file" id="input" hidden>
       <div class="btn-cadastro d-flex justify-content-end">
