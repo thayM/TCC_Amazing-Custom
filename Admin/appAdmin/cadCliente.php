@@ -1,6 +1,11 @@
 <?php
 include_once('../components/header.php');
 session_start();
+
+if (!isset($_SESSION['loggIn'])) {
+  header("Location: ../index.php");
+}
+
 $errors = $_SESSION['errors'] ?? null;
 unset($_SESSION['errors']);
 

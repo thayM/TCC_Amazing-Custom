@@ -1,10 +1,13 @@
 <?php
 require '../../../../lib/conn.php';
+require '../validacao/validate_modelo.php';
 extract($_POST);
 
 $remodelagemNewValorModelo = str_replace('.', '', $newValor__Modelo);
 $newValorModeloNum = (float)(str_replace(',', '.', $remodelagemNewValorModelo ));
 $id = $_GET['id'];
+if (count($errors) == 0) {
+    # code...
 
 if($_FILES['file']['name'] != ""){
     $sqlSelect = "SELECT nomeArq_modelo FROM modelo WHERE cod_modelo = :id";
@@ -41,7 +44,13 @@ if($_FILES['file']['name'] != ""){
     $stmt->bindValue(":id", $id);
     $stmt->execute();
 }
-
-
+}else{
+    $_SESSION['errors'] = $errors;
+    $_SESSION['nome'] = $nome__Modelo;
+    $_SESSION['valor'] = $valor__Modelo;
+    $_SESSION['file'] = $filename;
+    $_SESSION['id'] = $id;
+    
+}
+header('Location: ../../cadModelo.php');
 ?>
-<meta http-equiv="refresh" content="0; url=../../cadModelo">

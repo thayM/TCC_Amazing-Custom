@@ -12,7 +12,6 @@ $verificarUsuario-> execute();
 if ($verificarUsuario->rowCount() === 1) {
     $usuario = $verificarUsuario->fetch(PDO::FETCH_OBJ);
     session_start();
-    $_SESSION['nome'] = $usuario->nome;
     $_SESSION['loggIn'] = true;
     header('Location: ../appAdmin/home.php');
 }else{

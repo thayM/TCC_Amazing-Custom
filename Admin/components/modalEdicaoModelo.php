@@ -5,14 +5,19 @@
       <h3 id="msg__edicao"></h3>
       <div class="modal_input-nome">
         <label for="newNome__Modelo">Nome</label>
-        <input type="text" id="nome__Modelo" name="newNome__Modelo" placeholder="Nome do modelo">
+        <input type="text" id="nome__Modelo" name="newNome__Modelo" placeholder="Nome do modelo" value="<?=isset($nomeModelo)? $nomeModelo: null ?>">
+        <span class="error"><?= (isset($errors['nome__Modelo'])) ? $errors["nome__Modelo"] : null ?></span>
+        
         <label for="newValor__Modelo">Valor</label>
-        <input type="text" id="valor__Modelo" name="newValor__Modelo" class="preco">
+        <input type="text" id="valor__Modelo" name="newValor__Modelo" class="preco" value="<?=isset($valorModelo)? $valorModelo: null?>">
+        <span class="error"><?= (isset($errors['valor__Modelo'])) ? $errors["valor__Modelo"] : null ?></span>
+      
       </div>
 
       <div class="new-upload-area" onclick="newProcurarArq()">
         <div class="upload-area_border d-flex justify-content-center align-items-center"></div>
       </div>
+      <span class="error"><?= (isset($errors['file'])) ? $errors["file"] : null ?></span>
       <input type="file" name="file" id="newInput" hidden>
       <div class="btn-cadastro d-flex justify-content-end">
         <button type="submit" class="btn-default btn-cadastrar">Editar</button>

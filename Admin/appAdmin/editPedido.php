@@ -2,6 +2,10 @@
 include_once('../components/header.php');
 
 require '../../lib/conn.php';
+session_start();
+if (!isset($_SESSION['loggIn'])) {
+  header("Location: ../index.php");
+}
 
 $sqlClientes = $conn->query("SELECT * FROM CLIENTE");
 $clientes = $sqlClientes->fetchAll(PDO::FETCH_OBJ);

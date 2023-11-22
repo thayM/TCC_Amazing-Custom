@@ -1,22 +1,17 @@
 <?php
 require '../../../lib/conn.php';
+extract($_POST);
+require 'validacao/validate_modelo.php';
 
-if(isset($_FILES['file'])){
-    
-    $arr_file_types = ['image/png','image/jpg', 'image/jpeg'];
-    // if (!(in_array($_FILES['file']['type'], $arr_file_types))) {
-    //     echo "false";
-    //     return;
-    // }
+session_start();
+if(count($errors) == 0) {
     if (!file_exists('../../../upload')) {
         mkdir('../../../upload', 0777);
     }
-    
     $filename = time().'_'.$_FILES['file']['name'];
     
     if(move_uploaded_file($_FILES['file']['tmp_name'], '../../../upload/'.$filename)){
-    
-    extract($_POST);
+
     $remodelagemValorModelo = str_replace('.', '', $valor__Modelo);
     $valorModeloNum = (float)(str_replace(',', '.', $remodelagemValorModelo));
     $sqlInsert='INSERT INTO MODELO VALUES(0, :nome, :valor, :nomeArq)';
@@ -26,7 +21,11 @@ if(isset($_FILES['file'])){
     $stmt->bindValue(":nomeArq", $filename);
     $stmt->execute();
     };
+}else{
+    $_SESSION['errors'] = $errors;
+    $_SESSION['nome'] = $nome__Modelo;
+    $_SESSION['valor'] = $valor__Modelo;
 }
 
+header('Location: ../cadModelo.php');
 ?>
-<meta http-equiv="refresh" content="0; url=../cadModelo">

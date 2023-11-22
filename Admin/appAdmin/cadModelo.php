@@ -1,8 +1,29 @@
 <?php
+session_start();
 include_once('../components/header.php');
 include_once('../components/modalEdicaoModelo.php');
 include_once('../components/modalExclusao.php');
 require '../../lib/conn.php';
+
+$errors = $_SESSION['errors'] ?? null;
+unset($_SESSION['errors']);
+
+
+$valorModelo = $_SESSION['valor'] ?? null;
+unset($_SESSION['valor']);
+
+$nomeModelo = $_SESSION['nome'] ?? null;
+unset($_SESSION['nome']);
+
+$file = $_SESSION['file'] ?? null;
+unset($_SESSION['file']);
+
+$id= $_SESSION['id'] ?? "--";
+unset($_SESSION['id']);
+
+if (!isset($_SESSION['loggIn'])) {
+  header("Location: ../index.php");
+}
 
 if(isset($_GET["busca__modelo"])){
   $busca = trim(strip_tags($_GET["busca__modelo"]));
@@ -35,16 +56,19 @@ if(isset($_GET["busca__modelo"])){
       <h3>Adicionar novo modelo</h3>
       <div class="modal_input-nome ">
         <label for="modNome">Nome</label>
-        <input type="text" id="nome__Modelo" name="nome__Modelo" placeholder="Nome do modelo">
-
+        <input type="text" id="nome__Modelo" name="nome__Modelo" placeholder="Nome do modelo" value="<?=isset($nomeModelo)? $nomeModelo: null ?>">
+        <span class="error"><?= (isset($errors['nome__Modelo'])) ? $errors["nome__Modelo"] : null ?></span>
+        
         <label for="valor">Valor</label>
-        <input type="text" id="valor__Modelo" name="valor__Modelo" class="preco">
+        <input type="text" id="valor__Modelo" name="valor__Modelo" class="preco" value="<?=isset($valorModelo)? $valorModelo: null?>">
+        <span class="error"><?= (isset($errors['valor__Modelo'])) ? $errors["valor__Modelo"] : null ?></span>
       </div>
 
       <div class="upload-area" onclick="procurarArq()">
-        <div class="upload-area_border d-flex justify-content-center align-items-center">
-          <p id="upload-txt">Arraste e solte a imagem aqui</p>
-        </div>
+          <div class="upload-area_border d-flex justify-content-center align-items-center">
+          <p id="upload-txt">Arraste a imagem aqui</p>
+      </div>
+        <span class="error"><?= (isset($errors['file'])) ? $errors["file"] : null ?></span>
       </div>
       <input type="file" name="file" id="input" hidden>
       <div class="btn-cadastro d-flex justify-content-end">
@@ -98,6 +122,25 @@ if(isset($_GET["busca__modelo"])){
         ?>
     </div> 
   </main>
+
   <script src="../assets/js/style.js"></script>
   <script src="../assets/js/cadModelo.js"></script>
+  <?php
+  if (isset($errors)) {
+    ?>
+    <script>
+      abrirModal();
+      addStyle();
+    </script>
+    <?php
+  }
+
+  if (isset($errors) && $id != "--" ) {
+    ?>
+    <script>
+      abrirModalEditar(<?=$id?>, '<?=$nomeModelo?>', <?=$valorModelo?>,'<?=$file?>');
+    </script>
+    <?php
+  }
+  ?>
 </body>

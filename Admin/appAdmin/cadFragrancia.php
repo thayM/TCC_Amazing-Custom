@@ -21,6 +21,10 @@ unset($_SESSION['descFrag']);
 $valores = $_SESSION['valores'] ?? null;
 unset($_SESSION['valores']);
 
+if (!isset($_SESSION['loggIn'])) {
+  header("Location: ../index.php");
+}
+
 if(isset($_GET["busca__frag"])){
   $busca = trim(strip_tags($_GET["busca__frag"]));
   if($busca==""){

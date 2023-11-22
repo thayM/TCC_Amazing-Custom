@@ -2,6 +2,10 @@
 include_once('../components/header.php');
 include_once('../components/modalExclusao.php');
 require "../../lib/conn.php";
+session_start();
+if (!isset($_SESSION['loggIn'])) {
+  header("Location: ../index.php");
+}
 
 if(isset($GET["busca_cliente"])){
     $busca = trim(strip_tags($GET["busca_cliente"]));
