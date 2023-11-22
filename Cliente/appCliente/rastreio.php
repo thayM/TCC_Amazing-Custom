@@ -49,8 +49,8 @@ $subtotal = 0;
     include('../../Admin/components/modalPedido.php');
     ?>
 
-<h1 class="msg">Bem-vindo(a) <?= $nome ?></h1>
     <main>
+        <h1 class="msg">Bem-vindo(a) <?= $nome ?></h1>
         <?php
         foreach ($listPeds as $pedido) {
             if ((int)$pedido->estado_pedido == 1) {
