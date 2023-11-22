@@ -1,14 +1,14 @@
 <?php
 session_start();
 include_once('../components/header.php');
-include_once('../components/modalEdicaoModelo.php');
+
 include_once('../components/modalExclusao.php');
 require '../../lib/conn.php';
 
 $errors = $_SESSION['errors'] ?? null;
 unset($_SESSION['errors']);
 
-
+include_once('../components/modalEdicaoModelo.php');
 $valorModelo = $_SESSION['valor'] ?? null;
 unset($_SESSION['valor']);
 
@@ -41,6 +41,7 @@ if(isset($_GET["busca__modelo"])){
   $listMods = $stmt->fetchAll(PDO::FETCH_OBJ);
   $busca = "";
 }
+
 ?>
 
 <head>
@@ -125,22 +126,23 @@ if(isset($_GET["busca__modelo"])){
 
   <script src="../assets/js/style.js"></script>
   <script src="../assets/js/cadModelo.js"></script>
+  
   <?php
-  if (isset($errors)) {
+  
+  if ($id != "--") {
     ?>
     <script>
-      abrirModal();
-      addStyle();
+    abrirModalEditar(<?=$id?>, '<?=$nomeModelo?>', '<?=$valorModelo?>','<?=$file?>');
     </script>
     <?php
-  }
-
-  if (isset($errors) && $id != "--" ) {
+  }else if (isset($errors)) {
     ?>
     <script>
-      abrirModalEditar(<?=$id?>, '<?=$nomeModelo?>', <?=$valorModelo?>,'<?=$file?>');
+    abrirModal();
+    addStyle();
     </script>
     <?php
   }
   ?>
+
 </body>

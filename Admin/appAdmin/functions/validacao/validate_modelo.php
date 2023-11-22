@@ -10,5 +10,5 @@ if(empty(strip_tags($nome__Modelo)) || empty($nome__Modelo)){
 if(empty(strip_tags($valor__Modelo)) || empty($valor__Modelo)){
     $errors["valor__Modelo"] = "O campo valor é obrigatório*";
 }
-header('Location: ../../cadModelo.php');
+
 ?>

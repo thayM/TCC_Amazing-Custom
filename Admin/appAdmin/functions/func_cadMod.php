@@ -25,6 +25,7 @@ if(count($errors) == 0) {
     $_SESSION['errors'] = $errors;
     $_SESSION['nome'] = $nome__Modelo;
     $_SESSION['valor'] = $valor__Modelo;
+
 }
 
 header('Location: ../cadModelo.php');

@@ -1,15 +1,19 @@
 <?php
 require '../../../../lib/conn.php';
-require '../validacao/validate_modelo.php';
-extract($_POST);
 
+extract($_POST);
+session_start();
 $remodelagemNewValorModelo = str_replace('.', '', $newValor__Modelo);
 $newValorModeloNum = (float)(str_replace(',', '.', $remodelagemNewValorModelo ));
 $id = $_GET['id'];
-if (count($errors) == 0) {
-    # code...
 
-if($_FILES['file']['name'] != ""){
+require '../validacao/validate_newModelo.php';
+
+echo count($errors);
+if (count($errors) == 0) {
+    
+
+if($_FILES['file']['error'] == 0){
     $sqlSelect = "SELECT nomeArq_modelo FROM modelo WHERE cod_modelo = :id";
     $stmt = $conn->prepare($sqlSelect);
     $stmt->bindValue(":id", $id);
@@ -45,12 +49,19 @@ if($_FILES['file']['name'] != ""){
     $stmt->execute();
 }
 }else{
+    $sqlSelect = "SELECT nomeArq_modelo FROM modelo WHERE cod_modelo = :id";
+    $stmt = $conn->prepare($sqlSelect);
+    $stmt->bindValue(":id", $id);
+    $stmt->execute();
+    $nomeArq = $stmt->fetch(PDO::FETCH_OBJ);
+    $nomeArq = $nomeArq->nomeArq_modelo;
     $_SESSION['errors'] = $errors;
-    $_SESSION['nome'] = $nome__Modelo;
-    $_SESSION['valor'] = $valor__Modelo;
-    $_SESSION['file'] = $filename;
+    $_SESSION['nome'] = $newNome__Modelo ?? null;
+    $_SESSION['valor'] = $newValor__Modelo ?? null;
+    $_SESSION['file'] = $nomeArq;
     $_SESSION['id'] = $id;
     
 }
+var_dump($_SESSION);
 header('Location: ../../cadModelo.php');
 ?>
