@@ -2,13 +2,9 @@
 include_once('../components/header.php');
 include_once('../components/modalExclusao.php');
 require "../../lib/conn.php";
-session_start();
-if (!isset($_SESSION['loggIn'])) {
-  header("Location: ../index.php");
-}
 
-if(isset($GET["busca_cliente"])){
-    $busca = trim(strip_tags($GET["busca_cliente"]));
+if(isset($_GET["busca__cliente"])){
+    $busca = trim(strip_tags($_GET["busca__cliente"]));
     if($busca==""){
       ?>
       <meta http-equiv="refresh" content="0; url=listagemCli">
@@ -17,11 +13,12 @@ if(isset($GET["busca_cliente"])){
     $sqlSelect = "SELECT * FROM Cliente INNER JOIN Endereco on fkcod_endereco = cod_endereco WHERE nome LIKE '%".$busca."%' ORDER BY cod_cli DESC";
     $stmt = $conn->query($sqlSelect);
     $clientes = $stmt->fetchAll(PDO::FETCH_OBJ);
-    }else{
+    $busca = "";
+}else{
     $sqlSelect = "SELECT * FROM Cliente INNER JOIN Endereco on fkcod_endereco = cod_endereco ORDER BY cod_cli DESC";
     $stmt = $conn->query($sqlSelect);
     $clientes = $stmt->fetchAll(PDO::FETCH_OBJ);
-    $busca = "";
+    
 }
 
 ?>

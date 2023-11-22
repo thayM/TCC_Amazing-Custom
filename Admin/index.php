@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+$errors = $_SESSION['errorLogin'] ?? null;
+var_dump($errors);
+unset($_SESSION['errors']);
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -29,6 +36,8 @@
             <input type="password" name="senha" id="senha" placeholder="Senha">
           </div>
           <button class="btn-default btn-cadastrar" type="submit">ENTRAR</button>
+          <span class="error"><?= (isset($errors)) ? $errors : null ?></span>
+
         </form>
       </div>
     </div>
