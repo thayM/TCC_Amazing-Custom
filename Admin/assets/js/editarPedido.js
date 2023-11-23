@@ -32,6 +32,10 @@ function excluirProduto(i, id) {
   window.location.href = `functions/excluir/func_excluirProd.php?idProd=${id}&idPed=${idPedido}&valor=${document.getElementById("valor").value}`;
 }
 
+function btnVoltar(){
+  window.location.href = `home.php`;
+}
+
 function attValor() {
   let valor = []
   let qttd = []
