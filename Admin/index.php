@@ -1,8 +1,7 @@
 <?php
 session_start();
 
-$errors = $_SESSION['errorLogin'] ?? null;
-var_dump($errors);
+$errors = $_SESSION['errors'] ?? null;
 unset($_SESSION['errors']);
 ?>
 <!DOCTYPE html>

@@ -107,8 +107,8 @@ include_once('../components/modalPedido.php');
             ?>
           <div class="cardInfo">
             <div class="cardInfoInner d-flex justify-content-between align-items-center">
-              <div class="imgModelo d-flex align-items-center">
-              <img class="produto_img" src="../../upload/<?=$produto->nomeArq_modelo?>" alt="">
+              <div class="imgModelo d-flex align-items-center justify-content-center">
+                <img class="produto_img" src="../../upload/<?=$produto->nomeArq_modelo?>" alt="">
               </div>
               <p class="card-text"><?=$produto->nome_modelo?></p>
             </div>
