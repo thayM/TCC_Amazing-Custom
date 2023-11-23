@@ -1,14 +1,9 @@
 <?php
-session_start();
 include_once('../components/header.php');
 include_once('../../lib/conn.php');
 include_once('../components/modalExclusao.php');
 include_once('../components/modalPedido.php');
 
-
-if (!isset($_SESSION['loggIn'])) {
-  header("Location: ../index.php");
-}
 
 // listagem fora do modal:
   if(isset($_GET["busca__pedido"])){
