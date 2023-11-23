@@ -13,7 +13,6 @@ const produto = `<div class="produto_content d-flex flex-column produto-0">
 </div>
 </div>`;
 var respostaGetValor =[]
-var index = 1;
 
 async function getValor(modeloNome) {
   let require = await fetch('../appAdmin/functions/getValues/getValorModelo.php?value='+modeloNome);
@@ -147,3 +146,5 @@ $(".btn-cadastrar").on("click", () => {
 $(document).ready(function () {
   $('.preco').mask("#.##0,00", { reverse: true, placeholder: "R$ 00,00" });
 });
+
+attValor()

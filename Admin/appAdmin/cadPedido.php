@@ -3,11 +3,20 @@ session_start();
 include_once('../components/header.php');
 
 require '../../lib/conn.php';
+$errors = $_SESSION['errors'] ?? null;
+unset($_SESSION['errors']);
 
+$valores = $_SESSION["valores"][0] ?? null;
+$produtos = [["","",""]];
+if (isset($_SESSION['valores'][1])) {
+  $produtos = json_decode($_SESSION['valores'][1]);
+}
+unset($_SESSION['valores']);
 if (!isset($_SESSION['loggIn'])) {
   header("Location: ../index.php");
 }
-
+$estado = $valores['estado_pedido'] ?? 0;
+var_dump($valores);
 $sqlClientes = $conn->query("SELECT * FROM CLIENTE");
 $clientes = $sqlClientes->fetchAll(PDO::FETCH_OBJ);
 
@@ -29,12 +38,18 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
       <h3>Novo Pedido</h3>
       <div class="content_form-cliente d-flex flex-column">
         <p class="divisoria m-0">Cliente</p>
-        <input name="cliente" type="text" placeholder="Nome Completo" class="nome" id="nomeCli" autocomplete="off" onkeyup="filtroCli(this.value)">
+        <div class="input__field d-flex flex-column">
+          <input value="<?= ($valores) ? $valores['cliente'] : null ?>" name="cliente" type="text" placeholder="Nome Completo" class="nome" id="nomeCli" autocomplete="off" onkeyup="filtroCli(this.value)">
+          <span class='error'><?= (isset($errors['cliente'])) ? $errors["cliente"] : null ?></span>
+        </div>
         <div class="infomacao_cliente"></div>
         <div class="listagem_items" id="resultPesquisaCli"></div>
-      <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between">
           <label for="dataPag">Data de Pagamento</label>
-          <input name="data_ped" type="date" class="data" id="dataPag">
+          <div class="input__field d-flex flex-column">
+            <input value="<?= ($valores) ? $valores['data_ped'] : null ?>" name="data_ped" type="date" class="data" id="dataPag">
+            <span class='error'><?= (isset($errors['data'])) ? $errors["data"] : null ?></span>
+          </div>
         </div>
       </div>
 
@@ -57,16 +72,56 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
 
           <div class="produto_content d-flex flex-column produto-0">
             <div class="d-flex justify-content-between align-items-center">
-              <input name="modelo" id="modelo" class="modelos produto_select w-75" placeholder="Nome do Modelo" autocomplete="off" onkeyup="filtroModelo(this.value, 'produto-0')">
+              <div class="input__field d-flex flex-column">
+                <input value="<?=$produtos[0][0]?>" name="modelo" id="modelo" class="modelos produto_select w-75" placeholder="Nome do Modelo" autocomplete="off" onkeyup="filtroModelo(this.value, 'produto-0')">
+                <span class="error"><?= (isset($errors['modelo'][0])) ? $errors["modelo"][0] : null ?></span>
+              </div>
               <div class="listagem_items pesquisaModelo resultPesquisaModelo_produto-0"></div>
-              <input type="number" name="quantidade" id="numModel" class="quantidade produto_input" placeholder="000">
+              <div class="input__field d-flex flex-column">
+                <input value="<?=$produtos[0][2]?>" type="number" name="quantidade" id="numModel" class="quantidade produto_input" placeholder="000">
+                <span class="error"><?= (isset($errors['quantidade'][0])) ? $errors["quantidade"][0] : null ?></span>
+              </div>
             </div>
             <div class="d-flex justify-content-between align-items-center">
-            <input name="fragrancia" type="text" placeholder="Nome da Fragrância" class="fragrancias nome" id="nomeFrag" autocomplete="off" onkeyup="filtroFrag(this.value, 'produto-0')">
-            <div class="listagem_items pesquisaFrag resultPesquisaFrag_produto-0 "></div>
+              <div class="input__field d-flex flex-column">
+                <input value="<?=$produtos[0][1]?>" name="fragrancia" type="text" placeholder="Nome da Fragrância" class="fragrancias nome" id="nomeFrag" autocomplete="off" onkeyup="filtroFrag(this.value, 'produto-0')">
+                <span class="error"><?= (isset($errors['fragrancia'][0])) ? $errors["fragrancia"][0] : null ?></span>
+              </div>
+              <div class="listagem_items pesquisaFrag resultPesquisaFrag_produto-0 "></div>
               <!-- lixeira -->
             </div>
           </div>
+          <?php
+          foreach ($produtos as $key => $value) {
+            if ($key > 0) {
+          ?>
+              <div class="produto_content d-flex flex-column produto-<?= $key ?>">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="input__field d-flex flex-column">
+                    <input value="<?=$value[0]?>" name="modelo" id="modelo" class="modelos produto_select w-75" placeholder="Nome do Modelo" autocomplete="off" onkeyup="filtroModelo(this.value, 'produto-<?= $key ?>')">
+                    <span class="error"><?= (isset($errors['modelo'][$key])) ? $errors["modelo"][$key] : null ?></span>
+                  </div>
+                  <div class="listagem_items pesquisaModelo resultPesquisaModelo_produto-<?= $key ?>"></div>
+                  <div class="input__field d-flex flex-column">
+                    <input value="<?=$value[2]?>" type="number" name="quantidade" id="numModel" class="quantidade produto_input" placeholder="000">
+                    <span class="error"><?= (isset($errors['quantidade'][$key])) ? $errors["quantidade"][$key] : null ?></span>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="input__field d-flex flex-column">
+                    <input value="<?=$value[1]?>" name="fragrancia" type="text" placeholder="Nome da Fragrância" class="fragrancias nome" id="nomeFrag" autocomplete="off" onkeyup="filtroFrag(this.value, 'produto-<?= $key ?>')">
+                    <span class="error"><?= (isset($errors['fragrancia'][$key])) ? $errors["fragrancia"][$key] : null ?></span>
+                  </div>
+                  <a href="javascript:excluirProduto('produto-<?= $key ?>')" class="produto_lixeira">
+                    <img src="../assets/icons/trash-alt.svg" alt="lixeira">
+                  </a>
+                </div>
+              </div>
+          <?php
+            }
+          }
+          ?>
+
         </div>
 
         <div class="produto_title d-flex justify-content-between">
@@ -74,14 +129,20 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
           <span class="w-75">Frete</span>
         </div>
         <div class="d-flex justify-content-between">
-          <input name="valor" type="text" id="valor" disable class="preco produto_input">
-          <input name="frete" type="text" id="frete" class="preco produto_input">
-          <select name="estado_pedido" id="status" class="w-50">
+          <div class="input__field d-flex flex-column">
+            <input  disabled name="valor" type="text" id="valor" disable class="preco produto_input">
+            <span class='error'><?= (isset($errors['valor'])) ? $errors["valor"] : null ?></span>
+          </div>
+          <div class="input__field d-flex flex-column">
+            <input value="<?= ($valores) ? $valores['frete'] : null ?>" name="frete" type="text" id="frete" class="preco produto_input">
+            <span class='error'><?= (isset($errors['frete'])) ? $errors["frete"] : null ?></span>
+          </div>
+          <select value="" name="estado_pedido" id="status" class="w-50">
             <option value="" selected hidden>Status do Pedido</option>
-            <option value="1">Pagamento Aprovado</option>
-            <option value="2">Arte Finalizada</option>
-            <option value="3">Em Produção</option>
-            <option value="4">Enviado</option>
+            <option value="1"<?= ($estado==1) ? 'selected' : "" ?>>Pagamento Aprovado</option>
+            <option value="2"<?= ($estado==2) ? 'selected' : "" ?>>Arte Finalizada</option>
+            <option value="3"<?= ($estado==3) ? 'selected' : "" ?>>Em Produção</option>
+            <option value="4"<?= ($estado==4) ? 'selected' : "" ?>>Enviado</option>
           </select>
         </div>
         <div class="btn-cadastro d-flex justify-content-end p-0 w-100">
@@ -93,4 +154,9 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
   <script src="../assets/js/cadPedido.js"></script>
   <script src="../assets/js/filtroPedido.js"></script>
 </body>
+<script>
+  var index = 1
+  var index = <?=count($produtos)?>
+</script>
+
 </html>
