@@ -1,14 +1,9 @@
 <?php
-session_start();
 include_once('../components/header.php');
 include_once('../../lib/conn.php');
 include_once('../components/modalExclusao.php');
 include_once('../components/modalPedido.php');
 
-
-if (!isset($_SESSION['loggIn'])) {
-  header("Location: ../index.php");
-}
 
 // listagem fora do modal:
   if(isset($_GET["busca__pedido"])){
@@ -112,8 +107,8 @@ if (!isset($_SESSION['loggIn'])) {
             ?>
           <div class="cardInfo">
             <div class="cardInfoInner d-flex justify-content-between align-items-center">
-              <div class="imgModelo d-flex align-items-center">
-              <img class="produto_img" src="../../upload/<?=$produto->nomeArq_modelo?>" alt="">
+              <div class="imgModelo d-flex align-items-center justify-content-center">
+                <img class="produto_img" src="../../upload/<?=$produto->nomeArq_modelo?>" alt="">
               </div>
               <p class="card-text"><?=$produto->nome_modelo?></p>
             </div>
