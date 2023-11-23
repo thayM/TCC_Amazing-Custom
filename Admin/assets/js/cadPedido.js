@@ -1,17 +1,25 @@
 // CAD PEDIDO
 const divProdutos = document.querySelector(".container_produtos");
-const produto = `<div class="produto_content d-flex flex-column produto-0">
-<div class="d-flex justify-content-between align-items-center">
-  <input name="modelo" id="modelo" class="modelos produto_select w-75" placeholder="Nome do Modelo" autocomplete="off" onkeyup="filtroModelo(this.value, 'produto-0')">
-  <div class="listagem_items pesquisaModelo resultPesquisaModelo_produto-0"></div>
-  <input type="number" name="quantidade" id="numModel" class="quantidade produto_input" placeholder="000">
+const produto = `
+<div class="produto_content d-flex flex-column produto-0">
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="input__field d-flex flex-column w-75">
+      <input name="modelo" id="modelo" class="modelos produto_select " placeholder="Nome do Modelo" autocomplete="off" onkeyup="filtroModelo(this.value, 'produto-0')">
+    </div>
+    <div class="listagem_items pesquisaModelo resultPesquisaModelo_produto-0"></div>
+    <div class="input__field-produto d-flex flex-column">
+      <input type="number" name="quantidade" id="numModel" class="quantidade produto_input" placeholder="000">
+    </div>
+  </div>
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="input__field-frag d-flex flex-column">
+      <input name="fragrancia" type="text" placeholder="Nome da Fragrância" class="fragrancias nome" id="nomeFrag" autocomplete="off" onkeyup="filtroFrag(this.value, 'produto-0')">
+    </div>
+    <div class="listagem_items pesquisaFrag resultPesquisaFrag_produto-0 "></div>
+    <!-- lixeira -->
+  </div>
 </div>
-<div class="d-flex justify-content-between align-items-center">
-<input name="fragrancia" type="text" placeholder="Nome da Fragrância" class="fragrancias nome" id="nomeFrag" autocomplete="off" onkeyup="filtroFrag(this.value, 'produto-0')">
-<div class="listagem_items pesquisaFrag resultPesquisaFrag_produto-0 "></div>
-  <!-- lixeira -->
-</div>
-</div>`;
+`;
 var respostaGetValor =[]
 
 async function getValor(modeloNome) {

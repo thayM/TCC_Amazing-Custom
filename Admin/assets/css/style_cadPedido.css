@@ -39,7 +39,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
 }
 
-.content_form-cliente .data{
+.data__container .input__field{
   width: 45%;
 }
 
@@ -107,14 +107,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin-bottom: 15px;
   padding: 10px;
   width: 750px;
-  height: 115px;
+  min-height: 115px;
   border-radius: 10px;
   gap: 15px;
   background: rgba(27, 27, 27, 0.46);
   position: relative;
 }
 
-.produto_input{
+.input__field-produto{
   width: 20%;
 }
 
@@ -125,7 +125,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   filter: brightness(70%);
 }
 
-#nomeFrag{
+.input__field-frag{
   width: 75%;
 }
 
