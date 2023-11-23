@@ -6,20 +6,12 @@ body{
 .container{
     width: 100%;
     height: 100vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
 }
 
 .imgLeao{
     width: 510px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    position: relative;
     cursor: none;
-
+    position: relative;
 }
 
 .imgLeao span{
@@ -50,14 +42,16 @@ body{
 }
 
 .logo{
-    position: relative;
-    top: 60px;
-    left: 22%;
-    height: 73px;
+    height: 75px;
+}
+
+.content__form{
+    height: 300px;
 }
 
 .campos{
     margin: 15px;
+    padding: 50px;
     border-radius: 10px;
     background-color: var(--background-color);
     width: 470px;
@@ -65,29 +59,15 @@ body{
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
 }
 
-#nome{
+#nome, #senha{
     width: 345px;
     font-size: 20px;
-    position: relative;
-    top: 6em;
-    left: 10%;
-}
-
-#senha{
-    width: 345px;
-    font-size: 20px;
-    position: relative;
-    top: 10em;
-    left: 10%;
 }
 
 .btn-cadastrar{
     margin: 0;
     width: 180px;
     height: 50px;
-    position: relative;
-    top: 11em;
-    left: 30%;
     transition: .5s;
 }
 
