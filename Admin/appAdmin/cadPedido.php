@@ -132,7 +132,7 @@ $fragrancias = $sqlFragrancias->fetchAll(PDO::FETCH_OBJ);
         </div>
         <div class="d-flex justify-content-between">
           <div class="input__field-produto d-flex flex-column">
-            <input disabled name="valor" type="text" id="valor" disable class="preco produto_input">
+            <input name="valor" type="text" id="valor" disable class="preco produto_input">
             <span class='error'><?= (isset($errors['valor'])) ? $errors["valor"] : null ?></span>
           </div>
           <div class="input__field-produto d-flex flex-column">

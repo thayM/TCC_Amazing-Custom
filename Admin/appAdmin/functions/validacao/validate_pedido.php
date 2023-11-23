@@ -25,9 +25,9 @@ foreach ($produtos as $key => $value) {
     $fragrancia->execute();
     if($fragrancia->rowCount()!=1) $errors["fragrancia"][$key] = "Esta fragrancia é invalida*";
 
-    if(is_numeric($value[2])==1 || empty($value[2])) $errors["quantidade"][$key] = "Quantidade inválida*";
+    if(is_numeric($value[2])==0 || empty($value[2])) $errors["quantidade"][$key] = "Quantidade inválida*";
 }
 
-if(is_numeric($valor)==1 || empty($valor)) $errors["valor"] = "Este valor é invalido*";
-if(is_numeric($frete)==1 || empty($frete)) $errors["frete"] = "Este frete é invalido*";
+if(is_numeric($valor)==0 || empty($valor)) $errors["valor"] = "Este valor é invalido*";
+if(is_numeric($frete)==0 || empty($frete)) $errors["frete"] = "Este frete é invalido*";
 ?>

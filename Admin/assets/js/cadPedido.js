@@ -136,17 +136,17 @@ $(".btn-cadastrar").on("click", () => {
   console.log(GET_produtos)
   document.querySelector(".form_pedido").action = `./functions/func_cadPed.php?produtos=${JSON.stringify(GET_produtos)}`;
 
-  let valor = document.getElementById('valor').value;
-  valor = valor.replace('.', '');
-  valor = valor.replace(',', '.');
-  document.getElementById('valor').value = valor
+  attValor();
+  // let valor = document.getElementById('valor').value;
+  // valor = valor.replace('.', '');
+  // valor = valor.replace(',', '.');
+  // document.getElementById('valor').value = valor
 
   let frete = document.getElementById('frete').value;
   frete = frete.replace('.', '');
   frete = frete.replace(',', '.');
   document.getElementById('frete').value = frete
 
-  attValor();
   $(".form_pedido").trigger("submit")
 });
 
